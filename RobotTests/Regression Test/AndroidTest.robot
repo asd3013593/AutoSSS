@@ -198,10 +198,11 @@ Send Gift By Select User With ID
     ${searchClientNumber} =    Get Matching Xpath Count    //*[@resource-id='jp.naver.line.android:id/row_user_bg']
     Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']    timeout=${slowNetPeriod}    error=Client's checkbox should be visible.
     Run Keyword If    ${searchClientNumber} == 1    Click Element    //*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']
-    ...       ELSE    Click Element    //*[@class='android.widget.LinearLayout' and @clickable='true' and .//*[@class='android.widget.TextView' and @text='${searchName}']]//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']
+    ...       ELSE    Run Keywords    Hide Keyboard
+    ...                        AND    Click Element    //*[@class='android.widget.LinearLayout' and @clickable='true' and .//*[@class='android.widget.TextView' and @text='${searchName}']]//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']
     Click Element    //*[@resource-id='jp.naver.line.android:id/header_button_text']
     #could be error
-    ${sendSuccess}    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']
+    ${sendSuccess}    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=10s
     Run Keyword If    ${sendSuccess}    Click OK Button To Send Gift To User
     ...       ELSE    Occur Error When Send Gift To User
 
