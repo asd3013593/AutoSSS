@@ -218,6 +218,7 @@ Click OK Button To Send Gift To User
 Press Keycode To Go Back
     Press Keycode    ${backKey}
 
+ID Can Be Searched Then Continue To Work
     If Name Is Not Equal To ID Change Name To ID
     Switch VPN If Is Sending Foreign Sticker
     Open Sticker Link
