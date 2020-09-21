@@ -9,8 +9,6 @@ Suite Teardown    Close All Application And Back To Home
 ${redmiDeviceName} =    8531905e7d25
 ${samsungDeviceName} =    435145414e553398    #version:9
 ${hauweiDeviceName} =    2DR4C19227004310    #version:9
-${application1} =    0
-${application2} =    0
 ${account} =    20140002
 ${password} =    20140002
 ${taiwanNum} =    0
@@ -29,8 +27,6 @@ ${homeKey} =    3
 ${taiwanSticker} =    0
 ${foreignSticker} =    0
 ${foreignTopic} =    0
-${apkActivity} =    com.fvcorp.android.fvclient.activity.MainActivity
-${apkPackage} =    com.fvcorp.flyclient
 &{countryToVPN} =    日本=東京 #32    印尼=雅加達 #8    韓國=首爾 #25    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
 ${slowNetPeriod} =    30s
 *** Test Cases ***
@@ -142,8 +138,8 @@ Open LINE Add Friend Page
     Log To Console    ${id}
     Set Global Variable    ${purchaseID}    ${id}
     Click Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView
-    ${errorID}    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/addfriend_name']    timeout=${slowNetPeriod}    error=UserName should be visible.
-    Run Keyword If    ${errorID}    Run Keywords    Hide Keyboard
+    ${correctID}    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/addfriend_name']    timeout=10s    error=UserName should be visible.
+    Run Keyword If    ${correctID}    Run Keywords    Hide Keyboard
     ...                                      AND    Get User Information
     ...                                      AND    Verify User Should Be A Friend
     ...       ELSE    Set Global Variable   ${errorType}    4
@@ -188,7 +184,10 @@ Open Sticker Link
     AppiumLibrary.Click Element    xpath=//*[@text= '開啟連結' and @index='0']
 
 Send Gift By Select User With ID
-    Wait Until Element Is Visible   xpath=//*[contains(@text, '贈送禮物') ]     timeout=${slowNetPeriod}    error=Send gift button should be visible.
+    ${enable} =    Run Keyword And Return Status    Wait Until Element Is Visible   xpath=//*[contains(@text, '贈送禮物') and @enabled='true']     timeout=${slowNetPeriod}    error=Send gift button should be visible.
+    Run Keyword Unless    ${enable}    Run Keywords    Set Global Variable    ${errorType}    3
+    ...                                         AND    Close LINE To Go Back After Change The Name
+    ...                                         AND    Return From Keyword
     AppiumLibrary.Click Element    xpath=//*[contains(@text, '贈送禮物')]
     Run Keyword If    ${search} and not ${alreadyFriend}   Set Global Variable    ${searchName}    ${userId}
     ...       ELSE    Set Global Variable    ${searchName}    ${userName}
@@ -232,7 +231,6 @@ Occur Error When Send Gift To User
     Run Keyword If     ${sendError}    Set Global Variable    ${errorType}    1
     ...       ELSE    Set Global Variable    ${errorType}    5
     Click Element    xpath=//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
-    # Go Back To Management Page From Gift Page
     Wait Until Element Is Visible     //*[@resource-id='jp.naver.line.android:id/header_button_text']
     [Teardown]    Close LINE To Go Back After Change The Name
 
@@ -248,13 +246,6 @@ Go Back To Management Page From Gift Page
          ${result} =    Run Keyword And Return Status    Verify If Back To Sending Page    //*[@text='訂單']/following-sibling::*
          Exit For Loop If    ${result}
     END
-    # Wait Until Element Is Visible On Page    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView    timeout=${slowNetPeriod}    error=Back button should be visible.
-    # Press Keycode To Go Back
-    # Wait Until Element Is Visible On Page    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView    timeout=${slowNetPeriod}    error=Back1 button should be visible.
-    # Press Keycode To Go Back
-    # # Wait Until Element Is Visible On Page    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView    timeout=${slowNetPeriod}    error=Back2 button should be visible.
-    # Wait Until Element Is Visible On Page    //*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']    timeout=${slowNetPeriod}    error=1
-    # Press Keycode To Go Back
 
 Go Back To Management Page From Chat Page
     FOR     ${i}    IN RANGE    5
@@ -340,13 +331,11 @@ Open Chrome
     ...    deviceName=${redmiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
     # ${app2} =    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=8.1.0    alias=MyChrome2
     # ...    deviceName=${redmiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
-    # Set Global Variable    ${application1}    ${app1}
-    # Set Global Variable    ${application2}    ${app2}
     # appPackage=com.android.chrome     appActivity=com.google.android.apps.chrome.Main
 
 Get Processing Sticker
     ${X} =    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']
-    Wait Until Page Contains Element    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']    timeout=${slowNetPeriod}    error=Taiwanese sticker should be visible.
+    Wait Until Element Is Visible On Page    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']    timeout=${slowNetPeriod}    error=Taiwanese sticker should be visible.
     ${processing} =    Get Text    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']
     Run keyword if    ${processing}!=0    Refresh Management Page After Unlock Permission
     # Wait Until Element Is Visible On Page    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']    timeout=${slowNetPeriod}    error=Taiwanese sticker should be visible.
@@ -372,7 +361,7 @@ Click Add Friend Button
 Close All Application And Back To Home
     Press Keycode    ${appSwitchKey}
     FOR    ${num}    IN RANGE    9999
-        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.android.systemui:id/title']    timeout=${slowNetPeriod}    error=
+        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.android.systemui:id/title']    timeout=5s    error=
         Exit For Loop if    not ${applicationExist}
         &{location} =    Get Location    //*[@resource-id='com.android.systemui:id/title']
         Swipe    ${location.x}    ${location.y}    719    ${location.y}    200
