@@ -33,7 +33,6 @@ ${apkActivity} =    com.fvcorp.android.fvclient.activity.MainActivity
 ${apkPackage} =    com.fvcorp.flyclient
 &{countryToVPN} =    日本=東京 #32    印尼=雅加達 #8    韓國=首爾 #25    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
 ${slowNetPeriod} =    30s
-
 *** Test Cases ***
 Automatically send taiwan sticker
     [Setup]    Run Keywords    Get Processing Sticker
@@ -199,7 +198,7 @@ Send Gift By Select User With ID
     Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']    timeout=${slowNetPeriod}    error=Client's checkbox should be visible.
     Run Keyword If    ${searchClientNumber} == 1    Click Element    //*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']
     ...       ELSE    Run Keywords    Hide Keyboard
-    ...                        AND    Click Element    //*[@class='android.widget.LinearLayout' and @clickable='true' and .//*[@class='android.widget.TextView' and @text='${searchName}']]//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']
+    Run Keyword If    not (${searchClientNumber} == 1)    Swipe To Client
     Click Element    //*[@resource-id='jp.naver.line.android:id/header_button_text']
     #could be error
     ${sendSuccess}    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=10s
@@ -372,10 +371,12 @@ Click Add Friend Button
 
 Close All Application And Back To Home
     Press Keycode    ${appSwitchKey}
-    sleep    1s    #fix me
-    # Click Element After It Is Visible    //*[@resource-id='com.android.systemui:id/clearAnimView']    error=Clear application button should be visible.
-    Swipe    500    800    50    800    500
-    sleep    1s
+    FOR    ${num}    IN RANGE    9999
+        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.android.systemui:id/title']    timeout=${slowNetPeriod}    error=
+        Exit For Loop if    not ${applicationExist}
+        &{location} =    Get Location    //*[@resource-id='com.android.systemui:id/title']
+        Swipe    ${location.x}    ${location.y}    719    ${location.y}    200
+    END
     Press Keycode    ${homeKey}
     Press Keycode    26
     Close All Applications
@@ -419,3 +420,11 @@ Log Sending Status To Console
     ...    ELSE IF    ${type}==1    Log To Console    Purchase Repeatedly
     ...    ELSE IF    ${type}==4    Log To Console    Error & Unpublic ID
     ...    ELSE IF    ${type}==5    Log To Console    Old Version
+
+Swipe To Client
+    FOR    ${index}    IN RANGE    9999
+        ${findClient} =    Run Keyword And Return Status    Click Element    //*[@class='android.widget.LinearLayout' and @clickable='true' and .//*[@class='android.widget.TextView' and @text='${searchName}']]//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']
+        ${isNotBottom} =    Run Keyword If    not ${findClient}   Swipe To Bottom    300    500    300    700    300
+        Run Keyword If    ${findClient}    Return From Keyword    True
+    ...        ELSE IF    not ${isNotBottom}    Fail    message=Client should be found
+    END
