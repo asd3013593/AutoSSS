@@ -27,8 +27,10 @@ ${homeKey} =    3
 ${taiwanSticker} =    0
 ${foreignSticker} =    0
 ${foreignTopic} =    0
+${nextClientError} =    10
 &{countryToVPN} =    日本=東京 #32    印尼=雅加達 #8    韓國=首爾 #25    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
 ${slowNetPeriod} =    30s
+
 *** Test Cases ***
 Automatically send taiwan sticker
     [Setup]    Run Keywords    Get Processing Sticker
@@ -118,10 +120,10 @@ FlyVPN Should Exist
 
 Run Sending Template By For Circle
     Open LINE Add Friend Page
-    Run Keyword If
-    ...    ${errorType}==4    ID Is Not Public Or Not Correct Then Turn Back
-    ...               ELSE    ID Can Be Searched Then Continue To Work
-    Finish Order After Choose Sending Status
+    Run Keyword If    ${errorType}==4    ID Is Not Public Or Not Correct Then Turn Back
+    ...    ELSE IF    ${errorType}==0    ID Can Be Searched Then Continue To Work
+    Run Keyword If    ${errorType}==${nextClientError}    Swith To Next Client By Refresh Browser
+    ...       ELSE    Finish Order After Choose Sending Status
 
 Login Mycat Magnage Interface
     Open Chrome
@@ -143,6 +145,11 @@ Open LINE Add Friend Page
     ...                                      AND    Get User Information
     ...                                      AND    Verify User Should Be A Friend
     ...       ELSE    Set Global Variable   ${errorType}    4
+
+Verify User Should Not Be Found
+    ${notFoundlabel} =     Run Keyword And Return Status   Wait Until Element Is Visible    //*[@class='android.widget.TextView' and contains(@text,'無法找到該用戶')]    timeout=5s    error=Not found label should be visible.
+    Run Keyword If    ${notFoundlabel}    Set Global Variable   ${errorType}    4
+    ...       ELSE    Set Global Variable    ${errorType}    ${nextClientError}
 
 Verify User Should Be A Friend
     ${buttonJoinOrNot} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='加入']    timeout=3s
@@ -235,7 +242,7 @@ Occur Error When Send Gift To User
     [Teardown]    Close LINE To Go Back After Change The Name
 
 Verify User Already Have Sticker
-    Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/common_dialog_content_text' and contains(@text,'已擁有這組貼圖。')]    timeout=${slowNetPeriod}    error=User should not have the sticker.
+    Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/common_dialog_content_text' and contains(@text,'已擁有')]    timeout=${slowNetPeriod}    error=User should not have the sticker.
 
 Verify Is There Still Client Exist
      Wait Until Element Is Visible On Page   //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView     timeout=30s    error=LINE open button should be visible.
@@ -280,6 +287,10 @@ Finish Order After Choose Sending Status
     Wait Until Element Is Visible    //*[not(@text='${purchaseID}')]    timeout=${slowNetPeriod}    error='${purchaseID}' should not be visible.
     Log Sending Status To Console    ${errorType}
     Set Global Variable    ${errorType}    0
+
+Swith To Next Client By Refresh Browser
+    Press Back Key Until Back To Sending Page
+    Swipe    300    300    300    900    500
 
 Select Error Message
     Wait Until Element Is Visible    //*[@resource-id='SendStatus']
