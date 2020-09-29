@@ -9,8 +9,18 @@ Suite Teardown    Close All Application And Back To Home
 ${redmiDeviceName} =    8531905e7d25
 ${samsungDeviceName} =    435145414e553398    #version:9
 ${hauweiDeviceName} =    2DR4C19227004310    #version:9
-${account} =    20140002
-${password} =    20140002
+${cataccount} =    20140002
+${catpassword} =    20140002
+${oldaccount} =    20160000
+${oldpassword} =    20160000
+${catUrl} =    https://mycat.tw/goadmin.php
+${oldUrl} =    https://oldman.tw/goadmin.php
+${logincatUrl} =    https://mycat.tw/goadmin.php
+${loginoldUrl} =    https://oldman.tw/goadmin.php
+${account} =    ${cataccount}
+${password} =    ${catpassword}
+${Url} =    ${catUrl}
+${loginUrl} =    ${logincatUrl}
 ${taiwanNum} =    0
 ${userName} =    empty
 ${userID} =    empty
@@ -45,10 +55,11 @@ Automatically send taiwan sticker
 
 Automatically send foreign sticker
     [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
-    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://mycat.tw/goadmin.php
+    ...                 AND    Input Text   //*[@class='android.widget.EditText']    ${Url}
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Sticker Number
+    # ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://mycat.tw/goadmin.php
     FOR    ${num}    IN RANGE    ${foreignSticker}
         Run Keyword If    ${num}==0    Open Foreign Stciker Sending Page
         ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
@@ -59,10 +70,11 @@ Automatically send foreign sticker
 
 Automatically send foreign topic
     [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
-    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://mycat.tw/goadmin.php
+    ...                 AND    Input Text   //*[@class='android.widget.EditText']    ${Url}
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Topic Number
+    # ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://mycat.tw/goadmin.php
     FOR    ${num}    IN RANGE    ${foreignTopic}
         Run Keyword If    ${num}==0    Open Foreign Topic Sending Page
         ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
@@ -127,7 +139,7 @@ Run Sending Template By For Circle
 
 Login Mycat Magnage Interface
     Open Chrome
-    Go To Url    https://mycat.tw/goadmin.php?c=Login
+    Go To Url    ${loginUrl}
     Switch To Context    NATIVE_APP
     Wait Until Element Is Visible    xpath=//*[contains(@class, 'android.widget.EditText') and @password ='false']    timeout=30s    error=Password input should be visible.
     Input Text    xpath=//*[contains(@class, 'android.widget.EditText') and @password ='false']    ${account}
@@ -174,8 +186,10 @@ Change User Name To ID
     ${getUserName} =    Set Variable    xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.widget.ListView/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View
     Wait Until Element Is Visible    ${getUserName}
     ${name} =    Get Text    ${getUserName}
-    # Wait Until Element Is Visible    //*[@class='android.view.View' and contains(@text,'${userName}') and @index='0']    timeout=${slowNetPeriod}    error=Friend should be visible.    #fix me
-    Click Element    //*[@class='android.view.View' and contains(@text,'${name}') and @index='0']
+    # Wait Until Element Is Visible    //*[@class='android.view.View' and contains(@text,'${userName}') and @index='0']    timeout=${slowNetPeriod}    error=Friend should be visible.    #FIXME
+    ${count} =    Get Matching Xpath Count    //*[@class='android.view.View' and contains(@text,'${name}') and @index='0']
+    Log To Console    ${count}
+    Click Element    xpath=(//*[@class='android.view.View' and contains(@text,'${name}') and @index='0'])[2]
     Wait Until Element Is Visible     //*[@resource-id='jp.naver.line.android:id/user_profile_edit_name']    timeout=${slowNetPeriod}    error=Edit name button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/user_profile_edit_name']
     Wait Until Element Is Visible     //*[@resource-id='android:id/edit']    timeout=${slowNetPeriod}    error=User name bar button should be visible.
