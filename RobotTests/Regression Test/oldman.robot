@@ -235,7 +235,7 @@ Change User Name To ID
     # ${count} =    Get Matching Xpath Count    //*[@class='android.view.View' and @text='${username}' and @index='0']
     ${count} =    Count User Number And Return Type
     # ${error}    Should Be Equal    ${name}    error
-    Run Keyword If    ${count}>1    Click Element After It Is Visible    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
+    Run Keyword If    ${count}>1    Select User By Name When Users
     ...       ELSE    Click Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View
     # ${getUserName} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
     # ${count} =    Get Matching Xpath Count    ${getUserName}
@@ -252,6 +252,12 @@ Change User Name To ID
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/user_profile_name']    timeout=${slowNetPeriod}    error=User name should be edited.
     Write    ${userID}
     [Teardown]    Close LINE To Go Back After Change The Name
+
+Select User By Name When Users
+    Wait Until Element Is Visible        //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]    timeout=10s    error=Friends list should be visible.
+    ${reNameUsers} =    Get Matching Xpath Count    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
+    Run Keyword If    ${reNameUsers}>1    Fail    Users are repeated, please handle it.
+    ...       ELSE    Click Element    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
 
 Count User Number And Return Type
     Wait Until Page Contains Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View   timeout=10s    error=Friend List View Should Be Visible. 
