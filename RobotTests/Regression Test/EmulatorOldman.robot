@@ -9,7 +9,7 @@ Suite Teardown    Close All Application And Back To Home
 ${redmiDeviceName} =    8531905e7d25
 ${samsungDeviceName} =    435145414e553398    #version:9
 ${hauweiDeviceName} =    2DR4C19227004310    #version:9
-${emulator} =    127.0.0.1:52001
+${emulator} =    127.0.0.1:52025
 ${cataccount} =    20140002
 ${catpassword} =    20140002
 ${oldaccount} =    20160000
@@ -102,7 +102,8 @@ Automatically send foreign topic mycat
         Run Sending Template By For Circle
     END
     Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
-
+log 
+    log    1
 *** Keywords ***
 Login Mycat
     Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
@@ -111,18 +112,18 @@ Login Mycat
     AppiumLibrary.Click Element    //*[@resource-id='submit']
     Wait Until Element Is Visible    xpath=//*[contains(@text, '解除鎖定')]    timeout=${slowNetPeriod}    error=Web should be login.
 
-Get Name If Change Computer
-    Press Keycode    ${appSwitchKey}
-    Switch To Context    NATIVE_APP
-    Wait Until Element Is Visible    //*[@class='android.widget.FrameLayout' and @content-desc='LINE']    timeout=${slowNetPeriod}    error=LINE application.
-    Click Element    //*[@class='android.widget.FrameLayout' and @content-desc='LINE']
-    FOR    ${num}    IN RANGE    99999
-        ${getname}    Get Text    //*[@class='android.widget.FrameLayout'and @index='2']//*[@class='android.widget.LinearLayout' and @index='0']//*[@class='android.widget.TextView']
-        Log To Console    ${getname}
-        Swipe    540    1900    540    1800    500
-        ${repeat} =    Search    ${getname}
-        Run Keyword Unless    ${repeat}    Write    ${getname}
-    END
+# Get Name If Change Computer
+    # Press Keycode    ${appSwitchKey}
+    # Switch To Context    NATIVE_APP
+    # Wait Until Element Is Visible    //*[@class='android.widget.FrameLayout' and @content-desc='LINE']    timeout=${slowNetPeriod}    error=LINE application.
+    # Click Element    //*[@class='android.widget.FrameLayout' and @content-desc='LINE']
+    # FOR    ${num}    IN RANGE    99999
+        # ${getname}    Get Text    //*[@class='android.widget.FrameLayout'and @index='2']//*[@class='android.widget.LinearLayout' and @index='0']//*[@class='android.widget.TextView']
+        # Log To Console    ${getname}
+        # Swipe    540    1900    540    1800    500
+        # ${repeat} =    Search    ${getname}
+        # Run Keyword Unless    ${repeat}    Write    ${getname}
+    # END
 
 Get Taiwan Sticker Number
     ${X} =    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']
@@ -144,9 +145,11 @@ Get Foreing Topic Number
     Set Global Variable    ${foreignTopic}    ${topic}
 
 Switch VPN If Is Sending Foreign Sticker
+    Wait Until Element Is Visible    //*[@class='android.view.View' and @index='5']//*[@class='android.view.View' and @index ='1']    timeout=10s    error=Country should be visible.
     ${country} =     Run Keyword If    ${foreign}    Get Text    //*[@class='android.view.View' and @index='5']//*[@class='android.view.View' and @index ='1']
     Run Keyword If    ${foreign}    Run keywords    Switch Network With VPN    ${country}
-    ...                                      AND    Switch App To Chrome
+    ...                                      AND    Close LINE To Go Back After Change The Name
+    # ...                                      AND    Switch App To Chrome
 
 Switch Network With VPN
     [Arguments]    ${country}
@@ -181,11 +184,11 @@ Run Sending Template By For Circle
 
 Login Mycat Magnage Interface
     Open Chrome
-    Go To Url    https://mycat.tw/goadmin.php
+    Go To Url    https://oldman.tw/goadmin.php
     Switch To Context    NATIVE_APP
     Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
-    Input Text   //*[@class='android.widget.EditText' and @password ='false']    20140002
-    Input Text    //*[@text='登入密碼']    20140002
+    Input Text   //*[@class='android.widget.EditText' and @password ='false']    20160000
+    Input Text    //*[@class='android.view.View' and @index='1']//*[@class='android.widget.EditText']    20160000
     AppiumLibrary.Click Element    //*[@resource-id='submit']
     Wait Until Element Is Visible    xpath=//*[contains(@text, '解除鎖定')]    timeout=${slowNetPeriod}    error=Web should be login.
 
@@ -199,7 +202,7 @@ Open LINE Add Friend Page
     Log To Console    ${id}
     Set Global Variable    ${purchaseID}    ${id}
     Click Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView
-    Choose Line Application
+    # Choose Line Application
     ${correctID}    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/addfriend_name']    timeout=10s    error=UserName should be visible.
     Run Keyword If    ${correctID}    Run Keywords    Hide Keyboard
     ...                                      AND    Get User Information
@@ -274,7 +277,7 @@ Count User Number And Return Type
 Open Sticker Link
     Wait Until Element Is Visible   xpath=//*[@text= '開啟連結' and @index='0']     timeout=${slowNetPeriod}    error=Url open button should be visible.
     AppiumLibrary.Click Element    xpath=//*[@text= '開啟連結' and @index='0']
-    Choose Line Application
+    # Choose Line Application
 
 Send Gift By Select User With ID
     ${enable} =    Run Keyword And Return Status    Wait Until Element Is Visible   xpath=//*[contains(@text, '贈送禮物') and @enabled='true']     timeout=${slowNetPeriod}    error=Send gift button should be visible.
@@ -289,7 +292,8 @@ Send Gift By Select User With ID
     Run Keyword If    ${searchClientNumber} == 1    Click Element    //*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']
     ...       ELSE    Run Keywords    Hide Keyboard
     Run Keyword If    not (${searchClientNumber} == 1)    Swipe To Client
-    Click Element    //*[@resource-id='jp.naver.line.android:id/header_button_text']
+    Wait Until Element Is Visible    //*[@text='下一步']
+    Click Element    //*[@text='下一步']
     #could be error
     ${sendSuccess}    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=10s
     Run Keyword If    ${sendSuccess}    Click OK Button To Send Gift To User
@@ -398,9 +402,10 @@ If Name Is Not Equal To ID Change Name To ID
 Close LINE To Go Back After Change The Name
     Press Keycode    ${appSwitchKey}
     sleep    1s    #fix me
-    Swipe    900    1500    900    468    500
-    sleep    1s
-    Click Element    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']
+    Wait Until Element Is Visible    //*[@class='android.widget.ImageView' and contains(@content-desc,'關閉「LINE」')]
+    Click Element    //*[@class='android.widget.ImageView' and contains(@content-desc,'關閉「LINE」')]
+    Wait Until Element Is Visible    //*[@class='android.widget.TextView' and @text='Chrome']    timeout=5s    error=Chrome application should be visible.
+    Click Element    //*[@class='android.widget.TextView' and @text='Chrome']    #FIXME
 
     # Press Keycode    ${appSwitchKey}
     # sleep    1s    #fix me
@@ -413,8 +418,8 @@ Switch App To Chrome
     Switch To Context    NATIVE_APP
     # Wait Until Page Contains Element    //*[@resource-id='com.sec.android.app.launcher:id/icon']/preceding-sibling::*    timeout=${slowNetPeriod}    error=
     # Click Element    //*[@resource-id='com.sec.android.app.launcher:id/icon']/preceding-sibling::*
-    Wait Until Element Is Visible    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']    timeout=${slowNetPeriod}    error=
-    Click Element    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']
+    Wait Until Element Is Visible    //*[@class='android.widget.TextView' and @text='Chrome']    timeout=${slowNetPeriod}    error=
+    Click Element    //*[@class='android.widget.TextView' and @text='Chrome']
 
     # Press Keycode    ${appSwitchKey}
     # Switch To Context    NATIVE_APP
@@ -437,8 +442,8 @@ Unlock Permission
 
 Open Chrome
     [Documentation]    Opens the calculator app with a new appium session.
-    Open Application    http://localhost:4723/wd/hub    platformName=Android    platformVersion=9    alias=MyChrome1
-    ...    deviceName=${hauweiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
+    Open Application    http://localhost:4723/wd/hub    platformName=Android    platformVersion=5.1.1    alias=MyChrome1
+    ...    deviceName=${emulator}    noReset=true    browserName=Chrome    automationName=uiautomator2
     # ${app2} =    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=8.1.0    alias=MyChrome2
     # ...    deviceName=${redmiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
     # appPackage=com.android.chrome     appActivity=com.google.android.apps.chrome.Main
@@ -507,9 +512,10 @@ Close All Application And Back To Home
     Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
     Press Keycode    ${appSwitchKey}
     FOR    ${num}    IN RANGE    9999
-        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.huawei.android.launcher:id/snapshot']    timeout=3s    error=
+        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@class='com.android.systemui:id/task_view_content']    timeout=3s    error=
         Exit For Loop if    not ${applicationExist}
-        Swipe    324    1500    324    468    500
+        Wait Until Element Is Visible    //*[contains(@content-desc,'關閉')]
+        Click Element    //*[contains(@content-desc,'關閉')]
     END
     # Delete All User By Open LINE
     Press Keycode    ${homeKey}
@@ -541,8 +547,8 @@ Open Taiwan Stciker Sending Page
 
 Open Foreign Stciker Sending Page
     Click Element    xpath=//*[contains(@text, '鎖定發圖資料')]
-    Wait Until Element Is Visible    xpath=//*[contains(@text, '跨區貼圖')]    timeout=${slowNetPeriod}    error=Foreign Sticker button should be visible.
-    Click Element    xpath=//*[contains(@text, '跨區貼圖')] 
+    Wait Until Element Is Visible    //android.view.View[@content-desc="跨區貼圖"]/android.widget.TextView    timeout=${slowNetPeriod}    error=Foreign Sticker button should be visible.
+    Click Element    //android.view.View[@content-desc="跨區貼圖"]/android.widget.TextView 
     Set Global Variable    ${foreign}    True
 
 Open Foreign Topic Sending Page
