@@ -76,6 +76,7 @@ Automatically send foreign sticker mycat
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Sticker Number
+    Set Global Variable    ${LineApplication}    1    #FIXME
     FOR    ${num}    IN RANGE    ${foreignSticker}
         Run Keyword If    ${num}==0    Open Foreign Stciker Sending Page
         ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
@@ -91,6 +92,7 @@ Automatically send foreign topic mycat
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Topic Number
+    Set Global Variable    ${LineApplication}    1    #FIXME
     FOR    ${num}    IN RANGE    ${foreignTopic}
         Run Keyword If    ${num}==0    Open Foreign Topic Sending Page
         ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
