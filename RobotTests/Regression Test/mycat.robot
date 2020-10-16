@@ -298,11 +298,12 @@ Send Gift By Select User With ID
 Click OK Button To Send Gift To User
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=${slowNetPeriod}    error=Purchase button should be visible.
     ${price} =    Get Text    //*[@resource-id='jp.naver.line.android:id/line_coin_price_text_view' and @index='1']
+    ${stickerName} =    Get Text    //[@resource-id='jp.naver.line.android:id/sticker_package_name_text_view']
     Click Element    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
     Log To Console    price=${price}
-    priceRecord    mycatPrice    ${userId}    ${price}
+    priceRecord    mycatPrice    ${userId}    ${price}    ${stickerName}
     #Go Back To Management Page From Chat Page
     Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=${slowNetPeriod}
     [Teardown]    Close LINE To Go Back After Change The Name
