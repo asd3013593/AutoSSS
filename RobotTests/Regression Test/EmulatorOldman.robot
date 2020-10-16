@@ -2,14 +2,14 @@
 Library    XML
 Library    AppiumLibrary
 Library    OperatingSystem    
-Suite Setup    Run Keyword   Login Mycat Magnage Interface
+Suite Setup    Run Keyword   Login Oldman Magnage Interface
 Suite Teardown    Close All Application And Back To Home
 
 *** Variables ***
 ${redmiDeviceName} =    8531905e7d25
 ${samsungDeviceName} =    435145414e553398    #version:9
 ${hauweiDeviceName} =    2DR4C19227004310    #version:9
-${emulator} =    127.0.0.1:52025
+${emulator} =    127.0.0.1:52027
 ${cataccount} =    20140002
 ${catpassword} =    20140002
 ${oldaccount} =    20160000
@@ -73,11 +73,10 @@ Automatically send taiwan sticker mycat
 
 Automatically send foreign sticker mycat
     [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
-    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://mycat.tw/goadmin.php
+    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://oldman.tw/goadmin.php
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Sticker Number
-    Set Global Variable    ${LineApplication}    1    #FIXME
     FOR    ${num}    IN RANGE    ${foreignSticker}
         Run Keyword If    ${num}==0    Open Foreign Stciker Sending Page
         ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
@@ -89,11 +88,10 @@ Automatically send foreign sticker mycat
 
 Automatically send foreign topic mycat
     [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
-    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://mycat.tw/goadmin.php
+    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://oldman.tw/goadmin.php
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Topic Number
-    Set Global Variable    ${LineApplication}    1    #FIXME
     FOR    ${num}    IN RANGE    ${foreignTopic}
         Run Keyword If    ${num}==0    Open Foreign Topic Sending Page
         ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
@@ -102,8 +100,7 @@ Automatically send foreign topic mycat
         Run Sending Template By For Circle
     END
     Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
-log 
-    log    1
+
 *** Keywords ***
 Login Mycat
     Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
@@ -182,7 +179,7 @@ Run Sending Template By For Circle
     Run Keyword If    ${errorType}==${nextClientError}    Swith To Next Client By Refresh Browser
     ...       ELSE    Finish Order After Choose Sending Status
 
-Login Mycat Magnage Interface
+Login Oldman Magnage Interface
     Open Chrome
     Go To Url    https://oldman.tw/goadmin.php
     Switch To Context    NATIVE_APP
@@ -443,7 +440,7 @@ Unlock Permission
 Open Chrome
     [Documentation]    Opens the calculator app with a new appium session.
     Open Application    http://localhost:4723/wd/hub    platformName=Android    platformVersion=5.1.1    alias=MyChrome1
-    ...    deviceName=${emulator}    noReset=true    browserName=Chrome    automationName=uiautomator2
+    ...    deviceName=${emulator}    udid=${emulator}    noReset=true    browserName=Chrome     automationName=uiautomator2
     # ${app2} =    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=8.1.0    alias=MyChrome2
     # ...    deviceName=${redmiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
     # appPackage=com.android.chrome     appActivity=com.google.android.apps.chrome.Main
@@ -512,10 +509,10 @@ Close All Application And Back To Home
     Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
     Press Keycode    ${appSwitchKey}
     FOR    ${num}    IN RANGE    9999
-        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@class='com.android.systemui:id/task_view_content']    timeout=3s    error=
+        ${applicationExist} =    Run Keyword And Return Status    Wait Until Page Contains Element    //*[@resource-id ='com.android.systemui:id/task_view_content']    timeout=5s    error=
         Exit For Loop if    not ${applicationExist}
-        Wait Until Element Is Visible    //*[contains(@content-desc,'關閉')]
-        Click Element    //*[contains(@content-desc,'關閉')]
+        ${close} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[contains(@content-desc,'關閉')]
+        Run Keyword If    ${close}    Click Element    xpath=(//*[contains(@content-desc,'關閉')])[1]
     END
     # Delete All User By Open LINE
     Press Keycode    ${homeKey}

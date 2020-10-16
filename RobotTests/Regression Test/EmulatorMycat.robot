@@ -9,7 +9,7 @@ Suite Teardown    Close All Application And Back To Home
 ${redmiDeviceName} =    8531905e7d25
 ${samsungDeviceName} =    435145414e553398    #version:9
 ${hauweiDeviceName} =    2DR4C19227004310    #version:9
-${emulator} =    127.0.0.1:52001
+${emulator} =    127.0.0.1:52027
 ${cataccount} =    20140002
 ${catpassword} =    20140002
 ${oldaccount} =    20160000
@@ -77,7 +77,6 @@ Automatically send foreign sticker mycat
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Sticker Number
-    Set Global Variable    ${LineApplication}    1    #FIXME
     FOR    ${num}    IN RANGE    ${foreignSticker}
         Run Keyword If    ${num}==0    Open Foreign Stciker Sending Page
         ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
@@ -93,7 +92,6 @@ Automatically send foreign topic mycat
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Topic Number
-    Set Global Variable    ${LineApplication}    1    #FIXME
     FOR    ${num}    IN RANGE    ${foreignTopic}
         Run Keyword If    ${num}==0    Open Foreign Topic Sending Page
         ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
@@ -102,8 +100,7 @@ Automatically send foreign topic mycat
         Run Sending Template By For Circle
     END
     Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
-log 
-    log    1
+
 *** Keywords ***
 Login Mycat
     Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
@@ -158,6 +155,7 @@ Switch Network With VPN
     Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
     Click Element    //*[contains(@text, '當前伺服器：')]
     Click Element After It Is Visible    //*[@resource-id ='com.fvcorp.flyclient:id/search_button']    timeout=${slowNetPeriod}    error=Serach should be visible.
+    Wait Until Element Is Visible    com.fvcorp.flyclient:id/search_src_text
     Input Text    com.fvcorp.flyclient:id/search_src_text    ${countryToVPN.${country}}
     Click Element After It Is Visible    //*[@resource-id='com.fvcorp.flyclient:id/textServerRowTitle']    timeout=${slowNetPeriod}    error=Country should be visible.
     Connect Button Should Connect
@@ -223,9 +221,14 @@ Verify User Should Be A Friend
 Change User Name To ID
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']    timeout=${slowNetPeriod}    error=Chat button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']
-    ${X} =    Get Matching Xpath Count    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
-    Wait Until Element Is Visible On Page    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView    timeout=${slowNetPeriod}    error=Back button should be exist.
+    ${x}    Get Matching Xpath Count    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
+    Wait Until Page Contains Element    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView    timeout=${slowNetPeriod}    error=Back button should be exist.
+    sleep    0.5s
     Click Element    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
+    
+    # Wait Until Page Contains Element    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView    timeout=${slowNetPeriod}    error=Back button should be exist.
+    # Click Element    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
+    sleep    0.5s
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']    timeout=${slowNetPeriod}    error=Home button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/main_tab_search_bar_hint_text']    timeout=${slowNetPeriod}    error=Search bar should be visible.
@@ -293,7 +296,7 @@ Send Gift By Select User With ID
     ...       ELSE    Run Keywords    Hide Keyboard
     Run Keyword If    not (${searchClientNumber} == 1)    Swipe To Client
     Wait Until Element Is Visible    //*[@text='下一步']
-    Click Element    //*[@text='下一步']
+    UnClick After Is Not Visible    //*[@text='下一步']
     #could be error
     ${sendSuccess}    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=10s
     Run Keyword If    ${sendSuccess}    Click OK Button To Send Gift To User
@@ -301,12 +304,23 @@ Send Gift By Select User With ID
 
 Click OK Button To Send Gift To User
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=${slowNetPeriod}    error=Purchase button should be visible.
+    ${price} =    Get Text    //*[@resource-id='jp.naver.line.android:id/line_coin_price_text_view' and @index='1']
     Click Element    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
+    Log To Console    price=${price}
+    
     #Go Back To Management Page From Chat Page
     Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=${slowNetPeriod}
     [Teardown]    Close LINE To Go Back After Change The Name
+
+UnClick After Is Not Visible
+    [Arguments]    ${element}
+    FOR    ${i}    IN RANGE    9999
+        Click Element    ${element}
+        ${elementExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${element}    timeout=1s
+        Exit For Loop If   not ${elementExist}
+    END
 
 Press Keycode To Go Back
     Press Keycode    ${backKey}
@@ -371,7 +385,7 @@ Fix Go Back Error
 Finish Order After Choose Sending Status
     Run Keyword IF   not ${errorType}==0    Select Error Message
     Run Keyword If   ${errorType}==0 or ${errorType}==4    Wait Until Element Is Visible    xpath=//*[@text= '送 出' ]    timeout=${slowNetPeriod}    error=Dialog "確定" button should be visible.
-    Click Element    //*[@text= '送 出']
+    Click Element After It Is Visible    //*[@text= '送 出']
     Wait Until Element Is Visible    //*[not(@text='${purchaseID}')]    timeout=${slowNetPeriod}    error='${purchaseID}' should not be visible.
     Log Sending Status To Console    ${errorType}
     Set Global Variable    ${errorType}    0
@@ -402,8 +416,8 @@ If Name Is Not Equal To ID Change Name To ID
 Close LINE To Go Back After Change The Name
     Press Keycode    ${appSwitchKey}
     sleep    1s    #fix me
-    Wait Until Element Is Visible    //*[@class='android.widget.ImageView' and contains(@content-desc,'關閉「LINE」')]
-    Click Element    //*[@class='android.widget.ImageView' and contains(@content-desc,'關閉「LINE」')]
+    ${lineExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@class='android.widget.ImageView' and contains(@content-desc,'關閉「LINE」')]
+    Run Keyword If    ${lineExist}    Click Element    //*[@class='android.widget.ImageView' and contains(@content-desc,'關閉「LINE」')]
     Wait Until Element Is Visible    //*[@class='android.widget.TextView' and @text='Chrome']    timeout=5s    error=Chrome application should be visible.
     Click Element    //*[@class='android.widget.TextView' and @text='Chrome']    #FIXME
 
@@ -443,7 +457,7 @@ Unlock Permission
 Open Chrome
     [Documentation]    Opens the calculator app with a new appium session.
     Open Application    http://localhost:4724/wd/hub    platformName=Android    platformVersion=5.1.1    alias=MyChrome1
-    ...    deviceName=${emulator}    noReset=true    browserName=Chrome    automationName=uiautomator2
+    ...    deviceName=${emulator}    noReset=true    browserName=Chrome    automationName=uiautomator2    skipServerInstallation = true
     # ${app2} =    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=8.1.0    alias=MyChrome2
     # ...    deviceName=${redmiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
     # appPackage=com.android.chrome     appActivity=com.google.android.apps.chrome.Main
@@ -512,14 +526,14 @@ Close All Application And Back To Home
     Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
     Press Keycode    ${appSwitchKey}
     FOR    ${num}    IN RANGE    9999
-        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@class='com.android.systemui:id/task_view_content']    timeout=3s    error=
+        ${applicationExist} =    Run Keyword And Return Status    Wait Until Page Contains Element    //*[@resource-id ='com.android.systemui:id/task_view_content']    timeout=5s    error=
         Exit For Loop if    not ${applicationExist}
-        Wait Until Element Is Visible    //*[contains(@content-desc,'關閉')]
-        Click Element    //*[contains(@content-desc,'關閉')]
+        ${close} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[contains(@content-desc,'關閉')]
+        Run Keyword If    ${close}    Click Element    xpath=(//*[contains(@content-desc,'關閉')])[1]
     END
     # Delete All User By Open LINE
     Press Keycode    ${homeKey}
-    Press Keycode    26
+    # Press Keycode    26
     Close All Applications
     sleep    1s
     # Press Keycode    ${appSwitchKey}
