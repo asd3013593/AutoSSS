@@ -41,6 +41,7 @@ ${nextClientError} =    10
 &{countryToVPN} =    日本=東京 #32    印尼=雅加達 #8    韓國=首爾 #25    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
 ${slowNetPeriod} =    30s
 ${LineApplication} =    1
+${stickerName} =    Empty
 
 *** Test Cases ***
 # test
@@ -57,7 +58,6 @@ ${LineApplication} =    1
     # ${forstr}    Get Text    //*[@class='android.widget.ListView' and @index='18']//*[@class='android.view.View' and @index='3']
     # ${fortop}    Get Text    //*[@class='android.widget.ListView' and @index='18']//*[@class='android.view.View' and @index='5']
     # Log To Console    ${tainum}+${forstr}+${fortop}
-
 Automatically send taiwan sticker oldman
     [Setup]    Run Keywords    Get Processing Sticker
     ...                 AND    Get Taiwan Sticker Number
@@ -270,7 +270,9 @@ Count User Number And Return Type
 
 Open Sticker Link
     Wait Until Element Is Visible   xpath=//*[@text= '開啟連結' and @index='0']     timeout=${slowNetPeriod}    error=Url open button should be visible.
-    AppiumLibrary.Click Element    xpath=//*[@text= '開啟連結' and @index='0']
+    ${name} =    Get Text    //*[@class='android.view.View' and @index='8']//*[@class='android.view.View' and @index='1']
+    Set Global Variable    ${stickerName}    ${name}
+    Click Element    xpath=//*[@text= '開啟連結' and @index='0']
     Choose Line Application
 
 Send Gift By Select User With ID
@@ -294,15 +296,15 @@ Send Gift By Select User With ID
 
 Click OK Button To Send Gift To User
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=${slowNetPeriod}    error=Purchase button should be visible.
-    ${stickerName} =    Get Text    //*[@resource-id='jp.naver.line.android:id/sticker_package_name_text_view']
     ${price} =    Get Text    //*[@resource-id='jp.naver.line.android:id/line_coin_price_text_view' and @index='1']
     Click Element    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
-    Log To Console    price=${price}
-    priceRecord    oldmanPrice    ${userId}    ${price}    ${stickerName}
-    #Go Back To Management Page From Chat Page
     Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=${slowNetPeriod}
+    Log To Console    sticker = ${stickerName} price = ${price}
+    ${area} =    Run Keyword If    ${foreign}    Set Variable    Foreign
+    ...                    ELSE    Set Variable    Taiwan
+    priceRecord    oldmanPrice    ${area}    ${price}    ${userId}   ${stickerName}
     [Teardown]    Close LINE To Go Back After Change The Name
 
 Press Keycode To Go Back
@@ -447,7 +449,7 @@ Open Chrome
 Get Processing Sticker
     ${X} =    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']
     Wait Until Page Contains Element    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']    timeout=${slowNetPeriod}    error=Taiwanese sticker should be visible.
-    ${processing} =    Get Text    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']
+    ${processing} =    Wait Until Keyword Succeeds     5s    0.5s    Get Text    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']
     Run keyword if    ${processing}!=0    Refresh Management Page After Unlock Permission
     # Wait Until Element Is Visible On Page    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']    timeout=${slowNetPeriod}    error=Taiwanese sticker should be visible.
     # ${num}    Get Text    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']

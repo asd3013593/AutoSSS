@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20201016 14:01:01.334" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20201018 00:59:34.761" rpa="false">
 <suite id="s1" name="AutoSSS" source="C:\Users\pan\Desktop\StickerSender\AutoSSS">
 <suite id="s1-s1" name="RobotTests" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests">
 <suite id="s1-s1-s1" name="Regression Test" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests\Regression Test">
 <suite id="s1-s1-s1-s1" name="Oldman" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests\Regression Test\oldman.robot">
-<test id="s1-s1-s1-s1-t1" name="test">
+<test id="s1-s1-s1-s1-t1" name="tetst">
 <kw name="priceRecord" library="AppiumLibrary">
 <arguments>
-<arg>12313</arg>
-<arg>50</arg>
+<arg>oldmanPrice</arg>
+<arg>Taiwan</arg>
+<arg>100</arg>
+<arg>wsx71429</arg>
+<arg>小熊維尼 by 卡娜赫拉</arg>
 </arguments>
-<status status="PASS" starttime="20201016 14:01:01.560" endtime="20201016 14:01:01.561"></status>
+<status status="PASS" starttime="20201018 00:59:35.031" endtime="20201018 00:59:35.032"></status>
 </kw>
-<status status="PASS" starttime="20201016 14:01:01.559" endtime="20201016 14:01:01.561" critical="yes"></status>
+<status status="PASS" starttime="20201018 00:59:35.029" endtime="20201018 00:59:35.032" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20201016 14:01:01.382" endtime="20201016 14:01:01.562"></status>
+<status status="PASS" starttime="20201018 00:59:34.814" endtime="20201018 00:59:35.033"></status>
 </suite>
-<status status="PASS" starttime="20201016 14:01:01.380" endtime="20201016 14:01:01.563"></status>
+<status status="PASS" starttime="20201018 00:59:34.812" endtime="20201018 00:59:35.034"></status>
 </suite>
-<status status="PASS" starttime="20201016 14:01:01.378" endtime="20201016 14:01:01.564"></status>
+<status status="PASS" starttime="20201018 00:59:34.810" endtime="20201018 00:59:35.035"></status>
 </suite>
-<status status="PASS" starttime="20201016 14:01:01.361" endtime="20201016 14:01:01.565"></status>
+<status status="PASS" starttime="20201018 00:59:34.789" endtime="20201018 00:59:35.036"></status>
 </suite>
 <statistics>
 <total>
