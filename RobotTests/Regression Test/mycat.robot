@@ -176,7 +176,7 @@ Run Sending Template By For Circle
     Open LINE Add Friend Page
     Run Keyword If    ${errorType}==4    ID Is Not Public Or Not Correct Then Turn Back
     ...    ELSE IF    ${errorType}==0    ID Can Be Searched Then Continue To Work
-    Run Keyword If    ${errorType}==${nextClientError}    Swith To Next Client By Refresh Browser
+    Run Keyword If    ${errorType}==${nextClientError}    Switch To Next Client By Refresh Browser
     ...       ELSE    Finish Order After Choose Sending Status
 
 Login Mycat Magnage Interface
@@ -209,7 +209,8 @@ Open LINE Add Friend Page
 Verify User Should Not Be Found
     ${notFoundlabel} =     Run Keyword And Return Status   Wait Until Element Is Visible    //*[@class='android.widget.TextView' and contains(@text,'無法找到該用戶')]    timeout=5s    error=Not found label should be visible.
     Run Keyword If    ${notFoundlabel}    Set Global Variable   ${errorType}    4
-    ...       ELSE    Set Global Variable    ${errorType}    ${nextClientError}
+    ...       ELSE    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
+    ...                        AND    Close LINE To Go Back After Change The Name
 
 Verify User Should Be A Friend
     ${buttonJoinOrNot} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='加入']    timeout=3s
@@ -279,10 +280,12 @@ Open Sticker Link
     Choose Line Application
 
 Send Gift By Select User With ID
-    ${enable} =    Run Keyword And Return Status    Wait Until Element Is Visible   xpath=//*[contains(@text, '贈送禮物') and @enabled='true']     timeout=${slowNetPeriod}    error=Send gift button should be visible.
-    Run Keyword Unless    ${enable}    Run Keywords    Set Global Variable    ${errorType}    3
-    ...                                         AND    Close LINE To Go Back After Change The Name
-    ...                                         AND    Return From Keyword
+    ${enable} =    Run Keyword And Return Status    Wait Until Element Is Visible   xpath=//*[contains(@text, '贈送禮物') and @enabled='true']     timeout=10s    error=Send gift button should be visible.
+    ${disable} =    Run Keyword Unless    ${enable}    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//*[contains(@text, '贈送禮物') and @enabled='false']    timeout=5s    error=Send gift button should be disable.
+    Run Keyword Unless    ${enable}    Run Keywords    Run Keyword If    ${disable}    Set Global Variable    ${errorType}    3
+    ...                                                          ELSE    Set Global Variable    ${errorType}    ${nextClientError}
+    ...                                AND    Close LINE To Go Back After Change The Name
+    ...                                AND    Return From Keyword
     AppiumLibrary.Click Element    xpath=//*[contains(@text, '贈送禮物')]
     Input Text After Click    //*[@resource-id='jp.naver.line.android:id/searchbar_input_text']    ${userId}
     ${getName} =    Get Text    //*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']
@@ -379,9 +382,10 @@ Finish Order After Choose Sending Status
     Log Sending Status To Console    ${errorType}
     Set Global Variable    ${errorType}    0
 
-Swith To Next Client By Refresh Browser
-    Press Back Key Until Back To Sending Page
+Switch To Next Client By Refresh Browser
+    Wait Until Element Is Visible    //*[@text='訂單']/following-sibling::*    timeout=5s    error=Switch to next client's page should be visible
     Swipe    300    300    300    900    500
+    Set Global Variable    ${errorType}    0
 
 Select Error Message
     Wait Until Element Is Visible    //*[@resource-id='SendStatus']
