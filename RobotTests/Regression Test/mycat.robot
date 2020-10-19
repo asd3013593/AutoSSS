@@ -144,7 +144,10 @@ Get Foreing Topic Number
     Set Global Variable    ${foreignTopic}    ${topic}
 
 Switch VPN If Is Sending Foreign Sticker
+    ${globalArea} =    Set Variable     全球
     ${country} =     Run Keyword If    ${foreign}    Get Text    //*[@class='android.view.View' and @index='5']//*[@class='android.view.View' and @index ='1']
+    ${isGlobalArea} =    Run Keyword And Return Status     Should Be Equal As Strings    ${globalArea}    ${country}
+    Run Keyword If    ${isGlobalArea}    Return From Keyword
     Run Keyword If    ${foreign}    Run keywords    Switch Network With VPN    ${country}
     ...                                      AND    Switch App To Chrome
 
