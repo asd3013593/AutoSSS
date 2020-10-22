@@ -240,7 +240,7 @@ Change User Name To ID
     ${count} =    Count User Number And Return Type
     # ${error}    Should Be Equal    ${name}    error
     Run Keyword If    ${count}>1    Select User By Name When Users
-    ...       ELSE    Click Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View
+    ...    ELSE IF    ${count} == 1    Click Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View
     # ${getUserName} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
     # ${count} =    Get Matching Xpath Count    ${getUserName}
     # Log To Console    ${count}
