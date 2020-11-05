@@ -38,26 +38,12 @@ ${taiwanSticker} =    0
 ${foreignSticker} =    0
 ${foreignTopic} =    0
 ${nextClientError} =    10
-&{countryToVPN} =    日本=東京 #32    印尼=雅加達 #8    韓國=首爾 #25    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
+&{countryToVPN} =    日本=東京 #31    印尼=雅加達 #8    韓國=首爾 #25    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
 ${slowNetPeriod} =    30s
 ${LineApplication} =    1
 ${stickerName} =    Empty
 
 *** Test Cases ***
-# test
-    # Open Chrome
-    # Go To Url    https://gomyline.com//alisadmin.php?c=Login
-    # Switch To Context    NATIVE_APP
-    # Wait Until Element Is Visible    xpath=//*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
-    # Input Text    xpath=//*[@class='android.widget.EditText' and @password ='false']    20140001
-    # Input Text    xpath=//*[contains(@text, '登入密碼')]    Snow1982
-    # AppiumLibrary.Click Element    //*[@resource-id='submit']
-    # Wait Until Element Is Visible    xpath=//*[contains(@text, '解除鎖定')]    timeout=${slowNetPeriod}    error=Web should be login.
-    # Wait Until Element Is Visible    //*[@class='android.widget.ListView' and @index='18']//*[@class='android.view.View' and @index='1']    timeout=${slowNetPeriod}
-    # ${tainum}    Get Text    //*[@class='android.widget.ListView' and @index='18']//*[@class='android.view.View' and @index='1']
-    # ${forstr}    Get Text    //*[@class='android.widget.ListView' and @index='18']//*[@class='android.view.View' and @index='3']
-    # ${fortop}    Get Text    //*[@class='android.widget.ListView' and @index='18']//*[@class='android.view.View' and @index='5']
-    # Log To Console    ${tainum}+${forstr}+${fortop}
 Automatically send taiwan sticker oldman
     [Setup]    Run Keywords    Get Processing Sticker
     ...                 AND    Get Taiwan Sticker Number

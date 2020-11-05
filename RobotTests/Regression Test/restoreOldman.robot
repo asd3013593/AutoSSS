@@ -57,9 +57,6 @@ Open Chrome
     Input Text   //*[@class='android.widget.EditText' and @password ='false']    20160000
     Input Text    //*[@text='登入密碼']    20160000
     AppiumLibrary.Click Element    //*[@resource-id='submit']
-    # ${app2} =    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=8.1.0    alias=MyChrome2
-    # ...    deviceName=${redmiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
-    # appPackage=com.android.chrome     appActivity=com.google.android.apps.chrome.Main
 
 Delete All User By Open LINE
     Press Keycode    ${homeKey}
@@ -100,22 +97,10 @@ Close All Application And Back To Home
         Exit For Loop if    not ${applicationExist}
         Swipe    324    1500    324    468    500
     END
-    # Delete All User By Open LINE
     Press Keycode    26
     Close All Applications
     sleep    1s
-    # Press Keycode    ${appSwitchKey}
-    # FOR    ${num}    IN RANGE    9999
-        # ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.android.systemui:id/title']    timeout=5s    error=
-        # Exit For Loop if    not ${applicationExist}
-        # &{location} =    Get Location    //*[@resource-id='com.android.systemui:id/title']
-        # Swipe    ${location.x}    ${location.y}    719    ${location.y}    200
-    # END
-    # Press Keycode    ${homeKey}
-    # Press Keycode    26
-    # Close All Applications
-    # sleep    1s
-    
+
 Connect Button Should Connect
     Wait Until Element Is Visible    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']    timeout=5s
 
