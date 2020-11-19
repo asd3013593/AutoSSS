@@ -38,7 +38,7 @@ ${taiwanSticker} =    0
 ${foreignSticker} =    0
 ${foreignTopic} =    0
 ${nextClientError} =    10
-&{countryToVPN} =    日本=東京 #31    印尼=雅加達 #8    韓國=首爾 #25    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
+&{countryToVPN} =    日本=東京 #32    印尼=雅加達 #8    韓國=首爾 #25    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
 ${slowNetPeriod} =    30s
 ${LineApplication} =    1
 ${stickerName} =    Empty
