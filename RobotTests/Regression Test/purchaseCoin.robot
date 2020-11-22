@@ -76,6 +76,8 @@ Purchase 800 coin
     Click Element After It Is Visible    //*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']    timeout=30s    error=NT$390 button should be visible.
     Click Element After It Is Visible    //*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']    timeout=30s    error='一鍵購買' button should be visible.
     Wait Until Element Is Visible On Page    //*[@text='付款成功']    timeout=30s    error=Purchase should be success.
+    Log to Console    成功購買800coin
+    Purchase Coin Record    800
 
 Close All Application And Back To Home
     Open VPN App

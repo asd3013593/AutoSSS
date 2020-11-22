@@ -300,6 +300,7 @@ Click OK Button To Send Gift To User
     Log To Console    sticker = ${stickerName} price = ${price}
     ${area} =    Run Keyword If    ${foreign}    Set Variable    Foreign
     ...                    ELSE    Set Variable    Taiwan
+    Run Keyword If    ${foreign}    Write Coin Record    -${price}
     priceRecord    mycatPrice    ${area}    ${price}    ${userId}    ${stickerName}
     [Teardown]    Close LINE To Go Back After Change The Name
 

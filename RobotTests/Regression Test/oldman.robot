@@ -1,7 +1,8 @@
 *** Settings ***
 Library    XML
 Library    AppiumLibrary
-Library    OperatingSystem    
+Library    OperatingSystem
+Resource    purchaseCoin.txt
 Suite Setup    Run Keyword   Login Oldman Magnage Interface
 Suite Teardown    Close All Application And Back To Home
 
@@ -85,6 +86,11 @@ Automatically send foreign topic oldman
         Run Sending Template By For Circle
     END
     Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
+
+Automatically purchase oldman LINE coin when coin less than 10000
+    ${isCoinNotEnough} =    Is Coin Not Enough
+    Run keyword If    ${isCoinNotEnough}    Run Keywords    Close VPN Connect And Close Apps
+    ...                                              AND    Oldman purchase LINE 16000 coin
 
 *** Keywords ***
 Login Mycat
@@ -297,6 +303,7 @@ Click OK Button To Send Gift To User
     ${area} =    Run Keyword If    ${foreign}    Set Variable    Foreign
     ...                    ELSE    Set Variable    Taiwan
     priceRecord    oldmanPrice    ${area}    ${price}    ${userId}   ${stickerName}
+    Write Coin Record    -${price}
     [Teardown]    Close LINE To Go Back After Change The Name
 
 Press Keycode To Go Back

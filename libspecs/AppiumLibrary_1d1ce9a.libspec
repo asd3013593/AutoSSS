@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2020-10-22T19:13:54Z" lineno="10" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
+<keywordspec format="ROBOT" generated="2020-11-21T18:44:35Z" lineno="10" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
 <version>1.5.0.7</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
@@ -417,7 +417,7 @@ Key attributes for arbitrary elements are `id` and `name`. See
 Key attributes for arbitrary elements are `id` and `name`. See
 `introduction` for details about locating elements.</doc>
 </kw>
-<kw lineno="699" name="Get Location" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="698" name="Get Location" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 </arguments>
@@ -519,12 +519,6 @@ Example:
 
 New in AppiumLibrary 1.4.5</doc>
 </kw>
-<kw lineno="659" name="getWebPrice" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
-<arguments>
-<arg>data</arg>
-</arguments>
-<doc />
-</kw>
 <kw lineno="235" name="Go Back" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_applicationmanagement.py">
 <arguments>
 </arguments>
@@ -587,6 +581,11 @@ Android only.
 
 - app_path - path to app
 - app_package - package of install app to verify</doc>
+</kw>
+<kw lineno="746" name="Is Coin Not Enough" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<arguments>
+</arguments>
+<doc />
 </kw>
 <kw lineno="105" name="Is Keyboard Shown" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
@@ -758,7 +757,7 @@ For example
  - _keycode- - the keycode to be sent to the device
  - _metastate- - status of the meta keys</doc>
 </kw>
-<kw lineno="666" name="priceRecord" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="665" name="priceRecord" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>folderName</arg>
 <arg>country</arg>
@@ -791,6 +790,12 @@ Android only.
 
  - _path_ - the path to the folder on the device
  - _decode_ - True/False decode the data (base64) before returning it (default=False)</doc>
+</kw>
+<kw lineno="730" name="Purchase Coin Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<arguments>
+<arg>price</arg>
+</arguments>
+<doc />
 </kw>
 <kw lineno="65" name="Push File" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_android_utils.py">
 <arguments>
@@ -1069,7 +1074,7 @@ This also considers swipe acts different between iOS and Android.
 
 New in AppiumLibrary 1.4.5</doc>
 </kw>
-<kw lineno="687" name="Swipe To Bottom" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="686" name="Swipe To Bottom" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>start_x</arg>
 <arg>start_y</arg>
@@ -1147,12 +1152,12 @@ New in AppiumLibrary 1.5</doc>
 
 New in AppiumLibrary 1.5</doc>
 </kw>
-<kw lineno="705" name="Unlock" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="704" name="Unlock" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
 </kw>
-<kw lineno="683" name="UnlockScreen" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="682" name="UnlockScreen" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
@@ -1269,6 +1274,12 @@ BuiltIn keyword `Wait Until Keyword Succeeds`.</doc>
 <kw lineno="653" name="Write" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>name</arg>
+</arguments>
+<doc />
+</kw>
+<kw lineno="711" name="Write Coin Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<arguments>
+<arg>price</arg>
 </arguments>
 <doc />
 </kw>
