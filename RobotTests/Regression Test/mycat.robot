@@ -304,7 +304,7 @@ Click OK Button To Send Gift To User
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
     #Go Back To Management Page From Chat Page
-    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=${slowNetPeriod}
+    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s
     Log To Console    sticker = ${stickerName} price = ${price}
     ${area} =    Run Keyword If    ${foreign}    Set Variable    Foreign
     ...                    ELSE    Set Variable    Taiwan
@@ -418,19 +418,18 @@ Close LINE To Go Back After Change The Name
     Click Element    //*[@resource-id='com.android.systemui:id/title' and @text='Chrome']
 
 Switch App To Chrome
-    Press Keycode    ${appSwitchKey}
-    Switch To Context    NATIVE_APP
-    # Wait Until Page Contains Element    //*[@resource-id='com.sec.android.app.launcher:id/icon']/preceding-sibling::*    timeout=${slowNetPeriod}    error=
-    # Click Element    //*[@resource-id='com.sec.android.app.launcher:id/icon']/preceding-sibling::*
-    Wait Until Element Is Visible    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']    timeout=${slowNetPeriod}    error=
-    Click Element    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']
-
     # Press Keycode    ${appSwitchKey}
     # Switch To Context    NATIVE_APP
     # # Wait Until Page Contains Element    //*[@resource-id='com.sec.android.app.launcher:id/icon']/preceding-sibling::*    timeout=${slowNetPeriod}    error=
     # # Click Element    //*[@resource-id='com.sec.android.app.launcher:id/icon']/preceding-sibling::*
-    # Wait Until Element Is Visible    //*[@resource-id='com.android.systemui:id/title' and @text='Chrome']    timeout=${slowNetPeriod}    error=
-    # Click Element    //*[@resource-id='com.android.systemui:id/title' and @text='Chrome']
+    # Wait Until Element Is Visible    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']    timeout=${slowNetPeriod}    error=
+    # Click Element    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']
+
+    Press Keycode    ${appSwitchKey}
+    # Wait Until Page Contains Element    //*[@resource-id='com.sec.android.app.launcher:id/icon']/preceding-sibling::*    timeout=${slowNetPeriod}    error=
+    # Click Element    //*[@resource-id='com.sec.android.app.launcher:id/icon']/preceding-sibling::*
+    Wait Until Element Is Visible    //*[@resource-id='com.android.systemui:id/title' and @text='Chrome']    timeout=${slowNetPeriod}    error=
+    Click Element    //*[@resource-id='com.android.systemui:id/title' and @text='Chrome']
 
 Input Text After Click
     [Arguments]    ${xpath}    ${text}
