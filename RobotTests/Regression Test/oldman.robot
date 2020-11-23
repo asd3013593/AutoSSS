@@ -88,7 +88,7 @@ Automatically send foreign topic oldman
     Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
 
 Automatically purchase oldman LINE coin when coin less than 10000
-    ${isCoinNotEnough} =    Is Coin Not Enough
+    ${isCoinNotEnough} =    Is Coin Not Enough    oldman
     Run keyword If    ${isCoinNotEnough}    Run Keywords    Close VPN Connect And Close Apps
     ...                                              AND    Oldman purchase LINE 16000 coin
 
@@ -213,7 +213,7 @@ Verify User Should Be A Friend
 Change User Name To ID
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']    timeout=${slowNetPeriod}    error=Chat button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']
-    ${X} =    Get Matching Xpath Count    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
+    ${X} =    Wait Until Keyword Succeeds     5s    0.5s    Get Matching Xpath Count    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
     Wait Until Element Is Visible On Page    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView    timeout=${slowNetPeriod}    error=Back button should be exist.
     Click Element    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']    timeout=${slowNetPeriod}    error=Home button should be visible.
@@ -303,7 +303,7 @@ Click OK Button To Send Gift To User
     ${area} =    Run Keyword If    ${foreign}    Set Variable    Foreign
     ...                    ELSE    Set Variable    Taiwan
     priceRecord    oldmanPrice    ${area}    ${price}    ${userId}   ${stickerName}
-    Write Coin Record    -${price}
+    Write Coin Record    oldman    -${price}
     [Teardown]    Close LINE To Go Back After Change The Name
 
 Press Keycode To Go Back

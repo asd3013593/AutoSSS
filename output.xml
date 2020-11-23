@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20201123 04:44:20.844" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20201123 22:23:23.966" rpa="false">
 <suite id="s1" name="AutoSSS" source="C:\Users\pan\Desktop\StickerSender\AutoSSS">
 <suite id="s1-s1" name="RobotTests" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests">
 <suite id="s1-s1-s1" name="Regression Test" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests\Regression Test">
-<suite id="s1-s1-s1-s1" name="Oldman" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests\Regression Test\oldman.robot">
+<suite id="s1-s1-s1-s1" name="Mycat" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests\Regression Test\mycat.robot">
 <kw name="Run Keyword" library="BuiltIn" type="setup">
 <doc>Executes the given keyword with the given arguments.</doc>
 <arguments>
-<arg>Login Oldman Magnage Interface</arg>
+<arg>Login Mycat Magnage Interface</arg>
 </arguments>
-<kw name="Login Oldman Magnage Interface">
+<kw name="Login Mycat Magnage Interface">
 <kw name="Open Chrome">
 <doc>Opens the calculator app with a new appium session.</doc>
 <kw name="Open Application" library="AppiumLibrary">
@@ -20,32 +20,32 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 | remote_url          | Yes    | Appium server url |
 | alias               | no     | alias             |</doc>
 <arguments>
-<arg>http://localhost:4723/wd/hub</arg>
+<arg>http://localhost:4724/wd/hub</arg>
 <arg>platformName=Android</arg>
-<arg>platformVersion=9</arg>
+<arg>platformVersion=8.1.0</arg>
 <arg>alias=MyChrome1</arg>
-<arg>deviceName=${hauweiDeviceName}</arg>
+<arg>deviceName=${redmiDeviceName}</arg>
 <arg>noReset=true</arg>
 <arg>browserName=Chrome</arg>
 <arg>automationName=uiautomator2</arg>
 </arguments>
-<status status="PASS" starttime="20201123 04:44:21.086" endtime="20201123 04:44:36.369"></status>
+<status status="PASS" starttime="20201123 22:23:24.207" endtime="20201123 22:23:44.024"></status>
 </kw>
-<status status="PASS" starttime="20201123 04:44:21.085" endtime="20201123 04:44:36.370"></status>
+<status status="PASS" starttime="20201123 22:23:24.207" endtime="20201123 22:23:44.025"></status>
 </kw>
 <kw name="Go To Url" library="AppiumLibrary">
 <doc>Opens URL in default web browser.</doc>
 <arguments>
-<arg>https://oldman.tw/goadmin.php</arg>
+<arg>https://mycat.tw/goadmin.php</arg>
 </arguments>
-<status status="PASS" starttime="20201123 04:44:36.370" endtime="20201123 04:44:37.458"></status>
+<status status="PASS" starttime="20201123 22:23:44.025" endtime="20201123 22:23:47.641"></status>
 </kw>
 <kw name="Switch To Context" library="AppiumLibrary">
 <doc>Switch to a new context</doc>
 <arguments>
 <arg>NATIVE_APP</arg>
 </arguments>
-<status status="PASS" starttime="20201123 04:44:37.458" endtime="20201123 04:44:37.465"></status>
+<status status="PASS" starttime="20201123 22:23:47.641" endtime="20201123 22:23:47.645"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -54,33 +54,33 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=30s</arg>
 <arg>error=Password input should be visible.</arg>
 </arguments>
-<status status="PASS" starttime="20201123 04:44:37.465" endtime="20201123 04:44:38.536"></status>
+<status status="PASS" starttime="20201123 22:23:47.645" endtime="20201123 22:23:49.368"></status>
 </kw>
 <kw name="Input Text" library="AppiumLibrary">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
 <arguments>
 <arg>//*[@class='android.widget.EditText' and @password ='false']</arg>
-<arg>20160000</arg>
+<arg>20140002</arg>
 </arguments>
-<msg timestamp="20201123 04:44:38.538" level="INFO">Typing text '20160000' into text field '//*[@class='android.widget.EditText' and @password ='false']'</msg>
-<status status="PASS" starttime="20201123 04:44:38.536" endtime="20201123 04:44:38.911"></status>
+<msg timestamp="20201123 22:23:49.369" level="INFO">Typing text '20140002' into text field '//*[@class='android.widget.EditText' and @password ='false']'</msg>
+<status status="PASS" starttime="20201123 22:23:49.368" endtime="20201123 22:23:50.485"></status>
 </kw>
 <kw name="Input Text" library="AppiumLibrary">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
 <arguments>
 <arg>//*[@text='登入密碼']</arg>
-<arg>20160000</arg>
+<arg>20140002</arg>
 </arguments>
-<msg timestamp="20201123 04:44:38.912" level="INFO">Typing text '20160000' into text field '//*[@text='登入密碼']'</msg>
-<status status="PASS" starttime="20201123 04:44:38.911" endtime="20201123 04:44:39.612"></status>
+<msg timestamp="20201123 22:23:50.487" level="INFO">Typing text '20140002' into text field '//*[@text='登入密碼']'</msg>
+<status status="PASS" starttime="20201123 22:23:50.486" endtime="20201123 22:23:52.242"></status>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>//*[@resource-id='submit']</arg>
 </arguments>
-<msg timestamp="20201123 04:44:39.613" level="INFO">Clicking element '//*[@resource-id='submit']'.</msg>
-<status status="PASS" starttime="20201123 04:44:39.612" endtime="20201123 04:44:40.632"></status>
+<msg timestamp="20201123 22:23:52.243" level="INFO">Clicking element '//*[@resource-id='submit']'.</msg>
+<status status="PASS" starttime="20201123 22:23:52.242" endtime="20201123 22:23:53.602"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -89,80 +89,3567 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${slowNetPeriod}</arg>
 <arg>error=Web should be login.</arg>
 </arguments>
-<status status="PASS" starttime="20201123 04:44:40.632" endtime="20201123 04:44:46.051"></status>
+<status status="PASS" starttime="20201123 22:23:53.602" endtime="20201123 22:24:03.472"></status>
 </kw>
-<status status="PASS" starttime="20201123 04:44:21.085" endtime="20201123 04:44:46.051"></status>
+<status status="PASS" starttime="20201123 22:23:24.207" endtime="20201123 22:24:03.472"></status>
 </kw>
-<status status="PASS" starttime="20201123 04:44:21.085" endtime="20201123 04:44:46.051"></status>
+<status status="PASS" starttime="20201123 22:23:24.206" endtime="20201123 22:24:03.472"></status>
 </kw>
-<test id="s1-s1-s1-s1-t1" name="Automatically send taiwan sticker oldman">
-<kw name="Run Keywords" library="BuiltIn" type="setup">
-<doc>Executes all the given keywords in a sequence.</doc>
+<test id="s1-s1-s1-s1-t1" name="Automatically purchase oldman LINE coin when coin less than 10000">
+<kw name="Is Coin Not Enough" library="AppiumLibrary">
 <arguments>
-<arg>Get Processing Sticker</arg>
-<arg>AND</arg>
-<arg>Get Taiwan Sticker Number</arg>
-</arguments>
-<kw name="Get Processing Sticker">
-<kw name="Get Matching Xpath Count" library="AppiumLibrary">
-<doc>Returns number of elements matching ``xpath``</doc>
-<arguments>
-<arg>//*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']</arg>
+<arg>mycat</arg>
 </arguments>
 <assign>
-<var>${X}</var>
+<var>${isCoinNotEnough}</var>
 </assign>
-<msg timestamp="20201123 04:44:48.575" level="INFO">${X} = 1</msg>
-<status status="PASS" starttime="20201123 04:44:46.053" endtime="20201123 04:44:48.575"></status>
-</kw>
-<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>//*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']</arg>
-<arg>timeout=${slowNetPeriod}</arg>
-<arg>error=Taiwanese sticker should be visible.</arg>
-</arguments>
-<status status="PASS" starttime="20201123 04:44:48.576" endtime="20201123 04:44:51.002"></status>
-</kw>
-<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
-<doc>Runs the specified keyword and retries if it fails.</doc>
-<arguments>
-<arg>5s</arg>
-<arg>0.5s</arg>
-<arg>Get Text</arg>
-<arg>//*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']</arg>
-</arguments>
-<assign>
-<var>${processing}</var>
-</assign>
-<kw name="Get Text" library="AppiumLibrary">
-<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
-<arguments>
-<arg>//*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']</arg>
-</arguments>
-<msg timestamp="20201123 04:44:53.130" level="INFO">Element '//*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']' text is '0' </msg>
-<status status="PASS" starttime="20201123 04:44:51.003" endtime="20201123 04:44:53.130"></status>
-</kw>
-<msg timestamp="20201123 04:44:53.130" level="INFO">${processing} = 0</msg>
-<status status="PASS" starttime="20201123 04:44:51.002" endtime="20201123 04:44:53.130"></status>
+<msg timestamp="20201123 22:24:03.474" level="INFO">${isCoinNotEnough} = True</msg>
+<status status="PASS" starttime="20201123 22:24:03.473" endtime="20201123 22:24:03.474"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
-<arg>${processing}!=0</arg>
-<arg>Refresh Management Page After Unlock Permission</arg>
+<arg>${isCoinNotEnough}</arg>
+<arg>Run Keywords</arg>
+<arg>Close Mycat VPN Connect And Close Apps</arg>
+<arg>AND</arg>
+<arg>Mycat purchase LINE 16000 coin</arg>
 </arguments>
-<status status="PASS" starttime="20201123 04:44:53.130" endtime="20201123 04:44:53.131"></status>
-</kw>
-<status status="PASS" starttime="20201123 04:44:46.053" endtime="20201123 04:44:53.131"></status>
-</kw>
-<kw name="Get Taiwan Sticker Number">
-<kw name="Get Matching Xpath Count" library="AppiumLibrary">
-<doc>Returns number of elements matching ``xpath``</doc>
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
 <arguments>
-<arg>//*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']</arg>
+<arg>Close Mycat VPN Connect And Close Apps</arg>
+<arg>AND</arg>
+<arg>Mycat purchase LINE 16000 coin</arg>
+</arguments>
+<kw name="Close Mycat VPN Connect And Close Apps" library="purchaseCoin">
+<kw name="Open VPN App">
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${homeKey}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:03.475" endtime="20201123 22:24:03.552"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>FlyVPN Should Exist</arg>
 </arguments>
 <assign>
-<var>${X}</var>
+<var>${AppExist}</var>
 </assign>
-<msg timestamp="20201123 04:44:54.985" level="INFO">
+<kw name="FlyVPN Should Exist">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@class ='android.widget.ImageView' and @content-desc ='FlyVPN']</arg>
+<arg>timeout=3s</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:03.553" endtime="20201123 22:24:05.215"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:03.553" endtime="20201123 22:24:05.215"></status>
+</kw>
+<msg timestamp="20201123 22:24:05.215" level="INFO">${AppExist} = True</msg>
+<status status="PASS" starttime="20201123 22:24:03.552" endtime="20201123 22:24:05.215"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${AppExist}</arg>
+<arg>Swipe</arg>
+<arg>400</arg>
+<arg>300</arg>
+<arg>100</arg>
+<arg>300</arg>
+<arg>500</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:05.215" endtime="20201123 22:24:05.216"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@class ='android.widget.TextView' or @class='android.widget.ImageView' and @content-desc ='FlyVPN']</arg>
+</arguments>
+<msg timestamp="20201123 22:24:05.217" level="INFO">Clicking element '//*[@class ='android.widget.TextView' or @class='android.widget.ImageView' and @content-desc ='FlyVPN']'.</msg>
+<status status="PASS" starttime="20201123 22:24:05.216" endtime="20201123 22:24:06.089"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:03.475" endtime="20201123 22:24:06.090"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Connect Button Should Connect</arg>
+</arguments>
+<assign>
+<var>${connectButton}</var>
+</assign>
+<kw name="Connect Button Should Connect">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20201123 22:24:12.375" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201123 22:24:11.378" endtime="20201123 22:24:12.375"></status>
+</kw>
+<msg timestamp="20201123 22:24:12.376" level="FAIL">Element locator '//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']' did not match any elements after 5 seconds</msg>
+<status status="FAIL" starttime="20201123 22:24:06.091" endtime="20201123 22:24:12.376"></status>
+</kw>
+<status status="FAIL" starttime="20201123 22:24:06.090" endtime="20201123 22:24:12.376"></status>
+</kw>
+<msg timestamp="20201123 22:24:12.376" level="INFO">${connectButton} = False</msg>
+<status status="PASS" starttime="20201123 22:24:06.090" endtime="20201123 22:24:12.376"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${connectButton}</arg>
+<arg>Click Element</arg>
+<arg>//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:12.376" endtime="20201123 22:24:12.377"></status>
+</kw>
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${appSwitchKey}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:12.377" endtime="20201123 22:24:12.435"></status>
+</kw>
+<kw name="${num} IN RANGE [ 9999 ]" type="for">
+<kw name="${num} = 0" type="foritem">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<assign>
+<var>${applicationExist}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:12.436" endtime="20201123 22:24:13.896"></status>
+</kw>
+<msg timestamp="20201123 22:24:13.897" level="INFO">${applicationExist} = True</msg>
+<status status="PASS" starttime="20201123 22:24:12.436" endtime="20201123 22:24:13.897"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>not ${applicationExist}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:13.897" endtime="20201123 22:24:13.897"></status>
+</kw>
+<kw name="Get Location" library="AppiumLibrary">
+<arguments>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+</arguments>
+<assign>
+<var>&amp;{location}</var>
+</assign>
+<msg timestamp="20201123 22:24:14.047" level="INFO">&amp;{location} = { x=112 | y=498 }</msg>
+<status status="PASS" starttime="20201123 22:24:13.897" endtime="20201123 22:24:14.047"></status>
+</kw>
+<kw name="Swipe" library="AppiumLibrary">
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<arguments>
+<arg>${location.x}</arg>
+<arg>${location.y}</arg>
+<arg>719</arg>
+<arg>${location.y}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:14.047" endtime="20201123 22:24:14.928"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:12.436" endtime="20201123 22:24:14.928"></status>
+</kw>
+<kw name="${num} = 1" type="foritem">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<assign>
+<var>${applicationExist}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:14.928" endtime="20201123 22:24:15.119"></status>
+</kw>
+<msg timestamp="20201123 22:24:15.119" level="INFO">${applicationExist} = True</msg>
+<status status="PASS" starttime="20201123 22:24:14.928" endtime="20201123 22:24:15.119"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>not ${applicationExist}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:15.120" endtime="20201123 22:24:15.120"></status>
+</kw>
+<kw name="Get Location" library="AppiumLibrary">
+<arguments>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+</arguments>
+<assign>
+<var>&amp;{location}</var>
+</assign>
+<msg timestamp="20201123 22:24:15.256" level="INFO">&amp;{location} = { x=284 | y=498 }</msg>
+<status status="PASS" starttime="20201123 22:24:15.120" endtime="20201123 22:24:15.256"></status>
+</kw>
+<kw name="Swipe" library="AppiumLibrary">
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<arguments>
+<arg>${location.x}</arg>
+<arg>${location.y}</arg>
+<arg>719</arg>
+<arg>${location.y}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:15.256" endtime="20201123 22:24:16.133"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:14.928" endtime="20201123 22:24:16.133"></status>
+</kw>
+<kw name="${num} = 2" type="foritem">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<assign>
+<var>${applicationExist}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20201123 22:24:21.320" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201123 22:24:19.201" endtime="20201123 22:24:21.320"></status>
+</kw>
+<msg timestamp="20201123 22:24:21.321" level="FAIL">Element locator '//*[@resource-id='com.android.systemui:id/title']' did not match any elements after 3 seconds</msg>
+<status status="FAIL" starttime="20201123 22:24:16.134" endtime="20201123 22:24:21.321"></status>
+</kw>
+<msg timestamp="20201123 22:24:21.321" level="INFO">${applicationExist} = False</msg>
+<status status="PASS" starttime="20201123 22:24:16.134" endtime="20201123 22:24:21.321"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>not ${applicationExist}</arg>
+</arguments>
+<msg timestamp="20201123 22:24:21.322" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20201123 22:24:21.321" endtime="20201123 22:24:21.322"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:16.133" endtime="20201123 22:24:21.322"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:12.436" endtime="20201123 22:24:21.322"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:03.474" endtime="20201123 22:24:21.322"></status>
+</kw>
+<kw name="Mycat purchase LINE 16000 coin" library="purchaseCoin">
+<kw name="Open LINE App" library="purchaseCoin">
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${homeKey}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:21.323" endtime="20201123 22:24:21.402"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and @content-desc ='LINE']</arg>
+</arguments>
+<assign>
+<var>${AppExist}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and @content-desc ='LINE']</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:21.403" endtime="20201123 22:24:22.127"></status>
+</kw>
+<msg timestamp="20201123 22:24:22.128" level="INFO">${AppExist} = True</msg>
+<status status="PASS" starttime="20201123 22:24:21.402" endtime="20201123 22:24:22.128"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${AppExist}</arg>
+<arg>Swipe</arg>
+<arg>400</arg>
+<arg>300</arg>
+<arg>100</arg>
+<arg>300</arg>
+<arg>500</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:22.128" endtime="20201123 22:24:22.128"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and @content-desc ='LINE']</arg>
+</arguments>
+<msg timestamp="20201123 22:24:22.130" level="INFO">Clicking element '//*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and @content-desc ='LINE']'.</msg>
+<status status="PASS" starttime="20201123 22:24:22.128" endtime="20201123 22:24:22.787"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:21.323" endtime="20201123 22:24:22.787"></status>
+</kw>
+<kw name="Go To The Coin Page" library="purchaseCoin">
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:22.788" endtime="20201123 22:24:29.202"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:24:29.203" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']'.</msg>
+<status status="PASS" starttime="20201123 22:24:29.202" endtime="20201123 22:24:30.033"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:22.788" endtime="20201123 22:24:30.034"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@content-desc='設定 按鍵']//*[@resource-id='jp.naver.line.android:id/header_button_img']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Setting button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:30.034" endtime="20201123 22:24:31.876"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:24:31.878" level="INFO">Clicking element '//*[@content-desc='設定 按鍵']//*[@resource-id='jp.naver.line.android:id/header_button_img']'.</msg>
+<status status="PASS" starttime="20201123 22:24:31.877" endtime="20201123 22:24:32.728"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:30.034" endtime="20201123 22:24:32.728"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='代幣']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Coin field should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:32.729" endtime="20201123 22:24:34.827"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:24:34.829" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='代幣']'.</msg>
+<status status="PASS" starttime="20201123 22:24:34.827" endtime="20201123 22:24:35.440"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:32.729" endtime="20201123 22:24:35.441"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:22.788" endtime="20201123 22:24:35.441"></status>
+</kw>
+<kw name="Purchase 16000 Coin" library="purchaseCoin">
+<arguments>
+<arg>mycat</arg>
+</arguments>
+<kw name="${i} IN RANGE [ 20 ]" type="for">
+<kw name="${i} = 0" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:35.442" endtime="20201123 22:24:37.065"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:24:37.067" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:24:37.066" endtime="20201123 22:24:37.457"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:35.442" endtime="20201123 22:24:37.457"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:37.458" endtime="20201123 22:24:39.035"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:24:39.037" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:24:39.035" endtime="20201123 22:24:39.541"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:37.458" endtime="20201123 22:24:39.541"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:39.542" endtime="20201123 22:24:44.087"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:24:44.089" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:24:44.087" endtime="20201123 22:24:44.365"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:39.542" endtime="20201123 22:24:44.366"></status>
+</kw>
+<msg timestamp="20201123 22:24:44.366" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:24:39.541" endtime="20201123 22:24:44.366"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:44.366" endtime="20201123 22:24:44.367"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:44.368" endtime="20201123 22:24:50.881"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:50.881" endtime="20201123 22:24:50.993"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:44.367" endtime="20201123 22:24:50.993"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:50.993" endtime="20201123 22:24:50.994"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:35.442" endtime="20201123 22:24:50.994"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:35.442" endtime="20201123 22:24:50.994"></status>
+</kw>
+<kw name="${i} = 1" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:50.996" endtime="20201123 22:24:56.421"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:24:56.424" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:24:56.422" endtime="20201123 22:24:57.495"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:50.995" endtime="20201123 22:24:57.495"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:57.496" endtime="20201123 22:24:59.012"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:24:59.014" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:24:59.013" endtime="20201123 22:24:59.427"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:57.495" endtime="20201123 22:24:59.427"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:24:59.428" endtime="20201123 22:25:03.790"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:25:03.793" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:25:03.790" endtime="20201123 22:25:03.966"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:59.428" endtime="20201123 22:25:03.967"></status>
+</kw>
+<msg timestamp="20201123 22:25:03.967" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:24:59.427" endtime="20201123 22:25:03.967"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:03.967" endtime="20201123 22:25:03.967"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:03.968" endtime="20201123 22:25:10.008"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:10.009" endtime="20201123 22:25:10.105"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:03.968" endtime="20201123 22:25:10.105"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:10.105" endtime="20201123 22:25:10.114"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:50.995" endtime="20201123 22:25:10.114"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:50.995" endtime="20201123 22:25:10.114"></status>
+</kw>
+<kw name="${i} = 2" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:10.116" endtime="20201123 22:25:15.616"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:25:15.618" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:25:15.617" endtime="20201123 22:25:15.977"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:10.115" endtime="20201123 22:25:15.978"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:15.978" endtime="20201123 22:25:17.440"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:25:17.442" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:25:17.441" endtime="20201123 22:25:17.936"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:15.978" endtime="20201123 22:25:17.937"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:17.938" endtime="20201123 22:25:22.954"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:25:22.956" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:25:22.954" endtime="20201123 22:25:23.200"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:17.937" endtime="20201123 22:25:23.200"></status>
+</kw>
+<msg timestamp="20201123 22:25:23.201" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:25:17.937" endtime="20201123 22:25:23.201"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:23.201" endtime="20201123 22:25:23.202"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:23.202" endtime="20201123 22:25:28.751"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:28.752" endtime="20201123 22:25:28.851"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:23.202" endtime="20201123 22:25:28.852"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:28.852" endtime="20201123 22:25:28.853"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:10.115" endtime="20201123 22:25:28.853"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:10.115" endtime="20201123 22:25:28.853"></status>
+</kw>
+<kw name="${i} = 3" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:28.854" endtime="20201123 22:25:34.907"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:25:34.909" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:25:34.907" endtime="20201123 22:25:35.666"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:28.853" endtime="20201123 22:25:35.666"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:35.667" endtime="20201123 22:25:37.028"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:25:37.030" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:25:37.028" endtime="20201123 22:25:37.503"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:35.666" endtime="20201123 22:25:37.503"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:37.504" endtime="20201123 22:25:41.464"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:25:41.465" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:25:41.464" endtime="20201123 22:25:41.628"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:37.503" endtime="20201123 22:25:41.628"></status>
+</kw>
+<msg timestamp="20201123 22:25:41.629" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:25:37.503" endtime="20201123 22:25:41.629"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:41.629" endtime="20201123 22:25:41.629"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:41.630" endtime="20201123 22:25:47.634"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:47.634" endtime="20201123 22:25:47.719"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:41.629" endtime="20201123 22:25:47.719"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:47.719" endtime="20201123 22:25:47.728"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:28.853" endtime="20201123 22:25:47.729"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:28.853" endtime="20201123 22:25:47.729"></status>
+</kw>
+<kw name="${i} = 4" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:47.730" endtime="20201123 22:25:53.234"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:25:53.236" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:25:53.235" endtime="20201123 22:25:53.639"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:47.730" endtime="20201123 22:25:53.640"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:53.640" endtime="20201123 22:25:55.005"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:25:55.008" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:25:55.006" endtime="20201123 22:25:55.372"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:53.640" endtime="20201123 22:25:55.372"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:25:55.374" endtime="20201123 22:26:00.666"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:26:00.668" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:26:00.666" endtime="20201123 22:26:00.862"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:55.373" endtime="20201123 22:26:00.862"></status>
+</kw>
+<msg timestamp="20201123 22:26:00.862" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:25:55.372" endtime="20201123 22:26:00.862"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:00.863" endtime="20201123 22:26:00.863"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:00.864" endtime="20201123 22:26:06.715"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:06.715" endtime="20201123 22:26:06.808"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:00.863" endtime="20201123 22:26:06.808"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:06.809" endtime="20201123 22:26:06.814"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:47.729" endtime="20201123 22:26:06.815"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:25:47.729" endtime="20201123 22:26:06.815"></status>
+</kw>
+<kw name="${i} = 5" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:06.816" endtime="20201123 22:26:12.457"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:26:12.458" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:26:12.457" endtime="20201123 22:26:12.818"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:06.816" endtime="20201123 22:26:12.818"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:12.819" endtime="20201123 22:26:14.215"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:26:14.217" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:26:14.216" endtime="20201123 22:26:14.554"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:12.819" endtime="20201123 22:26:14.554"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:14.556" endtime="20201123 22:26:18.640"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:26:18.642" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:26:18.641" endtime="20201123 22:26:18.867"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:14.555" endtime="20201123 22:26:18.867"></status>
+</kw>
+<msg timestamp="20201123 22:26:18.867" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:26:14.555" endtime="20201123 22:26:18.868"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:18.868" endtime="20201123 22:26:18.868"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:18.869" endtime="20201123 22:26:24.388"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:24.389" endtime="20201123 22:26:24.478"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:18.868" endtime="20201123 22:26:24.478"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:24.478" endtime="20201123 22:26:24.486"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:06.815" endtime="20201123 22:26:24.487"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:06.815" endtime="20201123 22:26:24.487"></status>
+</kw>
+<kw name="${i} = 6" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:24.488" endtime="20201123 22:26:30.169"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:26:30.172" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:26:30.169" endtime="20201123 22:26:30.512"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:24.487" endtime="20201123 22:26:30.512"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:30.513" endtime="20201123 22:26:31.892"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:26:31.894" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:26:31.892" endtime="20201123 22:26:32.267"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:30.512" endtime="20201123 22:26:32.267"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:32.268" endtime="20201123 22:26:37.130"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:26:37.132" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:26:37.131" endtime="20201123 22:26:37.392"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:32.268" endtime="20201123 22:26:37.392"></status>
+</kw>
+<msg timestamp="20201123 22:26:37.392" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:26:32.268" endtime="20201123 22:26:37.392"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:37.392" endtime="20201123 22:26:37.393"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:37.393" endtime="20201123 22:26:43.713"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:43.713" endtime="20201123 22:26:43.795"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:37.393" endtime="20201123 22:26:43.795"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:43.795" endtime="20201123 22:26:43.805"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:24.487" endtime="20201123 22:26:43.805"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:24.487" endtime="20201123 22:26:43.805"></status>
+</kw>
+<kw name="${i} = 7" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:43.808" endtime="20201123 22:26:49.190"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:26:49.193" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:26:49.190" endtime="20201123 22:26:50.078"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:43.806" endtime="20201123 22:26:50.078"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:50.079" endtime="20201123 22:26:51.495"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:26:51.497" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:26:51.495" endtime="20201123 22:26:51.835"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:50.078" endtime="20201123 22:26:51.835"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:51.836" endtime="20201123 22:26:57.100"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:26:57.102" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:26:57.101" endtime="20201123 22:26:57.325"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:51.836" endtime="20201123 22:26:57.325"></status>
+</kw>
+<msg timestamp="20201123 22:26:57.325" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:26:51.835" endtime="20201123 22:26:57.326"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:57.326" endtime="20201123 22:26:57.326"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:26:57.327" endtime="20201123 22:27:03.570"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:03.570" endtime="20201123 22:27:03.657"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:57.326" endtime="20201123 22:27:03.657"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:03.657" endtime="20201123 22:27:03.667"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:43.806" endtime="20201123 22:27:03.668"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:26:43.806" endtime="20201123 22:27:03.668"></status>
+</kw>
+<kw name="${i} = 8" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:03.669" endtime="20201123 22:27:08.938"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:27:08.940" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:27:08.938" endtime="20201123 22:27:09.425"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:03.669" endtime="20201123 22:27:09.425"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:09.426" endtime="20201123 22:27:10.933"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:27:10.935" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:27:10.933" endtime="20201123 22:27:11.315"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:09.425" endtime="20201123 22:27:11.315"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:11.317" endtime="20201123 22:27:15.685"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:27:15.687" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:27:15.685" endtime="20201123 22:27:15.940"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:11.317" endtime="20201123 22:27:15.940"></status>
+</kw>
+<msg timestamp="20201123 22:27:15.940" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:27:11.315" endtime="20201123 22:27:15.940"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:15.940" endtime="20201123 22:27:15.941"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:15.941" endtime="20201123 22:27:21.383"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:21.384" endtime="20201123 22:27:21.463"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:15.941" endtime="20201123 22:27:21.463"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:21.463" endtime="20201123 22:27:21.472"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:03.668" endtime="20201123 22:27:21.473"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:03.668" endtime="20201123 22:27:21.473"></status>
+</kw>
+<kw name="${i} = 9" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:21.474" endtime="20201123 22:27:26.815"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:27:26.817" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:27:26.816" endtime="20201123 22:27:27.237"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:21.473" endtime="20201123 22:27:27.238"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:27.238" endtime="20201123 22:27:29.289"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:27:29.291" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:27:29.289" endtime="20201123 22:27:29.988"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:27.238" endtime="20201123 22:27:29.989"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:29.990" endtime="20201123 22:27:34.520"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:27:34.522" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:27:34.521" endtime="20201123 22:27:34.747"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:29.989" endtime="20201123 22:27:34.748"></status>
+</kw>
+<msg timestamp="20201123 22:27:34.748" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:27:29.989" endtime="20201123 22:27:34.748"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:34.748" endtime="20201123 22:27:34.749"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:34.750" endtime="20201123 22:27:40.032"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:40.032" endtime="20201123 22:27:40.117"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:34.749" endtime="20201123 22:27:40.117"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:40.117" endtime="20201123 22:27:40.126"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:21.473" endtime="20201123 22:27:40.126"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:21.473" endtime="20201123 22:27:40.126"></status>
+</kw>
+<kw name="${i} = 10" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:40.128" endtime="20201123 22:27:45.527"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:27:45.529" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:27:45.528" endtime="20201123 22:27:45.854"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:40.127" endtime="20201123 22:27:45.854"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:45.855" endtime="20201123 22:27:47.235"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:27:47.237" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:27:47.236" endtime="20201123 22:27:47.901"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:45.854" endtime="20201123 22:27:47.902"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:47.903" endtime="20201123 22:27:52.134"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:27:52.136" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:27:52.135" endtime="20201123 22:27:52.370"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:47.902" endtime="20201123 22:27:52.370"></status>
+</kw>
+<msg timestamp="20201123 22:27:52.371" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:27:47.902" endtime="20201123 22:27:52.371"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:52.371" endtime="20201123 22:27:52.371"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:52.372" endtime="20201123 22:27:57.530"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:57.531" endtime="20201123 22:27:57.615"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:52.371" endtime="20201123 22:27:57.615"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:57.615" endtime="20201123 22:27:57.624"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:40.127" endtime="20201123 22:27:57.624"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:40.127" endtime="20201123 22:27:57.624"></status>
+</kw>
+<kw name="${i} = 11" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:27:57.625" endtime="20201123 22:28:03.598"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:28:03.600" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:28:03.598" endtime="20201123 22:28:03.984"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:57.625" endtime="20201123 22:28:03.985"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:03.985" endtime="20201123 22:28:05.369"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:28:05.371" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:28:05.370" endtime="20201123 22:28:05.666"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:03.985" endtime="20201123 22:28:05.667"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:05.668" endtime="20201123 22:28:10.250"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:28:10.252" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:28:10.250" endtime="20201123 22:28:10.471"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:05.667" endtime="20201123 22:28:10.471"></status>
+</kw>
+<msg timestamp="20201123 22:28:10.471" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:28:05.667" endtime="20201123 22:28:10.472"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:10.472" endtime="20201123 22:28:10.472"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:10.473" endtime="20201123 22:28:15.144"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:15.144" endtime="20201123 22:28:15.242"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:10.472" endtime="20201123 22:28:15.242"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:15.242" endtime="20201123 22:28:15.251"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:57.625" endtime="20201123 22:28:15.251"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:27:57.624" endtime="20201123 22:28:15.252"></status>
+</kw>
+<kw name="${i} = 12" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:15.253" endtime="20201123 22:28:20.511"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:28:20.513" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:28:20.511" endtime="20201123 22:28:20.931"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:15.252" endtime="20201123 22:28:20.931"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:20.933" endtime="20201123 22:28:22.277"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:28:22.278" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:28:22.277" endtime="20201123 22:28:22.672"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:20.932" endtime="20201123 22:28:22.672"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:22.673" endtime="20201123 22:28:26.969"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:28:26.972" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:28:26.971" endtime="20201123 22:28:27.199"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:22.673" endtime="20201123 22:28:27.200"></status>
+</kw>
+<msg timestamp="20201123 22:28:27.200" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:28:22.672" endtime="20201123 22:28:27.200"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:27.200" endtime="20201123 22:28:27.201"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:27.201" endtime="20201123 22:28:32.359"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:32.359" endtime="20201123 22:28:32.443"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:27.201" endtime="20201123 22:28:32.443"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:32.444" endtime="20201123 22:28:32.454"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:15.252" endtime="20201123 22:28:32.454"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:15.252" endtime="20201123 22:28:32.454"></status>
+</kw>
+<kw name="${i} = 13" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:32.455" endtime="20201123 22:28:37.648"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:28:37.650" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:28:37.649" endtime="20201123 22:28:38.159"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:32.455" endtime="20201123 22:28:38.159"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:38.160" endtime="20201123 22:28:39.830"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:28:39.832" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:28:39.830" endtime="20201123 22:28:40.321"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:38.159" endtime="20201123 22:28:40.321"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:40.322" endtime="20201123 22:28:44.505"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:28:44.507" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:28:44.506" endtime="20201123 22:28:44.659"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:40.321" endtime="20201123 22:28:44.659"></status>
+</kw>
+<msg timestamp="20201123 22:28:44.660" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:28:40.321" endtime="20201123 22:28:44.660"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:44.660" endtime="20201123 22:28:44.660"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:44.661" endtime="20201123 22:28:49.863"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:49.863" endtime="20201123 22:28:49.947"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:44.660" endtime="20201123 22:28:49.947"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:49.947" endtime="20201123 22:28:49.956"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:32.454" endtime="20201123 22:28:49.957"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:32.454" endtime="20201123 22:28:49.957"></status>
+</kw>
+<kw name="${i} = 14" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:49.958" endtime="20201123 22:28:55.440"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:28:55.442" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:28:55.440" endtime="20201123 22:28:55.882"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:49.958" endtime="20201123 22:28:55.883"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:55.883" endtime="20201123 22:28:57.521"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:28:57.523" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:28:57.521" endtime="20201123 22:28:57.899"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:55.883" endtime="20201123 22:28:57.899"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:28:57.900" endtime="20201123 22:29:02.602"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:29:02.604" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:29:02.602" endtime="20201123 22:29:02.823"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:57.900" endtime="20201123 22:29:02.823"></status>
+</kw>
+<msg timestamp="20201123 22:29:02.824" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:28:57.899" endtime="20201123 22:29:02.824"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:02.824" endtime="20201123 22:29:02.824"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:02.825" endtime="20201123 22:29:07.756"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:07.757" endtime="20201123 22:29:07.839"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:02.824" endtime="20201123 22:29:07.840"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:07.840" endtime="20201123 22:29:07.849"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:49.957" endtime="20201123 22:29:07.850"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:28:49.957" endtime="20201123 22:29:07.850"></status>
+</kw>
+<kw name="${i} = 15" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:07.851" endtime="20201123 22:29:13.256"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:29:13.258" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:29:13.256" endtime="20201123 22:29:13.719"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:07.851" endtime="20201123 22:29:13.719"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:13.720" endtime="20201123 22:29:15.312"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:29:15.314" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:29:15.312" endtime="20201123 22:29:15.620"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:13.720" endtime="20201123 22:29:15.620"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:15.621" endtime="20201123 22:29:20.225"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:29:20.227" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:29:20.226" endtime="20201123 22:29:20.467"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:15.621" endtime="20201123 22:29:20.467"></status>
+</kw>
+<msg timestamp="20201123 22:29:20.468" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:29:15.620" endtime="20201123 22:29:20.468"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:20.468" endtime="20201123 22:29:20.468"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:20.469" endtime="20201123 22:29:25.409"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:25.409" endtime="20201123 22:29:25.504"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:20.469" endtime="20201123 22:29:25.504"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:25.504" endtime="20201123 22:29:25.513"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:07.851" endtime="20201123 22:29:25.513"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:07.850" endtime="20201123 22:29:25.513"></status>
+</kw>
+<kw name="${i} = 16" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:25.514" endtime="20201123 22:29:30.689"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:29:30.691" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:29:30.689" endtime="20201123 22:29:31.139"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:25.514" endtime="20201123 22:29:31.140"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:31.140" endtime="20201123 22:29:32.677"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:29:32.678" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:29:32.677" endtime="20201123 22:29:33.055"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:31.140" endtime="20201123 22:29:33.055"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:33.056" endtime="20201123 22:29:37.407"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:29:37.408" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:29:37.407" endtime="20201123 22:29:37.636"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:33.056" endtime="20201123 22:29:37.636"></status>
+</kw>
+<msg timestamp="20201123 22:29:37.636" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:29:33.055" endtime="20201123 22:29:37.636"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:37.636" endtime="20201123 22:29:37.637"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:37.637" endtime="20201123 22:29:43.690"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:43.691" endtime="20201123 22:29:43.773"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:37.637" endtime="20201123 22:29:43.773"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:43.774" endtime="20201123 22:29:43.783"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:25.514" endtime="20201123 22:29:43.784"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:25.514" endtime="20201123 22:29:43.784"></status>
+</kw>
+<kw name="${i} = 17" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:43.785" endtime="20201123 22:29:49.456"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:29:49.458" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:29:49.456" endtime="20201123 22:29:49.818"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:43.784" endtime="20201123 22:29:49.818"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:49.819" endtime="20201123 22:29:51.198"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:29:51.199" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:29:51.198" endtime="20201123 22:29:51.574"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:49.818" endtime="20201123 22:29:51.575"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:51.576" endtime="20201123 22:29:56.343"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:29:56.345" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:29:56.343" endtime="20201123 22:29:57.051"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:51.575" endtime="20201123 22:29:57.051"></status>
+</kw>
+<msg timestamp="20201123 22:29:57.051" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:29:51.575" endtime="20201123 22:29:57.051"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:57.051" endtime="20201123 22:29:57.052"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:29:57.052" endtime="20201123 22:30:03.158"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:03.158" endtime="20201123 22:30:03.239"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:57.052" endtime="20201123 22:30:03.241"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:03.241" endtime="20201123 22:30:03.250"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:43.784" endtime="20201123 22:30:03.250"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:29:43.784" endtime="20201123 22:30:03.251"></status>
+</kw>
+<kw name="${i} = 18" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:03.252" endtime="20201123 22:30:08.298"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:30:08.300" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:30:08.299" endtime="20201123 22:30:09.150"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:03.251" endtime="20201123 22:30:09.150"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:09.151" endtime="20201123 22:30:11.673"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:30:11.675" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:30:11.673" endtime="20201123 22:30:12.037"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:09.151" endtime="20201123 22:30:12.037"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:12.038" endtime="20201123 22:30:16.210"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:30:16.211" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:30:16.211" endtime="20201123 22:30:16.383"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:12.037" endtime="20201123 22:30:16.384"></status>
+</kw>
+<msg timestamp="20201123 22:30:16.384" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:30:12.037" endtime="20201123 22:30:16.384"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:16.384" endtime="20201123 22:30:16.385"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:16.385" endtime="20201123 22:30:22.508"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:22.508" endtime="20201123 22:30:22.601"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:16.385" endtime="20201123 22:30:22.602"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:22.602" endtime="20201123 22:30:22.611"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:03.251" endtime="20201123 22:30:22.612"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:03.251" endtime="20201123 22:30:22.612"></status>
+</kw>
+<kw name="${i} = 19" type="foritem">
+<kw name="Purchase 800 coin" library="purchaseCoin">
+<arguments>
+<arg>${user}</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:22.613" endtime="20201123 22:30:27.060"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:30:27.062" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201123 22:30:27.060" endtime="20201123 22:30:27.417"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:22.612" endtime="20201123 22:30:27.417"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']</arg>
+<arg>timeout=30s</arg>
+<arg>error=NT$390 button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:27.418" endtime="20201123 22:30:28.915"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:30:28.916" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/coin_purchase_row_btn_purchase' and @text='NT$390']'.</msg>
+<status status="PASS" starttime="20201123 22:30:28.915" endtime="20201123 22:30:29.239"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:27.418" endtime="20201123 22:30:29.240"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<assign>
+<var>${correctPurchase}</var>
+</assign>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']</arg>
+<arg>timeout=30s</arg>
+<arg>error='一鍵購買' button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:29.241" endtime="20201123 22:30:34.147"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201123 22:30:34.149" level="INFO">Clicking element '//*[@resource-id='com.android.vending:id/0_resource_name_obfuscated' and @text='一鍵購買']'.</msg>
+<status status="PASS" starttime="20201123 22:30:34.148" endtime="20201123 22:30:34.356"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:29.240" endtime="20201123 22:30:34.356"></status>
+</kw>
+<msg timestamp="20201123 22:30:34.356" level="INFO">${correctPurchase} = True</msg>
+<status status="PASS" starttime="20201123 22:30:29.240" endtime="20201123 22:30:34.356"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${correctPurchase}</arg>
+<arg>Run Keywords</arg>
+<arg>Occur Error When Purchasing Coin</arg>
+<arg>AND</arg>
+<arg>Return From Keyword</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:34.357" endtime="20201123 22:30:34.357"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='付款成功']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Purchase should be success.</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:34.357" endtime="20201123 22:30:39.941"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:39.941" endtime="20201123 22:30:40.026"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:34.357" endtime="20201123 22:30:40.026"></status>
+</kw>
+<kw name="Purchase Coin Record" library="AppiumLibrary">
+<arguments>
+<arg>${user}</arg>
+<arg>800</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:40.027" endtime="20201123 22:30:40.036"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:22.612" endtime="20201123 22:30:40.036"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:22.612" endtime="20201123 22:30:40.036"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:35.441" endtime="20201123 22:30:40.036"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:35.441" endtime="20201123 22:30:40.036"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:21.322" endtime="20201123 22:30:40.037"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:03.474" endtime="20201123 22:30:40.037"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:03.474" endtime="20201123 22:30:40.037"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:24:03.472" endtime="20201123 22:30:40.037" critical="yes"></status>
+</test>
+<kw name="Close All Application And Back To Home" type="teardown">
+<kw name="Open VPN App">
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${homeKey}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:40.038" endtime="20201123 22:30:40.133"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>FlyVPN Should Exist</arg>
+</arguments>
+<assign>
+<var>${AppExist}</var>
+</assign>
+<kw name="FlyVPN Should Exist">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@class ='android.widget.ImageView' and @content-desc ='FlyVPN']</arg>
+<arg>timeout=3s</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:40.133" endtime="20201123 22:30:41.232"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:40.133" endtime="20201123 22:30:41.233"></status>
+</kw>
+<msg timestamp="20201123 22:30:41.233" level="INFO">${AppExist} = True</msg>
+<status status="PASS" starttime="20201123 22:30:40.133" endtime="20201123 22:30:41.233"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${AppExist}</arg>
+<arg>Swipe</arg>
+<arg>400</arg>
+<arg>300</arg>
+<arg>100</arg>
+<arg>300</arg>
+<arg>500</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:41.233" endtime="20201123 22:30:41.233"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@class ='android.widget.TextView' or @class='android.widget.ImageView' and @content-desc ='FlyVPN']</arg>
+</arguments>
+<msg timestamp="20201123 22:30:41.235" level="INFO">Clicking element '//*[@class ='android.widget.TextView' or @class='android.widget.ImageView' and @content-desc ='FlyVPN']'.</msg>
+<status status="PASS" starttime="20201123 22:30:41.234" endtime="20201123 22:30:41.857"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:40.038" endtime="20201123 22:30:41.857"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Connect Button Should Connect</arg>
+</arguments>
+<assign>
+<var>${connectButton}</var>
+</assign>
+<kw name="Connect Button Should Connect">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20201123 22:30:47.981" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-3.png"&gt;&lt;img src="appium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201123 22:30:47.082" endtime="20201123 22:30:47.981"></status>
+</kw>
+<msg timestamp="20201123 22:30:47.981" level="FAIL">Element locator '//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']' did not match any elements after 5 seconds</msg>
+<status status="FAIL" starttime="20201123 22:30:41.859" endtime="20201123 22:30:47.981"></status>
+</kw>
+<status status="FAIL" starttime="20201123 22:30:41.859" endtime="20201123 22:30:47.982"></status>
+</kw>
+<msg timestamp="20201123 22:30:47.982" level="INFO">${connectButton} = False</msg>
+<status status="PASS" starttime="20201123 22:30:41.857" endtime="20201123 22:30:47.982"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${connectButton}</arg>
+<arg>Click Element</arg>
+<arg>//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:47.982" endtime="20201123 22:30:47.982"></status>
+</kw>
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${appSwitchKey}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:47.982" endtime="20201123 22:30:48.008"></status>
+</kw>
+<kw name="${num} IN RANGE [ 9999 ]" type="for">
+<kw name="${num} = 0" type="foritem">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=5s</arg>
+<arg>error=</arg>
+</arguments>
+<assign>
+<var>${applicationExist}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=5s</arg>
+<arg>error=</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:48.009" endtime="20201123 22:30:49.399"></status>
+</kw>
+<msg timestamp="20201123 22:30:49.399" level="INFO">${applicationExist} = True</msg>
+<status status="PASS" starttime="20201123 22:30:48.009" endtime="20201123 22:30:49.399"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>not ${applicationExist}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:49.399" endtime="20201123 22:30:49.400"></status>
+</kw>
+<kw name="Get Location" library="AppiumLibrary">
+<arguments>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+</arguments>
+<assign>
+<var>&amp;{location}</var>
+</assign>
+<msg timestamp="20201123 22:30:49.520" level="INFO">&amp;{location} = { x=112 | y=498 }</msg>
+<status status="PASS" starttime="20201123 22:30:49.400" endtime="20201123 22:30:49.521"></status>
+</kw>
+<kw name="Swipe" library="AppiumLibrary">
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<arguments>
+<arg>${location.x}</arg>
+<arg>${location.y}</arg>
+<arg>719</arg>
+<arg>${location.y}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:49.521" endtime="20201123 22:30:50.373"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:48.009" endtime="20201123 22:30:50.374"></status>
+</kw>
+<kw name="${num} = 1" type="foritem">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=5s</arg>
+<arg>error=</arg>
+</arguments>
+<assign>
+<var>${applicationExist}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=5s</arg>
+<arg>error=</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:50.374" endtime="20201123 22:30:50.578"></status>
+</kw>
+<msg timestamp="20201123 22:30:50.579" level="INFO">${applicationExist} = True</msg>
+<status status="PASS" starttime="20201123 22:30:50.374" endtime="20201123 22:30:50.579"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>not ${applicationExist}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:50.579" endtime="20201123 22:30:50.579"></status>
+</kw>
+<kw name="Get Location" library="AppiumLibrary">
+<arguments>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+</arguments>
+<assign>
+<var>&amp;{location}</var>
+</assign>
+<msg timestamp="20201123 22:30:50.676" level="INFO">&amp;{location} = { x=284 | y=498 }</msg>
+<status status="PASS" starttime="20201123 22:30:50.580" endtime="20201123 22:30:50.676"></status>
+</kw>
+<kw name="Swipe" library="AppiumLibrary">
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<arguments>
+<arg>${location.x}</arg>
+<arg>${location.y}</arg>
+<arg>719</arg>
+<arg>${location.y}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:50.676" endtime="20201123 22:30:51.538"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:50.374" endtime="20201123 22:30:51.538"></status>
+</kw>
+<kw name="${num} = 2" type="foritem">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=5s</arg>
+<arg>error=</arg>
+</arguments>
+<assign>
+<var>${applicationExist}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='com.android.systemui:id/title']</arg>
+<arg>timeout=5s</arg>
+<arg>error=</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20201123 22:30:58.662" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-4.png"&gt;&lt;img src="appium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201123 22:30:56.757" endtime="20201123 22:30:58.662"></status>
+</kw>
+<msg timestamp="20201123 22:30:58.663" level="FAIL">Element locator '//*[@resource-id='com.android.systemui:id/title']' did not match any elements after 5 seconds</msg>
+<status status="FAIL" starttime="20201123 22:30:51.539" endtime="20201123 22:30:58.663"></status>
+</kw>
+<msg timestamp="20201123 22:30:58.663" level="INFO">${applicationExist} = False</msg>
+<status status="PASS" starttime="20201123 22:30:51.539" endtime="20201123 22:30:58.663"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>not ${applicationExist}</arg>
+</arguments>
+<msg timestamp="20201123 22:30:58.664" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20201123 22:30:58.664" endtime="20201123 22:30:58.664"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:51.538" endtime="20201123 22:30:58.664"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:48.008" endtime="20201123 22:30:58.665"></status>
+</kw>
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${homeKey}</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:58.665" endtime="20201123 22:30:58.710"></status>
+</kw>
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>26</arg>
+</arguments>
+<status status="PASS" starttime="20201123 22:30:58.710" endtime="20201123 22:30:58.746"></status>
+</kw>
+<kw name="Close All Applications" library="AppiumLibrary">
+<doc>Closes all open applications.</doc>
+<status status="PASS" starttime="20201123 22:30:58.747" endtime="20201123 22:30:58.942"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:30:40.038" endtime="20201123 22:30:58.942"></status>
+</kw>
+<status status="PASS" starttime="20201123 22:23:24.010" endtime="20201123 22:30:58.942"></status>
+</suite>
+<status status="PASS" starttime="20201123 22:23:24.008" endtime="20201123 22:30:58.944"></status>
+</suite>
+<status status="PASS" starttime="20201123 22:23:24.006" endtime="20201123 22:30:58.945"></status>
+</suite>
+<status status="PASS" starttime="20201123 22:23:23.989" endtime="20201123 22:30:58.946"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="AutoSSS">AutoSSS</stat>
+<stat pass="1" fail="0" id="s1-s1" name="RobotTests">AutoSSS.RobotTests</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="Regression Test">AutoSSS.RobotTests.Regression Test</stat>
+<stat pass="1" fail="0" id="s1-s1-s1-s1" name="Mycat">AutoSSS.RobotTests.Regression Test.Mycat</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
