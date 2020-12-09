@@ -49,8 +49,8 @@ Restore Mycat LINE
 *** Keywords ***
 Open Chrome
     [Documentation]    Opens the calculator app with a new appium session.
-    Open Application    http://localhost:4723/wd/hub    platformName=Android    platformVersion=9    alias=MyChrome1
-    ...    deviceName=${hauweiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
+    Open Application    http://localhost:4724/wd/hub    platformName=Android    platformVersion=8.1.0    alias=MyChrome1
+    ...    deviceName=${redmiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
     Go To Url    https://mycat.tw/goadmin.php
     Switch To Context    NATIVE_APP
     Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
@@ -63,9 +63,9 @@ Open Chrome
 
 Delete All User By Open LINE
     Press Keycode    ${homeKey}
-    ${AppExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=(//*[@class ='android.widget.TextView' and @text ='LINE'])[2]
+    ${AppExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and @content-desc ='LINE']
     Run Keyword Unless    ${AppExist}    Swipe    400    300    100    300    500
-    Click Element    xpath=(//*[@class ='android.widget.TextView' and @text ='LINE'])[2]
+    Click Element    //*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and @content-desc ='LINE']
     Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/home_tab_title_name' and @class='android.widget.TextView' and contains(@text, '好友')]
     Sleep    2s
     Click Element    //*[@resource-id='jp.naver.line.android:id/home_tab_title_name' and @class='android.widget.TextView' and contains(@text, '好友')]
@@ -94,27 +94,27 @@ Close All Application And Back To Home
     Open VPN App
     ${connectButton} =    Run Keyword And Return Status    Connect Button Should Connect
     Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
-    Press Keycode    ${appSwitchKey}
-    FOR    ${num}    IN RANGE    9999
-        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.huawei.android.launcher:id/snapshot']    timeout=3s    error=
-        Exit For Loop if    not ${applicationExist}
-        Swipe    324    1500    324    468    500
-    END
-    # Delete All User By Open LINE
-    Press Keycode    26
-    Close All Applications
-    sleep    1s
     # Press Keycode    ${appSwitchKey}
     # FOR    ${num}    IN RANGE    9999
-        # ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.android.systemui:id/title']    timeout=5s    error=
+        # ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.huawei.android.launcher:id/snapshot']    timeout=3s    error=
         # Exit For Loop if    not ${applicationExist}
-        # &{location} =    Get Location    //*[@resource-id='com.android.systemui:id/title']
-        # Swipe    ${location.x}    ${location.y}    719    ${location.y}    200
+        # Swipe    324    1500    324    468    500
     # END
-    # Press Keycode    ${homeKey}
+    # # Delete All User By Open LINE
     # Press Keycode    26
     # Close All Applications
     # sleep    1s
+    Press Keycode    ${appSwitchKey}
+    FOR    ${num}    IN RANGE    9999
+        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.android.systemui:id/title']    timeout=5s    error=
+        Exit For Loop if    not ${applicationExist}
+        &{location} =    Get Location    //*[@resource-id='com.android.systemui:id/title']
+        Swipe    ${location.x}    ${location.y}    719    ${location.y}    200
+    END
+    Press Keycode    ${homeKey}
+    Press Keycode    26
+    Close All Applications
+    sleep    1s
     
 Connect Button Should Connect
     Wait Until Element Is Visible    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']    timeout=5s
@@ -123,7 +123,7 @@ Open VPN App
     Press Keycode    ${homeKey}
     ${AppExist} =    Run Keyword And Return Status    FlyVPN Should Exist
     Run Keyword Unless    ${AppExist}    Swipe    400    300    100    300    500
-    Click Element    //*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']
+    Click Element    //*[@class ='android.widget.TextView' or @class='android.widget.ImageView' and @content-desc ='FlyVPN']
 
 FlyVPN Should Exist
     Wait Until Element Is Visible    //*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']    timeout=3s

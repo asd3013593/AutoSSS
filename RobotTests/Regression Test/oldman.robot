@@ -39,7 +39,7 @@ ${taiwanSticker} =    0
 ${foreignSticker} =    0
 ${foreignTopic} =    0
 ${nextClientError} =    10
-&{countryToVPN} =    日本=東京 #32    印尼=雅加達 #8    韓國=首爾 #25    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
+&{countryToVPN} =    日本=東京 #31    印尼=雅加達 #8    韓國=首爾 #26    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
 ${slowNetPeriod} =    30s
 ${LineApplication} =    1
 ${stickerName} =    Empty
@@ -134,7 +134,7 @@ Get Foreing Topic Number
 
 Switch VPN If Is Sending Foreign Sticker
     ${globalArea} =    Set Variable     全球
-    ${country} =     Run Keyword If    ${foreign}    Get Text    //*[@class='android.view.View' and @index='5']//*[@class='android.view.View' and @index ='1']
+    ${country} =     Run Keyword If    ${foreign}    Wait Until Keyword Succeeds     5s    0.5s    Get Text    //*[@class='android.view.View' and @index='5']//*[@class='android.view.View' and @index ='1']
     ${isGlobalArea} =    Run Keyword And Return Status     Should Be Equal As Strings    ${globalArea}    ${country}
     Run Keyword If    ${isGlobalArea}    Return From Keyword
     Run Keyword If    ${foreign}    Run keywords    Switch Network With VPN    ${country}
@@ -164,6 +164,12 @@ Open VPN App
 FlyVPN Should Exist
     Wait Until Element Is Visible    //*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']    timeout=3s
 
+Check Purchase Coin Is Same To The Sticker
+    Wait Until Element Is Visible    //*[@text='金額']/following-sibling::*    timeout=5s    error=Browser price should be visible.
+    ${price} =    Wait Until Keyword Succeeds     5s    0.5s    Get Text    //*[@text='金額']/following-sibling::*
+    ${sameCoin} =    Is Coin Same To Sticker    ${price}
+    Return From Keyword    ${sameCoin}
+
 Run Sending Template By For Circle
     Open LINE Add Friend Page
     Run Keyword If    ${errorType}==4    ID Is Not Public Or Not Correct Then Turn Back
@@ -181,17 +187,11 @@ Login Oldman Magnage Interface
     AppiumLibrary.Click Element    //*[@resource-id='submit']
     Wait Until Element Is Visible    xpath=//*[contains(@text, '解除鎖定')]    timeout=${slowNetPeriod}    error=Web should be login.
 
-Choose Line Application
-    Wait Until Element Is Visible    //*[@resource-id='com.huawei.android.internal.app:id/resolver_grid']//*[@class ='android.widget.LinearLayout' and @index ='0']    timeout=10s    error=First Line App should be visible.
-    Run Keyword If    ${LineApplication}==1    Click Element    //*[@resource-id='com.huawei.android.internal.app:id/resolver_grid']//*[@class ='android.widget.LinearLayout' and @index ='0']
-    ...    ELSE IF    ${LineApplication}==2    Click Element    //*[@resource-id='com.huawei.android.internal.app:id/resolver_grid']//*[@class ='android.widget.LinearLayout' and @index ='1']
-
 Open LINE Add Friend Page
-    ${id}    Get Text    //*[@text='訂單']/following-sibling::*
+    ${id} =     Wait Until Keyword Succeeds    5    0.5s   Get Text    //*[@text='訂單']/following-sibling::*
     Log To Console    ${id}
     Set Global Variable    ${purchaseID}    ${id}
     Click Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView
-    Choose Line Application
     ${correctID}    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/addfriend_name']    timeout=10s    error=UserName should be visible.
     Run Keyword If    ${correctID}    Run Keywords    Hide Keyboard
     ...                                      AND    Get User Information
@@ -269,7 +269,6 @@ Open Sticker Link
     ${name} =    Get Text    //*[@class='android.view.View' and @index='8']//*[@class='android.view.View' and @index='1']
     Set Global Variable    ${stickerName}    ${name}
     Click Element    xpath=//*[@text= '開啟連結' and @index='0']
-    Choose Line Application
 
 Send Gift By Select User With ID
     ${enable} =    Run Keyword And Return Status    Wait Until Element Is Visible   xpath=//*[contains(@text, '贈送禮物') and @enabled='true']     timeout=10s    error=Send gift button should be visible.
@@ -298,7 +297,10 @@ Click OK Button To Send Gift To User
     Click Element    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
-    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=${slowNetPeriod}
+    ${sendSuccess}    Run Keyword And Return Status    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s    error=Message page should be visible after sending sticker success.
+    ${secondSendSuccess} =    Run keyword If    not ${sendSuccess}    Run Keyword And Return Status    Occur Error After Click Purchase OK Button
+    Run Keyword If    not ${secondSendSuccess} and not ${secondSendSuccess}==${None}    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
+    ...                                                    AND    Return From Keyword
     Log To Console    sticker = ${stickerName} price = ${price}
     ${area} =    Run Keyword If    ${foreign}    Set Variable    Foreign
     ...                    ELSE    Set Variable    Taiwan
@@ -306,11 +308,22 @@ Click OK Button To Send Gift To User
     Write Coin Record    oldman    -${price}
     [Teardown]    Close LINE To Go Back After Change The Name
 
+Occur Error After Click Purchase OK Button
+    Run Keyword And Ignore Error    Click Element After It Is Visible    //*[@class='android.widget.Button' and @text='確定']    timeout=10s    error=Error button should be visible.
+    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=${slowNetPeriod}    error=Purchase button should be visible.
+    Click Element    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']
+    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
+    Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
+    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s    error=Message page should be visible after sending sticker success.
+
 Press Keycode To Go Back
     Press Keycode    ${backKey}
 
 ID Can Be Searched Then Continue To Work
     If Name Is Not Equal To ID Change Name To ID
+    ${sameCoin}    Check Purchase Coin Is Same To The Sticker
+    Run Keyword If    not ${sameCoin}    Run Keywords    Set Global Variable    ${errorType}    2
+    ...                                           AND    Return From Keyword
     Switch VPN If Is Sending Foreign Sticker
     Open Sticker Link
     Send Gift By Select User With ID
@@ -373,7 +386,7 @@ Switch To Next Client By Refresh Browser
 Select Error Message
     Wait Until Element Is Visible    //*[@resource-id='SendStatus']
     Click Element    //*[@resource-id='SendStatus']
-    Wait Until Element Is Visible    //*[@resource-id='android:id/text1' and @index='${errorType}']
+    Wait Until Element Is Visible    //*[@resource-id='android:id/text1' and @index='${errorType}']    timeout=10s    error=Select error msg should be visible.
     Click Element    //*[@resource-id='android:id/text1' and @index='${errorType}']
 
 Verify User Name Should Be Equal To ID
@@ -569,3 +582,8 @@ Swipe To Client
         Run Keyword If    ${findClient}    Return From Keyword    True
     ...        ELSE IF    not ${isNotBottom}    Fail    message=Client should be found
     END
+
+Choose Line Application    #雙開選擇帳號 現已用不到
+    Wait Until Element Is Visible    //*[@resource-id='com.huawei.android.internal.app:id/resolver_grid']//*[@class ='android.widget.LinearLayout' and @index ='0']    timeout=10s    error=First Line App should be visible.
+    Run Keyword If    ${LineApplication}==1    Click Element    //*[@resource-id='com.huawei.android.internal.app:id/resolver_grid']//*[@class ='android.widget.LinearLayout' and @index ='0']
+    ...    ELSE IF    ${LineApplication}==2    Click Element    //*[@resource-id='com.huawei.android.internal.app:id/resolver_grid']//*[@class ='android.widget.LinearLayout' and @index ='1']

@@ -3,7 +3,7 @@ Library    XML
 Library    AppiumLibrary
 Library    OperatingSystem
 Resource    purchaseCoin.txt
-Suite Setup    Run Keyword   Login Mycat Magnage Interface
+Suite Setup    Run Keyword   Login Oldman Magnage Interface
 Suite Teardown    Close All Application And Back To Home
 
 *** Variables ***
@@ -40,13 +40,13 @@ ${taiwanSticker} =    0
 ${foreignSticker} =    0
 ${foreignTopic} =    0
 ${nextClientError} =    10
-&{countryToVPN} =    日本=東京 #36    印尼=雅加達 #8    韓國=首爾 #26    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
+&{countryToVPN} =    日本=東京 #32    印尼=雅加達 #8    韓國=首爾 #25    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
 ${slowNetPeriod} =    30s
 ${LineApplication} =    2
 ${stickerName} =    Empty
 
 *** Test Cases ***
-Automatically send taiwan sticker mycat
+Automatically send taiwan sticker oldman
     [Setup]    Run Keywords    Get Processing Sticker
     ...                 AND    Get Taiwan Sticker Number
     FOR    ${num}    IN RANGE    ${taiwanSticker}
@@ -58,13 +58,12 @@ Automatically send taiwan sticker mycat
     END
     Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
 
-Automatically send foreign sticker mycat
+Automatically send foreign sticker oldman
     [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
-    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://mycat.tw/goadmin.php
+    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://oldman.tw/goadmin.php
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Sticker Number
-    Set Global Variable    ${LineApplication}    1    #FIXME
     FOR    ${num}    IN RANGE    ${foreignSticker}
         Run Keyword If    ${num}==0    Open Foreign Stciker Sending Page
         ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
@@ -74,13 +73,12 @@ Automatically send foreign sticker mycat
     END
     Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
 
-Automatically send foreign topic mycat
+Automatically send foreign topic oldman
     [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
-    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://mycat.tw/goadmin.php
+    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://oldman.tw/goadmin.php
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Topic Number
-    Set Global Variable    ${LineApplication}    1    #FIXME
     FOR    ${num}    IN RANGE    ${foreignTopic}
         Run Keyword If    ${num}==0    Open Foreign Topic Sending Page
         ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
@@ -90,10 +88,10 @@ Automatically send foreign topic mycat
     END
     Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
 
-# Automatically purchase oldman LINE coin when coin less than 10000
-    # ${isCoinNotEnough} =    Is Coin Not Enough    mycat
-    # Run keyword If    ${isCoinNotEnough}    Run Keywords    Close Mycat VPN Connect And Close Apps
-    # ...                                              AND    Mycat purchase LINE 16000 coin
+Automatically purchase oldman LINE coin when coin less than 10000
+    ${isCoinNotEnough} =    Is Coin Not Enough    mycat
+    Run keyword If    ${isCoinNotEnough}    Run Keywords    Close Mycat VPN Connect And Close Apps
+    ...                                              AND    Mycat purchase LINE 16000 coin
 
 *** Keywords ***
 Login Mycat
@@ -169,12 +167,6 @@ FlyVPN Should Exist
     Wait Until Element Is Visible    //*[@class ='android.widget.ImageView' and @content-desc ='FlyVPN']    timeout=3s
     # Wait Until Element Is Visible    //*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']    timeout=3s
 
-Check Purchase Coin Is Same To The Sticker
-    Wait Until Element Is Visible    //*[@text='金額']/following-sibling::*    timeout=5s    error=Browser price should be visible.
-    ${price} =    Wait Until Keyword Succeeds     5s    0.5s    Get Text    //*[@text='金額']/following-sibling::*
-    ${sameCoin} =    Is Coin Same To Sticker    ${price}
-    Return From Keyword    ${sameCoin}
-
 Run Sending Template By For Circle
     Open LINE Add Friend Page
     Run Keyword If    ${errorType}==4    ID Is Not Public Or Not Correct Then Turn Back
@@ -182,13 +174,13 @@ Run Sending Template By For Circle
     Run Keyword If    ${errorType}==${nextClientError}    Switch To Next Client By Refresh Browser
     ...       ELSE    Finish Order After Choose Sending Status
 
-Login Mycat Magnage Interface
+Login Oldman Magnage Interface
     Open Chrome
-    Go To Url    https://mycat.tw/goadmin.php
+    Go To Url    https://oldman.tw/goadmin.php
     Switch To Context    NATIVE_APP
     Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
-    Input Text   //*[@class='android.widget.EditText' and @password ='false']    20140002
-    Input Text    //*[@text='登入密碼']    20140002
+    Input Text   //*[@class='android.widget.EditText' and @password ='false']    20160000
+    Input Text    //*[@text='登入密碼']    20160000
     AppiumLibrary.Click Element    //*[@resource-id='submit']
     Wait Until Element Is Visible    xpath=//*[contains(@text, '解除鎖定')]    timeout=${slowNetPeriod}    error=Web should be login.
 
@@ -198,7 +190,7 @@ Choose Line Application
     ...    ELSE IF    ${LineApplication}==2    Click Element    //*[@resource-id='com.huawei.android.internal.app:id/resolver_grid']//*[@class ='android.widget.LinearLayout' and @index ='1']
 
 Open LINE Add Friend Page
-    ${id} =     Wait Until Keyword Succeeds    5    0.5s   Get Text    //*[@text='訂單']/following-sibling::*
+    ${id}    Get Text    //*[@text='訂單']/following-sibling::*
     Log To Console    ${id}
     Set Global Variable    ${purchaseID}    ${id}
     Click Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView
@@ -310,14 +302,14 @@ Click OK Button To Send Gift To User
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
     #Go Back To Management Page From Chat Page
-    ${sendSuccess}    Run Keyword And Return Status    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s    error=Message page should be visible after sending sticker success.
-    ${secondSendSuccess} =    Run keyword If    not ${sendSuccess}    Run Keyword And Return Status    Occur Error After Click Purchase OK Button
-    Run Keyword If    not ${secondSendSuccess} and not ${secondSendSuccess}==${None}    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
+    ${sendSuccess} =   Run Keyword And Return Status    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s
+    ${secondSendSuccess}    Run keyword If    not ${sendSuccess}   Run Keyword And Return Status    Occur Error After Click Purchase OK Button
+    Run Keyword If    not ${secondSendSuccess} and not ${secondSendSuccess}==${None}   Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
     ...                                                    AND    Return From Keyword
     Log To Console    sticker = ${stickerName} price = ${price}
     ${area} =    Run Keyword If    ${foreign}    Set Variable    Foreign
     ...                    ELSE    Set Variable    Taiwan
-    priceRecord    mycatPrice    ${area}    ${price}    ${userId}    ${stickerName}
+    priceRecord    oldmanPrice    ${area}    ${price}    ${userId}    ${stickerName}
     Write Coin Record    mycat    -${price}
     [Teardown]    Close LINE To Go Back After Change The Name
 
@@ -327,16 +319,13 @@ Occur Error After Click Purchase OK Button
     Click Element    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
-    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s    error=Message page should be visible after sending sticker success.
+    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s
 
 Press Keycode To Go Back
     Press Keycode    ${backKey}
 
 ID Can Be Searched Then Continue To Work
     If Name Is Not Equal To ID Change Name To ID
-    ${sameCoin}    Check Purchase Coin Is Same To The Sticker
-    Run Keyword If    not ${sameCoin}    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
-    ...                                           AND    Return From Keyword
     Switch VPN If Is Sending Foreign Sticker
     Open Sticker Link
     Send Gift By Select User With ID
