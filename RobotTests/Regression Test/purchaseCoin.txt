@@ -1,7 +1,10 @@
 *** Settings ***
 Library    XML
 Library    AppiumLibrary
+Library    SeleniumLibrary
 Library    OperatingSystem
+Library    SeleniumLibrary    run_on_failure=SeleniumLibrary.Capture Page Screenshot
+Library    AppiumLibrary    run_on_failure=AppiumLibrary.Capture Page Screenshot
 
 *** Variables ***
 ${redmiDeviceName} =    8531905e7d25
@@ -15,9 +18,6 @@ ${catUrl} =    https://mycat.tw/goadmin.php
 ${oldUrl} =    https://oldman.tw/goadmin.php
 ${logincatUrl} =    https://mycat.tw/goadmin.php
 ${loginoldUrl} =    https://oldman.tw/goadmin.php
-${account} =    ${cataccount}
-${password} =    ${catpassword}
-${Url} =    ${catUrl}
 ${loginUrl} =    ${logincatUrl}
 ${taiwanNum} =    0
 ${userName} =    empty
@@ -40,6 +40,9 @@ ${nextClientError} =    10
 ${slowNetPeriod} =    30s
 ${LineApplication} =    1
 ${stickerName} =    Empty
+&{url} =    oldman=${oldUrl}    mycat=${catUrl}
+&{account} =    oldman=${oldaccount}    mycat=${cataccount}
+&{password} =    oldman=${oldpassword}    mycat=${catpassword}
 
 *** Keywords ***
 Mycat purchase LINE 16000 coin
@@ -52,29 +55,25 @@ Oldman purchase LINE 16000 coin
     Go To The Coin Page
     Purchase 16000 Coin    oldman
 
-Open Chrome
-    [Documentation]    Opens the calculator app with a new appium session.
-    Open Application    http://localhost:4723/wd/hub    platformName=Android    platformVersion=9    alias=MyChrome1
-    ...    deviceName=${hauweiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
-    Go To Url    https://oldman.tw/goadmin.php
-    Switch To Context    NATIVE_APP
-
 Open LINE App
     Press Keycode    ${homeKey}
-    ${AppExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and contains(@content-desc,'LINE')]
+    ${AppExist} =    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible    //*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and contains(@content-desc,'LINE')]
     Run Keyword Unless    ${AppExist}    Swipe    400    300    100    300    500
-    Click Element    //*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and contains(@content-desc,'LINE')]
+    AppiumLibrary.Click Element    //*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and contains(@content-desc,'LINE')]
 
 Go To The Coin Page
     Click Element After It Is Visible    //*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']    timeout=10s    error=Home page button should be visible.
     Click Element After It Is Visible    //*[@content-desc='設定 按鍵']//*[@resource-id='jp.naver.line.android:id/header_button_img']    timeout=10s    error=Setting button should be visible.
     Click Element After It Is Visible    //*[@class='android.widget.TextView' and @text='代幣']    timeout=10s    error=Coin field should be visible.
-
+    AppiumLibrary.Capture Page Screenshot    
 Purchase 16000 Coin
     [Arguments]    ${user}
-    FOR    ${i}    IN RANGE    20
+    ${coinCount} =    Set Variable    0
+    FOR    ${i}    IN RANGE    5
         Purchase 800 coin    ${user}
+        ${coinCount} =   Evaluate    ${coinCount}+800
     END
+    [Teardown]    Record Purchase How Many Coins On Web    ${user}    ${coinCount}
 
 Purchase 800 coin
     [Arguments]    ${user}
@@ -92,49 +91,35 @@ Occur Error When Purchasing Coin
     Sleep    1s
     Press Keycode    ${backKey}
 
-Close All Application And Back To Home
-    Open VPN App
-    ${connectButton} =    Run Keyword And Return Status    Connect Button Should Connect
-    Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
-    Press Keycode    ${appSwitchKey}
-    FOR    ${num}    IN RANGE    9999
-        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.huawei.android.launcher:id/snapshot']    timeout=3s    error=
-        Exit For Loop if    not ${applicationExist}
-        Swipe    324    1500    324    468    500
-    END
-    Press Keycode    26
-    Close All Applications
-    sleep    1s
-
 Connect Button Should Connect
-    Wait Until Element Is Visible    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']    timeout=5s
+    AppiumLibrary.Wait Until Element Is Visible    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']    timeout=5s
 
 Open VPN App
     Press Keycode    ${homeKey}
     ${AppExist} =    Run Keyword And Return Status    FlyVPN Should Exist
     Run Keyword Unless    ${AppExist}    Swipe    400    300    100    300    500
-    Click Element    //*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']
+    AppiumLibrary.Click Element    //*[@class ='android.widget.TextView' or @class='android.widget.ImageView' and @content-desc ='FlyVPN']
 
 FlyVPN Should Exist
-    Wait Until Element Is Visible    //*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']    timeout=3s
+    AppiumLibrary.Wait Until Element Is Visible    //*[@class ='android.widget.TextView' or @class='android.widget.ImageView' and @content-desc ='FlyVPN']    timeout=3s
 
 Click Element After It Is Visible
     [Arguments]    ${elementPath}    ${timeout}=5s    ${error}=Button should be visible.
-    Wait Until Element Is Visible    ${elementPath}    timeout=${slowNetPeriod}    error=Clear application button should be visible.
-    Click Element    ${elementPath}
+    AppiumLibrary.Wait Until Element Is Visible    ${elementPath}    timeout=${slowNetPeriod}    error=Clear application button should be visible.
+    AppiumLibrary.Click Element    ${elementPath}
 
 Wait Until Element Is Visible On Page
     [Arguments]    ${locator}    ${timeout}    ${error}=default
-    Wait Until Page Contains Element    ${locator}    ${timeout}    ${error}
-    Wait Until Element Is Visible    ${locator}    ${timeout}    ${error}
+    AppiumLibrary.Wait Until Page Contains Element    ${locator}    ${timeout}    ${error}
+    AppiumLibrary.Wait Until Element Is Visible    ${locator}    ${timeout}    ${error}
 
 Close VPN Connect And Close Apps
     Open VPN App
     ${connectButton} =    Run Keyword And Return Status    Connect Button Should Connect
-    Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
+    Run Keyword If    ${connectButton}    AppiumLibrary.Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
     Press Keycode    ${appSwitchKey}
     FOR    ${num}    IN RANGE    9999
-        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.huawei.android.launcher:id/snapshot']    timeout=3s    error=
+        ${applicationExist} =    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible    //*[@resource-id='com.huawei.android.launcher:id/snapshot']    timeout=3s    error=
         Exit For Loop if    not ${applicationExist}
         Swipe    324    1500    324    468    500
     END
@@ -142,11 +127,41 @@ Close VPN Connect And Close Apps
 Close Mycat VPN Connect And Close Apps
     Open VPN App
     ${connectButton} =    Run Keyword And Return Status    Connect Button Should Connect
-    Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
+    Run Keyword If    ${connectButton}    AppiumLibrary.Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
     Press Keycode    ${appSwitchKey}
     FOR    ${num}    IN RANGE    9999
-        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.android.systemui:id/title']    timeout=3s    error=
+        ${applicationExist} =    Run Keyword And Return Status    AppiumLibrary.Wait Until Element Is Visible    //*[@resource-id='com.android.systemui:id/title']    timeout=3s    error=
         Exit For Loop if    not ${applicationExist}
-        &{location} =    Get Location    //*[@resource-id='com.android.systemui:id/title']
+        &{location} =    AppiumLibrary.Get Location    //*[@resource-id='com.android.systemui:id/title']
         Swipe    ${location.x}    ${location.y}    719    ${location.y}    200
     END
+
+SeleniumLibrary_Input Text After It Is Visible
+    [Arguments]    ${path}    ${text}
+    SeleniumLibrary.Wait Until Page Contains Element    ${path}
+    SeleniumLibrary.Wait Until Element Is Visible    ${path}
+    SeleniumLibrary.Input Text    ${path}    ${text}
+
+SeleniumLibrary_Click Element After It Is Visible
+    [Arguments]    ${path}
+    SeleniumLibrary.Wait Until Page Contains Element   ${path}
+    SeleniumLibrary.Wait Until Element Is Visible    ${path}
+    SeleniumLibrary.Click Element    ${path}
+
+Record Purchase How Many Coins On Web
+    [Arguments]    ${user}    ${coin}
+    Open Browser    url=${url.${user}}    browser=Chrome    options=add_argument("--headless")
+    SeleniumLibrary_Input Text After It Is Visible    //input[@name='StaffID']    ${account.${user}}
+    SeleniumLibrary_Input Text After It Is Visible    //input[@name='UserPWD']    ${password.${user}}
+    SeleniumLibrary_Click Element After It Is Visible    //*[@id='submit']
+    SeleniumLibrary_Click Element After It Is Visible    //*[normalize-space()='主控台']
+    SeleniumLibrary_Click Element After It Is Visible    //*[@class='onLoading' and normalize-space()='管理員列表']
+    SeleniumLibrary_Click Element After It Is Visible    //*[@id='list${account.${user}}']//*[@class='operating']//*[contains(@class,'edit')]
+    SeleniumLibrary_Click Element After It Is Visible    //*[@class='box_submit']//*[@id='toDisabled_All2']
+    SeleniumLibrary_Click Element After It Is Visible    //*[@name='SetType' and not(@disabled='disabled')]
+    SeleniumLibrary_Click Element After It Is Visible    //*[@value='11' and normalize-space()='手動增加']
+    SeleniumLibrary_Input Text After It Is Visible    //*[@name='Coins']    ${coin}
+    SeleniumLibrary_Click Element After It Is Visible    //*[@type='submit' and not(@disabled='disabled')]
+    SeleniumLibrary.Wait Until Element Is Visible    //*[@id='alertify-logs' and .//*[normalize-space()='修改成功！']]
+    Close Browser
+    # Reload Page
