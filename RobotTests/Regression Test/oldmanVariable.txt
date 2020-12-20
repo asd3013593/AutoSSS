@@ -1,0 +1,37 @@
+*** Variables ***
+${redmiDeviceName} =    8531905e7d25
+${samsungDeviceName} =    435145414e553398    #version:9
+${hauweiDeviceName} =    2DR4C19227004310    #version:9
+
+
+
+${oldaccount} =    20160000
+${oldpassword} =    20160000
+
+${catUrl} =    https://mycat.tw/goadmin.php
+${oldUrl} =    https://oldman.tw/goadmin.php
+${logincatUrl} =    https://mycat.tw/goadmin.php
+${loginoldUrl} =    https://oldman.tw/goadmin.php
+${loginUrl} =    ${logincatUrl}
+${taiwanNum} =    0
+${userName} =    empty
+${userID} =    empty
+${searchName} =    empty
+${EqualTo} =    False
+${search} =    False
+${foreign} =    False
+${alreadyFriend} =    False
+${errorType} =    0
+${purchaseID} =    0
+${appSwitchKey} =    187
+${backKey} =    4
+${homeKey} =    3
+${taiwanSticker} =    0
+${foreignSticker} =    0
+${foreignTopic} =    0
+${nextClientError} =    10
+&{countryToVPN} =    日本=東京 #31    印尼=雅加達 #8    韓國=首爾 #26    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
+${currentLocation} =    台灣
+${slowNetPeriod} =    30s
+${LineApplication} =    1
+${stickerName} =    Empty

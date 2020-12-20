@@ -1,0 +1,97 @@
+*** Settings ***
+Resource    common.txt
+
+*** Keywords ***
+Run Sending Template By Sticker Number
+    [Arguments]    ${stickerNumber}
+    FOR    ${num}    IN RANGE    ${stickerNumber}
+        ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
+        Exit For Loop if    not ${clientExist}
+        Log To Console    \nNo${num}.Client
+        Open LINE Add Friend Page
+        Run Keyword If    ${errorType}==4    ID Is Not Public Or Not Correct Then Turn Back
+        ...    ELSE IF    ${errorType}==0    ID Can Be Searched Then Continue To Work
+        Run Keyword If    ${errorType}==${nextClientError}    Switch To Next Client By Refresh Browser
+        ...       ELSE    Finish Order After Choose Sending Status
+    END
+
+ID Is Not Public Or Not Correct Then Turn Back
+    Press Back Key Until Back To Sending Page
+
+ID Can Be Searched Then Continue To Work
+    Change Name To ID If Name Is Not Equal To ID 
+    Switch To Next Client When Coin Is Not Equal
+    Switch VPN If Is Sending Foreign Sticker
+    Open Sticker Link
+    Send Gift By Select User With ID
+
+Change Name To ID If Name Is Not Equal To ID 
+    ${equalTo}    Run Keyword And Return Status    Verify User Name Should Be Equal To ID
+    Run Keyword If    not(${equalTo})    Change User Name To Id
+    ...       ELSE    Press Back Key Until Back To Sending Page
+    # ${searchName} =    Search    ${userName}
+    # Set Global Variable    ${search}    ${searchName}
+    # Run Keyword if    ${search} and (not ${equalTo}) and (not ${alreadyFriend})    Run keyword    Change User Name To Id
+    # ...       ELSE    Run Keywords    Run keyword if    not ${equalTo} and not ${alreadyFriend}    Write    ${userName}    #已發過再發一次會加入
+    # ...                        AND    Press Back Key Until Back To Sending Page
+
+Change User Name To ID
+    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']    timeout=${slowNetPeriod}    error=Chat button should be visible.
+    Click Element    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']
+    ${X} =    Wait Until Keyword Succeeds     5s    0.5s    Get Matching Xpath Count    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
+    Wait Until Element Is Visible On Page    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView    timeout=${slowNetPeriod}    error=Back button should be exist.
+    Click Element    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
+    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']    timeout=${slowNetPeriod}    error=Home button should be visible.
+    Click Element    //*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']
+    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/main_tab_search_bar_hint_text']    timeout=${slowNetPeriod}    error=Search bar should be visible.
+    Click Element    //*[@resource-id='jp.naver.line.android:id/main_tab_search_bar_hint_text']
+    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/input_text']    timeout=${slowNetPeriod}    error=Search bar should be visible.
+    Input Text    //*[@resource-id='jp.naver.line.android:id/input_text']    ${userName}
+    Wait Until Element Is Visible    //*[@class='android.widget.Button' and @text='好友']    timeout=${slowNetPeriod}    error=Friend button should be visible.
+    Click Element    //*[@class='android.widget.Button' and @text='好友']
+    ${count} =    Count User Number And Return Type
+    Run Keyword If    ${count}>1    Select User By Name When Users
+    ...    ELSE IF    ${count} == 1    Click Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View
+    Wait Until Element Is Visible     //*[@resource-id='jp.naver.line.android:id/user_profile_edit_name']    timeout=${slowNetPeriod}    error=Edit name button should be visible.
+    Click Element    //*[@resource-id='jp.naver.line.android:id/user_profile_edit_name']
+    Wait Until Element Is Visible     //*[@resource-id='android:id/edit']    timeout=${slowNetPeriod}    error=User name bar button should be visible.
+    Input Text    //*[@resource-id='android:id/edit']    ${userId}
+    Wait Until Element Is Visible    //*[@resource-id='android:id/edit' and @text='${userId}']    timeout=${slowNetPeriod}    error=User name should be input.
+    Click Element    //*[@resource-id='jp.naver.line.android:id/save_button']
+    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/user_profile_name']    timeout=${slowNetPeriod}    error=User name should be edited.
+    Write    ${userID}
+    [Teardown]    Close LINE To Go Back After Change The Name
+
+Verify User Name Should Be Equal To ID
+    Should Be Equal As Strings    ${userName}    ${userId}
+
+Switch To Next Client By Refresh Browser
+    Wait Until Element Is Visible    //*[@text='訂單']/following-sibling::*    timeout=5s    error=Switch to next client's page should be visible
+    Swipe    300    300    300    900    500
+    Set Global Variable    ${errorType}    0
+
+Finish Order After Choose Sending Status
+    Run Keyword IF   not ${errorType}==0    Select Error Message
+    Run Keyword If   ${errorType}==0 or ${errorType}==4    Wait Until Element Is Visible    xpath=//*[@text= '送 出' ]    timeout=${slowNetPeriod}    error=Dialog "確定" button should be visible.
+    Click Element    //*[@text= '送 出']
+    Wait Until Element Is Visible    //*[not(@text='${purchaseID}')]    timeout=${slowNetPeriod}    error='${purchaseID}' should not be visible.
+    Log Sending Status To Console    ${errorType}
+    Set Global Variable    ${errorType}    0
+
+Switch To Next Client When Coin Is Not Equal
+    ${sameCoin}    Check Purchase Coin Is Same To The Sticker
+    Run Keyword If    not ${sameCoin}    Run Keywords    Set Global Variable    ${errorType}    2
+    ...                                           AND    Return From Keyword
+
+Check Purchase Coin Is Same To The Sticker
+    Wait Until Element Is Visible    //*[@text='金額']/following-sibling::*    timeout=5s    error=Browser price should be visible.
+    ${price} =    Wait Until Keyword Succeeds     5s    0.5s    Get Text    //*[@text='金額']/following-sibling::*
+    ${sameCoin} =    Is Coin Same To Sticker    ${price}
+    Return From Keyword    ${sameCoin}
+
+Press Back Key Until Back To Sending Page
+    FOR     ${i}    IN RANGE    5
+         Press Keycode    ${backKey}
+         ${result} =    Run Keyword And Return Status    Verify If Back To Sending Page    //*[@text='訂單']/following-sibling::*
+         Exit For Loop If    ${result}
+    END

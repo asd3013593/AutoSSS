@@ -1,0 +1,70 @@
+*** Settings ***
+Library    XML
+Library    AppiumLibrary
+
+*** Keywords ***
+Open Chrome
+    [Arguments]    ${port}    ${version}    ${deviceName}
+    [Documentation]    Opens the calculator app with a new appium session.
+    Open Application    http://localhost:${port}/wd/hub    platformName=Android    platformVersion=${version}    alias=MyChrome1
+    ...    deviceName=${deviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
+
+Login Magnage Page
+    [Arguments]    ${user}
+    Open Chrome    ${user.port}    ${user.version}    ${user.deviceName}
+    Go To Url    ${user.url}
+    Switch To Context    NATIVE_APP
+    Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
+    Input Text   //*[@class='android.widget.EditText' and @password ='false']    ${user.account}
+    Input Text    //*[@text='登入密碼']    ${user.password}
+    Click Element    //*[@resource-id='submit']
+    Wait Until Element Is Visible    xpath=//*[contains(@text, '解除鎖定')]    timeout=${slowNetPeriod}    error=Web should be login.
+
+Click Element After It Is Visible
+    [Arguments]    ${elementPath}    ${timeout}=5s    ${error}=Button should be visible.
+    Wait Until Element Is Visible    ${elementPath}    timeout=${slowNetPeriod}    error=Clear application button should be visible.
+    Click Element    ${elementPath}
+
+Input Text After Click
+    [Arguments]    ${xpath}    ${text}
+    Wait Until Page Contains Element    ${xpath}    timeout=${slowNetPeriod}    error=Input text should be visible.
+    Click Element    ${xpath}
+    Wait Until Page Contains Element    ${xpath}
+    Input Text    ${xpath}    ${text}
+
+Wait Until Element Is Visible On Page
+    [Arguments]    ${locator}    ${timeout}    ${error}=default
+    Wait Until Page Contains Element    ${locator}    ${timeout}    ${error}
+    Wait Until Element Is Visible    ${locator}    ${timeout}    ${error}
+
+Refresh Browser Page By Swipe
+    Swipe    300    300    300    900    500
+
+Open VPN App
+    Press Keycode    ${homeKey}
+    ${AppExist} =    Run Keyword And Return Status    FlyVPN Should Exist
+    Run Keyword Unless    ${AppExist}    Press Keycode    ${homeKey}
+    Click Element After It Is Visible    //*[@content-desc ='FlyVPN']
+
+Close All Application And Back To Home
+    Open VPN App
+    ${connectButton} =    Run Keyword And Return Status    Connect Button Should Connect
+    Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
+    Press Keycode    ${appSwitchKey}
+    FOR    ${num}    IN RANGE    9999
+        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.huawei.android.launcher:id/snapshot']    timeout=3s    error=
+        Exit For Loop if    not ${applicationExist}
+        Swipe    324    1500    324    468    500
+    END
+    # Delete All User By Open LINE
+    Press Keycode    ${homeKey}
+    Press Keycode    26
+    Close All Applications
+    sleep    1s
+
+Verify If Back To Sending Page
+    [Arguments]    ${waitObject}
+    Wait Until Element Is Visible    ${waitObject}    timeout=${slowNetPeriod}    error=Sending page should be back.
+
+Press Keycode To Go Back
+    Press Keycode    ${backKey}

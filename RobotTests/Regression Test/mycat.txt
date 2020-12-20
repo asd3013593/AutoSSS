@@ -25,7 +25,7 @@ ${taiwanNum} =    0
 ${userName} =    empty
 ${userID} =    empty
 ${searchName} =    empty
-${EqualTo} =    False
+${nameEqualTo} =    False
 ${search} =    False
 ${foreign} =    False
 ${alreadyFriend} =    False
@@ -38,7 +38,9 @@ ${taiwanSticker} =    0
 ${foreignSticker} =    0
 ${foreignTopic} =    0
 ${nextClientError} =    10
+${currentLocation} =    台灣
 &{countryToVPN} =    日本=東京 #36    印尼=雅加達 #8    韓國=首爾 #26    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
+${globalCountry} =    日本
 ${slowNetPeriod} =    30s
 ${LineApplication} =    2
 ${stickerName} =    Empty
@@ -83,12 +85,20 @@ Get Foreing Topic Number
     ${topic} =    Get Text    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='5']
     Set Global Variable    ${foreignTopic}    ${topic}
 
+Close Previous App And Go Back To Chrome
+    Press Keycode    ${appSwitchKey}
+    sleep    1s    #fix me
+    Swipe    426    700    37    700    500
+
 Switch VPN If Is Sending Foreign Sticker
-    ${globalArea} =    Set Variable     全球
+    ${TaiwanArea} =    Create List     台灣    全球
     ${country} =     Run Keyword If    ${foreign}    Wait Until Keyword Succeeds     5s    0.5s    Get Text    //*[@class='android.view.View' and @index='5']//*[@class='android.view.View' and @index ='1']
-    ${isGlobalArea} =    Run Keyword And Return Status     Should Be Equal As Strings    ${globalArea}    ${country}
-    Run Keyword If    ${isGlobalArea}    Return From Keyword
-    Run Keyword If    ${foreign}    Run keywords    Switch Network With VPN    ${country}
+    Set Global Variable    ${globalCountry}    ${country}
+    ${isTaiwanArea} =    Run Keyword And Return Status     Should Contain    ${TaiwanArea}    ${country}
+    # ${isConnected} =    Run Keyword And Return Status     Should Be Equal As Strings    ${currentLocation}    ${country}
+    Run Keyword If    ${isTaiwanArea}    Return From Keyword
+    Run Keyword If    ${foreign}    Run keywords    Run Keyword If    ${nameEqualTo}    Close Previous App And Go Back To Chrome
+    ...                                      AND    Switch Network With VPN    ${country}
     ...                                      AND    Switch App To Chrome
 
 Switch Network With VPN
@@ -100,7 +110,8 @@ Switch Network With VPN
     Click Element After It Is Visible    //*[@resource-id ='com.fvcorp.flyclient:id/search_button' or @resource-id='com.fvcorp.flyclient:id/layoutSearch']    timeout=${slowNetPeriod}    error=Serach should be visible.
     Input Text    //*[@resource-id='com.fvcorp.flyclient:id/textSearchKeyword']    ${countryToVPN.${country}}
     Click Element After It Is Visible    //*[@resource-id='com.fvcorp.flyclient:id/textServerRowTitle']    timeout=${slowNetPeriod}    error=Country should be visible.
-    Connect Button Should Connect
+    ${successConnect} =     Run Keyword And Return Status    Connect Button Should Connect
+    Run Keyword If    ${successConnect}    Set Global Variable    ${currentLocation}    ${country}
 
 Check Purchase Coin Is Same To The Sticker
     Wait Until Element Is Visible    //*[@text='金額']/following-sibling::*    timeout=5s    error=Browser price should be visible.
@@ -256,20 +267,26 @@ Click OK Button To Send Gift To User
 
 Occur Error After Click Purchase OK Button
     Run Keyword And Ignore Error    Click Element After It Is Visible    //*[@class='android.widget.Button' and @text='確定']    timeout=10s    error=Error button should be visible.
+    Switch Network With VPN And Go Back To LINE
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=${slowNetPeriod}    error=Purchase button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
     Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s    error=Message page should be visible after sending sticker success.
 
+Switch Network With VPN And Go Back To LINE
+    Switch Network With VPN    ${globalCountry}
+    Press Keycode    ${appSwitchKey}
+    Click Element After It Is Visible    //*[@resource-id='com.android.systemui:id/title' and @text='LINE']    timeout=5s    error=LINE app should be visible on switch app page.
+
 Press Keycode To Go Back
     Press Keycode    ${backKey}
 
 ID Can Be Searched Then Continue To Work
     If Name Is Not Equal To ID Change Name To ID
-    ${sameCoin}    Check Purchase Coin Is Same To The Sticker
-    Run Keyword If    not ${sameCoin}    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
-    ...                                           AND    Return From Keyword
+    # ${sameCoin}    Check Purchase Coin Is Same To The Sticker
+    # Run Keyword If    not ${sameCoin}    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
+    # ...                                           AND    Return From Keyword
     Switch VPN If Is Sending Foreign Sticker
     Open Sticker Link
     Send Gift By Select User With ID
@@ -348,7 +365,8 @@ Verify User Name Should Be Equal To ID
     Should Be Equal As Strings    ${userName}    ${userId}
 
 If Name Is Not Equal To ID Change Name To ID
-    ${equalTo}    Run Keyword And Return Status    Verify User Name Should Be Equal To ID
+    ${equalTo} =    Run Keyword And Return Status    Verify User Name Should Be Equal To ID
+    Set Global Variable    ${nameEqualTo}    ${equalTo}
     Run Keyword If    not(${equalTo})    Change User Name To Id
     ...       ELSE    Press Back Key Until Back To Sending Page
     # ${searchName} =    Search    ${userName}
@@ -368,7 +386,7 @@ Close LINE To Go Back After Change The Name
     sleep    1s    #fix me
     Swipe    188    700    400    700    500
     sleep    1s
-    Click Element    //*[@resource-id='com.android.systemui:id/title' and @text='Chrome']
+    Click Element After It Is Visible   //*[@resource-id='com.android.systemui:id/title' and @text='Chrome']
 
 Switch App To Chrome
     # Press Keycode    ${appSwitchKey}

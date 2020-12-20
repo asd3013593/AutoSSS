@@ -40,7 +40,7 @@ ${taiwanSticker} =    0
 ${foreignSticker} =    0
 ${foreignTopic} =    0
 ${nextClientError} =    10
-&{countryToVPN} =    日本=東京 #36    印尼=雅加達 #8    韓國=首爾 #26    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
+&{countryToVPN} =    日本=東京 #46    印尼=雅加達 #8    韓國=首爾 #26    美國=紐約 #18    泰國=曼谷 #5    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
 ${slowNetPeriod} =    30s
 ${LineApplication} =    2
 ${stickerName} =    Empty
@@ -90,7 +90,7 @@ Automatically send foreign topic mycat
     END
     AppiumLibrary.Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
 
-# Automatically purchase oldman LINE coin when coin less than 10000
-    # ${isCoinNotEnough} =    Is Coin Not Enough    mycat
-    # Run keyword If    ${isCoinNotEnough}    Run Keywords    Close Mycat VPN Connect And Close Apps
-    # ...                                              AND    Mycat purchase LINE 16000 coin
+Automatically purchase oldman LINE coin when coin less than 10000
+    ${isCoinNotEnough} =    Is Coin Not Enough    mycat
+    Run keyword If    ${isCoinNotEnough}    Run Keywords    Close Mycat VPN Connect And Close Apps
+    ...                                              AND    Mycat purchase LINE 16000 coin

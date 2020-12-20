@@ -1,0 +1,63 @@
+*** Settings ***
+Resource    common.txt
+
+*** Keywords ***
+Open Taiwan Stciker Sending Page
+    Get Taiwan Sticker Number
+    Run Keyword If    ${taiwanSticker}==0    Return From Keyword
+    Click Element    xpath=//*[contains(@text, '鎖定發圖資料')]
+    Wait Until Element Is Visible    xpath=//*[contains(@text, '新版發圖')]    timeout=${slowNetPeriod}    error=Taiwan Sticker button should be visible.
+    Click Element    xpath=//*[contains(@text, '新版發圖')] 
+    Set Global Variable    ${foreign}    False
+
+Open Foreign Stciker Sending Page
+    Get Foreing Sticker Number
+    Run Keyword If    ${foreignSticker}==0    Return From Keyword
+    Click Element    xpath=//*[contains(@text, '鎖定發圖資料')]
+    Wait Until Element Is Visible    xpath=//*[contains(@text, '跨區貼圖')]    timeout=${slowNetPeriod}    error=Foreign Sticker button should be visible.
+    Click Element    xpath=//*[contains(@text, '跨區貼圖')] 
+    Set Global Variable    ${foreign}    True
+
+Open Foreign Topic Sending Page
+    Get Foreing Topic Number
+    Run Keyword If    ${foreignTopic}==0    Return From Keyword
+    Click Element    xpath=//*[contains(@text, '鎖定發圖資料')]
+    Wait Until Element Is Visible    //android.view.View[@content-desc="跨區主題"]/android.widget.TextView    timeout=${slowNetPeriod}    error=Foreign Topic button should be visible.
+    Click Element    //android.view.View[@content-desc="跨區主題"]/android.widget.TextView
+    Set Global Variable    ${foreign}    True
+
+Unlock Processing Permission
+    ${X} =    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']
+    Wait Until Page Contains Element    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']    timeout=${slowNetPeriod}    error=Taiwanese sticker should be visible.
+    ${processing} =    Wait Until Keyword Succeeds     5s    0.5s    Get Text    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']
+    Run keyword if    ${processing}!=0    Refresh Management Page After Unlock Permission
+
+Refresh Management Page After Unlock Permission
+    Unlock Processing
+    Refresh Browser Page By Swipe
+    Wait Until Element Is Visible    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView' and @text='0']    timeout=${slowNetPeriod}
+
+Unlock Processing
+    Wait Until Page Contains Element    xpath=//*[contains(@text, '解除處理中')]    timeout=${slowNetPeriod}    error=Password input should be visible.
+    Click Element    xpath=//*[contains(@text, '解除處理中')]
+
+Get Taiwan Sticker Number
+    ${X} =    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']
+    Wait Until Element Is Visible    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']    timeout=${slowNetPeriod}    error=Taiwan sticker number should be visible.
+    ${sticker} =    Get Text    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']
+    Set Global Variable    ${taiwanSticker}    ${sticker}
+    Log To Console    ${taiwanSticker}
+
+Get Foreing Sticker Number
+    ${X} =    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='3']
+    Wait Until Element Is Visible    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='3']    timeout=${slowNetPeriod}    error=Foreign sticker number should be visible.
+    ${sticker} =    Get Text    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='3']
+    Set Global Variable    ${foreignSticker}    ${sticker}
+    Log To Console    ${foreignSticker}
+
+Get Foreing Topic Number
+    ${X} =    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='5']
+    Wait Until Element Is Visible    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='5']    timeout=${slowNetPeriod}    error=Foreign topic number should be visible.
+    ${topic} =    Get Text    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='5']
+    Set Global Variable    ${foreignTopic}    ${topic}
+    Log To Console    ${foreignTopic}
