@@ -284,9 +284,9 @@ Press Keycode To Go Back
 
 ID Can Be Searched Then Continue To Work
     If Name Is Not Equal To ID Change Name To ID
-    # ${sameCoin}    Check Purchase Coin Is Same To The Sticker
-    # Run Keyword If    not ${sameCoin}    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
-    # ...                                           AND    Return From Keyword
+    ${sameCoin}    Check Purchase Coin Is Same To The Sticker
+    Run Keyword If    not ${sameCoin}    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
+    ...                                           AND    Return From Keyword
     Switch VPN If Is Sending Foreign Sticker
     Open Sticker Link
     Send Gift By Select User With ID

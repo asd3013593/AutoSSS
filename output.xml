@@ -1,86 +1,3219 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20201219 18:34:05.925" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20201224 01:25:55.042" rpa="false">
 <suite id="s1" name="AutoSSS" source="C:\Users\pan\Desktop\StickerSender\AutoSSS">
 <suite id="s1-s1" name="RobotTests" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests">
 <suite id="s1-s1-s1" name="Regression Test" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests\Regression Test">
-<suite id="s1-s1-s1-s1" name="Oldman3" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests\Regression Test\oldman3.robot">
-<test id="s1-s1-s1-s1-t1" name="test">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
+<suite id="s1-s1-s1-s1" name="randomSendStickerOnLINE" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests\Regression Test\randomSendStickerOnLINE.robot">
+<kw name="Set Library Search Order" library="BuiltIn" type="setup">
+<doc>Sets the resolution order to use when a name matches multiple keywords.</doc>
 <arguments>
-<arg>台灣</arg>
-<arg>全球</arg>
+<arg>AppiumLibrary</arg>
+<arg>SeleniumLibrary</arg>
 </arguments>
-<assign>
-<var>${a}</var>
-</assign>
-<msg timestamp="20201219 18:34:06.636" level="INFO">${a} = ['台灣', '全球']</msg>
-<status status="PASS" starttime="20201219 18:34:06.635" endtime="20201219 18:34:06.636"></status>
+<status status="PASS" starttime="20201224 01:25:55.851" endtime="20201224 01:25:55.851"></status>
 </kw>
-<kw name="Set Variable" library="BuiltIn">
-<doc>Returns the given values which can then be assigned to a variables.</doc>
+<test id="s1-s1-s1-s1-t1" name="Send sticker to LINE Friend by random">
+<kw name="Login Mycat Magnage Interface">
+<kw name="Open Chrome">
+<doc>Opens the calculator app with a new appium session.</doc>
+<kw name="Open Application" library="AppiumLibrary">
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
 <arguments>
-<arg>台</arg>
+<arg>http://localhost:4724/wd/hub</arg>
+<arg>platformName=Android</arg>
+<arg>platformVersion=8.1.0</arg>
+<arg>alias=MyChrome1</arg>
+<arg>deviceName=${redmiDeviceName}</arg>
+<arg>noReset=true</arg>
+<arg>browserName=Chrome</arg>
+<arg>automationName=uiautomator2</arg>
 </arguments>
+<status status="PASS" starttime="20201224 01:25:55.854" endtime="20201224 01:26:16.475"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:25:55.854" endtime="20201224 01:26:16.476"></status>
+</kw>
+<kw name="Go To Url" library="AppiumLibrary">
+<doc>Opens URL in default web browser.</doc>
+<arguments>
+<arg>https://mycat.tw/goadmin.php</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:16.477" endtime="20201224 01:26:18.012"></status>
+</kw>
+<kw name="Switch To Context" library="AppiumLibrary">
+<doc>Switch to a new context</doc>
+<arguments>
+<arg>NATIVE_APP</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:18.012" endtime="20201224 01:26:18.015"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@class='android.widget.EditText' and @password ='false']</arg>
+<arg>timeout=30s</arg>
+<arg>error=Password input should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:18.016" endtime="20201224 01:26:19.631"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>//*[@class='android.widget.EditText' and @password ='false']</arg>
+<arg>20140002</arg>
+</arguments>
+<msg timestamp="20201224 01:26:19.636" level="INFO">Typing text '20140002' into text field '//*[@class='android.widget.EditText' and @password ='false']'</msg>
+<status status="PASS" starttime="20201224 01:26:19.632" endtime="20201224 01:26:20.239"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>//*[@text='登入密碼']</arg>
+<arg>20140002</arg>
+</arguments>
+<msg timestamp="20201224 01:26:20.243" level="INFO">Typing text '20140002' into text field '//*[@text='登入密碼']'</msg>
+<status status="PASS" starttime="20201224 01:26:20.240" endtime="20201224 01:26:21.624"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='submit']</arg>
+</arguments>
+<msg timestamp="20201224 01:26:21.628" level="INFO">Clicking element '//*[@resource-id='submit']'.</msg>
+<status status="PASS" starttime="20201224 01:26:21.625" endtime="20201224 01:26:23.688"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=//*[contains(@text, '解除鎖定')]</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Web should be login.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:23.689" endtime="20201224 01:26:29.797"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:25:55.854" endtime="20201224 01:26:29.797"></status>
+</kw>
+<kw name="Set Sticker And Friend Index">
+<kw name="Read Index" library="AppiumLibrary">
 <assign>
-<var>${b}</var>
+<var>${sticker}</var>
+<var>${friend}</var>
 </assign>
-<msg timestamp="20201219 18:34:06.637" level="INFO">${b} = 台</msg>
-<status status="PASS" starttime="20201219 18:34:06.636" endtime="20201219 18:34:06.637"></status>
+<msg timestamp="20201224 01:26:29.801" level="INFO">${sticker} = 0</msg>
+<msg timestamp="20201224 01:26:29.801" level="INFO">${friend} = 10</msg>
+<status status="PASS" starttime="20201224 01:26:29.800" endtime="20201224 01:26:29.801"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${stickerIndex}</arg>
+<arg>${sticker}</arg>
+</arguments>
+<msg timestamp="20201224 01:26:29.803" level="INFO">${stickerIndex} = 0</msg>
+<status status="PASS" starttime="20201224 01:26:29.802" endtime="20201224 01:26:29.803"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${friendIndex}</arg>
+<arg>${friend}</arg>
+</arguments>
+<msg timestamp="20201224 01:26:29.804" level="INFO">${friendIndex} = 10</msg>
+<status status="PASS" starttime="20201224 01:26:29.803" endtime="20201224 01:26:29.804"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:29.799" endtime="20201224 01:26:29.805"></status>
+</kw>
+<kw name="Open LINE App">
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${homeKey}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:29.805" endtime="20201224 01:26:29.910"></status>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
 <arguments>
-<arg>Should Contain</arg>
-<arg>${a}</arg>
-<arg>${b}</arg>
+<arg>AppiumLibrary.Wait Until Element Is Visible</arg>
+<arg>//*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and contains(@content-desc,'LINE')]</arg>
 </arguments>
 <assign>
-<var>${isTaiwan}</var>
+<var>${AppExist}</var>
 </assign>
-<kw name="Should Contain" library="BuiltIn">
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
-<arg>${a}</arg>
-<arg>${b}</arg>
+<arg>//*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and contains(@content-desc,'LINE')]</arg>
 </arguments>
-<msg timestamp="20201219 18:34:06.638" level="FAIL">'['台灣', '全球']' does not contain '台'</msg>
-<status status="FAIL" starttime="20201219 18:34:06.637" endtime="20201219 18:34:06.638"></status>
+<status status="PASS" starttime="20201224 01:26:29.910" endtime="20201224 01:26:31.766"></status>
 </kw>
-<msg timestamp="20201219 18:34:06.638" level="INFO">${isTaiwan} = False</msg>
-<status status="PASS" starttime="20201219 18:34:06.637" endtime="20201219 18:34:06.638"></status>
+<msg timestamp="20201224 01:26:31.767" level="INFO">${AppExist} = True</msg>
+<status status="PASS" starttime="20201224 01:26:29.910" endtime="20201224 01:26:31.767"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments if ``condition`` is false.</doc>
+<arguments>
+<arg>${AppExist}</arg>
+<arg>Swipe</arg>
+<arg>400</arg>
+<arg>300</arg>
+<arg>100</arg>
+<arg>300</arg>
+<arg>500</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:31.767" endtime="20201224 01:26:31.768"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and contains(@content-desc,'LINE')]</arg>
+</arguments>
+<msg timestamp="20201224 01:26:31.772" level="INFO">Clicking element '//*[(@class ='android.widget.TextView' or @class='android.widget.ImageView') and contains(@content-desc,'LINE')]'.</msg>
+<status status="PASS" starttime="20201224 01:26:31.768" endtime="20201224 01:26:32.714"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:29.805" endtime="20201224 01:26:32.715"></status>
+</kw>
+<kw name="${i} IN RANGE [ ${stickerIndex} | 7 ]" type="for">
+<kw name="${i} = 0" type="foritem">
+<kw name="Send Sticker To Exist LINE Friend">
+<arguments>
+<arg>${sticker}[${i}]</arg>
+</arguments>
+<kw name="${i} IN RANGE [ ${friendIndex} | ${friendNum} ]" type="for">
+<kw name="${i} = 10" type="foritem">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${i}-${friends}[${i}]</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:32.718" endtime="20201224 01:26:32.719"></status>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
-<arg>${isTaiwan}</arg>
-<arg>Log To Console</arg>
-<arg>${b}</arg>
+<arg>not ${haveSticker}</arg>
+<arg>Run Keywords</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
 </arguments>
-<status status="PASS" starttime="20201219 18:34:06.639" endtime="20201219 18:34:06.639"></status>
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:32.721" endtime="20201224 01:26:38.790"></status>
 </kw>
-<status status="PASS" starttime="20201219 18:34:06.633" endtime="20201219 18:34:06.639" critical="yes"></status>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:26:38.793" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']'.</msg>
+<status status="PASS" starttime="20201224 01:26:38.790" endtime="20201224 01:26:39.739"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:32.721" endtime="20201224 01:26:39.739"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:39.741" endtime="20201224 01:26:40.958"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:26:40.962" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='貼圖小舖']'.</msg>
+<status status="PASS" starttime="20201224 01:26:40.959" endtime="20201224 01:26:42.048"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:39.740" endtime="20201224 01:26:42.049"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:42.050" endtime="20201224 01:26:46.085"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:26:46.089" level="INFO">Clicking element 'xpath=(//*[@class='android.widget.Image'])[1]'.</msg>
+<status status="PASS" starttime="20201224 01:26:46.085" endtime="20201224 01:26:46.418"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:42.050" endtime="20201224 01:26:46.419"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:46.421" endtime="20201224 01:26:47.571"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:26:47.575" level="INFO">Clicking element '//*[@class='android.widget.EditText']'.</msg>
+<status status="PASS" starttime="20201224 01:26:47.571" endtime="20201224 01:26:47.713"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:47.714" endtime="20201224 01:26:47.965"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:26:47.971" level="INFO">Typing text '安柏去跑步：一起過聖誕' into text field '//*[@class='android.widget.EditText']'</msg>
+<status status="PASS" starttime="20201224 01:26:47.966" endtime="20201224 01:26:48.988"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:46.419" endtime="20201224 01:26:48.989"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:48.991" endtime="20201224 01:26:51.667"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:26:51.671" level="INFO">Clicking element '//*[@class='android.view.View' and @text='原創']'.</msg>
+<status status="PASS" starttime="20201224 01:26:51.668" endtime="20201224 01:26:51.857"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:48.989" endtime="20201224 01:26:51.858"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:48.989" endtime="20201224 01:26:51.858"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:51.860" endtime="20201224 01:26:52.553"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:26:52.559" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='安柏去跑步：一起過聖誕']'.</msg>
+<status status="PASS" starttime="20201224 01:26:52.554" endtime="20201224 01:26:52.802"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:51.858" endtime="20201224 01:26:52.802"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:32.720" endtime="20201224 01:26:52.803"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:32.719" endtime="20201224 01:26:52.803"></status>
+</kw>
+<kw name="Send Gift By User ID">
+<arguments>
+<arg>${friends}[${i}]</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=//*[contains(@text, '贈送禮物')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:52.805" endtime="20201224 01:26:55.656"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:26:55.660" level="INFO">Clicking element 'xpath=//*[contains(@text, '贈送禮物')]'.</msg>
+<status status="PASS" starttime="20201224 01:26:55.657" endtime="20201224 01:26:56.170"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:52.804" endtime="20201224 01:26:56.171"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']</arg>
+<arg>${userID}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:56.172" endtime="20201224 01:26:58.215"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:26:58.219" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'.</msg>
+<status status="PASS" starttime="20201224 01:26:58.216" endtime="20201224 01:26:59.004"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:26:59.005" endtime="20201224 01:27:00.437"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:00.441" level="INFO">Typing text 'a0962034370' into text field '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'</msg>
+<status status="PASS" starttime="20201224 01:27:00.438" endtime="20201224 01:27:01.946"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:56.171" endtime="20201224 01:27:01.947"></status>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']</arg>
+</arguments>
+<assign>
+<var>${getName}</var>
+</assign>
+<msg timestamp="20201224 01:27:02.819" level="INFO">Element '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']' text is 'a0962034370' </msg>
+<msg timestamp="20201224 01:27:02.820" level="INFO">${getName} = a0962034370</msg>
+<status status="PASS" starttime="20201224 01:27:01.947" endtime="20201224 01:27:02.820"></status>
+</kw>
+<kw name="Get Matching Xpath Count" library="AppiumLibrary">
+<doc>Returns number of elements matching ``xpath``</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']</arg>
+</arguments>
+<assign>
+<var>${searchClientNumber}</var>
+</assign>
+<msg timestamp="20201224 01:27:03.000" level="INFO">${searchClientNumber} = 1</msg>
+<status status="PASS" starttime="20201224 01:27:02.820" endtime="20201224 01:27:03.001"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Client's checkbox should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:03.001" endtime="20201224 01:27:03.179"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${searchClientNumber} == 1</arg>
+<arg>Click Element</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+<arg>ELSE</arg>
+<arg>Hide Keyboard</arg>
+</arguments>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+</arguments>
+<msg timestamp="20201224 01:27:03.184" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']'.</msg>
+<status status="PASS" starttime="20201224 01:27:03.180" endtime="20201224 01:27:04.050"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:03.179" endtime="20201224 01:27:04.050"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+</arguments>
+<msg timestamp="20201224 01:27:04.055" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201224 01:27:04.051" endtime="20201224 01:27:04.353"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=7s</arg>
+</arguments>
+<assign>
+<var>${sendSuccess}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=7s</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:04.355" endtime="20201224 01:27:06.060"></status>
+</kw>
+<msg timestamp="20201224 01:27:06.061" level="INFO">${sendSuccess} = True</msg>
+<status status="PASS" starttime="20201224 01:27:04.354" endtime="20201224 01:27:06.061"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${sendSuccess}</arg>
+<arg>Click OK Button To Send Gift To User</arg>
+<arg>ELSE</arg>
+<arg>Occur Error When Send Gift To User</arg>
+</arguments>
+<kw name="Click OK Button To Send Gift To User">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:06.062" endtime="20201224 01:27:06.369"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+</arguments>
+<msg timestamp="20201224 01:27:06.372" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/present_purchase_button']'.</msg>
+<status status="PASS" starttime="20201224 01:27:06.370" endtime="20201224 01:27:06.650"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=OK button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:06.651" endtime="20201224 01:27:07.778"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']</arg>
+</arguments>
+<msg timestamp="20201224 01:27:07.781" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']'.</msg>
+<status status="PASS" starttime="20201224 01:27:07.778" endtime="20201224 01:27:07.943"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/chathistory_message_list']</arg>
+<arg>timeout=15s</arg>
+<arg>error=Message page should be visible after sending sticker success.</arg>
+</arguments>
+<assign>
+<var>${sendSuccess}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/chathistory_message_list']</arg>
+<arg>timeout=15s</arg>
+<arg>error=Message page should be visible after sending sticker success.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:07.944" endtime="20201224 01:27:10.189"></status>
+</kw>
+<msg timestamp="20201224 01:27:10.190" level="INFO">${sendSuccess} = True</msg>
+<status status="PASS" starttime="20201224 01:27:07.944" endtime="20201224 01:27:10.190"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${sendSuccess}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_up_button']</arg>
+<arg>timeout=3s</arg>
+<arg>error=Last page button should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_up_button']</arg>
+<arg>timeout=3s</arg>
+<arg>error=Last page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:10.193" endtime="20201224 01:27:10.631"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:10.635" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_up_button']'.</msg>
+<status status="PASS" starttime="20201224 01:27:10.632" endtime="20201224 01:27:11.035"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:10.192" endtime="20201224 01:27:11.035"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:10.191" endtime="20201224 01:27:11.035"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${haveSticker}</arg>
+<arg>${False}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:11.036" level="INFO">${haveSticker} = False</msg>
+<status status="PASS" starttime="20201224 01:27:11.035" endtime="20201224 01:27:11.036"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:06.061" endtime="20201224 01:27:11.036"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:06.061" endtime="20201224 01:27:11.037"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:52.803" endtime="20201224 01:27:11.037"></status>
+</kw>
+<kw name="Record Index" library="AppiumLibrary">
+<arguments>
+<arg>${stickerIndex}</arg>
+<arg>${i}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:11.037" endtime="20201224 01:27:11.039"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:26:32.718" endtime="20201224 01:27:11.039"></status>
+</kw>
+<kw name="${i} = 11" type="foritem">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${i}-${friends}[${i}]</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:11.040" endtime="20201224 01:27:11.041"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${haveSticker}</arg>
+<arg>Run Keywords</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:11.044" endtime="20201224 01:27:12.798"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:12.803" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']'.</msg>
+<status status="PASS" starttime="20201224 01:27:12.799" endtime="20201224 01:27:13.564"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:11.044" endtime="20201224 01:27:13.564"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:13.566" endtime="20201224 01:27:15.423"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:15.428" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='貼圖小舖']'.</msg>
+<status status="PASS" starttime="20201224 01:27:15.423" endtime="20201224 01:27:16.134"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:13.565" endtime="20201224 01:27:16.134"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:16.135" endtime="20201224 01:27:19.444"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:19.447" level="INFO">Clicking element 'xpath=(//*[@class='android.widget.Image'])[1]'.</msg>
+<status status="PASS" starttime="20201224 01:27:19.444" endtime="20201224 01:27:19.732"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:16.134" endtime="20201224 01:27:19.732"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:19.733" endtime="20201224 01:27:21.102"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:21.107" level="INFO">Clicking element '//*[@class='android.widget.EditText']'.</msg>
+<status status="PASS" starttime="20201224 01:27:21.103" endtime="20201224 01:27:21.268"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:21.268" endtime="20201224 01:27:21.657"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:21.662" level="INFO">Typing text '安柏去跑步：一起過聖誕' into text field '//*[@class='android.widget.EditText']'</msg>
+<status status="PASS" starttime="20201224 01:27:21.658" endtime="20201224 01:27:22.572"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:19.733" endtime="20201224 01:27:22.572"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:22.574" endtime="20201224 01:27:25.309"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:25.312" level="INFO">Clicking element '//*[@class='android.view.View' and @text='原創']'.</msg>
+<status status="PASS" starttime="20201224 01:27:25.309" endtime="20201224 01:27:25.503"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:22.573" endtime="20201224 01:27:25.504"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:22.573" endtime="20201224 01:27:25.504"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:25.507" endtime="20201224 01:27:26.219"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:26.223" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='安柏去跑步：一起過聖誕']'.</msg>
+<status status="PASS" starttime="20201224 01:27:26.220" endtime="20201224 01:27:26.473"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:25.505" endtime="20201224 01:27:26.475"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:11.042" endtime="20201224 01:27:26.475"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:11.041" endtime="20201224 01:27:26.475"></status>
+</kw>
+<kw name="Send Gift By User ID">
+<arguments>
+<arg>${friends}[${i}]</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=//*[contains(@text, '贈送禮物')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:26.477" endtime="20201224 01:27:29.191"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:29.194" level="INFO">Clicking element 'xpath=//*[contains(@text, '贈送禮物')]'.</msg>
+<status status="PASS" starttime="20201224 01:27:29.191" endtime="20201224 01:27:29.677"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:26.476" endtime="20201224 01:27:29.677"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']</arg>
+<arg>${userID}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:29.678" endtime="20201224 01:27:31.683"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:31.687" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'.</msg>
+<status status="PASS" starttime="20201224 01:27:31.683" endtime="20201224 01:27:32.424"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:32.424" endtime="20201224 01:27:33.913"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:33.917" level="INFO">Typing text 'a13525231' into text field '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'</msg>
+<status status="PASS" starttime="20201224 01:27:33.914" endtime="20201224 01:27:35.044"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:29.677" endtime="20201224 01:27:35.044"></status>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']</arg>
+</arguments>
+<assign>
+<var>${getName}</var>
+</assign>
+<msg timestamp="20201224 01:27:35.872" level="INFO">Element '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']' text is 'a13525231' </msg>
+<msg timestamp="20201224 01:27:35.872" level="INFO">${getName} = a13525231</msg>
+<status status="PASS" starttime="20201224 01:27:35.045" endtime="20201224 01:27:35.873"></status>
+</kw>
+<kw name="Get Matching Xpath Count" library="AppiumLibrary">
+<doc>Returns number of elements matching ``xpath``</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']</arg>
+</arguments>
+<assign>
+<var>${searchClientNumber}</var>
+</assign>
+<msg timestamp="20201224 01:27:36.027" level="INFO">${searchClientNumber} = 1</msg>
+<status status="PASS" starttime="20201224 01:27:35.873" endtime="20201224 01:27:36.027"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Client's checkbox should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:36.028" endtime="20201224 01:27:36.206"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${searchClientNumber} == 1</arg>
+<arg>Click Element</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+<arg>ELSE</arg>
+<arg>Hide Keyboard</arg>
+</arguments>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+</arguments>
+<msg timestamp="20201224 01:27:36.210" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']'.</msg>
+<status status="PASS" starttime="20201224 01:27:36.207" endtime="20201224 01:27:37.096"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:36.206" endtime="20201224 01:27:37.096"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+</arguments>
+<msg timestamp="20201224 01:27:37.098" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201224 01:27:37.096" endtime="20201224 01:27:37.257"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=7s</arg>
+</arguments>
+<assign>
+<var>${sendSuccess}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=7s</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:37.258" endtime="20201224 01:27:38.935"></status>
+</kw>
+<msg timestamp="20201224 01:27:38.935" level="INFO">${sendSuccess} = True</msg>
+<status status="PASS" starttime="20201224 01:27:37.257" endtime="20201224 01:27:38.935"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${sendSuccess}</arg>
+<arg>Click OK Button To Send Gift To User</arg>
+<arg>ELSE</arg>
+<arg>Occur Error When Send Gift To User</arg>
+</arguments>
+<kw name="Click OK Button To Send Gift To User">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:38.937" endtime="20201224 01:27:39.245"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+</arguments>
+<msg timestamp="20201224 01:27:39.247" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/present_purchase_button']'.</msg>
+<status status="PASS" starttime="20201224 01:27:39.245" endtime="20201224 01:27:39.535"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=OK button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:39.535" endtime="20201224 01:27:40.657"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']</arg>
+</arguments>
+<msg timestamp="20201224 01:27:40.662" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']'.</msg>
+<status status="PASS" starttime="20201224 01:27:40.658" endtime="20201224 01:27:40.819"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/chathistory_message_list']</arg>
+<arg>timeout=15s</arg>
+<arg>error=Message page should be visible after sending sticker success.</arg>
+</arguments>
+<assign>
+<var>${sendSuccess}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/chathistory_message_list']</arg>
+<arg>timeout=15s</arg>
+<arg>error=Message page should be visible after sending sticker success.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:40.820" endtime="20201224 01:27:42.798"></status>
+</kw>
+<msg timestamp="20201224 01:27:42.799" level="INFO">${sendSuccess} = True</msg>
+<status status="PASS" starttime="20201224 01:27:40.819" endtime="20201224 01:27:42.799"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${sendSuccess}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_up_button']</arg>
+<arg>timeout=3s</arg>
+<arg>error=Last page button should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_up_button']</arg>
+<arg>timeout=3s</arg>
+<arg>error=Last page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:42.801" endtime="20201224 01:27:43.101"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:43.105" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_up_button']'.</msg>
+<status status="PASS" starttime="20201224 01:27:43.102" endtime="20201224 01:27:43.560"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:42.800" endtime="20201224 01:27:43.560"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:42.799" endtime="20201224 01:27:43.561"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${haveSticker}</arg>
+<arg>${False}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:43.562" level="INFO">${haveSticker} = False</msg>
+<status status="PASS" starttime="20201224 01:27:43.561" endtime="20201224 01:27:43.562"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:38.936" endtime="20201224 01:27:43.562"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:38.936" endtime="20201224 01:27:43.563"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:26.476" endtime="20201224 01:27:43.563"></status>
+</kw>
+<kw name="Record Index" library="AppiumLibrary">
+<arguments>
+<arg>${stickerIndex}</arg>
+<arg>${i}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:43.564" endtime="20201224 01:27:43.564"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:11.039" endtime="20201224 01:27:43.564"></status>
+</kw>
+<kw name="${i} = 12" type="foritem">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${i}-${friends}[${i}]</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:43.565" endtime="20201224 01:27:43.566"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${haveSticker}</arg>
+<arg>Run Keywords</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:43.569" endtime="20201224 01:27:45.221"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:45.225" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']'.</msg>
+<status status="PASS" starttime="20201224 01:27:45.222" endtime="20201224 01:27:45.718"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:43.568" endtime="20201224 01:27:45.718"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:45.719" endtime="20201224 01:27:46.640"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:46.645" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='貼圖小舖']'.</msg>
+<status status="PASS" starttime="20201224 01:27:46.641" endtime="20201224 01:27:47.493"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:45.718" endtime="20201224 01:27:47.494"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:47.496" endtime="20201224 01:27:50.859"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:50.862" level="INFO">Clicking element 'xpath=(//*[@class='android.widget.Image'])[1]'.</msg>
+<status status="PASS" starttime="20201224 01:27:50.859" endtime="20201224 01:27:51.160"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:47.495" endtime="20201224 01:27:51.161"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:51.163" endtime="20201224 01:27:52.495"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:52.498" level="INFO">Clicking element '//*[@class='android.widget.EditText']'.</msg>
+<status status="PASS" starttime="20201224 01:27:52.496" endtime="20201224 01:27:52.651"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:52.652" endtime="20201224 01:27:52.950"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:52.955" level="INFO">Typing text '安柏去跑步：一起過聖誕' into text field '//*[@class='android.widget.EditText']'</msg>
+<status status="PASS" starttime="20201224 01:27:52.951" endtime="20201224 01:27:53.943"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:51.161" endtime="20201224 01:27:53.944"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:53.947" endtime="20201224 01:27:56.582"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:56.587" level="INFO">Clicking element '//*[@class='android.view.View' and @text='原創']'.</msg>
+<status status="PASS" starttime="20201224 01:27:56.582" endtime="20201224 01:27:56.743"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:53.945" endtime="20201224 01:27:56.744"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:53.945" endtime="20201224 01:27:56.744"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:56.746" endtime="20201224 01:27:57.440"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:27:57.443" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='安柏去跑步：一起過聖誕']'.</msg>
+<status status="PASS" starttime="20201224 01:27:57.440" endtime="20201224 01:27:57.688"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:56.745" endtime="20201224 01:27:57.689"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:43.567" endtime="20201224 01:27:57.689"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:43.566" endtime="20201224 01:27:57.689"></status>
+</kw>
+<kw name="Send Gift By User ID">
+<arguments>
+<arg>${friends}[${i}]</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=//*[contains(@text, '贈送禮物')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:27:57.692" endtime="20201224 01:28:00.256"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:00.259" level="INFO">Clicking element 'xpath=//*[contains(@text, '贈送禮物')]'.</msg>
+<status status="PASS" starttime="20201224 01:28:00.256" endtime="20201224 01:28:00.735"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:57.691" endtime="20201224 01:28:00.736"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']</arg>
+<arg>${userID}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:00.737" endtime="20201224 01:28:02.851"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:02.854" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'.</msg>
+<status status="PASS" starttime="20201224 01:28:02.851" endtime="20201224 01:28:03.841"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:03.842" endtime="20201224 01:28:05.308"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:05.312" level="INFO">Typing text 'aimeej' into text field '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'</msg>
+<status status="PASS" starttime="20201224 01:28:05.309" endtime="20201224 01:28:06.457"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:00.736" endtime="20201224 01:28:06.457"></status>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']</arg>
+</arguments>
+<assign>
+<var>${getName}</var>
+</assign>
+<msg timestamp="20201224 01:28:07.329" level="INFO">Element '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']' text is 'aimeej' </msg>
+<msg timestamp="20201224 01:28:07.330" level="INFO">${getName} = aimeej</msg>
+<status status="PASS" starttime="20201224 01:28:06.458" endtime="20201224 01:28:07.330"></status>
+</kw>
+<kw name="Get Matching Xpath Count" library="AppiumLibrary">
+<doc>Returns number of elements matching ``xpath``</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']</arg>
+</arguments>
+<assign>
+<var>${searchClientNumber}</var>
+</assign>
+<msg timestamp="20201224 01:28:07.455" level="INFO">${searchClientNumber} = 1</msg>
+<status status="PASS" starttime="20201224 01:28:07.330" endtime="20201224 01:28:07.455"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Client's checkbox should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:07.455" endtime="20201224 01:28:07.555"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${searchClientNumber} == 1</arg>
+<arg>Click Element</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+<arg>ELSE</arg>
+<arg>Hide Keyboard</arg>
+</arguments>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+</arguments>
+<msg timestamp="20201224 01:28:07.559" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']'.</msg>
+<status status="PASS" starttime="20201224 01:28:07.557" endtime="20201224 01:28:08.377"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:07.556" endtime="20201224 01:28:08.378"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+</arguments>
+<msg timestamp="20201224 01:28:08.381" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201224 01:28:08.378" endtime="20201224 01:28:08.641"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=7s</arg>
+</arguments>
+<assign>
+<var>${sendSuccess}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=7s</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:08.642" endtime="20201224 01:28:10.249"></status>
+</kw>
+<msg timestamp="20201224 01:28:10.250" level="INFO">${sendSuccess} = True</msg>
+<status status="PASS" starttime="20201224 01:28:08.641" endtime="20201224 01:28:10.250"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${sendSuccess}</arg>
+<arg>Click OK Button To Send Gift To User</arg>
+<arg>ELSE</arg>
+<arg>Occur Error When Send Gift To User</arg>
+</arguments>
+<kw name="Click OK Button To Send Gift To User">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:10.253" endtime="20201224 01:28:10.485"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+</arguments>
+<msg timestamp="20201224 01:28:10.490" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/present_purchase_button']'.</msg>
+<status status="PASS" starttime="20201224 01:28:10.486" endtime="20201224 01:28:10.714"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=OK button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:10.715" endtime="20201224 01:28:11.821"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']</arg>
+</arguments>
+<msg timestamp="20201224 01:28:11.825" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']'.</msg>
+<status status="PASS" starttime="20201224 01:28:11.821" endtime="20201224 01:28:11.987"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/chathistory_message_list']</arg>
+<arg>timeout=15s</arg>
+<arg>error=Message page should be visible after sending sticker success.</arg>
+</arguments>
+<assign>
+<var>${sendSuccess}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/chathistory_message_list']</arg>
+<arg>timeout=15s</arg>
+<arg>error=Message page should be visible after sending sticker success.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:11.988" endtime="20201224 01:28:14.116"></status>
+</kw>
+<msg timestamp="20201224 01:28:14.116" level="INFO">${sendSuccess} = True</msg>
+<status status="PASS" starttime="20201224 01:28:11.988" endtime="20201224 01:28:14.116"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${sendSuccess}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_up_button']</arg>
+<arg>timeout=3s</arg>
+<arg>error=Last page button should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_up_button']</arg>
+<arg>timeout=3s</arg>
+<arg>error=Last page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:14.119" endtime="20201224 01:28:14.546"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:14.550" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_up_button']'.</msg>
+<status status="PASS" starttime="20201224 01:28:14.547" endtime="20201224 01:28:14.988"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:14.118" endtime="20201224 01:28:14.989"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:14.117" endtime="20201224 01:28:14.989"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${haveSticker}</arg>
+<arg>${False}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:14.990" level="INFO">${haveSticker} = False</msg>
+<status status="PASS" starttime="20201224 01:28:14.989" endtime="20201224 01:28:14.990"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:10.252" endtime="20201224 01:28:14.991"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:10.251" endtime="20201224 01:28:14.991"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:57.690" endtime="20201224 01:28:14.992"></status>
+</kw>
+<kw name="Record Index" library="AppiumLibrary">
+<arguments>
+<arg>${stickerIndex}</arg>
+<arg>${i}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:14.993" endtime="20201224 01:28:14.994"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:27:43.565" endtime="20201224 01:28:14.994"></status>
+</kw>
+<kw name="${i} = 13" type="foritem">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${i}-${friends}[${i}]</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:14.995" endtime="20201224 01:28:14.995"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${haveSticker}</arg>
+<arg>Run Keywords</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:14.999" endtime="20201224 01:28:16.589"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:16.593" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']'.</msg>
+<status status="PASS" starttime="20201224 01:28:16.590" endtime="20201224 01:28:17.086"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:14.997" endtime="20201224 01:28:17.086"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:17.087" endtime="20201224 01:28:18.244"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:18.249" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='貼圖小舖']'.</msg>
+<status status="PASS" starttime="20201224 01:28:18.245" endtime="20201224 01:28:19.173"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:17.087" endtime="20201224 01:28:19.174"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:19.175" endtime="20201224 01:28:22.326"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:22.330" level="INFO">Clicking element 'xpath=(//*[@class='android.widget.Image'])[1]'.</msg>
+<status status="PASS" starttime="20201224 01:28:22.326" endtime="20201224 01:28:22.589"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:19.174" endtime="20201224 01:28:22.589"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:22.591" endtime="20201224 01:28:24.116"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:24.120" level="INFO">Clicking element '//*[@class='android.widget.EditText']'.</msg>
+<status status="PASS" starttime="20201224 01:28:24.117" endtime="20201224 01:28:24.286"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:24.287" endtime="20201224 01:28:24.447"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:24.451" level="INFO">Typing text '安柏去跑步：一起過聖誕' into text field '//*[@class='android.widget.EditText']'</msg>
+<status status="PASS" starttime="20201224 01:28:24.447" endtime="20201224 01:28:25.562"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:22.590" endtime="20201224 01:28:25.563"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:25.564" endtime="20201224 01:28:28.213"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:28.218" level="INFO">Clicking element '//*[@class='android.view.View' and @text='原創']'.</msg>
+<status status="PASS" starttime="20201224 01:28:28.214" endtime="20201224 01:28:28.424"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:25.564" endtime="20201224 01:28:28.425"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:25.563" endtime="20201224 01:28:28.425"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:28.427" endtime="20201224 01:28:29.141"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:29.145" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='安柏去跑步：一起過聖誕']'.</msg>
+<status status="PASS" starttime="20201224 01:28:29.142" endtime="20201224 01:28:29.414"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:28.425" endtime="20201224 01:28:29.416"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:14.997" endtime="20201224 01:28:29.416"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:14.995" endtime="20201224 01:28:29.416"></status>
+</kw>
+<kw name="Send Gift By User ID">
+<arguments>
+<arg>${friends}[${i}]</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=//*[contains(@text, '贈送禮物')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:29.418" endtime="20201224 01:28:31.978"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:31.983" level="INFO">Clicking element 'xpath=//*[contains(@text, '贈送禮物')]'.</msg>
+<status status="PASS" starttime="20201224 01:28:31.978" endtime="20201224 01:28:32.448"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:29.417" endtime="20201224 01:28:32.449"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']</arg>
+<arg>${userID}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:32.450" endtime="20201224 01:28:34.481"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:34.484" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'.</msg>
+<status status="PASS" starttime="20201224 01:28:34.481" endtime="20201224 01:28:35.193"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:35.193" endtime="20201224 01:28:36.628"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:36.632" level="INFO">Typing text 'amyfreecom' into text field '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'</msg>
+<status status="PASS" starttime="20201224 01:28:36.629" endtime="20201224 01:28:37.774"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:32.449" endtime="20201224 01:28:37.774"></status>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']</arg>
+</arguments>
+<assign>
+<var>${getName}</var>
+</assign>
+<msg timestamp="20201224 01:28:39.118" level="INFO">Element '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']' text is 'amyfreecom' </msg>
+<msg timestamp="20201224 01:28:39.119" level="INFO">${getName} = amyfreecom</msg>
+<status status="PASS" starttime="20201224 01:28:37.774" endtime="20201224 01:28:39.119"></status>
+</kw>
+<kw name="Get Matching Xpath Count" library="AppiumLibrary">
+<doc>Returns number of elements matching ``xpath``</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']</arg>
+</arguments>
+<assign>
+<var>${searchClientNumber}</var>
+</assign>
+<msg timestamp="20201224 01:28:39.264" level="INFO">${searchClientNumber} = 1</msg>
+<status status="PASS" starttime="20201224 01:28:39.120" endtime="20201224 01:28:39.264"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Client's checkbox should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:39.264" endtime="20201224 01:28:39.416"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${searchClientNumber} == 1</arg>
+<arg>Click Element</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+<arg>ELSE</arg>
+<arg>Hide Keyboard</arg>
+</arguments>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+</arguments>
+<msg timestamp="20201224 01:28:39.422" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']'.</msg>
+<status status="PASS" starttime="20201224 01:28:39.418" endtime="20201224 01:28:40.811"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:39.417" endtime="20201224 01:28:40.811"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+</arguments>
+<msg timestamp="20201224 01:28:40.815" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201224 01:28:40.812" endtime="20201224 01:28:41.075"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=7s</arg>
+</arguments>
+<assign>
+<var>${sendSuccess}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=7s</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:41.076" endtime="20201224 01:28:42.712"></status>
+</kw>
+<msg timestamp="20201224 01:28:42.713" level="INFO">${sendSuccess} = True</msg>
+<status status="PASS" starttime="20201224 01:28:41.075" endtime="20201224 01:28:42.713"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${sendSuccess}</arg>
+<arg>Click OK Button To Send Gift To User</arg>
+<arg>ELSE</arg>
+<arg>Occur Error When Send Gift To User</arg>
+</arguments>
+<kw name="Click OK Button To Send Gift To User">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:42.714" endtime="20201224 01:28:42.922"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+</arguments>
+<msg timestamp="20201224 01:28:42.925" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/present_purchase_button']'.</msg>
+<status status="PASS" starttime="20201224 01:28:42.923" endtime="20201224 01:28:43.151"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=OK button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:43.152" endtime="20201224 01:28:44.280"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']</arg>
+</arguments>
+<msg timestamp="20201224 01:28:44.285" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']'.</msg>
+<status status="PASS" starttime="20201224 01:28:44.281" endtime="20201224 01:28:44.411"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/chathistory_message_list']</arg>
+<arg>timeout=15s</arg>
+<arg>error=Message page should be visible after sending sticker success.</arg>
+</arguments>
+<assign>
+<var>${sendSuccess}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/chathistory_message_list']</arg>
+<arg>timeout=15s</arg>
+<arg>error=Message page should be visible after sending sticker success.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:44.413" endtime="20201224 01:28:46.502"></status>
+</kw>
+<msg timestamp="20201224 01:28:46.503" level="INFO">${sendSuccess} = True</msg>
+<status status="PASS" starttime="20201224 01:28:44.412" endtime="20201224 01:28:46.503"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${sendSuccess}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_up_button']</arg>
+<arg>timeout=3s</arg>
+<arg>error=Last page button should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_up_button']</arg>
+<arg>timeout=3s</arg>
+<arg>error=Last page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:46.506" endtime="20201224 01:28:46.919"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:46.924" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_up_button']'.</msg>
+<status status="PASS" starttime="20201224 01:28:46.920" endtime="20201224 01:28:47.333"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:46.504" endtime="20201224 01:28:47.334"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:46.503" endtime="20201224 01:28:47.334"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${haveSticker}</arg>
+<arg>${False}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:47.335" level="INFO">${haveSticker} = False</msg>
+<status status="PASS" starttime="20201224 01:28:47.334" endtime="20201224 01:28:47.335"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:42.714" endtime="20201224 01:28:47.336"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:42.713" endtime="20201224 01:28:47.336"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:29.417" endtime="20201224 01:28:47.336"></status>
+</kw>
+<kw name="Record Index" library="AppiumLibrary">
+<arguments>
+<arg>${stickerIndex}</arg>
+<arg>${i}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:47.337" endtime="20201224 01:28:47.338"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:14.995" endtime="20201224 01:28:47.338"></status>
+</kw>
+<kw name="${i} = 14" type="foritem">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${i}-${friends}[${i}]</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:47.339" endtime="20201224 01:28:47.340"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${haveSticker}</arg>
+<arg>Run Keywords</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:47.343" endtime="20201224 01:28:49.047"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:49.052" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']'.</msg>
+<status status="PASS" starttime="20201224 01:28:49.048" endtime="20201224 01:28:49.588"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:47.342" endtime="20201224 01:28:49.589"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:49.591" endtime="20201224 01:28:50.532"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:50.537" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='貼圖小舖']'.</msg>
+<status status="PASS" starttime="20201224 01:28:50.533" endtime="20201224 01:28:51.495"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:49.589" endtime="20201224 01:28:51.496"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:51.498" endtime="20201224 01:28:54.458"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:54.463" level="INFO">Clicking element 'xpath=(//*[@class='android.widget.Image'])[1]'.</msg>
+<status status="PASS" starttime="20201224 01:28:54.460" endtime="20201224 01:28:54.753"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:51.497" endtime="20201224 01:28:54.754"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:54.755" endtime="20201224 01:28:56.497"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:56.502" level="INFO">Clicking element '//*[@class='android.widget.EditText']'.</msg>
+<status status="PASS" starttime="20201224 01:28:56.498" endtime="20201224 01:28:56.652"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:56.652" endtime="20201224 01:28:56.948"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:28:56.952" level="INFO">Typing text '安柏去跑步：一起過聖誕' into text field '//*[@class='android.widget.EditText']'</msg>
+<status status="PASS" starttime="20201224 01:28:56.948" endtime="20201224 01:28:57.977"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:54.754" endtime="20201224 01:28:57.978"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:28:57.980" endtime="20201224 01:29:00.765"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:00.770" level="INFO">Clicking element '//*[@class='android.view.View' and @text='原創']'.</msg>
+<status status="PASS" starttime="20201224 01:29:00.766" endtime="20201224 01:29:00.964"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:57.979" endtime="20201224 01:29:00.965"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:57.979" endtime="20201224 01:29:00.966"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:00.967" endtime="20201224 01:29:01.675"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:01.679" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='安柏去跑步：一起過聖誕']'.</msg>
+<status status="PASS" starttime="20201224 01:29:01.676" endtime="20201224 01:29:01.951"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:00.966" endtime="20201224 01:29:01.952"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:47.341" endtime="20201224 01:29:01.952"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:47.340" endtime="20201224 01:29:01.952"></status>
+</kw>
+<kw name="Send Gift By User ID">
+<arguments>
+<arg>${friends}[${i}]</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=//*[contains(@text, '贈送禮物')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:01.954" endtime="20201224 01:29:04.402"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:04.405" level="INFO">Clicking element 'xpath=//*[contains(@text, '贈送禮物')]'.</msg>
+<status status="PASS" starttime="20201224 01:29:04.403" endtime="20201224 01:29:04.822"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:01.953" endtime="20201224 01:29:04.822"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']</arg>
+<arg>${userID}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:04.824" endtime="20201224 01:29:06.875"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:06.879" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'.</msg>
+<status status="PASS" starttime="20201224 01:29:06.876" endtime="20201224 01:29:07.659"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:07.661" endtime="20201224 01:29:09.068"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:09.072" level="INFO">Typing text 'andy67239' into text field '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'</msg>
+<status status="PASS" starttime="20201224 01:29:09.069" endtime="20201224 01:29:10.219"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:04.823" endtime="20201224 01:29:10.220"></status>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']</arg>
+</arguments>
+<assign>
+<var>${getName}</var>
+</assign>
+<msg timestamp="20201224 01:29:11.102" level="INFO">Element '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']' text is 'andy67239' </msg>
+<msg timestamp="20201224 01:29:11.103" level="INFO">${getName} = andy67239</msg>
+<status status="PASS" starttime="20201224 01:29:10.220" endtime="20201224 01:29:11.103"></status>
+</kw>
+<kw name="Get Matching Xpath Count" library="AppiumLibrary">
+<doc>Returns number of elements matching ``xpath``</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']</arg>
+</arguments>
+<assign>
+<var>${searchClientNumber}</var>
+</assign>
+<msg timestamp="20201224 01:29:11.248" level="INFO">${searchClientNumber} = 1</msg>
+<status status="PASS" starttime="20201224 01:29:11.104" endtime="20201224 01:29:11.249"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Client's checkbox should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:11.249" endtime="20201224 01:29:11.404"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${searchClientNumber} == 1</arg>
+<arg>Click Element</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+<arg>ELSE</arg>
+<arg>Hide Keyboard</arg>
+</arguments>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']</arg>
+</arguments>
+<msg timestamp="20201224 01:29:11.409" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']'.</msg>
+<status status="PASS" starttime="20201224 01:29:11.405" endtime="20201224 01:29:12.271"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:11.405" endtime="20201224 01:29:12.272"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_button_text']</arg>
+</arguments>
+<msg timestamp="20201224 01:29:12.275" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_button_text']'.</msg>
+<status status="PASS" starttime="20201224 01:29:12.272" endtime="20201224 01:29:12.530"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=7s</arg>
+</arguments>
+<assign>
+<var>${sendSuccess}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=7s</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:12.531" endtime="20201224 01:29:14.178"></status>
+</kw>
+<msg timestamp="20201224 01:29:14.179" level="INFO">${sendSuccess} = True</msg>
+<status status="PASS" starttime="20201224 01:29:12.530" endtime="20201224 01:29:14.179"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${sendSuccess}</arg>
+<arg>Click OK Button To Send Gift To User</arg>
+<arg>ELSE</arg>
+<arg>Occur Error When Send Gift To User</arg>
+</arguments>
+<kw name="Click OK Button To Send Gift To User">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Purchase button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:14.181" endtime="20201224 01:29:14.401"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/present_purchase_button']</arg>
+</arguments>
+<msg timestamp="20201224 01:29:14.405" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/present_purchase_button']'.</msg>
+<status status="PASS" starttime="20201224 01:29:14.401" endtime="20201224 01:29:14.638"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=OK button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:14.639" endtime="20201224 01:29:15.746"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']</arg>
+</arguments>
+<msg timestamp="20201224 01:29:15.750" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']'.</msg>
+<status status="PASS" starttime="20201224 01:29:15.747" endtime="20201224 01:29:15.891"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/chathistory_message_list']</arg>
+<arg>timeout=15s</arg>
+<arg>error=Message page should be visible after sending sticker success.</arg>
+</arguments>
+<assign>
+<var>${sendSuccess}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/chathistory_message_list']</arg>
+<arg>timeout=15s</arg>
+<arg>error=Message page should be visible after sending sticker success.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:15.892" endtime="20201224 01:29:17.956"></status>
+</kw>
+<msg timestamp="20201224 01:29:17.956" level="INFO">${sendSuccess} = True</msg>
+<status status="PASS" starttime="20201224 01:29:15.891" endtime="20201224 01:29:17.956"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${sendSuccess}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_up_button']</arg>
+<arg>timeout=3s</arg>
+<arg>error=Last page button should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/header_up_button']</arg>
+<arg>timeout=3s</arg>
+<arg>error=Last page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:17.959" endtime="20201224 01:29:18.359"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:18.363" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/header_up_button']'.</msg>
+<status status="PASS" starttime="20201224 01:29:18.360" endtime="20201224 01:29:18.768"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:17.957" endtime="20201224 01:29:18.769"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:17.956" endtime="20201224 01:29:18.769"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${haveSticker}</arg>
+<arg>${False}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:18.771" level="INFO">${haveSticker} = False</msg>
+<status status="PASS" starttime="20201224 01:29:18.769" endtime="20201224 01:29:18.771"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:14.180" endtime="20201224 01:29:18.771"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:14.179" endtime="20201224 01:29:18.772"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:01.952" endtime="20201224 01:29:18.772"></status>
+</kw>
+<kw name="Record Index" library="AppiumLibrary">
+<arguments>
+<arg>${stickerIndex}</arg>
+<arg>${i}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:18.773" endtime="20201224 01:29:18.774"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:28:47.339" endtime="20201224 01:29:18.775"></status>
+</kw>
+<kw name="${i} = 15" type="foritem">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${i}-${friends}[${i}]</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:18.776" endtime="20201224 01:29:18.777"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${haveSticker}</arg>
+<arg>Run Keywords</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+<arg>AND</arg>
+<arg>Input Text After Click</arg>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Home page button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:18.779" endtime="20201224 01:29:20.415"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:20.419" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']'.</msg>
+<status status="PASS" starttime="20201224 01:29:20.416" endtime="20201224 01:29:21.033"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:18.778" endtime="20201224 01:29:21.034"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='貼圖小舖']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Sticker button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:21.035" endtime="20201224 01:29:21.902"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:21.907" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='貼圖小舖']'.</msg>
+<status status="PASS" starttime="20201224 01:29:21.903" endtime="20201224 01:29:22.862"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:21.034" endtime="20201224 01:29:22.863"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=(//*[@class='android.widget.Image'])[1]</arg>
+<arg>timeout=10s</arg>
+<arg>error=Search button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:22.864" endtime="20201224 01:29:26.102"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:26.107" level="INFO">Clicking element 'xpath=(//*[@class='android.widget.Image'])[1]'.</msg>
+<status status="PASS" starttime="20201224 01:29:26.103" endtime="20201224 01:29:26.409"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:22.863" endtime="20201224 01:29:26.410"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@class='android.widget.EditText']</arg>
+<arg>${sticker}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:26.411" endtime="20201224 01:29:28.103"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:28.107" level="INFO">Clicking element '//*[@class='android.widget.EditText']'.</msg>
+<status status="PASS" starttime="20201224 01:29:28.103" endtime="20201224 01:29:28.260"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:28.260" endtime="20201224 01:29:28.538"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:28.542" level="INFO">Typing text '安柏去跑步：一起過聖誕' into text field '//*[@class='android.widget.EditText']'</msg>
+<status status="PASS" starttime="20201224 01:29:28.538" endtime="20201224 01:29:29.527"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:26.410" endtime="20201224 01:29:29.528"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${stickerOriginal}</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.view.View' and @text='原創']</arg>
+<arg>timeout=10s</arg>
+<arg>error=Original button should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:29.530" endtime="20201224 01:29:32.203"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:32.209" level="INFO">Clicking element '//*[@class='android.view.View' and @text='原創']'.</msg>
+<status status="PASS" starttime="20201224 01:29:32.203" endtime="20201224 01:29:32.358"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:29.529" endtime="20201224 01:29:32.359"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:29.528" endtime="20201224 01:29:32.359"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='${sticker}']</arg>
+<arg>timeout=10s</arg>
+<arg>error='${sticker}' should be visible.</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:32.361" endtime="20201224 01:29:33.075"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:33.081" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='安柏去跑步：一起過聖誕']'.</msg>
+<status status="PASS" starttime="20201224 01:29:33.076" endtime="20201224 01:29:33.316"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:32.360" endtime="20201224 01:29:33.317"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:18.777" endtime="20201224 01:29:33.317"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:18.777" endtime="20201224 01:29:33.318"></status>
+</kw>
+<kw name="Send Gift By User ID">
+<arguments>
+<arg>${friends}[${i}]</arg>
+</arguments>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>xpath=//*[contains(@text, '贈送禮物')]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Clear application button should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:33.321" endtime="20201224 01:29:36.105"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:36.110" level="INFO">Clicking element 'xpath=//*[contains(@text, '贈送禮物')]'.</msg>
+<status status="PASS" starttime="20201224 01:29:36.105" endtime="20201224 01:29:36.533"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:33.320" endtime="20201224 01:29:36.534"></status>
+</kw>
+<kw name="Input Text After Click">
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']</arg>
+<arg>${userID}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Input text should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:36.535" endtime="20201224 01:29:38.531"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:38.535" level="INFO">Clicking element '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'.</msg>
+<status status="PASS" starttime="20201224 01:29:38.532" endtime="20201224 01:29:39.244"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${xpath}</arg>
+</arguments>
+<status status="PASS" starttime="20201224 01:29:39.244" endtime="20201224 01:29:40.710"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${xpath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20201224 01:29:40.714" level="INFO">Typing text 'ax52967' into text field '//*[@resource-id='jp.naver.line.android:id/searchbar_input_text']'</msg>
+<status status="PASS" starttime="20201224 01:29:40.711" endtime="20201224 01:29:41.854"></status>
+</kw>
+<status status="PASS" starttime="20201224 01:29:36.534" endtime="20201224 01:29:41.855"></status>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<arguments>
+<arg>//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']</arg>
+</arguments>
+<assign>
+<var>${getName}</var>
+</assign>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20201224 01:29:43.561" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20201224 01:29:42.707" endtime="20201224 01:29:43.561"></status>
+</kw>
+<msg timestamp="20201224 01:29:43.563" level="FAIL">ValueError: Element locator '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']' did not match any elements.</msg>
+<status status="FAIL" starttime="20201224 01:29:41.855" endtime="20201224 01:29:43.563"></status>
+</kw>
+<status status="FAIL" starttime="20201224 01:29:33.318" endtime="20201224 01:29:43.564"></status>
+</kw>
+<status status="FAIL" starttime="20201224 01:29:18.775" endtime="20201224 01:29:43.564"></status>
+</kw>
+<status status="FAIL" starttime="20201224 01:26:32.716" endtime="20201224 01:29:43.564"></status>
+</kw>
+<status status="FAIL" starttime="20201224 01:26:32.716" endtime="20201224 01:29:43.565"></status>
+</kw>
+<status status="FAIL" starttime="20201224 01:26:32.715" endtime="20201224 01:29:43.565"></status>
+</kw>
+<status status="FAIL" starttime="20201224 01:26:32.715" endtime="20201224 01:29:43.565"></status>
+</kw>
+<status status="FAIL" starttime="20201224 01:25:55.853" endtime="20201224 01:29:43.566" critical="yes">ValueError: Element locator '//*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']' did not match any elements.</status>
 </test>
-<status status="PASS" starttime="20201219 18:34:06.011" endtime="20201219 18:34:06.640"></status>
+<status status="FAIL" starttime="20201224 01:25:55.192" endtime="20201224 01:29:43.568"></status>
 </suite>
-<status status="PASS" starttime="20201219 18:34:06.008" endtime="20201219 18:34:06.642"></status>
+<status status="FAIL" starttime="20201224 01:25:55.189" endtime="20201224 01:29:43.571"></status>
 </suite>
-<status status="PASS" starttime="20201219 18:34:06.004" endtime="20201219 18:34:06.644"></status>
+<status status="FAIL" starttime="20201224 01:25:55.185" endtime="20201224 01:29:43.575"></status>
 </suite>
-<status status="PASS" starttime="20201219 18:34:05.972" endtime="20201219 18:34:06.645"></status>
+<status status="FAIL" starttime="20201224 01:25:55.152" endtime="20201224 01:29:43.577"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="AutoSSS">AutoSSS</stat>
-<stat pass="1" fail="0" id="s1-s1" name="RobotTests">AutoSSS.RobotTests</stat>
-<stat pass="1" fail="0" id="s1-s1-s1" name="Regression Test">AutoSSS.RobotTests.Regression Test</stat>
-<stat pass="1" fail="0" id="s1-s1-s1-s1" name="Oldman3">AutoSSS.RobotTests.Regression Test.Oldman3</stat>
+<stat pass="0" fail="1" id="s1" name="AutoSSS">AutoSSS</stat>
+<stat pass="0" fail="1" id="s1-s1" name="RobotTests">AutoSSS.RobotTests</stat>
+<stat pass="0" fail="1" id="s1-s1-s1" name="Regression Test">AutoSSS.RobotTests.Regression Test</stat>
+<stat pass="0" fail="1" id="s1-s1-s1-s1" name="randomSendStickerOnLINE">AutoSSS.RobotTests.Regression Test.randomSendStickerOnLINE</stat>
 </suite>
 </statistics>
 <errors>

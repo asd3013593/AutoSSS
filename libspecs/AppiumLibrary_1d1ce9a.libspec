@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2020-11-30T18:05:10Z" lineno="10" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
+<keywordspec format="ROBOT" generated="2020-12-23T17:13:50Z" lineno="10" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
 <version>1.5.0.7</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
@@ -828,6 +828,18 @@ This keyword can be used to close application during test case or between test c
 See `Launch Application` for an explanation.
 
 New in AppiumLibrary 1.4.6</doc>
+</kw>
+<kw lineno="768" name="Read Index" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<arguments>
+</arguments>
+<doc />
+</kw>
+<kw lineno="759" name="Record Index" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<arguments>
+<arg>stickerIndex</arg>
+<arg>index</arg>
+</arguments>
+<doc />
 </kw>
 <kw lineno="17" name="Register Keyword To Run On Failure" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_runonfailure.py">
 <arguments>
