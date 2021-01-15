@@ -37,7 +37,7 @@ ${taiwanSticker} =    0
 ${foreignSticker} =    0
 ${foreignTopic} =    0
 ${nextClientError} =    10
-&{countryToVPN} =    日本=東京 #46    印尼=雅加達 #8    韓國=首爾 #26    美國=紐約 #18    泰國=曼谷 #5    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
+&{countryToVPN} =    日本=東京 #46    印尼=雅加達 #8    韓國=首爾 #26    美國=紐約 #18    泰國=曼谷 #5    馬來西亞=吉隆波 #10    新加坡=新加坡 #20    香港=香港 #160
 ${globalCountry} =    日本
 ${currentLocation} =    台灣
 ${slowNetPeriod} =    30s
@@ -257,19 +257,40 @@ Change User Name To ID
     [Teardown]    Close LINE To Go Back After Change The Name
 
 Select User By Name When Users
-    Wait Until Element Is Visible        //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]    timeout=10s    error=Friends list should be visible.
-    ${reNameUsers} =    Get Matching Xpath Count    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
-    Run Keyword If    ${reNameUsers}>1    Fail    Users are repeated, please handle it.
-    ...       ELSE    Click Element    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
+    ${user} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
+    ${userNotShown} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${user}    timeout=5s    error=Friends list should be visible.
+    ${reNameUsers} =    Run Keyword If    ${userNotShown}    Get Matching Xpath Count    ${user}
+    Run Keyword If    ${reNameUsers}!=None and ${reNameUsers}>1    Fail    Users are repeated, please handle it.
+    ...    ELSE IF    ${reNameUsers}==None    Swipe To Bottom Until User Is Visible
+    Click ELement    ${user}
+
+Swipe To Bottom Until User Is Visible
+    ${user} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
+    FOR    ${index}    IN RANGE    50
+        ${findClient} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    ${user}    timeout=1s    error=User is not found when change name.
+        Run Keyword If    not ${findClient}   Swipe    300    800    300    500    300
+        Run Keyword If    ${findClient}    Run Keywords    Double Check Is Not Repeated Users
+        ...                                         AND    Return From Keyword    True
+    # ...        ELSE IF    not ${isNotBottom}    Fail    message=Client should be found
+    END
+    Fail    message=message=Client should be found
+
+Double Check Is Not Repeated Users
+    Swipe    300    800    300    500    300
+    ${user} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
+    ${userNotShown}    Get Matching Xpath Count    ${user}
+    Run Keyword If    ${userNotShown}>1    Fail    Users are repeated, please handle it.
 
 Count User Number And Return Type
-    Wait Until Page Contains Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View   timeout=10s    error=Friend List View Should Be Visible. 
+    Wait Until Page Contains Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View   timeout=10s    error=Friend List View Should Be Visible.
+    Wait Until Keyword Succeeds    5    500ms    User Friend List Is Empty
     ${count}    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='1']/android.view.View
-    # Log To Console    ${count}
-    # ${name} =    Run Keyword If    ${count}==1    Set Variable    1
-    # ${name} =    Run Keyword If    not(${count}==1)    Set Variable    2
     Log To Console    name=${count}
     [Return]    ${count}
+
+User Friend List Is Empty
+    ${count}    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='1']/android.view.View
+    Run Keyword If    ${count}==0    Fail
 
 Open Sticker Link
     Wait Until Element Is Visible   xpath=//*[@text= '開啟連結' and @index='0']     timeout=${slowNetPeriod}    error=Url open button should be visible.
@@ -334,9 +355,9 @@ Press Keycode To Go Back
 
 ID Can Be Searched Then Continue To Work
     If Name Is Not Equal To ID Change Name To ID
-    ${sameCoin}    Check Purchase Coin Is Same To The Sticker
-    Run Keyword If    not ${sameCoin}    Run Keywords    Set Global Variable    ${errorType}    2
-    ...                                           AND    Return From Keyword
+    # ${sameCoin}    Check Purchase Coin Is Same To The Sticker
+    # Run Keyword If    not ${sameCoin}    Run Keywords    Set Global Variable    ${errorType}    2
+    # ...                                           AND    Return From Keyword
     Switch VPN If Is Sending Foreign Sticker
     Open Sticker Link
     Send Gift By Select User With ID
