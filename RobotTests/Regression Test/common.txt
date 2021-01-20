@@ -1,6 +1,7 @@
 *** Settings ***
 Library    XML
 Library    AppiumLibrary
+Resource    ../variable/variable.txt
 
 *** Keywords ***
 Open Chrome
