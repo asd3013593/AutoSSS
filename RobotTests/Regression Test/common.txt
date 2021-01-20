@@ -1,4 +1,5 @@
 *** Settings ***
+Library    XML
 Library    AppiumLibrary
 Resource    ../variable/variable.txt
 
