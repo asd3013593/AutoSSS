@@ -1,4 +1,5 @@
 *** Settings ***
+Force Tags    mycat
 Library    XML
 Library    AppiumLibrary
 Library    OperatingSystem
