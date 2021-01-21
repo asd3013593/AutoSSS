@@ -3,8 +3,8 @@ Library    XML
 Library    AppiumLibrary
 Library    SeleniumLibrary
 Library    OperatingSystem
-Library    SeleniumLibrary    run_on_failure=SeleniumLibrary.Capture Page Screenshot
 Library    AppiumLibrary    run_on_failure=AppiumLibrary.Capture Page Screenshot
+Library    SeleniumLibrary    run_on_failure=AppiumLibrary.Capture Page Screenshot
 
 *** Variables ***
 ${redmiDeviceName} =    8531905e7d25

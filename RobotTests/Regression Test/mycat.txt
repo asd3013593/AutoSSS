@@ -2,7 +2,7 @@
 Library    XML
 Library    AppiumLibrary
 Library    OperatingSystem
-Resource    purchaseCoin.txt
+Resource    ./purchaseCoin.txt
 
 *** Variables ***
 ${redmiDeviceName} =    8531905e7d25
