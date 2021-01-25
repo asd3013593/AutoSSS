@@ -267,9 +267,7 @@ Select User By Name When Users
 
 Swipe To Bottom Until User Is Visible
     ${user} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
-    FOR    ${index}    IN RANGE    50
-        ${test} =    Get Matching Xpath Count    ${user}
-        Log To Console    ${test}
+    FOR    ${index}    IN RANGE    5
         ${findClient} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    ${user}    timeout=3s    error=User is not found when change name.
         Run Keyword If    not ${findClient}   Swipe    300    800    300    500    300
         Run Keyword If    ${findClient}    Run Keywords    Double Check Is Not Repeated Users
