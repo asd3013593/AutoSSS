@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2020-10-10T18:28:43Z" lineno="30" name="Process" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\Process.py" specversion="2" type="LIBRARY">
+<keywordspec name="Process" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2021-01-25T23:38:27Z" specversion="2" source="/opt/homebrew/lib/python3.9/site-packages/robot/libraries/Process.py" lineno="30">
 <version>3.2.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
@@ -274,7 +274,7 @@ considering also ``OFF`` and ``0`` false is new in Robot Framework 3.1.
 |     `Terminate Process`    ${handle}
 |     ${result} =    `Wait For Process`    First
 |     `Should Be Equal As Integers`    ${result.rc}    0</doc>
-<kw lineno="626" name="Get Process Id">
+<kw name="Get Process Id" lineno="626">
 <arguments>
 <arg>handle=None</arg>
 </arguments>
@@ -285,7 +285,7 @@ If ``handle`` is not given, uses the current `active process`.
 Notice that the pid is not the same as the handle returned by
 `Start Process` that is used internally by this library.</doc>
 </kw>
-<kw lineno="636" name="Get Process Object">
+<kw name="Get Process Object" lineno="636">
 <arguments>
 <arg>handle=None</arg>
 </arguments>
@@ -293,7 +293,7 @@ Notice that the pid is not the same as the handle returned by
 
 If ``handle`` is not given, uses the current `active process`.</doc>
 </kw>
-<kw lineno="643" name="Get Process Result">
+<kw name="Get Process Result" lineno="643">
 <arguments>
 <arg>handle=None</arg>
 <arg>rc=False</arg>
@@ -341,7 +341,7 @@ over the remote library interface. The remote interface does not
 support returning the whole result object, but individual attributes
 can be returned without problems.</doc>
 </kw>
-<kw lineno="371" name="Is Process Running">
+<kw name="Is Process Running" lineno="371">
 <arguments>
 <arg>handle=None</arg>
 </arguments>
@@ -351,7 +351,7 @@ If ``handle`` is not given, uses the current `active process`.
 
 Returns ``True`` if the process is still running and ``False`` otherwise.</doc>
 </kw>
-<kw lineno="741" name="Join Command Line">
+<kw name="Join Command Line" lineno="741">
 <arguments>
 <arg>*args</arg>
 </arguments>
@@ -370,7 +370,7 @@ Example:
 
 New in Robot Framework 2.9.2.</doc>
 </kw>
-<kw lineno="380" name="Process Should Be Running">
+<kw name="Process Should Be Running" lineno="380">
 <arguments>
 <arg>handle=None</arg>
 <arg>error_message=Process is not running.</arg>
@@ -381,7 +381,7 @@ If ``handle`` is not given, uses the current `active process`.
 
 Fails if the process has stopped.</doc>
 </kw>
-<kw lineno="391" name="Process Should Be Stopped">
+<kw name="Process Should Be Stopped" lineno="391">
 <arguments>
 <arg>handle=None</arg>
 <arg>error_message=Process is running.</arg>
@@ -392,7 +392,7 @@ If ``handle`` is not given, uses the current `active process`.
 
 Fails if the process is still running.</doc>
 </kw>
-<kw lineno="305" name="Run Process">
+<kw name="Run Process" lineno="305">
 <arguments>
 <arg>command</arg>
 <arg>*arguments</arg>
@@ -427,7 +427,7 @@ Examples:
 
 This keyword does not change the `active process`.</doc>
 </kw>
-<kw lineno="572" name="Send Signal To Process">
+<kw name="Send Signal To Process" lineno="572">
 <arguments>
 <arg>signal</arg>
 <arg>handle=None</arg>
@@ -460,7 +460,7 @@ To send the signal to the whole process group, ``group`` argument can
 be set to any true value (see `Boolean arguments`). This is not
 supported by Jython, however.</doc>
 </kw>
-<kw lineno="724" name="Split Command Line">
+<kw name="Split Command Line" lineno="724">
 <arguments>
 <arg>args</arg>
 <arg>escaping=False</arg>
@@ -479,7 +479,7 @@ Examples:
 
 New in Robot Framework 2.9.2.</doc>
 </kw>
-<kw lineno="344" name="Start Process">
+<kw name="Start Process" lineno="344">
 <arguments>
 <arg>command</arg>
 <arg>*arguments</arg>
@@ -498,7 +498,7 @@ Processes are started so that they create a new process group. This
 allows sending signals to and terminating also possible child
 processes. This is not supported on Jython.</doc>
 </kw>
-<kw lineno="702" name="Switch Process">
+<kw name="Switch Process" lineno="702">
 <arguments>
 <arg>handle</arg>
 </arguments>
@@ -514,7 +514,7 @@ Example:
 | Switch Process | process1 |
 | # now active process is process1 |</doc>
 </kw>
-<kw lineno="557" name="Terminate All Processes">
+<kw name="Terminate All Processes" lineno="557">
 <arguments>
 <arg>kill=False</arg>
 </arguments>
@@ -527,7 +527,7 @@ By default tries to terminate processes gracefully, but can be
 configured to forcefully kill them immediately. See `Terminate Process`
 that this keyword uses internally for more details.</doc>
 </kw>
-<kw lineno="482" name="Terminate Process">
+<kw name="Terminate Process" lineno="482">
 <arguments>
 <arg>handle=None</arg>
 <arg>kill=False</arg>
@@ -565,7 +565,7 @@ Limitations:
 - On Windows forceful kill only stops the main process, not possible
   child processes.</doc>
 </kw>
-<kw lineno="402" name="Wait For Process">
+<kw name="Wait For Process" lineno="402">
 <arguments>
 <arg>handle=None</arg>
 <arg>timeout=None</arg>

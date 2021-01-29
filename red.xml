@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projectConfiguration>
     <configVersion>2</configVersion>
+    <robotExecEnvironment path="/opt/homebrew/Cellar/python@3.9/3.9.1_6/libexec/bin" interpreter="Python"/>
     <relativeTo>WORKSPACE</relativeTo>
     <referencedLibrary type="PYTHON" name="AppiumLibrary" path="C:/Users/pan/AppData/Local/Programs/Python/Python36/Lib/AppiumLibrary/__init__.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Users/pan/AppData/Local/Programs/Python/Python36/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="/opt/homebrew/lib/python3.9/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="stickerLibrary" path="StickerSender/RobotTests/Regression Test/stickerLibrary.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="AppiumLibrary" path="/opt/homebrew/lib/python3.9/site-packages/AppiumLibrary/__init__.py" dynamic="false"/>
     <pythonpath/>
     <classpath/>
     <excludedForValidation/>

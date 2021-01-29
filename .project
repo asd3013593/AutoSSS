@@ -20,21 +20,4 @@
 		<nature>org.robotframework.ide.eclipse.main.plugin.robotNature</nature>
 		<nature>org.python.pydev.pythonNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>libspecs/AppiumLibrary.py</name>
-			<type>1</type>
-			<location>C:/Users/pan/AppData/Local/Programs/Python/Python36/Lib/AppiumLibrary/keywords/_applicationmanagement.py</location>
-		</link>
-		<link>
-			<name>libspecs/BuiltIn.py</name>
-			<type>1</type>
-			<location>C:/Users/pan/AppData/Local/Programs/Python/Python36/lib/site-packages/robot/libraries/BuiltIn.py</location>
-		</link>
-		<link>
-			<name>libspecs/SeleniumLibrary.py</name>
-			<type>1</type>
-			<location>C:/Users/pan/AppData/Local/Programs/Python/Python36/Lib/site-packages/SeleniumLibrary/keywords/waiting.py</location>
-		</link>
-	</linkedResources>
 </projectDescription>
