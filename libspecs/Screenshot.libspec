@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="Screenshot" type="LIBRARY" format="ROBOT" scope="SUITE" namedargs="true" generated="2021-01-25T23:38:27Z" specversion="2" source="/opt/homebrew/lib/python3.9/site-packages/robot/libraries/Screenshot.py" lineno="52">
+<keywordspec format="ROBOT" generated="2021-01-29T11:52:18Z" lineno="52" name="Screenshot" namedargs="true" scope="SUITE" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\Screenshot.py" specversion="2" type="LIBRARY">
 <version>3.2.2</version>
 <scope>test suite</scope>
 <namedargs>yes</namedargs>
@@ -88,7 +88,7 @@ Examples (use only one of these):
 
 Specifying explicit screenshot module is new in Robot Framework 2.9.2.</doc>
 </init>
-<kw name="Set Screenshot Directory" lineno="153">
+<kw lineno="153" name="Set Screenshot Directory">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -99,7 +99,7 @@ systems. Path to the old directory is returned.
 
 The directory can also be set in `importing`.</doc>
 </kw>
-<kw name="Take Screenshot" lineno="168">
+<kw lineno="168" name="Take Screenshot">
 <arguments>
 <arg>name=screenshot</arg>
 <arg>width=800px</arg>
@@ -128,7 +128,7 @@ Examples: (LOGDIR is determined automatically by the library)
 
 The path where the screenshot is saved is returned.</doc>
 </kw>
-<kw name="Take Screenshot Without Embedding" lineno="197">
+<kw lineno="197" name="Take Screenshot Without Embedding">
 <arguments>
 <arg>name=screenshot</arg>
 </arguments>

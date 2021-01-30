@@ -2,8 +2,8 @@
 Library    XML
 Library    AppiumLibrary
 Library    OperatingSystem    
-Suite Setup    Run Keyword   Login Mycat Magnage Interface
-Suite Teardown    Close All Application And Back To Home
+# Suite Setup    Run Keyword   Login Mycat Magnage Interface
+# Suite Teardown    Close All Application And Back To Home
 
 *** Variables ***
 ${redmiDeviceName} =    8531905e7d25

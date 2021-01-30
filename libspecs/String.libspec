@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="String" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2021-01-25T23:38:27Z" specversion="2" source="/opt/homebrew/lib/python3.9/site-packages/robot/libraries/String.py" lineno="31">
+<keywordspec format="ROBOT" generated="2021-01-29T11:52:18Z" lineno="31" name="String" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\String.py" specversion="2" type="LIBRARY">
 <version>3.2.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
@@ -22,7 +22,7 @@ Following keywords from ``BuiltIn`` library can also be used with strings:
 - `Should (Not) End With`
 - `Convert To String`
 - `Convert To Bytes`</doc>
-<kw name="Convert To Lower Case" lineno="55">
+<kw lineno="55" name="Convert To Lower Case">
 <arguments>
 <arg>string</arg>
 </arguments>
@@ -38,7 +38,7 @@ Examples:
 | Should Be Equal | ${str1} | abc |
 | Should Be Equal | ${str2} | 1a2c3d |</doc>
 </kw>
-<kw name="Convert To Title Case" lineno="87">
+<kw lineno="87" name="Convert To Title Case">
 <arguments>
 <arg>string</arg>
 <arg>exclude=None</arg>
@@ -82,7 +82,7 @@ to "It'S An Ok Iphone".
 
 New in Robot Framework 3.2.</doc>
 </kw>
-<kw name="Convert To Upper Case" lineno="72">
+<kw lineno="72" name="Convert To Upper Case">
 <arguments>
 <arg>string</arg>
 </arguments>
@@ -98,7 +98,7 @@ Examples:
 | Should Be Equal | ${str1} | ABC |
 | Should Be Equal | ${str2} | 1A2C3D |</doc>
 </kw>
-<kw name="Decode Bytes To String" lineno="167">
+<kw lineno="167" name="Decode Bytes To String">
 <arguments>
 <arg>bytes</arg>
 <arg>encoding</arg>
@@ -123,7 +123,7 @@ Use `Encode String To Bytes` if you need to convert Unicode strings to
 byte strings, and `Convert To String` in ``BuiltIn`` if you need to
 convert arbitrary objects to Unicode strings.</doc>
 </kw>
-<kw name="Encode String To Bytes" lineno="144">
+<kw lineno="144" name="Encode String To Bytes">
 <arguments>
 <arg>string</arg>
 <arg>encoding</arg>
@@ -149,7 +149,7 @@ on character or integer sequences. Use `Decode Bytes To String` if you
 need to convert byte strings to Unicode strings and `Convert To String`
 in ``BuiltIn`` if you need to convert arbitrary objects to Unicode.</doc>
 </kw>
-<kw name="Fetch From Left" lineno="555">
+<kw lineno="555" name="Fetch From Left">
 <arguments>
 <arg>string</arg>
 <arg>marker</arg>
@@ -161,7 +161,7 @@ If the ``marker`` is not found, whole string is returned.
 See also `Fetch From Right`, `Split String` and `Split String
 From Right`.</doc>
 </kw>
-<kw name="Fetch From Right" lineno="565">
+<kw lineno="565" name="Fetch From Right">
 <arguments>
 <arg>string</arg>
 <arg>marker</arg>
@@ -173,7 +173,7 @@ If the ``marker`` is not found, whole string is returned.
 See also `Fetch From Left`, `Split String` and `Split String
 From Right`.</doc>
 </kw>
-<kw name="Format String" lineno="191">
+<kw lineno="191" name="Format String">
 <arguments>
 <arg>template</arg>
 <arg>*positional</arg>
@@ -202,7 +202,7 @@ Examples:
 
 New in Robot Framework 3.1.</doc>
 </kw>
-<kw name="Generate Random String" lineno="575">
+<kw lineno="575" name="Generate Random String">
 <arguments>
 <arg>length=8</arg>
 <arg>chars=[LETTERS][NUMBERS]</arg>
@@ -226,7 +226,7 @@ Examples:
 | ${bin} = | Generate Random String | 8  | 01              |
 | ${hex} = | Generate Random String | 4  | [NUMBERS]abcdef |</doc>
 </kw>
-<kw name="Get Line" lineno="256">
+<kw lineno="256" name="Get Line">
 <arguments>
 <arg>string</arg>
 <arg>line_number</arg>
@@ -243,13 +243,13 @@ Examples:
 
 Use `Split To Lines` if all lines are needed.</doc>
 </kw>
-<kw name="Get Line Count" lineno="223">
+<kw lineno="223" name="Get Line Count">
 <arguments>
 <arg>string</arg>
 </arguments>
 <doc>Returns and logs the number of lines in the given string.</doc>
 </kw>
-<kw name="Get Lines Containing String" lineno="272">
+<kw lineno="272" name="Get Lines Containing String">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -278,7 +278,7 @@ Examples:
 See `Get Lines Matching Pattern` and `Get Lines Matching Regexp`
 if you need more complex pattern matching.</doc>
 </kw>
-<kw name="Get Lines Matching Pattern" lineno="303">
+<kw lineno="303" name="Get Lines Matching Pattern">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -312,7 +312,7 @@ See `Get Lines Matching Regexp` if you need more complex
 patterns and `Get Lines Containing String` if searching
 literal strings is enough.</doc>
 </kw>
-<kw name="Get Lines Matching Regexp" lineno="339">
+<kw lineno="339" name="Get Lines Matching Regexp">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -353,7 +353,7 @@ complexity).
 ``partial_match`` argument is new in Robot Framework 2.9. In earlier
  versions exact match was always required.</doc>
 </kw>
-<kw name="Get Regexp Matches" lineno="385">
+<kw lineno="385" name="Get Regexp Matches">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -387,7 +387,7 @@ Examples:
 
 New in Robot Framework 2.9.</doc>
 </kw>
-<kw name="Get Substring" lineno="606">
+<kw lineno="606" name="Get Substring">
 <arguments>
 <arg>string</arg>
 <arg>start</arg>
@@ -406,7 +406,7 @@ Examples:
 | ${first two} =    | Get Substring | ${string} |    | 1  |
 | ${last two} =     | Get Substring | ${string} | -2 |    |</doc>
 </kw>
-<kw name="Remove String" lineno="469">
+<kw lineno="469" name="Remove String">
 <arguments>
 <arg>string</arg>
 <arg>*removables</arg>
@@ -430,7 +430,7 @@ Examples:
 | ${str} =        | Remove String | Robot Framework | o | bt |
 | Should Be Equal | ${str}        | R Framewrk      |</doc>
 </kw>
-<kw name="Remove String Using Regexp" lineno="493">
+<kw lineno="493" name="Remove String Using Regexp">
 <arguments>
 <arg>string</arg>
 <arg>*patterns</arg>
@@ -444,7 +444,7 @@ about the regular expression syntax. That keyword can also be
 used if there is a need to remove only a certain number of
 occurrences.</doc>
 </kw>
-<kw name="Replace String" lineno="424">
+<kw lineno="424" name="Replace String">
 <arguments>
 <arg>string</arg>
 <arg>search_for</arg>
@@ -471,7 +471,7 @@ Examples:
 | ${str} =        | Replace String | Hello, world!  | l     | ${EMPTY} | count=1 |
 | Should Be Equal | ${str}         | Helo, world!   |       |          |</doc>
 </kw>
-<kw name="Replace String Using Regexp" lineno="448">
+<kw lineno="448" name="Replace String Using Regexp">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -492,7 +492,7 @@ Examples:
 | ${str} = | Replace String Using Regexp | ${str} | 20\\d\\d-\\d\\d-\\d\\d | &lt;DATE&gt; |
 | ${str} = | Replace String Using Regexp | ${str} | (Hello|Hi) | ${EMPTY} | count=1 |</doc>
 </kw>
-<kw name="Should Be Byte String" lineno="703">
+<kw lineno="703" name="Should Be Byte String">
 <arguments>
 <arg>item</arg>
 <arg>msg=None</arg>
@@ -507,7 +507,7 @@ and byte strings.
 The default error message can be overridden with the optional
 ``msg`` argument.</doc>
 </kw>
-<kw name="Should Be Lowercase" lineno="717">
+<kw lineno="717" name="Should Be Lowercase">
 <arguments>
 <arg>string</arg>
 <arg>msg=None</arg>
@@ -522,7 +522,7 @@ The default error message can be overridden with the optional
 
 See also `Should Be Uppercase` and `Should Be Titlecase`.</doc>
 </kw>
-<kw name="Should Be String" lineno="656">
+<kw lineno="656" name="Should Be String">
 <arguments>
 <arg>item</arg>
 <arg>msg=None</arg>
@@ -544,7 +544,7 @@ Python 3 and IronPython, ``'string'`` creates a Unicode string, and
 The default error message can be overridden with the optional
 ``msg`` argument.</doc>
 </kw>
-<kw name="Should Be Titlecase" lineno="745">
+<kw lineno="745" name="Should Be Titlecase">
 <arguments>
 <arg>string</arg>
 <arg>msg=None</arg>
@@ -563,7 +563,7 @@ The default error message can be overridden with the optional
 
 See also `Should Be Uppercase` and `Should Be Lowercase`.</doc>
 </kw>
-<kw name="Should Be Unicode String" lineno="689">
+<kw lineno="689" name="Should Be Unicode String">
 <arguments>
 <arg>item</arg>
 <arg>msg=None</arg>
@@ -578,7 +578,7 @@ strings and byte strings.
 The default error message can be overridden with the optional
 ``msg`` argument.</doc>
 </kw>
-<kw name="Should Be Uppercase" lineno="731">
+<kw lineno="731" name="Should Be Uppercase">
 <arguments>
 <arg>string</arg>
 <arg>msg=None</arg>
@@ -593,7 +593,7 @@ The default error message can be overridden with the optional
 
 See also `Should Be Titlecase` and `Should Be Lowercase`.</doc>
 </kw>
-<kw name="Should Not Be String" lineno="677">
+<kw lineno="677" name="Should Not Be String">
 <arguments>
 <arg>item</arg>
 <arg>msg=None</arg>
@@ -606,7 +606,7 @@ strings.
 The default error message can be overridden with the optional
 ``msg`` argument.</doc>
 </kw>
-<kw name="Split String" lineno="507">
+<kw lineno="507" name="Split String">
 <arguments>
 <arg>string</arg>
 <arg>separator=None</arg>
@@ -631,7 +631,7 @@ See `Split String From Right` if you want to start splitting
 from right, and `Fetch From Left` and `Fetch From Right` if
 you only want to get first/last part of the string.</doc>
 </kw>
-<kw name="Split String From Right" lineno="532">
+<kw lineno="532" name="Split String From Right">
 <arguments>
 <arg>string</arg>
 <arg>separator=None</arg>
@@ -646,7 +646,7 @@ Examples:
 | ${first} | ${rest} = | Split String            | ${string} | - | 1 |
 | ${rest}  | ${last} = | Split String From Right | ${string} | - | 1 |</doc>
 </kw>
-<kw name="Split String To Characters" lineno="547">
+<kw lineno="547" name="Split String To Characters">
 <arguments>
 <arg>string</arg>
 </arguments>
@@ -655,7 +655,7 @@ Examples:
 Example:
 | @{characters} = | Split String To Characters | ${string} |</doc>
 </kw>
-<kw name="Split To Lines" lineno="229">
+<kw lineno="229" name="Split To Lines">
 <arguments>
 <arg>string</arg>
 <arg>start=0</arg>
@@ -681,7 +681,7 @@ Examples:
 
 Use `Get Line` if you only need to get a single line.</doc>
 </kw>
-<kw name="Strip String" lineno="624">
+<kw lineno="624" name="Strip String">
 <arguments>
 <arg>string</arg>
 <arg>mode=both</arg>

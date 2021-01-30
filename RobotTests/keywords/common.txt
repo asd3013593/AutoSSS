@@ -1,0 +1,22 @@
+*** Settings ***
+Library    XML
+Library    AppiumLibrary
+Resource    ./variable.txt
+
+*** Keywords ***
+Click Element After It Is Visible
+    [Arguments]    ${elementPath}    ${timeout}=5s    ${error}=Button should be visible.
+    Wait Until Element Is Visible    ${elementPath}    timeout=${slowNetPeriod}    error=Element should be visible before click.
+    Click Element    ${elementPath}
+
+Input Text After Click
+    [Arguments]    ${xpath}    ${text}
+    Wait Until Page Contains Element    ${xpath}    timeout=${slowNetPeriod}    error=Input text should be visible.
+    Click Element    ${xpath}
+    Wait Until Page Contains Element    ${xpath}
+    Input Text    ${xpath}    ${text}
+
+Wait Until Element Is Visible On Page
+    [Arguments]    ${locator}    ${timeout}    ${error}=default
+    Wait Until Page Contains Element    ${locator}    ${timeout}    ${error}
+    Wait Until Element Is Visible    ${locator}    ${timeout}    ${error}

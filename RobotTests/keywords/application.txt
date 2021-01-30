@@ -1,0 +1,89 @@
+*** Settings ***
+Library    AppiumLibrary
+Resource    ./common.txt
+Resource    ./variable.txt
+
+*** Keywords ***
+Application::Open Chrome
+    [Arguments]    ${port}    ${version}    ${deviceName}
+    [Documentation]    Opens the calculator app with a new appium session.
+    Open Application    http://localhost:${port}/wd/hub    platformName=Android    platformVersion=${version}    alias=MyChrome1
+    ...    deviceName=${deviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
+
+Application::Open VPN App
+    Press Keycode    ${homeKey}
+    ${AppExist} =    Run Keyword And Return Status    FlyVPN Should Exist
+    Run Keyword Unless    ${AppExist}    Press Keycode    ${homeKey}
+    Click Element After It Is Visible    //*[@content-desc ='FlyVPN']
+
+Application::VPN::Switch Network With VPN
+    [Arguments]    ${country}
+    Application::Open VPN App
+    ${connectButton} =    Run Keyword And Return Status    Connect Button Should Connect
+    ${currentCountry} =    Get Text    //*[@ersource-id='com.fvcorp.flyclient:id/textCurrentServerTitle']
+    ${isSameCountry} =    Should Be Equal As Strings    ${currentCountry}    ${countryToVPN.${country}}
+    Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
+    Run Keyword If    ${isSameCountry}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonDisconnected']
+    ...       ELSE    Application::VPN::Connect To Country After Searching    ${country}
+    ${successConnect} =     Run Keyword And Return Status    Connect Button Should Connect
+    Run Keyword If    ${successConnect}    Set Global Variable    ${currentLocation}    ${country}
+
+Application::VPN::Connect To Country After Searching
+    [Arguments]    ${country}
+    Click Element    //*[contains(@text, '當前伺服器：')]
+    Click Element After It Is Visible    //*[@resource-id ='com.fvcorp.flyclient:id/search_button']    timeout=${slowNetPeriod}    error=Serach should be visible.
+    Input Text    com.fvcorp.flyclient:id/search_src_text    ${countryToVPN.${country}}
+    Click Element After It Is Visible    //*[@resource-id='com.fvcorp.flyclient:id/textServerRowTitle']    timeout=${slowNetPeriod}    error=Country should be visible.
+
+Application::Switch App To Chrome
+    Press Keycode    ${appSwitchKey}
+    Switch To Context    NATIVE_APP
+    Wait Until Element Is Visible    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']    timeout=${slowNetPeriod}    error=Chrome should be visible in app switcher.
+    Click Element    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']
+
+Application::Switch Network With VPN And Go Back To LINE
+    Application::VPN::Switch Network With VPN    ${globalCountry}
+    Press Keycode    ${appSwitchKey}
+    Click Element After It Is Visible    //*[@class='android.widget.FrameLayout' and @content-desc='LINE']    timeout=5s    error=LINE app should be visible on switch app page.
+
+Application::Close LINE To Go Back After Change The Name
+    Press Keycode    ${appSwitchKey}
+    sleep    1s    #fix me
+    Swipe    900    1500    900    468    500
+    sleep    1s
+    Click Element    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']
+
+Application::Close Previous App And Go Back To Chrome
+    Press Keycode    ${appSwitchKey}
+    sleep    1s    #fix me give a condition
+    Swipe    450    1500    450    468    500
+
+Application::Close All Application And Back To Home
+    Application::Open VPN App
+    ${connectButton} =    Run Keyword And Return Status    Connect Button Should Connect
+    Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
+    Press Keycode    ${appSwitchKey}
+    FOR    ${num}    IN RANGE    9999
+        ${applicationExist} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='com.huawei.android.launcher:id/snapshot']    timeout=3s    error=
+        Exit For Loop if    not ${applicationExist}
+        Swipe    324    1500    324    468    500
+    END
+    Press Keycode    ${homeKey}
+    Press Keycode    26
+    Close All Applications
+
+Application::Press Back Key Until Back To Manage Page
+    FOR     ${i}    IN RANGE    5
+         Press Keycode    ${backKey}
+         ${result} =    Run Keyword And Return Status    Verify If Back To Sending Page
+         Exit For Loop If    ${result}
+    END
+
+Verify If Back To Sending Page
+    Wait Until Element Is Visible   //*[@text='訂單']/following-sibling::*    timeout=${slowNetPeriod}
+
+FlyVPN Should Exist
+    Wait Until Element Is Visible    //*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']    timeout=3s
+
+Connect Button Should Connect
+    Wait Until Element Is Visible    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']    timeout=5s

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="BuiltIn" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2021-01-25T23:38:27Z" specversion="2" source="/opt/homebrew/lib/python3.9/site-packages/robot/libraries/BuiltIn.py" lineno="3296">
+<keywordspec format="ROBOT" generated="2021-01-29T11:52:17Z" lineno="3296" name="BuiltIn" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\BuiltIn.py" specversion="2" type="LIBRARY">
 <version>3.2.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
@@ -270,7 +270,7 @@ but with the following differences:
   strings get the ``u`` prefix and no ``b`` prefix is added to byte
   strings.
 - Containers are not pretty-printed.</doc>
-<kw name="Call Method" lineno="3042">
+<kw lineno="3042" name="Call Method">
 <arguments>
 <arg>object</arg>
 <arg>method_name</arg>
@@ -296,7 +296,7 @@ Examples:
 | Call Method      | ${object}    | kwargs    | name=value | foo=bar |
 | Call Method      | ${object}    | positional   | escaped\=equals  |</doc>
 </kw>
-<kw name="Catenate" lineno="2574">
+<kw lineno="2574" name="Catenate">
 <arguments>
 <arg>*items</arg>
 </arguments>
@@ -315,7 +315,7 @@ Examples:
 | ${str2} = 'Hello---world'
 | ${str3} = 'Helloworld'</doc>
 </kw>
-<kw name="Comment" lineno="2723">
+<kw lineno="2723" name="Comment">
 <arguments>
 <arg>*messages</arg>
 </arguments>
@@ -327,7 +327,7 @@ messages. Given arguments are ignored so thoroughly that they can even
 contain non-existing variables. If you are interested about variable
 values, you can use the `Log` or `Log Many` keywords.</doc>
 </kw>
-<kw name="Continue For Loop" lineno="2270">
+<kw lineno="2270" name="Continue For Loop">
 <arguments>
 </arguments>
 <doc>Skips the current for loop iteration and continues from the next.
@@ -345,7 +345,7 @@ Example:
 See `Continue For Loop If` to conditionally continue a for loop without
 using `Run Keyword If` or other wrapper keywords.</doc>
 </kw>
-<kw name="Continue For Loop If" lineno="2289">
+<kw lineno="2289" name="Continue For Loop If">
 <arguments>
 <arg>condition</arg>
 </arguments>
@@ -361,7 +361,7 @@ Example:
 |     | Do Something         | ${var}                 |
 | END |</doc>
 </kw>
-<kw name="Convert To Binary" lineno="168">
+<kw lineno="168" name="Convert To Binary">
 <arguments>
 <arg>item</arg>
 <arg>base=None</arg>
@@ -387,7 +387,7 @@ Examples:
 
 See also `Convert To Integer`, `Convert To Octal` and `Convert To Hex`.</doc>
 </kw>
-<kw name="Convert To Boolean" lineno="321">
+<kw lineno="321" name="Convert To Boolean">
 <arguments>
 <arg>item</arg>
 </arguments>
@@ -398,7 +398,7 @@ otherwise returns item's
 [http://docs.python.org/library/stdtypes.html#truth|truth value]
 using Python's ``bool()`` method.</doc>
 </kw>
-<kw name="Convert To Bytes" lineno="337">
+<kw lineno="337" name="Convert To Bytes">
 <arguments>
 <arg>input</arg>
 <arg>input_type=text</arg>
@@ -446,7 +446,7 @@ Examples (last column shows returned bytes):
 Use `Encode String To Bytes` in ``String`` library if you need to
 convert text to bytes using a certain encoding.</doc>
 </kw>
-<kw name="Convert To Hex" lineno="212">
+<kw lineno="212" name="Convert To Hex">
 <arguments>
 <arg>item</arg>
 <arg>base=None</arg>
@@ -477,7 +477,7 @@ Examples:
 
 See also `Convert To Integer`, `Convert To Binary` and `Convert To Octal`.</doc>
 </kw>
-<kw name="Convert To Integer" lineno="105">
+<kw lineno="105" name="Convert To Integer">
 <arguments>
 <arg>item</arg>
 <arg>base=None</arg>
@@ -507,7 +507,7 @@ Examples:
 See also `Convert To Number`, `Convert To Binary`, `Convert To Octal`,
 `Convert To Hex`, and `Convert To Bytes`.</doc>
 </kw>
-<kw name="Convert To Number" lineno="251">
+<kw lineno="251" name="Convert To Number">
 <arguments>
 <arg>item</arg>
 <arg>precision=None</arg>
@@ -541,7 +541,7 @@ you can implement custom keywords using Python's
 
 If you need an integer number, use `Convert To Integer` instead.</doc>
 </kw>
-<kw name="Convert To Octal" lineno="190">
+<kw lineno="190" name="Convert To Octal">
 <arguments>
 <arg>item</arg>
 <arg>base=None</arg>
@@ -567,7 +567,7 @@ Examples:
 
 See also `Convert To Integer`, `Convert To Binary` and `Convert To Hex`.</doc>
 </kw>
-<kw name="Convert To String" lineno="304">
+<kw lineno="304" name="Convert To String">
 <arguments>
 <arg>item</arg>
 </arguments>
@@ -581,7 +581,7 @@ in ``String`` library if you need to convert between Unicode and byte
 strings using different encodings. Use `Convert To Bytes` if you just
 want to create byte strings.</doc>
 </kw>
-<kw name="Create Dictionary" lineno="445">
+<kw lineno="445" name="Create Dictionary">
 <arguments>
 <arg>*items</arg>
 </arguments>
@@ -615,7 +615,7 @@ Examples:
 | Should Be True | ${dict} == {1: 2, 'key': 'value', 'foo': 'new'} |
 | Should Be Equal | ${dict.key} | value | | | | # dot-access |</doc>
 </kw>
-<kw name="Create List" lineno="431">
+<kw lineno="431" name="Create List">
 <arguments>
 <arg>*items</arg>
 </arguments>
@@ -629,7 +629,7 @@ Examples:
 | ${scalar} = | Create List | a    | b    | c    |
 | ${ints} =   | Create List | ${1} | ${2} | ${3} |</doc>
 </kw>
-<kw name="Evaluate" lineno="2993">
+<kw lineno="2993" name="Evaluate">
 <arguments>
 <arg>expression</arg>
 <arg>modules=None</arg>
@@ -677,7 +677,7 @@ was not enough to make the root module itself available in the
 evaluation namespace. It needed to be taken into use explicitly like
 ``modules=rootmod, rootmod.submod``.</doc>
 </kw>
-<kw name="Exit For Loop" lineno="2305">
+<kw lineno="2305" name="Exit For Loop">
 <arguments>
 </arguments>
 <doc>Stops executing the enclosing for loop.
@@ -694,7 +694,7 @@ Example:
 See `Exit For Loop If` to conditionally exit a for loop without
 using `Run Keyword If` or other wrapper keywords.</doc>
 </kw>
-<kw name="Exit For Loop If" lineno="2323">
+<kw lineno="2323" name="Exit For Loop If">
 <arguments>
 <arg>condition</arg>
 </arguments>
@@ -710,7 +710,7 @@ Example:
 |     | Do Something     | ${var}             |
 | END |</doc>
 </kw>
-<kw name="Fail" lineno="509">
+<kw lineno="509" name="Fail">
 <arguments>
 <arg>msg=None</arg>
 <arg>*tags</arg>
@@ -737,7 +737,7 @@ Examples:
 
 See `Fatal Error` if you need to stop the whole test execution.</doc>
 </kw>
-<kw name="Fatal Error" lineno="535">
+<kw lineno="535" name="Fatal Error">
 <arguments>
 <arg>msg=None</arg>
 </arguments>
@@ -749,7 +749,7 @@ Possible teardowns will nevertheless be executed.
 
 See `Fail` if you only want to stop one test case unconditionally.</doc>
 </kw>
-<kw name="Get Count" lineno="1074">
+<kw lineno="1074" name="Get Count">
 <arguments>
 <arg>container</arg>
 <arg>item</arg>
@@ -763,7 +763,7 @@ Example:
 | ${count} = | Get Count | ${some item} | interesting value |
 | Should Be True | 5 &lt; ${count} &lt; 10 |</doc>
 </kw>
-<kw name="Get Length" lineno="1182">
+<kw lineno="1182" name="Get Length">
 <arguments>
 <arg>item</arg>
 </arguments>
@@ -787,7 +787,7 @@ Examples:
 See also `Length Should Be`, `Should Be Empty` and `Should Not Be
 Empty`.</doc>
 </kw>
-<kw name="Get Library Instance" lineno="3261">
+<kw lineno="3261" name="Get Library Instance">
 <arguments>
 <arg>name=None</arg>
 <arg>all=False</arg>
@@ -818,7 +818,7 @@ dictionary mapping all library names to instances will be returned.
 Example:
 | &amp;{all libs} = | Get library instance | all=True |</doc>
 </kw>
-<kw name="Get Time" lineno="2910">
+<kw lineno="2910" name="Get Time">
 <arguments>
 <arg>format=timestamp</arg>
 <arg>time_=NOW</arg>
@@ -903,7 +903,7 @@ UTC time is 2006-03-29 12:06:21):
 | @{utc} = ['12', '06', '21']
 | ${hour} = '11'</doc>
 </kw>
-<kw name="Get Variable Value" lineno="1303">
+<kw lineno="1303" name="Get Variable Value">
 <arguments>
 <arg>name</arg>
 <arg>default=None</arg>
@@ -925,7 +925,7 @@ Examples:
 
 See `Set Variable If` for another keyword to set variables dynamically.</doc>
 </kw>
-<kw name="Get Variables" lineno="1274">
+<kw lineno="1274" name="Get Variables">
 <arguments>
 <arg>no_decoration=False</arg>
 </arguments>
@@ -954,7 +954,7 @@ Example:
 | ${no decoration} =            | Get Variables | no_decoration=Yes |
 | Dictionary Should Contain Key | ${no decoration} | example_variable |</doc>
 </kw>
-<kw name="Import Library" lineno="2767">
+<kw lineno="2767" name="Import Library">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -983,7 +983,7 @@ Examples:
 | Import Library | ${CURDIR}/../Library.py | arg1 | named=arg2 |
 | Import Library | ${LIBRARIES}/Lib.java | arg | WITH NAME | JavaLib |</doc>
 </kw>
-<kw name="Import Resource" lineno="2829">
+<kw lineno="2829" name="Import Resource">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -1003,7 +1003,7 @@ Examples:
 | Import Resource | ${CURDIR}/../resources/resource.html |
 | Import Resource | found_from_pythonpath.robot |</doc>
 </kw>
-<kw name="Import Variables" lineno="2804">
+<kw lineno="2804" name="Import Variables">
 <arguments>
 <arg>path</arg>
 <arg>*args</arg>
@@ -1026,7 +1026,7 @@ Examples:
 | Import Variables | ${CURDIR}/../vars/env.py | arg1 | arg2 |
 | Import Variables | file_from_pythonpath.py  |      |      |</doc>
 </kw>
-<kw name="Keyword Should Exist" lineno="2892">
+<kw lineno="2892" name="Keyword Should Exist">
 <arguments>
 <arg>name</arg>
 <arg>msg=None</arg>
@@ -1041,7 +1041,7 @@ The default error message can be overridden with the ``msg`` argument.
 
 See also `Variable Should Exist`.</doc>
 </kw>
-<kw name="Length Should Be" lineno="1230">
+<kw lineno="1230" name="Length Should Be">
 <arguments>
 <arg>item</arg>
 <arg>length</arg>
@@ -1052,7 +1052,7 @@ See also `Variable Should Exist`.</doc>
 The length of the item is got using the `Get Length` keyword. The
 default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="Log" lineno="2600">
+<kw lineno="2600" name="Log">
 <arguments>
 <arg>message</arg>
 <arg>level=INFO</arg>
@@ -1111,7 +1111,7 @@ Examples:
 See `Log Many` if you want to log multiple messages in one go, and
 `Log To Console` if you only want to write to the console.</doc>
 </kw>
-<kw name="Log Many" lineno="2672">
+<kw lineno="2672" name="Log Many">
 <arguments>
 <arg>*messages</arg>
 </arguments>
@@ -1126,7 +1126,7 @@ Examples:
 See `Log` and `Log To Console` keywords if you want to use alternative
 log levels, use HTML, or log to the console.</doc>
 </kw>
-<kw name="Log To Console" lineno="2700">
+<kw lineno="2700" name="Log To Console">
 <arguments>
 <arg>message</arg>
 <arg>stream=STDOUT</arg>
@@ -1151,18 +1151,18 @@ Examples:
 This keyword does not log the message to the normal log file. Use
 `Log` keyword, possibly with argument ``console``, if that is desired.</doc>
 </kw>
-<kw name="Log Variables" lineno="1326">
+<kw lineno="1326" name="Log Variables">
 <arguments>
 <arg>level=INFO</arg>
 </arguments>
 <doc>Logs all variables in the current scope with given log level.</doc>
 </kw>
-<kw name="No Operation" lineno="2536">
+<kw lineno="2536" name="No Operation">
 <arguments>
 </arguments>
 <doc>Does absolutely nothing.</doc>
 </kw>
-<kw name="Pass Execution" lineno="2462">
+<kw lineno="2462" name="Pass Execution">
 <arguments>
 <arg>message</arg>
 <arg>*tags</arg>
@@ -1209,7 +1209,7 @@ parts that could actually uncover problems in the tested application.
 In cases where execution cannot continue do to external factors,
 it is often safer to fail the test case and make it non-critical.</doc>
 </kw>
-<kw name="Pass Execution If" lineno="2514">
+<kw lineno="2514" name="Pass Execution If">
 <arguments>
 <arg>condition</arg>
 <arg>message</arg>
@@ -1228,7 +1228,7 @@ Example:
 |     | Do Something      | ${var}                 |
 | END |</doc>
 </kw>
-<kw name="Regexp Escape" lineno="3073">
+<kw lineno="3073" name="Regexp Escape">
 <arguments>
 <arg>*patterns</arg>
 </arguments>
@@ -1243,7 +1243,7 @@ Examples:
 | ${escaped} = | Regexp Escape | ${original} |
 | @{strings} = | Regexp Escape | @{strings}  |</doc>
 </kw>
-<kw name="Reload Library" lineno="2752">
+<kw lineno="2752" name="Reload Library">
 <arguments>
 <arg>name_or_instance</arg>
 </arguments>
@@ -1256,7 +1256,7 @@ The library can be specified by its name or as the active instance of
 the library. The latter is especially useful if the library itself
 calls this keyword as a method.</doc>
 </kw>
-<kw name="Remove Tags" lineno="3233">
+<kw lineno="3233" name="Remove Tags">
 <arguments>
 <arg>*tags</arg>
 </arguments>
@@ -1277,7 +1277,7 @@ Example:
 See `Set Tags` if you want to add certain tags and `Fail` if you want
 to fail the test case after setting and/or removing tags.</doc>
 </kw>
-<kw name="Repeat Keyword" lineno="1958">
+<kw lineno="1958" name="Repeat Keyword">
 <arguments>
 <arg>repeat</arg>
 <arg>name</arg>
@@ -1310,7 +1310,7 @@ Examples:
 
 Specifying ``repeat`` as a timeout is new in Robot Framework 3.0.</doc>
 </kw>
-<kw name="Replace Variables" lineno="1389">
+<kw lineno="1389" name="Replace Variables">
 <arguments>
 <arg>text</arg>
 </arguments>
@@ -1330,7 +1330,7 @@ The file ``template.txt`` contains ``Hello ${NAME}!`` and variable
 | ${message} =    | Replace Variables | ${template}            |
 | Should Be Equal | ${message}        | Hello Robot!           |</doc>
 </kw>
-<kw name="Return From Keyword" lineno="2340">
+<kw lineno="2340" name="Return From Keyword">
 <arguments>
 <arg>*return_values</arg>
 </arguments>
@@ -1378,7 +1378,7 @@ The most common use case, returning based on an expression, can be
 accomplished directly with `Return From Keyword If`. See also
 `Run Keyword And Return` and `Run Keyword And Return If`.</doc>
 </kw>
-<kw name="Return From Keyword If" lineno="2392">
+<kw lineno="2392" name="Return From Keyword If">
 <arguments>
 <arg>condition</arg>
 <arg>*return_values</arg>
@@ -1404,7 +1404,7 @@ Given the same example as in `Return From Keyword`, we can rewrite the
 
 See also `Run Keyword And Return` and `Run Keyword And Return If`.</doc>
 </kw>
-<kw name="Run Keyword" lineno="1641">
+<kw lineno="1641" name="Run Keyword">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1415,7 +1415,7 @@ Because the name of the keyword to execute is given as an argument, it
 can be a variable and thus set dynamically, e.g. from a return value of
 another keyword or from the command line.</doc>
 </kw>
-<kw name="Run Keyword And Continue On Failure" lineno="1871">
+<kw lineno="1871" name="Run Keyword And Continue On Failure">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1431,7 +1431,7 @@ Example:
 The execution is not continued if the failure is caused by invalid syntax,
 timeout, or fatal exception.</doc>
 </kw>
-<kw name="Run Keyword And Expect Error" lineno="1891">
+<kw lineno="1891" name="Run Keyword And Expect Error">
 <arguments>
 <arg>expected_error</arg>
 <arg>name</arg>
@@ -1476,7 +1476,7 @@ Examples:
 Errors caused by invalid syntax, timeouts, or fatal exceptions are not
 caught by this keyword.</doc>
 </kw>
-<kw name="Run Keyword And Ignore Error" lineno="1827">
+<kw lineno="1827" name="Run Keyword And Ignore Error">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1495,7 +1495,7 @@ The keyword name and arguments work as in `Run Keyword`. See
 Errors caused by invalid syntax, timeouts, or fatal exceptions are not
 caught by this keyword. Otherwise this keyword itself never fails.</doc>
 </kw>
-<kw name="Run Keyword And Return" lineno="2418">
+<kw lineno="2418" name="Run Keyword And Return">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1517,7 +1517,7 @@ Example:
 Use `Run Keyword And Return If` if you want to run keyword and return
 based on a condition.</doc>
 </kw>
-<kw name="Run Keyword And Return If" lineno="2444">
+<kw lineno="2444" name="Run Keyword And Return If">
 <arguments>
 <arg>condition</arg>
 <arg>name</arg>
@@ -1537,7 +1537,7 @@ Example:
 Use `Return From Keyword If` if you want to return a certain value
 based on a condition.</doc>
 </kw>
-<kw name="Run Keyword And Return Status" lineno="1850">
+<kw lineno="1850" name="Run Keyword And Return Status">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1558,7 +1558,7 @@ Example:
 Errors caused by invalid syntax, timeouts, or fatal exceptions are not
 caught by this keyword. Otherwise this keyword itself never fails.</doc>
 </kw>
-<kw name="Run Keyword If" lineno="1724">
+<kw lineno="1724" name="Run Keyword If">
 <arguments>
 <arg>condition</arg>
 <arg>name</arg>
@@ -1632,7 +1632,7 @@ Attributes they contain can thus be used in the condition:
 | ...              | ELSE IF       | sys.platform.startswith('java') | `Jython Keyword` |
 | ...              | ELSE          | `Windows Keyword`     |</doc>
 </kw>
-<kw name="Run Keyword If All Critical Tests Passed" lineno="2204">
+<kw lineno="2204" name="Run Keyword If All Critical Tests Passed">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1645,7 +1645,7 @@ any other place will result in an error.
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
 </kw>
-<kw name="Run Keyword If All Tests Passed" lineno="2234">
+<kw lineno="2234" name="Run Keyword If All Tests Passed">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1658,7 +1658,7 @@ anywhere else results in an error.
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
 </kw>
-<kw name="Run Keyword If Any Critical Tests Failed" lineno="2219">
+<kw lineno="2219" name="Run Keyword If Any Critical Tests Failed">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1671,7 +1671,7 @@ anywhere else results in an error.
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
 </kw>
-<kw name="Run Keyword If Any Tests Failed" lineno="2248">
+<kw lineno="2248" name="Run Keyword If Any Tests Failed">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1684,7 +1684,7 @@ anywhere else results in an error.
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
 </kw>
-<kw name="Run Keyword If Test Failed" lineno="2155">
+<kw lineno="2155" name="Run Keyword If Test Failed">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1697,7 +1697,7 @@ anywhere else results in an error.
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
 </kw>
-<kw name="Run Keyword If Test Passed" lineno="2169">
+<kw lineno="2169" name="Run Keyword If Test Passed">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1710,7 +1710,7 @@ anywhere else results in an error.
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
 </kw>
-<kw name="Run Keyword If Timeout Occurred" lineno="2183">
+<kw lineno="2183" name="Run Keyword If Timeout Occurred">
 <arguments>
 <arg>name</arg>
 <arg>*args</arg>
@@ -1723,7 +1723,7 @@ anywhere else results in an error.
 Otherwise, this keyword works exactly like `Run Keyword`, see its
 documentation for more details.</doc>
 </kw>
-<kw name="Run Keyword Unless" lineno="1816">
+<kw lineno="1816" name="Run Keyword Unless">
 <arguments>
 <arg>condition</arg>
 <arg>name</arg>
@@ -1735,7 +1735,7 @@ See `Run Keyword If` for more information and an example. Notice that
 this keyword does not support ``ELSE`` or ``ELSE IF`` branches like
 `Run Keyword If` does, though.</doc>
 </kw>
-<kw name="Run Keywords" lineno="1654">
+<kw lineno="1654" name="Run Keywords">
 <arguments>
 <arg>*keywords</arg>
 </arguments>
@@ -1769,7 +1769,7 @@ cannot itself come from a variable. If you need to use literal ``AND``
 string as argument, you can either use variables or escape it with
 a backslash like ``\AND``.</doc>
 </kw>
-<kw name="Set Global Variable" lineno="1561">
+<kw lineno="1561" name="Set Global Variable">
 <arguments>
 <arg>name</arg>
 <arg>*values</arg>
@@ -1790,7 +1790,7 @@ used with care.
 
 See `Set Suite Variable` for more information and examples.</doc>
 </kw>
-<kw name="Set Library Search Order" lineno="2851">
+<kw lineno="2851" name="Set Library Search Order">
 <arguments>
 <arg>*search_order</arg>
 </arguments>
@@ -1832,7 +1832,7 @@ or extensions like:
 - Library and resource names in the search order are both case and space
   insensitive.</doc>
 </kw>
-<kw name="Set Local Variable" lineno="1436">
+<kw lineno="1436" name="Set Local Variable">
 <arguments>
 <arg>name</arg>
 <arg>*values</arg>
@@ -1864,7 +1864,7 @@ that want to set local variables.
 
 New in Robot Framework 3.2.</doc>
 </kw>
-<kw name="Set Log Level" lineno="2734">
+<kw lineno="2734" name="Set Log Level">
 <arguments>
 <arg>level</arg>
 </arguments>
@@ -1877,7 +1877,7 @@ INFO, but it can be overridden with the command line option
 The available levels: TRACE, DEBUG, INFO (default), WARN, ERROR and NONE (no
 logging).</doc>
 </kw>
-<kw name="Set Suite Documentation" lineno="3163">
+<kw lineno="3163" name="Set Suite Documentation">
 <arguments>
 <arg>doc</arg>
 <arg>append=False</arg>
@@ -1897,7 +1897,7 @@ instead.
 The documentation of the current suite is available as a built-in
 variable ``${SUITE DOCUMENTATION}``.</doc>
 </kw>
-<kw name="Set Suite Metadata" lineno="3184">
+<kw lineno="3184" name="Set Suite Metadata">
 <arguments>
 <arg>name</arg>
 <arg>value</arg>
@@ -1918,7 +1918,7 @@ The metadata of the current suite is available as a built-in variable
 ``${SUITE METADATA}`` in a Python dictionary. Notice that modifying this
 variable directly has no effect on the actual metadata the suite has.</doc>
 </kw>
-<kw name="Set Suite Variable" lineno="1496">
+<kw lineno="1496" name="Set Suite Variable">
 <arguments>
 <arg>name</arg>
 <arg>*values</arg>
@@ -1974,7 +1974,7 @@ This limitation applies also to `Set Test Variable`, `Set Global
 Variable`, `Variable Should Exist`, `Variable Should Not Exist` and
 `Get Variable Value` keywords.</doc>
 </kw>
-<kw name="Set Tags" lineno="3208">
+<kw lineno="3208" name="Set Tags">
 <arguments>
 <arg>*tags</arg>
 </arguments>
@@ -1992,7 +1992,7 @@ The current tags are available as a built-in variable ``@{TEST TAGS}``.
 See `Remove Tags` if you want to remove certain tags and `Fail` if
 you want to fail the test case after setting and/or removing tags.</doc>
 </kw>
-<kw name="Set Task Variable" lineno="1487">
+<kw lineno="1487" name="Set Task Variable">
 <arguments>
 <arg>name</arg>
 <arg>*values</arg>
@@ -2002,7 +2002,7 @@ you want to fail the test case after setting and/or removing tags.</doc>
 This is an alias for `Set Test Variable` that is more applicable when
 creating tasks, not tests. New in RF 3.1.</doc>
 </kw>
-<kw name="Set Test Documentation" lineno="3144">
+<kw lineno="3144" name="Set Test Documentation">
 <arguments>
 <arg>doc</arg>
 <arg>append=False</arg>
@@ -2017,7 +2017,7 @@ The current test documentation is available as a built-in variable
 ``${TEST DOCUMENTATION}``. This keyword can not be used in suite
 setup or suite teardown.</doc>
 </kw>
-<kw name="Set Test Message" lineno="3091">
+<kw lineno="3091" name="Set Test Message">
 <arguments>
 <arg>message</arg>
 <arg>append=False</arg>
@@ -2044,7 +2044,7 @@ Examples:
 
 This keyword can not be used in suite setup or suite teardown.</doc>
 </kw>
-<kw name="Set Test Variable" lineno="1470">
+<kw lineno="1470" name="Set Test Variable">
 <arguments>
 <arg>name</arg>
 <arg>*values</arg>
@@ -2059,7 +2059,7 @@ test cases will not see variables set with this keyword.
 
 See `Set Suite Variable` for more information and examples.</doc>
 </kw>
-<kw name="Set Variable" lineno="1408">
+<kw lineno="1408" name="Set Variable">
 <arguments>
 <arg>*values</arg>
 </arguments>
@@ -2082,7 +2082,7 @@ scope where they are created. See `Set Global Variable`,
 `Set Test Variable` and `Set Suite Variable` for information on how to
 set variables so that they are available also in a larger scope.</doc>
 </kw>
-<kw name="Set Variable If" lineno="2097">
+<kw lineno="2097" name="Set Variable If">
 <arguments>
 <arg>condition</arg>
 <arg>*values</arg>
@@ -2125,7 +2125,7 @@ conditions without a limit.
 Use `Get Variable Value` if you need to set variables
 dynamically based on whether a variable exist or not.</doc>
 </kw>
-<kw name="Should Be Empty" lineno="1242">
+<kw lineno="1242" name="Should Be Empty">
 <arguments>
 <arg>item</arg>
 <arg>msg=None</arg>
@@ -2135,7 +2135,7 @@ dynamically based on whether a variable exist or not.</doc>
 The length of the item is got using the `Get Length` keyword. The
 default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="Should Be Equal" lineno="598">
+<kw lineno="598" name="Should Be Equal">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2173,7 +2173,7 @@ Examples:
 ``ignore_case`` and ``formatter`` are new features in Robot Framework
 3.0.1 and 3.1.2, respectively.</doc>
 </kw>
-<kw name="Should Be Equal As Integers" lineno="702">
+<kw lineno="702" name="Should Be Equal As Integers">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2194,7 +2194,7 @@ Examples:
 | Should Be Equal As Integers | ABCD | abcd  | base=16 |
 | Should Be Equal As Integers | 0b1011 | 11  |</doc>
 </kw>
-<kw name="Should Be Equal As Numbers" lineno="739">
+<kw lineno="739" name="Should Be Equal As Numbers">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2233,7 +2233,7 @@ See `Should Not Be Equal As Numbers` for a negative version of this
 keyword and `Should Be Equal` for an explanation on how to override
 the default error message with ``msg`` and ``values``.</doc>
 </kw>
-<kw name="Should Be Equal As Strings" lineno="800">
+<kw lineno="800" name="Should Be Equal As Strings">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2257,7 +2257,7 @@ NFC normalized].
 ``ignore_case`` and ``formatter`` are new features in Robot Framework
 3.0.1 and 3.1.2, respectively.</doc>
 </kw>
-<kw name="Should Be True" lineno="557">
+<kw lineno="557" name="Should Be True">
 <arguments>
 <arg>condition</arg>
 <arg>msg=None</arg>
@@ -2299,7 +2299,7 @@ several useful attributes:
 | Should Be True | sys.platform == 'darwin'        | # OS X    |
 | Should Be True | sys.platform.startswith('java') | # Jython  |</doc>
 </kw>
-<kw name="Should Contain" lineno="916">
+<kw lineno="916" name="Should Contain">
 <arguments>
 <arg>container</arg>
 <arg>item</arg>
@@ -2326,7 +2326,7 @@ Examples:
 | Should Contain | ${some list} | value | msg=Failure! | values=False |
 | Should Contain | ${some list} | value | ignore_case=True |</doc>
 </kw>
-<kw name="Should Contain Any" lineno="948">
+<kw lineno="948" name="Should Contain Any">
 <arguments>
 <arg>container</arg>
 <arg>*items</arg>
@@ -2354,7 +2354,7 @@ Examples:
 
 New in Robot Framework 3.0.1.</doc>
 </kw>
-<kw name="Should Contain X Times" lineno="1042">
+<kw lineno="1042" name="Should Contain X Times">
 <arguments>
 <arg>container</arg>
 <arg>item</arg>
@@ -2378,7 +2378,7 @@ Examples:
 | Should Contain X Times | ${output}    | hello | 2 |
 | Should Contain X Times | ${some list} | value | 3 | ignore_case=True |</doc>
 </kw>
-<kw name="Should End With" lineno="870">
+<kw lineno="870" name="Should End With">
 <arguments>
 <arg>str1</arg>
 <arg>str2</arg>
@@ -2392,7 +2392,7 @@ See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
 </kw>
-<kw name="Should Match" lineno="1110">
+<kw lineno="1110" name="Should Match">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -2410,7 +2410,7 @@ See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
 </kw>
-<kw name="Should Match Regexp" lineno="1126">
+<kw lineno="1126" name="Should Match Regexp">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -2453,7 +2453,7 @@ Examples:
 | ${group1} = 'Bar'
 | ${group2} = '43'</doc>
 </kw>
-<kw name="Should Not Be Empty" lineno="1251">
+<kw lineno="1251" name="Should Not Be Empty">
 <arguments>
 <arg>item</arg>
 <arg>msg=None</arg>
@@ -2463,7 +2463,7 @@ Examples:
 The length of the item is got using the `Get Length` keyword. The
 default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="Should Not Be Equal" lineno="665">
+<kw lineno="665" name="Should Not Be Equal">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2480,7 +2480,7 @@ If ``ignore_case`` is given a true value (see `Boolean arguments`) and
 both arguments are strings, comparison is done case-insensitively.
 New option in Robot Framework 3.0.1.</doc>
 </kw>
-<kw name="Should Not Be Equal As Integers" lineno="685">
+<kw lineno="685" name="Should Not Be Equal As Integers">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2498,7 +2498,7 @@ error message with ``msg`` and ``values``.
 
 See `Should Be Equal As Integers` for some usage examples.</doc>
 </kw>
-<kw name="Should Not Be Equal As Numbers" lineno="722">
+<kw lineno="722" name="Should Not Be Equal As Numbers">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2516,7 +2516,7 @@ See `Should Be Equal As Numbers` for examples on how to use
 `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``.</doc>
 </kw>
-<kw name="Should Not Be Equal As Strings" lineno="777">
+<kw lineno="777" name="Should Not Be Equal As Strings">
 <arguments>
 <arg>first</arg>
 <arg>second</arg>
@@ -2537,7 +2537,7 @@ NFC normalized].
 
 ``ignore_case`` is a new feature in Robot Framework 3.0.1.</doc>
 </kw>
-<kw name="Should Not Be True" lineno="548">
+<kw lineno="548" name="Should Not Be True">
 <arguments>
 <arg>condition</arg>
 <arg>msg=None</arg>
@@ -2547,7 +2547,7 @@ NFC normalized].
 See `Should Be True` for details about how ``condition`` is evaluated
 and how ``msg`` can be used to override the default error message.</doc>
 </kw>
-<kw name="Should Not Contain" lineno="885">
+<kw lineno="885" name="Should Not Contain">
 <arguments>
 <arg>container</arg>
 <arg>item</arg>
@@ -2568,7 +2568,7 @@ Examples:
 | Should Not Contain | ${some list} | value  |
 | Should Not Contain | ${output}    | FAILED | ignore_case=True |</doc>
 </kw>
-<kw name="Should Not Contain Any" lineno="995">
+<kw lineno="995" name="Should Not Contain Any">
 <arguments>
 <arg>container</arg>
 <arg>*items</arg>
@@ -2596,7 +2596,7 @@ Examples:
 
 New in Robot Framework 3.0.1.</doc>
 </kw>
-<kw name="Should Not End With" lineno="855">
+<kw lineno="855" name="Should Not End With">
 <arguments>
 <arg>str1</arg>
 <arg>str2</arg>
@@ -2610,7 +2610,7 @@ See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
 </kw>
-<kw name="Should Not Match" lineno="1094">
+<kw lineno="1094" name="Should Not Match">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -2628,7 +2628,7 @@ See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
 </kw>
-<kw name="Should Not Match Regexp" lineno="1173">
+<kw lineno="1173" name="Should Not Match Regexp">
 <arguments>
 <arg>string</arg>
 <arg>pattern</arg>
@@ -2639,7 +2639,7 @@ of the ``ignore_case`` option.</doc>
 
 See `Should Match Regexp` for more information about arguments.</doc>
 </kw>
-<kw name="Should Not Start With" lineno="825">
+<kw lineno="825" name="Should Not Start With">
 <arguments>
 <arg>str1</arg>
 <arg>str2</arg>
@@ -2653,7 +2653,7 @@ See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
 </kw>
-<kw name="Should Start With" lineno="840">
+<kw lineno="840" name="Should Start With">
 <arguments>
 <arg>str1</arg>
 <arg>str2</arg>
@@ -2667,7 +2667,7 @@ See `Should Be Equal` for an explanation on how to override the default
 error message with ``msg`` and ``values``, as well as for semantics
 of the ``ignore_case`` option.</doc>
 </kw>
-<kw name="Sleep" lineno="2539">
+<kw lineno="2539" name="Sleep">
 <arguments>
 <arg>time_</arg>
 <arg>reason=None</arg>
@@ -2686,7 +2686,7 @@ Examples:
 | Sleep | 2 minutes 10 seconds |
 | Sleep | 10s                  | Wait for a reply |</doc>
 </kw>
-<kw name="Variable Should Exist" lineno="1348">
+<kw lineno="1348" name="Variable Should Exist">
 <arguments>
 <arg>name</arg>
 <arg>msg=None</arg>
@@ -2701,7 +2701,7 @@ The default error message can be overridden with the ``msg`` argument.
 
 See also `Variable Should Not Exist` and `Keyword Should Exist`.</doc>
 </kw>
-<kw name="Variable Should Not Exist" lineno="1368">
+<kw lineno="1368" name="Variable Should Not Exist">
 <arguments>
 <arg>name</arg>
 <arg>msg=None</arg>
@@ -2716,7 +2716,7 @@ The default error message can be overridden with the ``msg`` argument.
 
 See also `Variable Should Exist` and `Keyword Should Exist`.</doc>
 </kw>
-<kw name="Wait Until Keyword Succeeds" lineno="2039">
+<kw lineno="2039" name="Wait Until Keyword Succeeds">
 <arguments>
 <arg>retry</arg>
 <arg>retry_interval</arg>

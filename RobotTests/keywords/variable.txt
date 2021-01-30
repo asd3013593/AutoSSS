@@ -2,8 +2,10 @@
 ${redmiDeviceName} =    8531905e7d25
 ${samsungDeviceName} =    435145414e553398    #version:9
 ${hauweiDeviceName} =    2DR4C19227004310    #version:9
+&{hauwei} =    deviceName=2DR4C19227004310    port=4723    version=9
 ${cataccount} =    20140002
 ${catpassword} =    20140002
+&{oldman} =    url=https://oldman.tw/goadmin.php    account=20160000    password=20160000
 ${oldaccount} =    20160000
 ${oldpassword} =    20160000
 ${catUrl} =    https://mycat.tw/goadmin.php

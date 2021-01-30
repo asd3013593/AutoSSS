@@ -1,0 +1,6 @@
+*** Settings ***
+Resource    ${EXECDIR}/RobotTests/keywords/variable.txt
+Resource    ${EXECDIR}/RobotTests/keywords/common.txt
+Resource    ${EXECDIR}/RobotTests/keywords/application.txt
+Resource    ${EXECDIR}/RobotTests/keywords/managePage.txt
+Resource    ${EXECDIR}/RobotTests/keywords/LINE.txt

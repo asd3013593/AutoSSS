@@ -1,0 +1,148 @@
+*** Settings ***
+Library    AppiumLibrary
+Resource    ./application.txt
+
+*** Keywords ***
+Mangage Page::Login Magnage Page
+    [Arguments]    ${url}    ${account}    ${password}
+    Go To Url    ${url}
+    Switch To Context    NATIVE_APP
+    Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
+    Input Text   //*[@class='android.widget.EditText' and @password ='false']    ${account}
+    Input Text    //*[@text='登入密碼']    ${password}
+    Click Element    //*[@resource-id='submit']
+    Wait Until Element Is Visible    xpath=//*[contains(@text, '解除鎖定')]    timeout=${slowNetPeriod}    error=Web should be login.
+
+Mangage Page::Get Taiwan Sticker Number
+    ${X} =    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']
+    Wait Until Element Is Visible    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']    timeout=${slowNetPeriod}    error=Taiwan sticker number should be visible.
+    ${sticker} =    Get Text    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']
+    Set Global Variable    ${taiwanSticker}    ${sticker}
+    Log To Console    ${taiwanSticker}
+
+Mangage Page::Get Foreing Sticker Number
+    ${X} =    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='3']
+    Wait Until Element Is Visible    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='3']    timeout=${slowNetPeriod}    error=Foreign sticker number should be visible.
+    ${sticker} =    Get Text    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='3']
+    Set Global Variable    ${foreignSticker}    ${sticker}
+
+Mangage Page::Get Foreing Topic Number
+    ${X} =    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='5']
+    Wait Until Element Is Visible    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='5']    timeout=${slowNetPeriod}    error=Foreign topic number should be visible.
+    ${topic} =    Get Text    //*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='5']
+    Set Global Variable    ${foreignTopic}    ${topic}
+
+Mangage Page::Get Processing Sticker
+    ${X} =    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']
+    Wait Until Page Contains Element    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']    timeout=${slowNetPeriod}    error=Taiwanese sticker should be visible.
+    ${processing} =    Wait Until Keyword Succeeds     5s    0.5s    Get Text    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']
+    Run keyword if    ${processing}!=0    Mangage Page::Refresh Management Page After Unlock Permission
+
+Mangage Page::Refresh Management Page After Unlock Permission
+    Mangage Page::Unlock Permission
+    sleep    3s
+    Swipe    300    300    300    900    500
+    Wait Until Element Is Visible    //*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView' and @text='0']    timeout=${slowNetPeriod}
+
+Mangage Page::Unlock Permission
+    Wait Until Page Contains Element    xpath=//*[contains(@text, '解除處理中')]    timeout=${slowNetPeriod}    error=Password input should be visible.
+    Click Element    xpath=//*[contains(@text, '解除處理中')]
+
+Mangage Page::Open Taiwan Stciker Sending Page
+    Click Element    xpath=//*[contains(@text, '鎖定發圖資料')]
+    Wait Until Element Is Visible    xpath=//*[contains(@text, '新版發圖')]    timeout=${slowNetPeriod}    error=Taiwan Sticker button should be visible.
+    Click Element    xpath=//*[contains(@text, '新版發圖')] 
+    Set Global Variable    ${foreign}    False
+
+Mangage Page::Open Foreign Stciker Sending Page
+    Click Element    xpath=//*[contains(@text, '鎖定發圖資料')]
+    Wait Until Element Is Visible    xpath=//*[contains(@text, '跨區貼圖')]    timeout=${slowNetPeriod}    error=Foreign Sticker button should be visible.
+    Click Element    xpath=//*[contains(@text, '跨區貼圖')] 
+    Set Global Variable    ${foreign}    True
+
+Mangage Page::Open Foreign Topic Sending Page
+    Click Element    xpath=//*[contains(@text, '鎖定發圖資料')]
+    Wait Until Element Is Visible    //android.view.View[@content-desc="跨區主題"]/android.widget.TextView    timeout=${slowNetPeriod}    error=Foreign Topic button should be visible.
+    Click Element    //android.view.View[@content-desc="跨區主題"]/android.widget.TextView
+    Set Global Variable    ${foreign}    True
+
+Mangage Page::Get User Information
+    ${idInfo} =    Set Variable    //*[@class='android.widget.EditText']
+    ${nameInfo} =    Set Variable    //*[@resource-id='jp.naver.line.android:id/addfriend_name']
+    Set Global Variable    ${userId}    ${idInfo}
+    Set Global Variable    ${userName}    ${nameInfo}
+    Log To Console    id:${idInfo} name:${nameInfo}
+
+Manage Page::Open LINE Add Friend Page
+    ${orderId} =     Wait Until Keyword Succeeds    5    0.5s   Get Text    //*[@text='訂單']/following-sibling::*
+    Set Global Variable    ${purchaseID}    ${orderId}
+    Log To Console    ${orderId}
+    Click Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView
+    ${correctID}    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/addfriend_name']    timeout=10s    error=UserName should be visible.
+    Run Keyword If    ${correctID}    Run Keywords    Hide Keyboard
+    ...                                      AND    Mangage Page::Get User Information
+    ...                                      AND    Verify If User Be A Friend
+    ...       ELSE    Verify If User Not Be Found
+
+Manage Page::Switch VPN If Is Sending Foreign Sticker
+    ${TaiwanArea} =    Create List     台灣    全球
+    ${country} =     Run Keyword If    ${foreign}    Wait Until Keyword Succeeds     5s    0.5s    Get Text    //*[@class='android.view.View' and @index='5']//*[@class='android.view.View' and @index ='1']
+    Set Global Variable    ${globalCountry}    ${country}
+    ${isTaiwanArea} =    Run Keyword And Return Status     Should Contain    ${TaiwanArea}    ${country}
+    Run Keyword If    ${isTaiwanArea}    Return From Keyword
+    Run Keyword If    ${foreign}    Run keywords    Run Keyword If    ${nameEqualTo}    Application::Close Previous App And Go Back To Chrome
+    ...                                      AND    Application::VPN::Switch Network With VPN    ${country}
+    ...                                      AND    Application::Switch App To Chrome
+
+Manage Page::Open Sticker Link
+    Wait Until Element Is Visible   xpath=//*[@text= '開啟連結' and @index='0']     timeout=${slowNetPeriod}    error=Url open button should be visible.
+    ${name} =    Get Text    //*[@class='android.view.View' and @index='8']//*[@class='android.view.View' and @index='1']
+    Set Global Variable    ${stickerName}    ${name}
+    Click Element    xpath=//*[@text= '開啟連結' and @index='0']
+
+Manage Page::Finish Order After Choose Sending Status
+    Run Keyword IF   not ${errorType}==0    Manage Page::Select Error Message
+    Run Keyword If   ${errorType}==0 or ${errorType}==4    Wait Until Element Is Visible    xpath=//*[@text= '送 出' ]    timeout=${slowNetPeriod}    error=Dialog "確定" button should be visible.
+    Click Element    //*[@text= '送 出']
+    Wait Until Element Is Visible    //*[not(@text='${purchaseID}')]    timeout=${slowNetPeriod}    error='${purchaseID}' should not be visible.
+    Log Sending Status To Console    ${errorType}
+    Set Global Variable    ${errorType}    0
+
+Manage Page::Switch To Next Client By Refresh Browser
+    Wait Until Element Is Visible    //*[@text='訂單']/following-sibling::*    timeout=5s    error=Switch to next client's page should be visible
+    Swipe    300    300    300    900    500
+    Set Global Variable    ${errorType}    0
+
+Manage Page::Select Error Message
+    Wait Until Element Is Visible    //*[@resource-id='SendStatus']
+    Click Element    //*[@resource-id='SendStatus']
+    Wait Until Element Is Visible    //*[@resource-id='android:id/text1' and @index='${errorType}']    timeout=10s    error=Select error msg should be visible.
+    Click Element    //*[@resource-id='android:id/text1' and @index='${errorType}']
+
+Manage Page::Verify Is There Still Client Exist
+    ${exist} =    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible On Page   //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView     timeout=30s    error=LINE open button should be visible.
+    [Return]    ${exist}
+
+Log Sending Status To Console
+    [Arguments]    ${type}
+    Run Keyword If    ${type}==0    Log To Console    Send Correctly
+    ...    ELSE IF    ${type}==1    Log To Console    Purchase Repeatedly
+    ...    ELSE IF    ${type}==4    Log To Console    Error & Unpublic ID
+    ...    ELSE IF    ${type}==5    Log To Console    Old Version
+
+Verify If User Not Be Found
+    ${notFoundlabel} =     Run Keyword And Return Status   Wait Until Element Is Visible    //*[@class='android.widget.TextView' and contains(@text,'無法找到該用戶')]    timeout=5s    error=Not found label should be visible.
+    Run Keyword If    ${notFoundlabel}    Set Global Variable   ${errorType}    4
+    ...       ELSE    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
+    ...                        AND    Application::Close LINE To Go Back After Change The Name
+
+Verify If User Be A Friend
+    ${buttonJoinOrNot} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='加入']    timeout=3s
+    Run Keyword If    ${buttonJoinOrNot}    Run keywords    Click Add Friend Button
+    ...                                              AND   Set Global Variable    ${alreadyFriend}    False
+    ...       ELSE    Set Global Variable    ${alreadyFriend}    True
+
+Click Add Friend Button
+    Click Element    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='加入']
+    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']    timeout=${slowNetPeriod}    error=Chat button should be visible.

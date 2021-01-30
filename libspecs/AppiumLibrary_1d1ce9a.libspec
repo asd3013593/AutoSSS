@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2020-12-23T17:13:50Z" lineno="10" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
+<keywordspec format="ROBOT" generated="2021-01-29T11:52:18Z" lineno="10" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
 <version>1.5.0.7</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
@@ -417,7 +417,7 @@ Key attributes for arbitrary elements are `id` and `name`. See
 Key attributes for arbitrary elements are `id` and `name`. See
 `introduction` for details about locating elements.</doc>
 </kw>
-<kw lineno="695" name="Get Location" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="696" name="Get Location" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 </arguments>
@@ -582,13 +582,13 @@ Android only.
 - app_path - path to app
 - app_package - package of install app to verify</doc>
 </kw>
-<kw lineno="743" name="Is Coin Not Enough" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="744" name="Is Coin Not Enough" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>user</arg>
 </arguments>
 <doc />
 </kw>
-<kw lineno="752" name="Is Coin Same To Sticker" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="753" name="Is Coin Same To Sticker" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>price</arg>
 </arguments>
@@ -798,7 +798,7 @@ Android only.
  - _path_ - the path to the folder on the device
  - _decode_ - True/False decode the data (base64) before returning it (default=False)</doc>
 </kw>
-<kw lineno="727" name="Purchase Coin Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="728" name="Purchase Coin Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>user</arg>
 <arg>price</arg>
@@ -829,12 +829,12 @@ See `Launch Application` for an explanation.
 
 New in AppiumLibrary 1.4.6</doc>
 </kw>
-<kw lineno="768" name="Read Index" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="767" name="Read Index" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
 </kw>
-<kw lineno="759" name="Record Index" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="760" name="Record Index" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>stickerIndex</arg>
 <arg>index</arg>
@@ -1172,7 +1172,7 @@ New in AppiumLibrary 1.5</doc>
 
 New in AppiumLibrary 1.5</doc>
 </kw>
-<kw lineno="701" name="Unlock" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="702" name="Unlock" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
@@ -1297,7 +1297,7 @@ BuiltIn keyword `Wait Until Keyword Succeeds`.</doc>
 </arguments>
 <doc />
 </kw>
-<kw lineno="708" name="Write Coin Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="709" name="Write Coin Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>user</arg>
 <arg>price</arg>
