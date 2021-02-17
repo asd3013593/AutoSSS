@@ -191,7 +191,7 @@ Login Oldman Magnage Interface
     Switch To Context    NATIVE_APP
     Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
     Input Text   //*[@class='android.widget.EditText' and @password ='false']    20160000
-    Input Text    //*[@text='登入密碼']    20160000
+    Input Text    //*[@class='android.widget.EditText' and @password ='true']    20160000
     AppiumLibrary.Click Element    //*[@resource-id='submit']
     Wait Until Element Is Visible    xpath=//*[contains(@text, '解除鎖定')]    timeout=${slowNetPeriod}    error=Web should be login.
 
