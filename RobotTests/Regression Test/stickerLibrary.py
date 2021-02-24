@@ -1,5 +1,3 @@
-# from AppiumLibrary.locators import ElementFinder
-# from .keywordgroup import KeywordGroup
 from os import getcwd
 from AppiumLibrary import AppiumLibrary
 from robot.api.deco import keyword
@@ -18,66 +16,62 @@ import codecs
 def _search(self, name):
     """search txt"""
     name_str = name.encode('utf-8')
-    #         space ="\n".encode('utf_8')
-    with open("C:/Users/pan/Desktop/mixture.txt", 'a+') as f:
+#         space ="\n".encode('utf_8')
+    with open("C:/Users/pan/Desktop/mixture.txt",'a+') as f:
         f.seek(0)
-        txt = f.readlines()
+        txt=f.readlines()
         for i in txt:
-            print("txt:" + i, end='')
-            print(str(name_str) + "\n", end='')
-            if i == str(name_str) + "\n":
+            print("txt:"+i,end='')
+            print(str(name_str)+"\n",end='')
+            if i == str(name_str)+"\n":
                 return True
         return False
 
 @keyword(name='Write')
-def _write(self, name):
+def _write(self,name):
     name_str = name.encode('utf-8')
-    with open("C:/Users/pan/Desktop/mixture.txt", 'a') as f:
-        f.write(str(name_str) + "\n")
+    with open("C:/Users/pan/Desktop/mixture.txt",'a') as f:
+        f.write(str(name_str)+"\n")
 
-
-def _getWebPrice(self, data):
-    for i in range(-1, -100, -1):
-        if (data[i] == ' '):
-            return data[i + 1:-1]
-    return 0
+def _getWebPrice(self,data):
+    for i in range (-1,-100,-1):
+        if(data[i] == ' '):
+            return data[i+1:-1]
+    return 0 
 
 @keyword(name='priceRecord')
-def _priceRecord(self, folderName, country, price, userid, stickerName):
+def _priceRecord(self,folderName,country,price,userid,stickerName):
     mark = ' '
     today = str(time.strftime('%Y-%m-%d', time.localtime()))
     now = str(time.strftime('%H:%M', time.localtime()))
     folderpath = "D:/priceLog/{}".format(str(folderName))
-    fileExist = os.path.isfile("{}/{}.txt".format(folderpath, today))
-    with codecs.open("{}/{}.txt".format(folderpath, today), 'a+', encoding='utf-8') as f:
-        if (not (fileExist)):
+    fileExist = os.path.isfile("{}/{}.txt".format(folderpath,today))
+    with codecs.open("{}/{}.txt".format(folderpath,today),'a+',encoding='utf-8') as f:
+        if(not(fileExist)):
             f.write("{:<6}{:7}{:9}{:7}{:20}{}\n".format("No.", "Time", "Area", "Price", "UserID", "StickerName"))
-        read = open("{}/{}.txt".format(folderpath, today), 'r', encoding='utf-8')
+        read = open("{}/{}.txt".format(folderpath,today),'r',encoding='utf-8')
         f.seek(0)
         fileLine = len(f.readlines())
         if (self._getWebPrice(stickerName) != price):
             mark = '*'
-        f.write("{:<6}{:7}{:9}{:7}{:20}{}\n".format(fileLine, now, country, price + mark, userid, stickerName))
-
+        f.write("{:<6}{:7}{:9}{:7}{:20}{}\n".format(fileLine,now,country,price+mark,userid,stickerName))
 
 @keyword(name='UnlockScreen')
 def _lockScreen(self):
     self.unlock()
 
-
-@keyword(name='Swipe To Bottom')
-def _swipe_to_bottom(self, start_x, start_y, offset_x, offset_y, duration=1000):
+@keyword(name='Is Swipe To Bottom')
+def _is_swipe_to_bottom(self, start_x, start_y, offset_x, offset_y, duration=1000):
     driver = self._current_application()
-    #       before_swipe = self._get_text("//*[@resource-id='jp.naver.line.android:id/choosemember_listview']//*[@class='android.widget.LinearLayout' and @index='1']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_name']")
-    before_swipe = self._get_text("//*[@class='android.widget.ListView' and @index='1']/android.view.View[1]")
-    driver.swipe(300, 1000, 300, 300)
-    after_swipe = self._get_text("//*[@class='android.widget.ListView' and @index='1']/android.view.View[1]")
+#       before_swipe = self._get_text("//*[@resource-id='jp.naver.line.android:id/choosemember_listview']//*[@class='android.widget.LinearLayout' and @index='1']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_name']")
+    before_swipe = self._get_text("//*[@resource-id='jp.naver.line.android:id/bg' and @index='6']/android.widget.TextView")
+    driver.swipe(start_x, start_y, offset_x, offset_y, duration)
+    after_swipe = self._get_text("//*[@resource-id='jp.naver.line.android:id/bg' and @index='6']/android.widget.TextView")
     if before_swipe == after_swipe:
-        Swiped = False
-    else:
         Swiped = True
+    else:
+        Swiped = False
     return Swiped
-
 
 @keyword(name='Get Location')
 def _get_bounds(self, locator):
@@ -85,7 +79,6 @@ def _get_bounds(self, locator):
     if element is not None:
         return element.location
     return None
-
 @keyword(name='Unlock')
 def _unlock(self):
     cmd = 'adb shell input keyevent KEYCODE_POWER'
@@ -95,19 +88,18 @@ def _unlock(self):
 
 @keyword(name='Write Coin Record')
 def _coin_record(self, user, price):
-    currentMonth = time.strftime('%m', time.localtime())
-    localDate = time.strftime('%m/%d', time.localtime())
+    currentMonth = time.strftime('%m',time.localtime())
+    localDate = time.strftime('%m/%d',time.localtime())
     localTime = time.strftime('%H:%M:%S', time.localtime())
     filepath = "D:/priceLog/{}CoinRecord.txt".format(user)
     operator = ''
-    if (int(price) > 0): operator = '+'
+    if (int(price)>0): operator ='+'
     readCoin = open(filepath, 'r')
     data = readCoin.readlines()
-    originCoin = data[0].replace('\n', '')
+    originCoin = data[0].replace('\n','')
     newCoin = int(originCoin) + int(price)
-    data[0] = str(newCoin) + '\n'
-    data.append(
-        "{:<6}{} {:>5}{}{:<4} = {:<5}\n".format(localDate, localTime, originCoin, operator, price, str(newCoin)))
+    data [0]  = str(newCoin)+'\n'
+    data.append("{:<6}{} {:>5}{}{:<4} = {:<5}\n".format(localDate, localTime, originCoin, operator,price, str(newCoin)))
     writeCoin = open(filepath, 'w')
     writeCoin.writelines(data)
     readCoin.close()
@@ -115,16 +107,16 @@ def _coin_record(self, user, price):
 
 @keyword(name='Purchase Coin Record')
 def _purchase_coin_record(self, user, price):
-    currentMonth = time.strftime('%Y-%m', time.localtime())
-    localDate = time.strftime('%m/%d', time.localtime())
+    currentMonth = time.strftime('%Y-%m',time.localtime())
+    localDate = time.strftime('%m/%d',time.localtime())
     localTime = time.strftime('%H:%M:%S', time.localtime())
     filepath = "D:/priceLog/coinRecord/{}.csv".format(str(currentMonth))
     fileExist = os.path.isfile(filepath)
-    header = ['日期', '時間', '代幣']
-    record = [localDate, localTime, str(price)]
+    header = ['日期','時間','代幣']
+    record = [localDate,localTime,str(price)]
     with open(filepath, 'a+', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        if (not (fileExist)):
+        if(not(fileExist)):
             writer.writerow(header)
         writer.writerow(record)
         self._coin_record(user, price)
@@ -146,17 +138,17 @@ def _is_coin_same_to_sticker(self, price):
     return True
 
 @keyword(name='Record Index')
-def _write_record(self, stickerIndex, index):
+def _write_record(self, stickerIndex,index):
     filepath = "D:/aaa.txt"
-    with open(filepath, 'w', encoding='utf-8') as f:
+    with open(filepath,'w',encoding='utf-8') as f:
         record = str(stickerIndex) + '\n' + str(index)
         f.write(record)
 
 @keyword(name='Read Index')
 def _read_record(self):
     filepath = "D:/aaa.txt"
-    with open(filepath, 'r', encoding='utf-8') as f:
+    with open(filepath,'r',encoding='utf-8') as f:
         friend = f.readline()
         sticker = f.readline()
-        data = [int(friend), int(sticker)]
-        return data
+        data = [int(friend),int(sticker)]
+        return  data

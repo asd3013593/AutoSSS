@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2021-01-29T11:52:18Z" lineno="10" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
+<keywordspec format="ROBOT" generated="2021-02-24T20:35:15Z" lineno="10" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
 <version>1.5.0.7</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
@@ -600,6 +600,16 @@ Android only.
 <doc>Return true if Android keyboard is displayed or False if not displayed
 No parameters are used.</doc>
 </kw>
+<kw lineno="683" name="Is Swipe To Bottom" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<arguments>
+<arg>start_x</arg>
+<arg>start_y</arg>
+<arg>offset_x</arg>
+<arg>offset_y</arg>
+<arg>duration=1000</arg>
+</arguments>
+<doc />
+</kw>
 <kw lineno="282" name="Landscape" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_applicationmanagement.py">
 <arguments>
 </arguments>
@@ -1093,16 +1103,6 @@ _*NOTE: *_
 This also considers swipe acts different between iOS and Android.
 
 New in AppiumLibrary 1.4.5</doc>
-</kw>
-<kw lineno="683" name="Swipe To Bottom" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
-<arguments>
-<arg>start_x</arg>
-<arg>start_y</arg>
-<arg>offset_x</arg>
-<arg>offset_y</arg>
-<arg>duration=1000</arg>
-</arguments>
-<doc />
 </kw>
 <kw lineno="58" name="Switch Application" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_applicationmanagement.py">
 <arguments>
