@@ -297,10 +297,8 @@ Swipe To Bottom Until User Is Visible
 
 Double Check Is Not Repeated Users
     [Arguments]    ${user}
-    Swipe    300    800    300    500    300
     ${userNotShown}    Get Matching Xpath Count    ${user}
     Run Keyword If    ${userNotShown}>1    Fail    Users are repeated, please handle it.
-    ...       ELSE    Swipe    300    500    300    800    300
 
 Count User Number And Return Type
     Wait Until Page Contains Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View   timeout=10s    error=Friend List View Should Be Visible.
