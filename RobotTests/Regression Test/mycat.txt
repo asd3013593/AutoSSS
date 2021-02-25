@@ -206,26 +206,44 @@ Change User Name To ID
 
 Select User By Name When Users
     ${user} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
-    ${userNotShown} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${user}    timeout=5s    error=Friends list should be visible.
+    ${userNotShown} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${user}    timeout=10s    error=Friends searching list should be visible.
     ${reNameUsers} =    Run Keyword If    ${userNotShown}    Get Matching Xpath Count    ${user}
     Run Keyword If    ${reNameUsers}!=None and ${reNameUsers}>1    Fail    Users are repeated, please handle it.
-    ...    ELSE IF    ${reNameUsers}==None    Swipe To Bottom Until User Is Visible
-    Click ELement    ${user}
+    ...    ELSE IF    ${reNameUsers}==None    Run Keywords    Click Back Button On LINE Search Page
+    ...                                                AND    Open Friend List On Home Page
+    ...                                                AND    Select User By Name On Home Page
+    ...    ELSE       Click Element    ${user}
+
+Click Back Button On LINE Search Page
+    ${backButton} =    Set Variable    //android.widget.ImageButton[@content-desc="返回"]
+    ${X} =    Wait Until Keyword Succeeds     5s    0.5s    Get Matching Xpath Count    ${backButton}
+    Click Element After It Is Visible   ${backButton}    timeout=${slowNetPeriod}    error=Back button should be exist.
+
+Open Friend List On Home Page
+    ${userIndex6} =    Set Variable    //*[@resource-id='jp.naver.line.android:id/bg' and @index='6']
+    ${friendList} =    Set Variable    //*[@resource-id='jp.naver.line.android:id/home_tab_title_container' and .//*[contains(@text, '好友')]]
+    ${isOpenFriendList} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    ${userIndex6}    timeout=3s    error=User with index 6 should be visible.
+    Run Keyword If   not ${isOpenFriendList}    Click Element After It Is Visible    ${friendList}    timeout=5s    error=Friend list should be visible.
+    Wait Until Element Is Visible On Page    ${userIndex6}    timeout=5s    error=User with index 10 should be visible after open friend list.
+
+Select User By Name On Home Page
+    ${user} =    Set variable    //*[@resource-id='jp.naver.line.android:id/name' and @text='${userName}']
+    Swipe To Bottom Until User Is Visible    ${user}
+    Click ELement   ${user}
 
 Swipe To Bottom Until User Is Visible
-    ${user} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
-    FOR    ${index}    IN RANGE    5
-        ${findClient} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    ${user}    timeout=5s    error=User is not found when change name.
-        Run Keyword If    not ${findClient}   Swipe    300    800    300    500    300
-        Run Keyword If    ${findClient}    Run Keywords    Double Check Is Not Repeated Users
+    [Arguments]    ${user}
+    FOR    ${index}    IN RANGE    9999
+        ${findClient} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    ${user}    timeout=0.5s    error=User is not found when change name.
+        Run Keyword If    ${findClient}    Run Keywords    Double Check Is Not Repeated Users    ${user}
         ...                                         AND    Return From Keyword    True
+        ${isBottom} =    Is Swipe To Bottom    300    1200    300    500    1000
+        Run Keyword If    ${isBottom}    Fail    message=Client should be found
     # ...        ELSE IF    not ${isNotBottom}    Fail    message=Client should be found
     END
-    Fail    message=message=Client should be found
 
 Double Check Is Not Repeated Users
-    Swipe    300    800    300    500    300
-    ${user} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
+    [Arguments]    ${user}
     ${userNotShown}    Get Matching Xpath Count    ${user}
     Run Keyword If    ${userNotShown}>1    Fail    Users are repeated, please handle it.
 

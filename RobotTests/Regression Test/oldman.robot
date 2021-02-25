@@ -232,21 +232,9 @@ Change User Name To ID
     Input Text    //*[@resource-id='jp.naver.line.android:id/input_text']    ${userName}
     Wait Until Element Is Visible    //*[@class='android.widget.Button' and @text='好友']    timeout=${slowNetPeriod}    error=Friend button should be visible.
     Click Element    //*[@class='android.widget.Button' and @text='好友']
-    # ${getUserName} =    Set Variable    xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.widget.ListView/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View
-    # Wait Until Element Is Visible    ${getUserName}
-    # ${name} =    Get Text    ${getUserName}
-    # Wait Until Element Is Visible    //*[@class='android.view.View' and contains(@text,'${userName}') and @index='0']    timeout=${slowNetPeriod}    error=Friend should be visible.    #FIXME
-    # ${count} =    Get Matching Xpath Count    //*[@class='android.view.View' and @text='${username}' and @index='0']
     ${count} =    Count User Number And Return Type
-    # ${error}    Should Be Equal    ${name}    error
     Run Keyword If    ${count}>1    Select User By Name When Users
     ...    ELSE IF    ${count} == 1    Click Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View
-    # ${getUserName} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
-    # ${count} =    Get Matching Xpath Count    ${getUserName}
-    # Log To Console    ${count}
-    # Wait Until Element Is Visible    ${getUserName}
-    # ${name} =    Get Text    ${getUserName}
-    # Click Element    //*[@class='android.view.View' and @text='${name}' and @index='0' and not(./following-sibling::*)]
     Wait Until Element Is Visible     //*[@resource-id='jp.naver.line.android:id/user_profile_edit_name']    timeout=${slowNetPeriod}    error=Edit name button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/user_profile_edit_name']
     Wait Until Element Is Visible     //*[@resource-id='android:id/edit']    timeout=${slowNetPeriod}    error=User name bar button should be visible.
@@ -275,7 +263,7 @@ Select User By Name When Users
 Open Friend List On Home Page
     ${userIndex6} =    Set Variable    //*[@resource-id='jp.naver.line.android:id/bg' and @index='6']
     ${friendList} =    Set Variable    //*[@resource-id='jp.naver.line.android:id/home_tab_title_container' and .//*[contains(@text, '好友')]]
-    ${isOpenFriendList} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    ${userIndex6}    timeout=3s    error=User with index 6 should be visible.
+    ${isOpenFriendList} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    ${userIndex6}    timeout=1s    error=User with index 6 should be visible.
     Run Keyword If   not ${isOpenFriendList}    Click Element After It Is Visible    ${friendList}    timeout=5s    error=Friend list should be visible.
     Wait Until Element Is Visible On Page    ${userIndex6}    timeout=5s    error=User with index 10 should be visible after open friend list.
 
