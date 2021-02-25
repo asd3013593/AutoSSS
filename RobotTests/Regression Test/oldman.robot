@@ -270,6 +270,7 @@ Select User By Name When Users
     ...    ELSE IF    ${reNameUsers}==None    Run Keywords    Click Back Button On LINE Search Page
     ...                                                AND    Open Friend List On Home Page
     ...                                                AND    Select User By Name On Home Page
+    ...    ELSE       Click Element    ${user}
 
 Open Friend List On Home Page
     ${userIndex6} =    Set Variable    //*[@resource-id='jp.naver.line.android:id/bg' and @index='6']
