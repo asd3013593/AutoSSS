@@ -105,8 +105,8 @@ FlyVPN Should Exist
     AppiumLibrary.Wait Until Element Is Visible    //*[@class ='android.widget.TextView' or @class='android.widget.ImageView' and @content-desc ='FlyVPN']    timeout=3s
 
 Click Element After It Is Visible
-    [Arguments]    ${elementPath}    ${timeout}=5s    ${error}=Button should be visible.
-    AppiumLibrary.Wait Until Element Is Visible    ${elementPath}    timeout=${slowNetPeriod}    error=Clear application button should be visible.
+    [Arguments]    ${elementPath}    ${timeout}=${slowNetPeriod}    ${error}=Element should be visible before click.
+    AppiumLibrary.Wait Until Element Is Visible    ${elementPath}    timeout=${timeout}    error=${error}
     AppiumLibrary.Click Element    ${elementPath}
 
 Wait Until Element Is Visible On Page
