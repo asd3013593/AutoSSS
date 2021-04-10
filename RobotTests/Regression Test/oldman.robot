@@ -94,6 +94,16 @@ Automatically purchase oldman LINE coin when coin less than 10000
     ...                                              AND    Oldman purchase LINE 16000 coin
 
 *** Keywords ***
+Close LINE And Go Back After Sending Fininsh
+    Run Keyword If    ${foreign}   Turn Off VPN Connect
+    Press Keycode    ${appSwitchKey}
+    sleep    1s    #fix me
+    Swipe    900    1500    900    468    500
+    sleep    1s
+    Run Keyword If     ${foreign}    Run Keywords    Swipe    850    1500    850    468    500
+    ...                                       AND    sleep    1s    #fix me
+    Click Element    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']
+
 Login Mycat
     Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
     Input Text    //*[@class='android.widget.EditText' and @password ='false']    20140002
@@ -168,6 +178,11 @@ Open VPN App
     Press Keycode    ${homeKey}
     Click Element After It Is Visible   //*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']
     # Click Element    //*[@class ='android.widget.ImageView' and @content-desc ='FlyVPN']
+
+Turn Off VPN Connect
+    Open VPN App
+    ${connectButton} =    Run Keyword And Return Status    Connect Button Should Connect
+    Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
 
 FlyVPN Should Exist
     Wait Until Element Is Visible    //*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']    timeout=3s
@@ -337,7 +352,7 @@ Click OK Button To Send Gift To User
     ...                    ELSE    Set Variable    Taiwan
     priceRecord    oldmanPrice    ${area}    ${price}    ${userId}   ${stickerName}
     Write Coin Record    oldman    -${price}
-    [Teardown]    Close LINE To Go Back After Change The Name
+    [Teardown]    Close LINE And Go Back After Sending Fininsh
 
 Occur Error After Click Purchase OK Button
     Run Keyword And Ignore Error    Click Element After It Is Visible    //*[@class='android.widget.Button' and @text='確定']    timeout=10s    error=Error button should be visible.
@@ -375,7 +390,7 @@ Occur Error When Send Gift To User
     ...       ELSE    Set Global Variable    ${errorType}    5
     Click Element    xpath=//*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
     Wait Until Element Is Visible     //*[@resource-id='jp.naver.line.android:id/header_button_text']
-    [Teardown]    Close LINE To Go Back After Change The Name
+    [Teardown]    Close LINE And Go Back After Sending Fininsh
 
 Verify User Already Have Sticker
     Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/common_dialog_content_text' and contains(@text,'已擁有')]    timeout=${slowNetPeriod}    error=User should not have the sticker.
