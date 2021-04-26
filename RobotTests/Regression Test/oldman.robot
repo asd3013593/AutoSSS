@@ -232,6 +232,7 @@ Search Correct ID
     ${correctID} =    Set Variable    schoolgrass433331
     Input Text After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userinfo_search_text']    ${correctID}
     Click Element After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userid_search_button_image']
+    Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/addfriend_name']
 
 Verify User Should Be A Friend
     ${buttonJoinOrNot} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='加入']    timeout=3s

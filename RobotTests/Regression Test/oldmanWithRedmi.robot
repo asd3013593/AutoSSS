@@ -207,8 +207,8 @@ Open LINE Add Friend Page
     # Choose Line Application
     ${correctID}    Run Keyword And Return Status    Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/addfriend_name']    timeout=10s    error=UserName should be visible.
     Run Keyword If    ${correctID}    Run Keywords    Hide Keyboard
-    ...                                      AND    Get User Information
-    ...                                      AND    Verify User Should Be A Friend
+    ...                                        AND    Get User Information
+    ...                                        AND    Verify User Should Be A Friend
     ...       ELSE    Verify User Should Not Be Found
 
 Verify User Should Not Be Found
@@ -228,6 +228,7 @@ Search Correct ID
     ${correctID} =    Set Variable    schoolgrass433331
     Input Text After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userinfo_search_text']    ${correctID}
     Click Element After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userid_search_button_image']
+    Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/addfriend_name']
 
 Change User Name To ID
     ${chatButton} =        Set Variable    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']

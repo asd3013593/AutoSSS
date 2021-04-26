@@ -170,6 +170,7 @@ Search Correct ID
     ${correctID} =    Set Variable    schoolgrass433331
     Input Text After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userinfo_search_text']    ${correctID}
     Click Element After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userid_search_button_image']
+    Wait Until Element Is Visible    xpath=//*[@resource-id='jp.naver.line.android:id/addfriend_name']
 
 Change User Name To ID
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']    timeout=${slowNetPeriod}    error=Chat button should be visible.
