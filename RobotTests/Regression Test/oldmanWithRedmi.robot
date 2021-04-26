@@ -258,7 +258,8 @@ Change User Name To ID
 Click LINE Back Button After It is Visible
     [Arguments]    ${backButton}    ${timeout}=${slowNetPeriod}    ${error}=Back button should be visible.
     ${X} =    Wait Until Keyword Succeeds     5s    0.5s    Get Matching Xpath Count    ${backButton}
-    Click Element After It Is Visible   ${backButton}    timeout=${timeout}    error=${error}
+    Wait Until Page Contains Element    ${backButton}    timeout=${slowNetPeriod}    error=Back button should be exist.
+    Wait Until Keyword Succeeds     5s    0.5s    Click Element    ${backButton}
 
 Select User By Name When Users
     ${user} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
