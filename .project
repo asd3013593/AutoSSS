@@ -24,7 +24,7 @@
 		<link>
 			<name>libspecs/AppiumLibrary.py</name>
 			<type>1</type>
-			<location>C:/Users/pan/AppData/Local/Programs/Python/Python36/Lib/AppiumLibrary/keywords/_element.py</location>
+			<location>C:/Users/pan/AppData/Local/Programs/Python/Python36/Lib/AppiumLibrary/__init__.py</location>
 		</link>
 		<link>
 			<name>libspecs/BuiltIn.py</name>

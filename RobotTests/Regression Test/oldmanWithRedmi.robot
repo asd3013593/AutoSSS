@@ -169,9 +169,8 @@ Connect Button Should Connect
 Open VPN App
     Press Keycode    ${homeKey}
     ${AppExist} =    Run Keyword And Return Status    FlyVPN Should Exist
-    Run Keyword Unless    ${AppExist}    Swipe    400    300    100    300    500
-    Click Element    //*[@class ='android.widget.TextView' or @class='android.widget.ImageView' and @content-desc ='FlyVPN']
-    # Click Element    //*[@class ='android.widget.ImageView' and @content-desc ='FlyVPN']
+    Run Keyword Unless    ${AppExist}    Press Keycode    ${homeKey}
+    Click Element After It Is Visible    //*[@content-desc ='FlyVPN']
 
 FlyVPN Should Exist
     #android.widget.ImageView
