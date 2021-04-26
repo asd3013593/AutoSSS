@@ -1,15 +1,18 @@
 *** Settings ***
+Force Tags    oldmanWithRedmi
 Library    XML
 Library    AppiumLibrary
 Library    OperatingSystem
 Resource    purchaseCoin.txt
-Suite Setup    Run Keyword   Login Oldman Magnage Interface
+Suite Setup    Run Keywords    Set Library Search Order  AppiumLibrary  SeleniumLibrary
+...                     AND    Login Oldman Magnage Interface
 Suite Teardown    Close All Application And Back To Home
 
 *** Variables ***
 ${redmiDeviceName} =    8531905e7d25
 ${samsungDeviceName} =    435145414e553398    #version:9
 ${hauweiDeviceName} =    2DR4C19227004310    #version:9
+${redmiDeviceName2} =    26c490cb7d24
 ${emulator} =    127.0.0.1:52001
 ${cataccount} =    20140002
 ${catpassword} =    20140002
@@ -40,7 +43,7 @@ ${taiwanSticker} =    0
 ${foreignSticker} =    0
 ${foreignTopic} =    0
 ${nextClientError} =    10
-&{countryToVPN} =    日本=東京 #32    印尼=雅加達 #8    韓國=首爾 #25    美國=紐約 #18    泰國=曼谷 #2    馬來西亞=吉隆波 #10    新加坡=新加坡 #20
+&{countryToVPN} =    日本=東京 #46    印尼=雅加達 #8    韓國=首爾 #26    美國=紐約 #18    泰國=曼谷 #5    馬來西亞=吉隆波 #10    新加坡=新加坡 #20    香港=香港 #160
 ${slowNetPeriod} =    30s
 ${LineApplication} =    2
 ${stickerName} =    Empty
@@ -94,12 +97,20 @@ Automatically purchase oldman LINE coin when coin less than 10000
     ...                                              AND    Mycat purchase LINE 16000 coin
 
 *** Keywords ***
-Login Mycat
-    Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
-    Input Text    //*[@class='android.widget.EditText' and @password ='false']    20140002
-    Input Text    //*[contains(@text, '登入密碼')]    20140002
-    AppiumLibrary.Click Element    //*[@resource-id='submit']
-    Wait Until Element Is Visible    xpath=//*[contains(@text, '解除鎖定')]    timeout=${slowNetPeriod}    error=Web should be login.
+Close LINE And Go Back After Sending Fininsh
+    Run Keyword If    ${foreign}   Turn Off VPN Connect
+    Press Keycode    ${appSwitchKey}
+    sleep    1s    #fix me
+    Swipe    900    1500    900    468    500
+    sleep    1s
+    Run Keyword If     ${foreign}    Run Keywords    Swipe    850    1500    850    468    500
+    ...                                       AND    sleep    1s    #fix me
+    Click Element    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']
+
+Turn Off VPN Connect
+    Open VPN App
+    ${connectButton} =    Run Keyword And Return Status    Connect Button Should Connect
+    Run Keyword If    ${connectButton}    Click Element    //*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']
 
 Get Name If Change Computer
     Press Keycode    ${appSwitchKey}
@@ -203,7 +214,8 @@ Open LINE Add Friend Page
 
 Verify User Should Not Be Found
     ${notFoundlabel} =     Run Keyword And Return Status   Wait Until Element Is Visible    //*[@class='android.widget.TextView' and contains(@text,'無法找到該用戶')]    timeout=5s    error=Not found label should be visible.
-    Run Keyword If    ${notFoundlabel}    Set Global Variable   ${errorType}    4
+    Run Keyword If    ${notFoundlabel}    Run KeyWords    Search Correct ID
+    ...                                            AND    Set Global Variable   ${errorType}    4
     ...       ELSE    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
     ...                        AND    Close LINE To Go Back After Change The Name
 
@@ -213,35 +225,27 @@ Verify User Should Be A Friend
     ...                                              AND   Set Global Variable    ${alreadyFriend}    False
     ...       ELSE    Set Global Variable    ${alreadyFriend}    True
 
+Search Correct ID
+    ${correctID} =    Set Variable    schoolgrass433331
+    Input Text After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userinfo_search_text']    ${correctID}
+    Click Element After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userid_search_button_image']
+
 Change User Name To ID
-    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']    timeout=${slowNetPeriod}    error=Chat button should be visible.
-    Click Element    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']
-    ${X} =    Wait Until Keyword Succeeds     5s    0.5s    Get Matching Xpath Count    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
-    Wait Until Page Contains Element    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView    timeout=${slowNetPeriod}    error=Back button should be exist.
-    Wait Until Keyword Succeeds     5s    0.5s    Click Element    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
-    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']    timeout=${slowNetPeriod}    error=Home button should be visible.
-    Click Element    //*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']
-    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/main_tab_search_bar_hint_text']    timeout=${slowNetPeriod}    error=Search bar should be visible.
-    Click Element    //*[@resource-id='jp.naver.line.android:id/main_tab_search_bar_hint_text']
-    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/input_text']    timeout=${slowNetPeriod}    error=Search bar should be visible.
-    Input Text    //*[@resource-id='jp.naver.line.android:id/input_text']    ${userName}
-    Wait Until Element Is Visible    //*[@class='android.widget.Button' and @text='好友']    timeout=${slowNetPeriod}    error=Friend button should be visible.
-    Click Element    //*[@class='android.widget.Button' and @text='好友']
-    # ${getUserName} =    Set Variable    xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.widget.ListView/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View
-    # Wait Until Element Is Visible    ${getUserName}
-    # ${name} =    Get Text    ${getUserName}
-    # Wait Until Element Is Visible    //*[@class='android.view.View' and contains(@text,'${userName}') and @index='0']    timeout=${slowNetPeriod}    error=Friend should be visible.    #FIXME
-    # ${count} =    Get Matching Xpath Count    //*[@class='android.view.View' and @text='${username}' and @index='0']
+    ${chatButton} =        Set Variable    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']
+    ${backButton} =        Set Variable    //android.widget.LinearLayout[@content-desc="返回"]/android.widget.ImageView
+    ${homePageButton} =    Set Variable    //*[@resource-id='jp.naver.line.android:id/bnb_button_text' and @text='主頁']
+    ${searchBar} =         Set Variable    //*[@resource-id='jp.naver.line.android:id/main_tab_search_bar_hint_text']
+    ${searchInput} =       Set Variable    //*[@resource-id='jp.naver.line.android:id/input_text']
+    ${friendButton} =      Set Variable    //*[@class='android.widget.Button' and @text='好友']
+    Click Element After It Is Visible    ${chatButton}    timeout=${slowNetPeriod}    error=Chat button should be visible.
+    Click LINE Back Button After It is Visible    ${backButton}    timeout=${slowNetPeriod}    error=Back button should be visible.
+    Click Element After It Is Visible    ${homePageButton}    timeout=${slowNetPeriod}    error=Home button should be visible.
+    Click Element After It Is Visible    ${searchBar}    timeout=${slowNetPeriod}    error=Search bar should be visible.
+    Input Text After It Is Visible    ${searchInput}    ${userName}    timeout=${slowNetPeriod}    error=Search input should be visible.
+    Click Element After It Is Visible    ${friendButton}    timeout=${slowNetPeriod}    error=Friend button should be visible.
     ${count} =    Count User Number And Return Type
-    # ${error}    Should Be Equal    ${name}    error
     Run Keyword If    ${count}>1    Select User By Name When Users
     ...    ELSE IF    ${count} == 1    Click Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View
-    # ${getUserName} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
-    # ${count} =    Get Matching Xpath Count    ${getUserName}
-    # Log To Console    ${count}
-    # Wait Until Element Is Visible    ${getUserName}
-    # ${name} =    Get Text    ${getUserName}
-    # Click Element    //*[@class='android.view.View' and @text='${name}' and @index='0' and not(./following-sibling::*)]
     Wait Until Element Is Visible     //*[@resource-id='jp.naver.line.android:id/user_profile_edit_name']    timeout=${slowNetPeriod}    error=Edit name button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/user_profile_edit_name']
     Wait Until Element Is Visible     //*[@resource-id='android:id/edit']    timeout=${slowNetPeriod}    error=User name bar button should be visible.
@@ -252,20 +256,60 @@ Change User Name To ID
     Write    ${userID}
     [Teardown]    Close LINE To Go Back After Change The Name
 
+Click LINE Back Button After It is Visible
+    [Arguments]    ${backButton}    ${timeout}=${slowNetPeriod}    ${error}=Back button should be visible.
+    ${X} =    Wait Until Keyword Succeeds     5s    0.5s    Get Matching Xpath Count    ${backButton}
+    Click Element After It Is Visible   ${backButton}    timeout=${timeout}    error=${error}
+
 Select User By Name When Users
-    Wait Until Element Is Visible        //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]    timeout=10s    error=Friends list should be visible.
-    ${reNameUsers} =    Get Matching Xpath Count    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
-    Run Keyword If    ${reNameUsers}>1    Fail    Users are repeated, please handle it.
-    ...       ELSE    Click Element    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
+    ${user} =    Set Variable    //*[@class='android.view.View' and @text='${userName}' and @index='0' and not(./following-sibling::*)]
+    ${backButton} =    Set Variable    //android.widget.ImageButton[@content-desc="返回"]
+    ${userNotShown} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${user}    timeout=10s    error=Friends searching list should be visible.
+    ${reNameUsers} =    Run Keyword If    ${userNotShown}    Get Matching Xpath Count    ${user}
+    Run Keyword If    ${reNameUsers}!=None and ${reNameUsers}>1    Fail    Users are repeated, please handle it.
+    ...    ELSE IF    ${reNameUsers}==None    Run Keywords    Click LINE Back Button After It is Visible    ${backButton}
+    ...                                                AND    Open Friend List On Home Page
+    ...                                                AND    Select User By Name On Home Page
+    ...    ELSE       Click Element    ${user}
+
+Open Friend List On Home Page
+    ${userIndex6} =    Set Variable    //*[@resource-id='jp.naver.line.android:id/bg' and @index='6']
+    ${friendList} =    Set Variable    //*[@resource-id='jp.naver.line.android:id/home_tab_title_container' and .//*[contains(@text, '好友')]]
+    ${isOpenFriendList} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    ${userIndex6}    timeout=1s    error=User with index 6 should be visible.
+    Run Keyword If   not ${isOpenFriendList}    Click Element After It Is Visible    ${friendList}    timeout=5s    error=Friend list should be visible.
+    Wait Until Element Is Visible On Page    ${userIndex6}    timeout=5s    error=User with index 10 should be visible after open friend list.
+
+Select User By Name On Home Page
+    ${user} =    Set variable    //*[@resource-id='jp.naver.line.android:id/name' and @text='${userName}']
+    Swipe To Bottom Until User Is Visible    ${user}
+    Click ELement   ${user}
+
+Swipe To Bottom Until User Is Visible
+    [Arguments]    ${user}
+    FOR    ${index}    IN RANGE    9999
+        ${findClient} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    ${user}    timeout=0.5s    error=User is not found when change name.
+        Run Keyword If    ${findClient}    Run Keywords    Double Check Is Not Repeated Users    ${user}
+        ...                                         AND    Return From Keyword    True
+        ${isBottom} =    Is Swipe To Bottom    300    1200    300    500    1000
+        Run Keyword If    ${isBottom}    Fail    message=Client should be found
+    # ...        ELSE IF    not ${isNotBottom}    Fail    message=Client should be found
+    END
+
+Double Check Is Not Repeated Users
+    [Arguments]    ${user}
+    ${userNotShown}    Get Matching Xpath Count    ${user}
+    Run Keyword If    ${userNotShown}>1    Fail    Users are repeated, please handle it.
 
 Count User Number And Return Type
-    Wait Until Page Contains Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View   timeout=10s    error=Friend List View Should Be Visible. 
+    Wait Until Page Contains Element    //*[@class='android.widget.ListView' and @index='1']/android.view.View   timeout=10s    error=Friend List View Should Be Visible.
+    Wait Until Keyword Succeeds    5    500ms    User Friend List Is Empty
     ${count}    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='1']/android.view.View
-    # Log To Console    ${count}
-    # ${name} =    Run Keyword If    ${count}==1    Set Variable    1
-    # ${name} =    Run Keyword If    not(${count}==1)    Set Variable    2
     Log To Console    name=${count}
     [Return]    ${count}
+
+User Friend List Is Empty
+    ${count}    Get Matching Xpath Count    //*[@class='android.widget.ListView' and @index='1']/android.view.View
+    Run Keyword If    ${count}==0    Fail
 
 Open Sticker Link
     Wait Until Element Is Visible   xpath=//*[@text= '開啟連結' and @index='0']     timeout=${slowNetPeriod}    error=Url open button should be visible.
@@ -281,17 +325,13 @@ Send Gift By Select User With ID
     ...                                                          ELSE    Set Global Variable    ${errorType}    ${nextClientError}
     ...                                AND    Close LINE To Go Back After Change The Name
     ...                                AND    Return From Keyword
-    AppiumLibrary.Click Element    xpath=//*[contains(@text, '贈送禮物')]
+    Click Element    xpath=//*[contains(@text, '贈送禮物')]
     Input Text After Click    //*[@resource-id='jp.naver.line.android:id/searchbar_input_text']    ${userId}
-    ${getName} =    Get Text    //*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@class='android.widget.TextView']
-    ${searchClientNumber} =    Get Matching Xpath Count    //*[@resource-id='jp.naver.line.android:id/row_user_bg']
-    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']    timeout=${slowNetPeriod}    error=Client's checkbox should be visible.
-    Run Keyword If    ${searchClientNumber} == 1    Click Element    //*[@resource-id='jp.naver.line.android:id/row_user_bg']//*[@resource-id='jp.naver.line.android:id/widget_friend_row_checkbox']
-    ...       ELSE    Run Keywords    Hide Keyboard
-    Run Keyword If    not (${searchClientNumber} == 1)    Swipe To Client
+    Click Element After It Is Visible    //*[@resource-id='jp.naver.line.android:id/widget_friend_row_name' and @text='${userId}']
+    Wait Until Element Is Visible On Page    //*[@resource-id='jp.naver.line.android:id/widget_friend_row_name' and @content-desc='${userId}, 已選擇核取方塊']    timeout=${slowNetPeriod}    error=${userId} should be selected.
+    # Run Keyword If    not (${searchClientNumber} == 1)    Swipe To Client
     Click Element    //*[@resource-id='jp.naver.line.android:id/header_button_text']
-    #could be error
-    ${sendSuccess}    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=30s    error=Purchase button should be visible.
+    ${sendSuccess}    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=10s
     Run Keyword If    ${sendSuccess}    Click OK Button To Send Gift To User
     ...       ELSE    Occur Error When Send Gift To User
 
@@ -301,7 +341,6 @@ Click OK Button To Send Gift To User
     Click Element    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
-    #Go Back To Management Page From Chat Page
     ${sendSuccess} =   Run Keyword And Return Status    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s
     ${secondSendSuccess}    Run keyword If    not ${sendSuccess}   Run Keyword And Return Status    Occur Error After Click Purchase OK Button
     Run Keyword If    not ${secondSendSuccess} and not ${secondSendSuccess}==${None}   Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
@@ -480,6 +519,11 @@ Wait Until Element Is Visible On Page
     [Arguments]    ${locator}    ${timeout}    ${error}=default
     Wait Until Page Contains Element    ${locator}    ${timeout}    ${error}
     Wait Until Element Is Visible    ${locator}    ${timeout}    ${error}
+
+Input Text After It Is Visible
+    [Arguments]    ${elementPath}    ${text}    ${timeout}=5s    ${error}=Element should be visible before input text.
+    Wait Until Element Is Visible    ${elementPath}   timeout=${timeout}    error=${error}
+    Input Text    ${elementPath}    ${text}
 
 Click Add Friend Button
     Click Element    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='加入']

@@ -155,7 +155,8 @@ Open LINE Add Friend Page
 
 Verify User Should Not Be Found
     ${notFoundlabel} =     Run Keyword And Return Status   Wait Until Element Is Visible    //*[@class='android.widget.TextView' and contains(@text,'無法找到該用戶')]    timeout=5s    error=Not found label should be visible.
-    Run Keyword If    ${notFoundlabel}    Set Global Variable   ${errorType}    4
+    Run Keyword If    ${notFoundlabel}    Run KeyWords    Search Correct ID
+    ...                                            AND    Set Global Variable   ${errorType}    4
     ...       ELSE    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
     ...                        AND    Close LINE To Go Back After Change The Name
 
@@ -164,6 +165,11 @@ Verify User Should Be A Friend
     Run Keyword If    ${buttonJoinOrNot}    Run keywords   Click Add Friend Button
     ...                                              AND   Set Global Variable    ${alreadyFriend}    False
     ...       ELSE    Set Global Variable    ${alreadyFriend}    True
+
+Search Correct ID
+    ${correctID} =    Set Variable    schoolgrass433331
+    Input Text After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userinfo_search_text']    ${correctID}
+    Click Element After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userid_search_button_image']
 
 Change User Name To ID
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='聊天']    timeout=${slowNetPeriod}    error=Chat button should be visible.
@@ -565,6 +571,11 @@ Refresh Management Page After Unlock Permission
 Verify If Back To Sending Page
     [Arguments]    ${waitObject}
     Wait Until Element Is Visible    ${waitObject}    timeout=${slowNetPeriod}
+
+Input Text After It Is Visible
+    [Arguments]    ${elementPath}    ${text}    ${timeout}=5s    ${error}=Element should be visible before input text.
+    Wait Until Element Is Visible    ${elementPath}   timeout=${timeout}    error=${error}
+    Input Text    ${elementPath}    ${text}
 
 Log Sending Status To Console
     [Arguments]    ${type}

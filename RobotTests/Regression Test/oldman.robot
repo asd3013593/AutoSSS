@@ -223,9 +223,15 @@ Open LINE Add Friend Page
 
 Verify User Should Not Be Found
     ${notFoundlabel} =     Run Keyword And Return Status   Wait Until Element Is Visible    //*[@class='android.widget.TextView' and contains(@text,'無法找到該用戶')]    timeout=5s    error=Not found label should be visible.
-    Run Keyword If    ${notFoundlabel}    Set Global Variable   ${errorType}    4
+    Run Keyword If    ${notFoundlabel}    Run KeyWords    Search Correct ID
+    ...                                            AND    Set Global Variable   ${errorType}    4
     ...       ELSE    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
     ...                        AND    Close LINE To Go Back After Change The Name
+
+Search Correct ID
+    ${correctID} =    Set Variable    schoolgrass433331
+    Input Text After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userinfo_search_text']    ${correctID}
+    Click Element After It Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_by_userid_search_button_image']
 
 Verify User Should Be A Friend
     ${buttonJoinOrNot} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/addfriend_add_button' and @text='加入']    timeout=3s
