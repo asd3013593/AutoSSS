@@ -46,47 +46,47 @@ ${LineApplication} =    1
 ${stickerName} =    Empty
 
 *** Test Cases ***
-# Automatically send taiwan sticker oldman
-    # [Setup]    Run Keywords    Get Processing Sticker
-    # ...                 AND    Get Taiwan Sticker Number
-    # FOR    ${num}    IN RANGE    ${taiwanSticker}
-        # Run Keyword If    ${num}==0    Open Taiwan Stciker Sending Page
-        # ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
-        # Exit For Loop if    not ${clientExist}
-        # Log To Console    \nNo${num}.Client
-        # Run Sending Template By For Circle
-    # END
-    # Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
+Automatically send taiwan sticker oldman
+    [Setup]    Run Keywords    Get Processing Sticker
+    ...                 AND    Get Taiwan Sticker Number
+    FOR    ${num}    IN RANGE    ${taiwanSticker}
+        Run Keyword If    ${num}==0    Open Taiwan Stciker Sending Page
+        ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
+        Exit For Loop if    not ${clientExist}
+        Log To Console    \nNo${num}.Client
+        Run Sending Template By For Circle
+    END
+    Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
 
-# Automatically send foreign sticker oldman
-    # [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
-    # ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://oldman.tw/goadmin.php
-    # ...                 AND    Press Keycode    66
-    # ...                 AND    Get Processing Sticker
-    # ...                 AND    Get Foreing Sticker Number
-    # FOR    ${num}    IN RANGE    ${foreignSticker}
-        # Run Keyword If    ${num}==0    Open Foreign Stciker Sending Page
-        # ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
-        # Exit For Loop if    not ${clientExist}
-        # Log To Console    \nNo${num}.Client
-        # Run Sending Template By For Circle
-    # END
-    # Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
+Automatically send foreign sticker oldman
+    [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
+    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://oldman.tw/goadmin.php
+    ...                 AND    Press Keycode    66
+    ...                 AND    Get Processing Sticker
+    ...                 AND    Get Foreing Sticker Number
+    FOR    ${num}    IN RANGE    ${foreignSticker}
+        Run Keyword If    ${num}==0    Open Foreign Stciker Sending Page
+        ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
+        Exit For Loop if    not ${clientExist}
+        Log To Console    \nNo${num}.Client
+        Run Sending Template By For Circle
+    END
+    Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
 
-# Automatically send foreign topic oldman
-    # [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
-    # ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://oldman.tw/goadmin.php
-    # ...                 AND    Press Keycode    66
-    # ...                 AND    Get Processing Sticker
-    # ...                 AND    Get Foreing Topic Number
-    # FOR    ${num}    IN RANGE    ${foreignTopic}
-        # Run Keyword If    ${num}==0    Open Foreign Topic Sending Page
-        # ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
-        # Exit For Loop if    not ${clientExist}
-        # Log To Console    \nNo${num}.Client
-        # Run Sending Template By For Circle
-    # END
-    # Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
+Automatically send foreign topic oldman
+    [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
+    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://oldman.tw/goadmin.php
+    ...                 AND    Press Keycode    66
+    ...                 AND    Get Processing Sticker
+    ...                 AND    Get Foreing Topic Number
+    FOR    ${num}    IN RANGE    ${foreignTopic}
+        Run Keyword If    ${num}==0    Open Foreign Topic Sending Page
+        ${clientExist} =    Run Keyword And Return Status    Verify Is There Still Client Exist
+        Exit For Loop if    not ${clientExist}
+        Log To Console    \nNo${num}.Client
+        Run Sending Template By For Circle
+    END
+    Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
 
 Automatically purchase oldman LINE coin when coin less than 10000
     ${noPurchasing} =    Check No Account Purchasing Coin
