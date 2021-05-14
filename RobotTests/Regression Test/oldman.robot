@@ -91,7 +91,8 @@ Automatically send foreign topic oldman
 Automatically purchase oldman LINE coin when coin less than 10000
     ${noPurchasing} =    Check No Account Purchasing Coin
     ${isCoinNotEnough} =    Is Coin Not Enough    oldman
-    Run keyword If    ${isCoinNotEnough} and ${noPurchasing}    Run Keywords    Close VPN Connect And Close Apps
+    Run keyword If    ${isCoinNotEnough} and ${noPurchasing}    Run Keywords    Make Purchase File
+    ...                                                                  AND    Close VPN Connect And Close Apps
     ...                                                                  AND    Oldman purchase LINE 4000 coin
 
 *** Keywords ***

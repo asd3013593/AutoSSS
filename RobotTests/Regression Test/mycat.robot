@@ -94,5 +94,6 @@ Automatically send foreign topic mycat
 Automatically purchase oldman LINE coin when coin less than 10000
     ${noPurchasing} =    Check No Account Purchasing Coin
     ${isCoinNotEnough} =    Is Coin Not Enough    mycat
-    Run keyword If    ${isCoinNotEnough} and ${noPurchasing}    Run Keywords    Close Mycat VPN Connect And Close Apps
+    Run keyword If    ${isCoinNotEnough} and ${noPurchasing}    Run Keywords    Make Purchase File
+    ...                                                                  AND    Close Mycat VPN Connect And Close Apps
     ...                                                                  AND    Mycat purchase LINE 4000 coin

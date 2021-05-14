@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2021-05-14T12:12:32Z" lineno="10" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
+<keywordspec format="ROBOT" generated="2021-05-14T21:34:37Z" lineno="10" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
 <version>1.5.0.7</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
@@ -684,6 +684,11 @@ Android only.
 
 See `press keycode` for more details.</doc>
 </kw>
+<kw lineno="799" name="Make Purchase File" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<arguments>
+</arguments>
+<doc />
+</kw>
 <kw lineno="39" name="Open Application" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_applicationmanagement.py">
 <arguments>
 <arg>remote_url</arg>
@@ -899,7 +904,7 @@ or newer and it does not work on IronPython at all.</doc>
 Example:
 | Remove Application |  com.netease.qa.orangedemo |</doc>
 </kw>
-<kw lineno="800" name="Remove Purchase CheckFile" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="804" name="Remove Purchase CheckFile" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
