@@ -92,6 +92,7 @@ ${stickerName} =    Empty
     # AppiumLibrary.Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
 
 Automatically purchase oldman LINE coin when coin less than 10000
+    ${noPurchasing} =    Check No Account Purchasing Coin
     ${isCoinNotEnough} =    Is Coin Not Enough    mycat
-    Run keyword If    ${isCoinNotEnough}    Run Keywords    Close Mycat VPN Connect And Close Apps
-    ...                                              AND    Mycat purchase LINE 4000 coin
+    Run keyword If    ${isCoinNotEnough} and ${noPurchasing}    Run Keywords    Close Mycat VPN Connect And Close Apps
+    ...                                                                  AND    Mycat purchase LINE 4000 coin

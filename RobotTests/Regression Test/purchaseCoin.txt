@@ -46,7 +46,6 @@ ${stickerName} =    Empty
 
 *** Keywords ***
 Mycat purchase LINE 4000 coin
-    Check No Account Purchasing Coin
     Open LINE App
     Go To The Coin Page
     Purchase 4000 Coin    mycat
@@ -71,8 +70,6 @@ Go To The Coin Page
 Purchase 4000 Coin
     [Arguments]    ${user}
     ${coinCount} =    Set Variable    0
-    ${check} =    Check No Account Purchasing Coin
-    Return From Keyword If    ${check}
     FOR    ${i}    IN RANGE    5
         Purchase 800 coin    ${user}
         ${coinCount} =   Evaluate    ${coinCount}+800
