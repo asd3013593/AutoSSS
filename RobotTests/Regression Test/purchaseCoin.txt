@@ -45,15 +45,16 @@ ${stickerName} =    Empty
 &{password} =    oldman=${oldpassword}    mycat=${catpassword}
 
 *** Keywords ***
-Mycat purchase LINE 16000 coin
+Mycat purchase LINE 4000 coin
+    Check No Account Purchasing Coin
     Open LINE App
     Go To The Coin Page
-    Purchase 16000 Coin    mycat
+    Purchase 4000 Coin    mycat
 
-Oldman purchase LINE 16000 coin
+Oldman purchase LINE 4000 coin
     Open LINE App
     Go To The Coin Page
-    Purchase 16000 Coin    oldman
+    Purchase 4000 Coin    oldman
 
 Open LINE App
     Press Keycode    ${homeKey}
@@ -67,14 +68,17 @@ Go To The Coin Page
     Click Element After It Is Visible    //*[@class='android.widget.TextView' and @text='代幣']    timeout=10s    error=Coin field should be visible.
     AppiumLibrary.Capture Page Screenshot
 
-Purchase 16000 Coin
+Purchase 4000 Coin
     [Arguments]    ${user}
     ${coinCount} =    Set Variable    0
+    ${check} =    Check No Account Purchasing Coin
+    Return From Keyword If    ${check}
     FOR    ${i}    IN RANGE    5
         Purchase 800 coin    ${user}
         ${coinCount} =   Evaluate    ${coinCount}+800
     END
-    [Teardown]    Record Purchase How Many Coins On Web    ${user}    ${coinCount}
+    [Teardown]    Run Keywords    Record Purchase How Many Coins On Web    ${user}    ${coinCount}
+    ...                    AND    Remove Purchase CheckFile
 
 Purchase 800 coin
     [Arguments]    ${user}
@@ -151,6 +155,7 @@ SeleniumLibrary_Click Element After It Is Visible
 
 Record Purchase How Many Coins On Web
     [Arguments]    ${user}    ${coin}
+    Return From Keyword If    ${coin}==0
     Open Browser    url=${url.${user}}    browser=Chrome    options=add_argument("--headless")
     SeleniumLibrary_Input Text After It Is Visible    //input[@name='StaffID']    ${account.${user}}
     SeleniumLibrary_Input Text After It Is Visible    //input[@name='UserPWD']    ${password.${user}}
