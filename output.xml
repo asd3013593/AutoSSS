@@ -5699,4 +5699,351 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>//*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']</arg>
 </arguments>
 <msg timestamp="20210521 04:40:39.865" level="INFO">Element '//*[@class='android.widget.ListView' and @index='15']//*[@class='android.view.View' and @index='7']//*[@class='android.widget.TextView']' text is '0' </msg>
-<status status="PASS" starttime="20210521 04:40:38.925" endtime="20210521 04:40:39.865">
+<status status="PASS" starttime="20210521 04:40:38.925" endtime="20210521 04:40:39.865"></status>
+</kw>
+<msg timestamp="20210521 04:40:39.866" level="INFO">${processing} = 0</msg>
+<status status="PASS" starttime="20210521 04:40:38.925" endtime="20210521 04:40:39.866"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${processing}!=0</arg>
+<arg>Refresh Management Page After Unlock Permission</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:39.866" endtime="20210521 04:40:39.866"></status>
+</kw>
+<status status="PASS" starttime="20210521 04:40:37.254" endtime="20210521 04:40:39.867"></status>
+</kw>
+<kw name="Get Taiwan Sticker Number">
+<kw name="Get Matching Xpath Count" library="AppiumLibrary">
+<doc>Returns number of elements matching ``xpath``</doc>
+<arguments>
+<arg>//*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']</arg>
+</arguments>
+<assign>
+<var>${X}</var>
+</assign>
+<msg timestamp="20210521 04:40:40.579" level="INFO">${X} = 1</msg>
+<status status="PASS" starttime="20210521 04:40:39.867" endtime="20210521 04:40:40.579"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Taiwan sticker number should be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:40.580" endtime="20210521 04:40:41.275"></status>
+</kw>
+<kw name="Get Text" library="AppiumLibrary">
+<doc>Get element text (for hybrid and mobile browser use `xpath` locator, others might cause problem)</doc>
+<arguments>
+<arg>//*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']</arg>
+</arguments>
+<assign>
+<var>${sticker}</var>
+</assign>
+<msg timestamp="20210521 04:40:41.903" level="INFO">Element '//*[@class='android.widget.ListView' and @index='13']//*[@class='android.view.View' and @index='1']' text is '0' </msg>
+<msg timestamp="20210521 04:40:41.904" level="INFO">${sticker} = 0</msg>
+<status status="PASS" starttime="20210521 04:40:41.276" endtime="20210521 04:40:41.904"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${taiwanSticker}</arg>
+<arg>${sticker}</arg>
+</arguments>
+<msg timestamp="20210521 04:40:41.905" level="INFO">${taiwanSticker} = 0</msg>
+<status status="PASS" starttime="20210521 04:40:41.904" endtime="20210521 04:40:41.905"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${taiwanSticker}</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:41.905" endtime="20210521 04:40:41.905"></status>
+</kw>
+<status status="PASS" starttime="20210521 04:40:39.867" endtime="20210521 04:40:41.906"></status>
+</kw>
+<status status="PASS" starttime="20210521 04:40:37.254" endtime="20210521 04:40:41.906"></status>
+</kw>
+<kw name="${num} IN RANGE [ ${taiwanSticker} ]" type="for">
+<status status="PASS" starttime="20210521 04:40:41.906" endtime="20210521 04:40:41.906"></status>
+</kw>
+<kw name="Wait Until Page Does Not Contain Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` disappears from current page.</doc>
+<arguments>
+<arg>//android.view.View[@content-desc="LINE開啟"]/android.widget.TextView</arg>
+<arg>timeout=60s</arg>
+<arg>error=LINE sticker should not be visible.</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:41.906" endtime="20210521 04:40:42.480"></status>
+</kw>
+<tags>
+<tag>oldman</tag>
+</tags>
+<status status="PASS" starttime="20210521 04:40:37.253" endtime="20210521 04:40:42.480" critical="yes"></status>
+</test>
+<kw name="Close All Application And Back To Home" type="teardown">
+<kw name="Open VPN App">
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${homeKey}</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:42.481" endtime="20210521 04:40:42.541"></status>
+</kw>
+<kw name="Click Element After It Is Visible" library="purchaseCoin">
+<arguments>
+<arg>//*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:42.542" endtime="20210521 04:40:43.342"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20210521 04:40:43.344" level="INFO">Clicking element '//*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']'.</msg>
+<status status="PASS" starttime="20210521 04:40:43.343" endtime="20210521 04:40:43.522"></status>
+</kw>
+<status status="PASS" starttime="20210521 04:40:42.541" endtime="20210521 04:40:43.523"></status>
+</kw>
+<status status="PASS" starttime="20210521 04:40:42.481" endtime="20210521 04:40:43.523"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Connect Button Should Connect</arg>
+</arguments>
+<assign>
+<var>${connectButton}</var>
+</assign>
+<kw name="Connect Button Should Connect">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20210521 04:40:50.001" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210521 04:40:49.266" endtime="20210521 04:40:50.001"></status>
+</kw>
+<msg timestamp="20210521 04:40:50.002" level="FAIL">Element locator '//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']' did not match any elements after 5 seconds</msg>
+<status status="FAIL" starttime="20210521 04:40:43.524" endtime="20210521 04:40:50.002"></status>
+</kw>
+<status status="FAIL" starttime="20210521 04:40:43.523" endtime="20210521 04:40:50.003"></status>
+</kw>
+<msg timestamp="20210521 04:40:50.003" level="INFO">${connectButton} = False</msg>
+<status status="PASS" starttime="20210521 04:40:43.523" endtime="20210521 04:40:50.003"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${connectButton}</arg>
+<arg>Click Element</arg>
+<arg>//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:50.003" endtime="20210521 04:40:50.004"></status>
+</kw>
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${appSwitchKey}</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:50.004" endtime="20210521 04:40:50.065"></status>
+</kw>
+<kw name="${num} IN RANGE [ 9999 ]" type="for">
+<kw name="${num} = 0" type="foritem">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='com.huawei.android.launcher:id/snapshot']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<assign>
+<var>${applicationExist}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='com.huawei.android.launcher:id/snapshot']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:50.066" endtime="20210521 04:40:51.373"></status>
+</kw>
+<msg timestamp="20210521 04:40:51.373" level="INFO">${applicationExist} = True</msg>
+<status status="PASS" starttime="20210521 04:40:50.065" endtime="20210521 04:40:51.373"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>not ${applicationExist}</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:51.373" endtime="20210521 04:40:51.374"></status>
+</kw>
+<kw name="Swipe" library="AppiumLibrary">
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<arguments>
+<arg>324</arg>
+<arg>1500</arg>
+<arg>324</arg>
+<arg>468</arg>
+<arg>500</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:51.374" endtime="20210521 04:40:52.426"></status>
+</kw>
+<status status="PASS" starttime="20210521 04:40:50.065" endtime="20210521 04:40:52.427"></status>
+</kw>
+<kw name="${num} = 1" type="foritem">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='com.huawei.android.launcher:id/snapshot']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<assign>
+<var>${applicationExist}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='com.huawei.android.launcher:id/snapshot']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:52.427" endtime="20210521 04:40:52.540"></status>
+</kw>
+<msg timestamp="20210521 04:40:52.541" level="INFO">${applicationExist} = True</msg>
+<status status="PASS" starttime="20210521 04:40:52.427" endtime="20210521 04:40:52.541"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>not ${applicationExist}</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:52.541" endtime="20210521 04:40:52.541"></status>
+</kw>
+<kw name="Swipe" library="AppiumLibrary">
+<doc>Swipe from one point to another point, for an optional duration.</doc>
+<arguments>
+<arg>324</arg>
+<arg>1500</arg>
+<arg>324</arg>
+<arg>468</arg>
+<arg>500</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:52.541" endtime="20210521 04:40:53.558"></status>
+</kw>
+<status status="PASS" starttime="20210521 04:40:52.427" endtime="20210521 04:40:53.558"></status>
+</kw>
+<kw name="${num} = 2" type="foritem">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[@resource-id='com.huawei.android.launcher:id/snapshot']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<assign>
+<var>${applicationExist}</var>
+</assign>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id='com.huawei.android.launcher:id/snapshot']</arg>
+<arg>timeout=3s</arg>
+<arg>error=</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20210521 04:40:58.824" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210521 04:40:56.761" endtime="20210521 04:40:58.824"></status>
+</kw>
+<msg timestamp="20210521 04:40:58.825" level="FAIL">Element locator '//*[@resource-id='com.huawei.android.launcher:id/snapshot']' did not match any elements after 3 seconds</msg>
+<status status="FAIL" starttime="20210521 04:40:53.559" endtime="20210521 04:40:58.825"></status>
+</kw>
+<msg timestamp="20210521 04:40:58.825" level="INFO">${applicationExist} = False</msg>
+<status status="PASS" starttime="20210521 04:40:53.559" endtime="20210521 04:40:58.825"></status>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<doc>Stops executing the enclosing for loop if the ``condition`` is true.</doc>
+<arguments>
+<arg>not ${applicationExist}</arg>
+</arguments>
+<msg timestamp="20210521 04:40:58.826" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20210521 04:40:58.826" endtime="20210521 04:40:58.826"></status>
+</kw>
+<status status="PASS" starttime="20210521 04:40:53.559" endtime="20210521 04:40:58.826"></status>
+</kw>
+<status status="PASS" starttime="20210521 04:40:50.065" endtime="20210521 04:40:58.826"></status>
+</kw>
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${homeKey}</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:58.827" endtime="20210521 04:40:58.900"></status>
+</kw>
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>26</arg>
+</arguments>
+<status status="PASS" starttime="20210521 04:40:58.900" endtime="20210521 04:40:59.699"></status>
+</kw>
+<kw name="Close All Applications" library="AppiumLibrary">
+<doc>Closes all open applications.</doc>
+<status status="PASS" starttime="20210521 04:40:59.700" endtime="20210521 04:40:59.985"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20210521 04:41:00.995" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20210521 04:40:59.985" endtime="20210521 04:41:00.995"></status>
+</kw>
+<status status="PASS" starttime="20210521 04:40:42.481" endtime="20210521 04:41:00.995"></status>
+</kw>
+<status status="PASS" starttime="20210521 04:39:49.664" endtime="20210521 04:41:00.995"></status>
+</suite>
+<status status="PASS" starttime="20210521 04:39:49.660" endtime="20210521 04:41:00.997"></status>
+</suite>
+<status status="PASS" starttime="20210521 04:39:49.658" endtime="20210521 04:41:00.999"></status>
+</suite>
+<status status="PASS" starttime="20210521 04:39:49.636" endtime="20210521 04:41:01.000"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">oldman</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="AutoSSS">AutoSSS</stat>
+<stat pass="1" fail="0" id="s1-s1" name="RobotTests">AutoSSS.RobotTests</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="Regression Test">AutoSSS.RobotTests.Regression Test</stat>
+<stat pass="1" fail="0" id="s1-s1-s1-s1" name="Oldman">AutoSSS.RobotTests.Regression Test.Oldman</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

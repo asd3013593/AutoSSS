@@ -130,7 +130,7 @@ Reject Order
     SeleniumLibrary_Click Element After It Is Visible    //*[@id= 'Submit']
     SeleniumLibrary.Wait Until Page Contains Element    //*[normalize-space()= '修改完成！']
     SeleniumLibrary_Click Element After It Is Visible    //*[@title= '返回']
-    Log To Console    購買者:${pID} 接收者:${aID}
+    Log To Console    購買者:${pID} 接收者:${aID} 已刪除訂單
 
 Close LINE And Go Back After Sending Fininsh
     Run Keyword If    ${foreign}   Turn Off VPN Connect
