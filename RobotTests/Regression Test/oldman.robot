@@ -116,7 +116,7 @@ Check And Fuck Out Scammer User
         ${uID} =    SeleniumLibrary.Get Text    xpath=(//tr[@id= 'list${pid}']//td)[3]
         ${aID} =    SeleniumLibrary.Get Text    xpath=(//tr[@id= 'list${pid}']//td)[6]
         ${addTemp} =    Evaluate    ${temp}+1
-        Run Keyword If    """${uID}""" == "cbf76580" or """${aID}""" == """cbf76580"""
+        Run Keyword If    """${uID}""" == "cbf76580" or """${aID}""" == """schoolgrass433331"""
         ...    Reject Order    //tr[@id= 'list${pid}']//*[@class= 'operating']    ${uID}    ${aID}
         ...       ELSE    Set Global Variable    ${temp}    ${addTemp}
     END
