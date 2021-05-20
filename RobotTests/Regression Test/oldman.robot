@@ -2,10 +2,12 @@
 Force Tags    oldman
 Library    XML
 Library    AppiumLibrary
+Library    SeleniumLibrary
 Library    OperatingSystem
 Resource    ./purchaseCoin.txt
 Suite Setup    Run Keywords    Set Library Search Order  AppiumLibrary  SeleniumLibrary
 ...                     AND    Login Oldman Magnage Interface
+...                     AND    Check And Fuck Out Scammer User
 Suite Teardown    Close All Application And Back To Home
 
 *** Variables ***
@@ -96,6 +98,40 @@ Automatically purchase oldman LINE coin when coin less than 10000
     ...                                                                  AND    Oldman purchase LINE 4000 coin
 
 *** Keywords ***
+Check And Fuck Out Scammer User
+    Open Browser    https://oldman.tw/goadmin.php?c=Login    browser=Chrome    #options=add_argument("--headless")
+    Input Text After It Is Visible    //*[@name= 'StaffID']    20160000
+    Input Text After It Is Visible    //*[@name= 'UserPWD']    20160000
+    Click Element After It Is Visible    //*[@id= 'submit']
+    Wait Until Page Contains Element    xpath=(//*[@class='content']//dd)[3]
+    ${waitForSend} =    Get Text    xpath=((//*[@class='content'])[3]//dd)[3]
+    Click Element After It Is Visible    //*[@id= 'leftCate3']
+    Click Element After It Is Visible    //*[@id= 'nav_SER_Stickers_Send']
+    ${temp} =    Set Variable    2
+    FOR    ${i}    IN RANGE    ${waitForSend}
+        Run Keyword If    ${temp} == 22    Run Keywords    Click Element After It Is Visible    //*[@rel= 'next']
+        ...                                         AND    Wait Until Page Contains Element    //tbody//tr
+        ...                                         AND    Set Global Variable    ${temp}    2
+        ${pid} =    Get Text    xpath=(//tbody//tr)[${temp}]//td
+        ${uID} =    Get Text    xpath=(//tr[@id= 'list${pid}']//td)[3]
+        ${aID} =    Get Text    xpath=(//tr[@id= 'list${pid}']//td)[6]
+        ${addTemp} =    Evaluate    ${temp}+1
+        Run Keyword If    """${uID}""" == "cbf76580" or """${aID}""" == """cbf76580"""
+        ...    Reject Order    //tr[@id= 'list${pid}']//*[@class= 'operating']    ${uID}    ${aID}
+        ...       ELSE    Set Global Variable    ${temp}    ${addTemp}
+    END
+    Close Browser
+
+Reject Order
+    [Arguments]    ${userOperation}    ${pID}    ${aID}
+    Click Element After It Is Visible    ${userOperation}
+    Click Element After It Is Visible    //*[@name= 'Status']
+    Click Element After It Is Visible    //*[@value= '3']
+    Click Element After It Is Visible    //*[@id= 'Submit']
+    Wait Until Page Contains Element    //*[normalize-space()= '修改完成！']
+    Click Element After It Is Visible    //*[@title= '返回']
+    Log To Console    購買者:${pID} 接收者:${aID}
+
 Close LINE And Go Back After Sending Fininsh
     Run Keyword If    ${foreign}   Turn Off VPN Connect
     Press Keycode    ${appSwitchKey}
