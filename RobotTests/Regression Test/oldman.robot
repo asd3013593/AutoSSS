@@ -18,7 +18,7 @@ ${cataccount} =    20140002
 ${catpassword} =    20140002
 ${oldaccount} =    20160000
 ${oldpassword} =    20160000
-${catUrl} =    https://mycat.tw/goadmin.php
+${catUrl} =    https://mycat.tws/goadmin.php
 ${oldUrl} =    https://oldman.tw/goadmin.php
 ${logincatUrl} =    https://mycat.tw/goadmin.php
 ${loginoldUrl} =    https://oldman.tw/goadmin.php
@@ -46,6 +46,7 @@ ${currentLocation} =    台灣
 ${slowNetPeriod} =    30s
 ${LineApplication} =    1
 ${stickerName} =    Empty
+@{scammer} =    cbf76580    usv37321
 
 *** Test Cases ***
 Automatically send taiwan sticker oldman
@@ -117,7 +118,7 @@ Check And Fuck Out Scammer User
         ${uID} =    SeleniumLibrary.Get Text    xpath=(//tr[@id= 'list${pid}']//td)[3]
         ${aID} =    SeleniumLibrary.Get Text    xpath=(//tr[@id= 'list${pid}']//td)[6]
         ${addTemp} =    Evaluate    ${temp}+1
-        Run Keyword If    """${uID}""" == """cbf76580""" or """${aID}""" == """cbf76580"""
+        Run Keyword If    '${uID}' in ${scammer} or '${aID}' in ${scammer}
         ...    Reject Order    //tr[@id= 'list${pid}']//*[@class= 'operating']    ${uID}    ${aID}
         ...       ELSE    Set Global Variable    ${temp}    ${addTemp}
     END
