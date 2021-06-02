@@ -6,8 +6,8 @@ Library    SeleniumLibrary
 Library    OperatingSystem
 Resource    ./purchaseCoin.txt
 Suite Setup    Run Keywords    Set Library Search Order  AppiumLibrary  SeleniumLibrary
-...                     AND    Check And Fuck Out Scammer User
 ...                     AND    Login Oldman Magnage Interface
+# ...                     AND    Check And Fuck Out Scammer User
 Suite Teardown    Close All Application And Back To Home
 
 *** Variables ***

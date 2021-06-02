@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2021-05-14T21:43:05Z" lineno="10" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
+<keywordspec format="ROBOT" generated="2021-05-31T06:35:37Z" lineno="9" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
 <version>1.5.0.7</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
@@ -57,7 +57,7 @@ use the new `Get WebElements` or `Get WebElement` keyword.
 For example:
 | @{elements}    Get Webelements    class=UIAButton
 | Click Element    @{elements}[2]</doc>
-<init lineno="82">
+<init lineno="81">
 <arguments>
 <arg>timeout=5</arg>
 <arg>run_on_failure=Capture Page Screenshot</arg>
@@ -1311,6 +1311,11 @@ See also `Wait Until Page Contains`,
 `Wait Until Page Does Not Contain`,
 `Wait Until Page Contains Element` and
 BuiltIn keyword `Wait Until Keyword Succeeds`.</doc>
+</kw>
+<kw lineno="810" name="Wait Until Page Loading" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<arguments>
+</arguments>
+<doc />
 </kw>
 <kw lineno="650" name="Write" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
