@@ -7503,3 +7503,193 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <var>${forgot}</var>
 </assign>
 <kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@class ='android.widget.TextView' and @text ='Forgot your password?']</arg>
+<arg>timeout=30s</arg>
+</arguments>
+<status status="PASS" starttime="20210602 15:54:57.917" endtime="20210602 15:55:02.569"></status>
+</kw>
+<msg timestamp="20210602 15:55:02.569" level="INFO">${forgot} = True</msg>
+<status status="PASS" starttime="20210602 15:54:57.917" endtime="20210602 15:55:02.569"></status>
+</kw>
+<kw name="If Not Visible Switch VPN And Refresh Browser">
+<arguments>
+<arg>${forgot}</arg>
+<arg>${account}</arg>
+</arguments>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible On Page</arg>
+<arg>//*[contains(@text, 'Please try again')]</arg>
+<arg>timeout=15s</arg>
+</arguments>
+<assign>
+<var>${a1}</var>
+</assign>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[contains(@text, 'Please try again')]</arg>
+<arg>timeout=15s</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20210602 15:55:23.221" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-23.png"&gt;&lt;img src="appium-screenshot-23.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210602 15:55:23.129" endtime="20210602 15:55:23.221"></status>
+</kw>
+<msg timestamp="20210602 15:55:23.222" level="FAIL">default</msg>
+<status status="FAIL" starttime="20210602 15:55:02.571" endtime="20210602 15:55:23.222"></status>
+</kw>
+<status status="FAIL" starttime="20210602 15:55:02.571" endtime="20210602 15:55:23.222"></status>
+</kw>
+<msg timestamp="20210602 15:55:23.223" level="INFO">${a1} = False</msg>
+<status status="PASS" starttime="20210602 15:55:02.570" endtime="20210602 15:55:23.223"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${boolean}</arg>
+<arg>Run Keywords</arg>
+<arg>Switch VPN To Other Turkey Server</arg>
+</arguments>
+<status status="PASS" starttime="20210602 15:55:23.223" endtime="20210602 15:55:23.223"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>not ${boolean} and not ${a1}</arg>
+<arg>Run Keywords</arg>
+<arg>Swipe</arg>
+<arg>300</arg>
+<arg>300</arg>
+<arg>300</arg>
+<arg>900</arg>
+<arg>500</arg>
+<arg>AND</arg>
+<arg>Go To Netifx</arg>
+<arg>AND</arg>
+<arg>114</arg>
+<arg>${account}</arg>
+</arguments>
+<status status="PASS" starttime="20210602 15:55:23.224" endtime="20210602 15:55:23.224"></status>
+</kw>
+<status status="PASS" starttime="20210602 15:55:02.570" endtime="20210602 15:55:23.224"></status>
+</kw>
+<kw name="Wait Until Page Loading" library="AppiumLibrary">
+<status status="PASS" starttime="20210602 15:55:23.225" endtime="20210602 15:55:23.257"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class ='android.widget.TextView' and @text ='Forgot your password?']</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210602 15:55:23.258" endtime="20210602 15:55:23.303"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20210602 15:55:23.304" level="INFO">Clicking element '//*[@class ='android.widget.TextView' and @text ='Forgot your password?']'.</msg>
+<status status="PASS" starttime="20210602 15:55:23.303" endtime="20210602 15:55:23.398"></status>
+</kw>
+<status status="PASS" starttime="20210602 15:55:23.257" endtime="20210602 15:55:23.398"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@class ='android.view.View' and @text ='Forgot Email/Password']</arg>
+<arg>timeout=30s</arg>
+</arguments>
+<status status="PASS" starttime="20210602 15:55:23.398" endtime="20210602 15:55:27.632"></status>
+</kw>
+<kw name="Wait Until Page Loading" library="AppiumLibrary">
+<status status="PASS" starttime="20210602 15:55:27.633" endtime="20210602 15:55:27.636"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='forgot_password_input']</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210602 15:55:27.637" endtime="20210602 15:55:27.925"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20210602 15:55:27.927" level="INFO">Clicking element '//*[@resource-id='forgot_password_input']'.</msg>
+<status status="PASS" starttime="20210602 15:55:27.925" endtime="20210602 15:55:28.150"></status>
+</kw>
+<status status="PASS" starttime="20210602 15:55:27.637" endtime="20210602 15:55:28.150"></status>
+</kw>
+<kw name="Input Text After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='forgot_password_input']</arg>
+<arg>${account}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210602 15:55:28.151" endtime="20210602 15:55:29.782"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20210602 15:55:29.784" level="INFO">Typing text 'netifyath@mycat.tw' into text field '//*[@resource-id='forgot_password_input']'</msg>
+<status status="PASS" starttime="20210602 15:55:29.782" endtime="20210602 15:55:31.314"></status>
+</kw>
+<status status="PASS" starttime="20210602 15:55:28.150" endtime="20210602 15:55:31.315"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.Button' and @text='Email Me']</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210602 15:55:31.316" endtime="20210602 15:55:32.012"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20210602 15:55:32.014" level="INFO">Clicking element '//*[@class='android.widget.Button' and @text='Email Me']'.</msg>
+<status status="PASS" starttime="20210602 15:55:32.013" endtime="20210602 15:55:32.166"></status>
+</kw>
+<status status="PASS" starttime="20210602 15:55:31.315" endtime="20210602 15:55:32.166"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.
