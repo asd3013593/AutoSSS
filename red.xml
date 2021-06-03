@@ -8,7 +8,10 @@
     <referencedLibrary type="PYTHON" name="stickerLibrary" path="StickerSender/RobotTests/Regression Test/stickerLibrary.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="AppiumLibrary" path="/opt/homebrew/lib/python3.9/site-packages/AppiumLibrary/__init__.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="netify" path="StickerSender/RobotTests/Regression Test/netify.py" dynamic="false"/>
+<<<<<<< HEAD
+=======
     <referencedLibrary type="PYTHON" name="AppiumLibrary" path="StickerSender/RobotTests/AppiumLibrary/__init__.py" dynamic="false"/>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
     <pythonpath/>
     <classpath/>
     <excludedForValidation/>
