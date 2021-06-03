@@ -75,7 +75,6 @@ test2
     END
 *** Keywords ***
 # Verify If Need To Switch VPN
-    
 
 Sign In Exist Account
     Sign In Netflix Account    netifyasy@mycat.tw    Netify000
@@ -85,6 +84,9 @@ Sign In Exist Account
     ...                                         AND    Click Element After It Is Visible    //android.view.View[@content-desc="Netflix"]/android.widget.Image
     ...                                         AND    Sign In Exist Account
     ...       ELSE    Run Keywords    Wait Until Page Loading
+    ...                        AND    Swipe    300    300    300    900    500
+    ...                        AND    Wait Until Page Contains Element    //*[@class='android.widget.TextView' and @text='Sign Out']
+    ...                        AND    Wait Until Page Loading
     ...                        AND    Click Element After It Is Visible    //*[@class='android.widget.TextView' and @text='Sign Out']
 
 Switch VPN To Other Turkey Server
@@ -93,6 +95,7 @@ Switch VPN To Other Turkey Server
     Swith VPN With Server   ${country}[${vpnIni}]
     Press Keycode    ${homeKey}
     Click Element After It Is Visible     //*[@class ='android.widget.TextView' and @content-desc ='Chrome']
+    Wait Until Page Does Not Contain    //*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']    timeout=3s
     # Press Keycode    ${appSwitchKey}
     # sleep    1s    #fix me
     # Click Element    //*[@class='android.widget.FrameLayout' and @content-desc='Chrome']
@@ -159,7 +162,6 @@ Verify If Account Password Be Changed
     ...                                 AND    Wait Until Page Loading
     ...                                 AND    114    ${account}
     ...                                 AND    114    ${account}
-    ...                                 AND    114    ${account}
     ...                                 AND    delete account to new state    ${account2}    已註冊    已寄出    mycat    ${password}
 
 Sign In Netflix Account
@@ -203,6 +205,7 @@ Go To Netifx
     Wait Until Page Loading
     Click Element After It Is Visible    //*[@resource-id='forgot_password_input']
     Input Text After It Is Visible    //*[@resource-id='forgot_password_input']    ${account}
+    Click Element After It Is Visible    //*[@resource-id='bxid_resetPasswordChoice_email']
     Click Element After It Is Visible    //*[@class='android.widget.Button' and @text='Email Me']
     ${send}=    Run Keyword And Return Status    Wait Until Page Contains Element    //*[@class='android.view.View' and @text='Email Sent']    timeout=30s
     If Not Visible Switch VPN And Refresh Browser    ${send}    ${account}
@@ -308,5 +311,6 @@ If Not Visible Switch VPN And Refresh Browser
     ${a1} =    Run Keyword If    not ${boolean}    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[contains(@text, 'Please try again')]    timeout=15s
     Run Keyword If    not ${boolean}    Run Keywords    Switch VPN To Other Turkey Server
     Run Keyword If    not ${boolean} and not ${a1}   Run Keywords    Swipe    300    300    300    900    500
+    ...                                                       AND    Wait Until Page Loading
     ...                                                       AND    Go To Netifx
     ...                                                       AND    114    ${account}
