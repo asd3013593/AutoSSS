@@ -22,9 +22,15 @@
 	</natures>
 	<linkedResources>
 		<link>
+<<<<<<< HEAD
 			<name>libspecs/AppiumLibrary.py</name>
 			<type>1</type>
 			<location>C:/Users/pan/AppData/Local/Programs/Python/Python36/Lib/AppiumLibrary/keywords/_element.py</location>
+=======
+			<name>libspecs/BuiltIn.py</name>
+			<type>1</type>
+			<location>C:/Users/pan/AppData/Local/Programs/Python/Python36/lib/site-packages/robot/libraries/BuiltIn.py</location>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 		</link>
 	</linkedResources>
 </projectDescription>
