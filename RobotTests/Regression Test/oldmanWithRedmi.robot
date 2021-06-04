@@ -48,7 +48,7 @@ ${nextClientError} =    10
 ${slowNetPeriod} =    30s
 ${LineApplication} =    2
 ${stickerName} =    Empty
-@{scammer} =    tuw42074
+@{scammer} =    tuw42074    xph75112
 
 *** Test Cases ***
 Automatically send taiwan sticker oldman
