@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20210602 16:10:24.934" rpa="false">
+=======
+<robot generator="Robot 3.2.2 (Python 3.6.8 on win32)" generated="20210531 10:32:05.028" rpa="false">
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 <suite id="s1" name="AutoSSS" source="C:\Users\pan\Desktop\StickerSender\AutoSSS">
 <suite id="s1-s1" name="RobotTests" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests">
 <suite id="s1-s1-s1" name="Regression Test" source="C:\Users\pan\Desktop\StickerSender\AutoSSS\RobotTests\Regression Test">
@@ -12,6 +16,7 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 | *Option*            | *Man.* | *Description*     |
 | remote_url          | Yes    | Appium server url |
 | alias               | no     | alias             |</doc>
+<<<<<<< HEAD
 <arguments>
 <arg>http://localhost:4725/wd/hub</arg>
 <arg>platformName=Android</arg>
@@ -4830,6 +4835,19 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 </kw>
 <kw name="Wait Until Page Loading" library="AppiumLibrary">
 <status status="PASS" starttime="20210602 16:15:53.885" endtime="20210602 16:15:53.888"></status>
+=======
+<arguments>
+<arg>http://localhost:4725/wd/hub</arg>
+<arg>platformName=Android</arg>
+<arg>platformVersion=9</arg>
+<arg>alias=MyChrome1</arg>
+<arg>deviceName=${hauweiDeviceName}</arg>
+<arg>noReset=true</arg>
+<arg>browserName=Chrome</arg>
+<arg>automationName=uiautomator2</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:32:06.312" endtime="20210531 10:32:17.975"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </kw>
 <status status="PASS" starttime="20210602 16:15:38.078" endtime="20210602 16:15:53.888"></status>
 </kw>
@@ -4837,11 +4855,34 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arguments>
 <arg>${account}</arg>
 </arguments>
+<<<<<<< HEAD
 <kw name="Input Text After It Is Visible">
+=======
+<status status="PASS" starttime="20210531 10:32:17.976" endtime="20210531 10:32:23.222"></status>
+</kw>
+<kw name="Switch To Context" library="AppiumLibrary">
+<doc>Switch to a new context</doc>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 <arguments>
 <arg>//*[@resource-id='id_email_hero_fuji']</arg>
 <arg>${account}</arg>
 </arguments>
+<<<<<<< HEAD
+=======
+<status status="PASS" starttime="20210531 10:32:23.222" endtime="20210531 10:32:23.226"></status>
+</kw>
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${homeKey}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:32:23.226" endtime="20210531 10:32:23.878"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']</arg>
+</arguments>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
@@ -4849,12 +4890,17 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:15:53.889" endtime="20210602 16:15:55.191"></status>
+=======
+<status status="PASS" starttime="20210531 10:32:23.878" endtime="20210531 10:32:24.717"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </kw>
-<kw name="Input Text" library="AppiumLibrary">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>${elementPath}</arg>
+<<<<<<< HEAD
 <arg>${text}</arg>
 </arguments>
 <msg timestamp="20210602 16:15:55.193" level="INFO">Typing text 'netifyatj@mycat.tw' into text field '//*[@resource-id='id_email_hero_fuji']'</msg>
@@ -4866,6 +4912,57 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arguments>
 <arg>//*[@class='android.view.View' and @text='Get Started']</arg>
 </arguments>
+=======
+</arguments>
+<msg timestamp="20210531 10:32:24.719" level="INFO">Clicking element '//*[@class ='android.widget.TextView' and @content-desc ='FlyVPN']'.</msg>
+<status status="PASS" starttime="20210531 10:32:24.718" endtime="20210531 10:32:25.141"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:23.878" endtime="20210531 10:32:25.141"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Connect Button Should Connect</arg>
+</arguments>
+<assign>
+<var>${connectButton}</var>
+</assign>
+<kw name="Connect Button Should Connect">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']</arg>
+<arg>timeout=5s</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:32:25.142" endtime="20210531 10:32:25.910"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:25.141" endtime="20210531 10:32:25.911"></status>
+</kw>
+<msg timestamp="20210531 10:32:25.911" level="INFO">${connectButton} = True</msg>
+<status status="PASS" starttime="20210531 10:32:25.141" endtime="20210531 10:32:25.911"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${connectButton}</arg>
+<arg>Click Element</arg>
+<arg>//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']</arg>
+</arguments>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']</arg>
+</arguments>
+<msg timestamp="20210531 10:32:25.913" level="INFO">Clicking element '//*[@resource-id ='com.fvcorp.flyclient:id/imageButtonConnected']'.</msg>
+<status status="PASS" starttime="20210531 10:32:25.912" endtime="20210531 10:32:26.197"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:25.911" endtime="20210531 10:32:26.197"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[contains(@text, '當前伺服器：')]</arg>
+</arguments>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
@@ -4873,13 +4970,18 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:15:55.225" endtime="20210602 16:15:55.274"></status>
+=======
+<status status="PASS" starttime="20210531 10:32:26.197" endtime="20210531 10:32:28.843"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>${elementPath}</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20210602 16:15:55.276" level="INFO">Clicking element '//*[@class='android.view.View' and @text='Get Started']'.</msg>
 <status status="PASS" starttime="20210602 16:15:55.274" endtime="20210602 16:15:56.054"></status>
 </kw>
@@ -4964,6 +5066,17 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Click Element After It Is Visible">
 <arguments>
 <arg>//*[@class ='android.widget.TextView' and @text ='Forgot your password?']</arg>
+=======
+<msg timestamp="20210531 10:32:28.845" level="INFO">Clicking element '//*[contains(@text, '當前伺服器：')]'.</msg>
+<status status="PASS" starttime="20210531 10:32:28.844" endtime="20210531 10:32:31.534"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:26.197" endtime="20210531 10:32:31.534"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id ='com.fvcorp.flyclient:id/search_button']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Serach should be visible.</arg>
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -4972,13 +5085,53 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
-<status status="PASS" starttime="20210602 16:15:59.195" endtime="20210602 16:15:59.227"></status>
+<status status="PASS" starttime="20210531 10:32:31.535" endtime="20210531 10:32:32.271"></status>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>${elementPath}</arg>
 </arguments>
+<msg timestamp="20210531 10:32:32.273" level="INFO">Clicking element '//*[@resource-id ='com.fvcorp.flyclient:id/search_button']'.</msg>
+<status status="PASS" starttime="20210531 10:32:32.272" endtime="20210531 10:32:32.895"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:31.534" endtime="20210531 10:32:32.896"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>com.fvcorp.flyclient:id/search_src_text</arg>
+<arg>${country}[5]</arg>
+</arguments>
+<msg timestamp="20210531 10:32:32.897" level="INFO">Typing text '伊斯坦布爾 #5' into text field 'com.fvcorp.flyclient:id/search_src_text'</msg>
+<status status="PASS" starttime="20210531 10:32:32.896" endtime="20210531 10:32:34.153"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.fvcorp.flyclient:id/textServerRowTitle']</arg>
+<arg>timeout=${slowNetPeriod}</arg>
+<arg>error=Country should be visible.</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${error}</arg>
+</arguments>
+<<<<<<< HEAD
+<status status="PASS" starttime="20210602 16:15:59.195" endtime="20210602 16:15:59.227"></status>
+=======
+<status status="PASS" starttime="20210531 10:32:34.154" endtime="20210531 10:32:34.979"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<<<<<<< HEAD
 <msg timestamp="20210602 16:15:59.228" level="INFO">Clicking element '//*[@class ='android.widget.TextView' and @text ='Forgot your password?']'.</msg>
 <status status="PASS" starttime="20210602 16:15:59.227" endtime="20210602 16:15:59.295"></status>
 </kw>
@@ -4994,11 +5147,24 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 </kw>
 <kw name="Wait Until Page Loading" library="AppiumLibrary">
 <status status="PASS" starttime="20210602 16:16:02.520" endtime="20210602 16:16:02.523"></status>
+=======
+<msg timestamp="20210531 10:32:34.980" level="INFO">Clicking element '//*[@resource-id='com.fvcorp.flyclient:id/textServerRowTitle']'.</msg>
+<status status="PASS" starttime="20210531 10:32:34.979" endtime="20210531 10:32:35.142"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:34.153" endtime="20210531 10:32:35.143"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </kw>
 <kw name="Click Element After It Is Visible">
 <arguments>
 <arg>//*[@resource-id='forgot_password_input']</arg>
 </arguments>
+<<<<<<< HEAD
+=======
+<assign>
+<var>${successConnect}</var>
+</assign>
+<kw name="Connect Button Should Connect">
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
 <arguments>
@@ -5006,6 +5172,7 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:16:02.523" endtime="20210602 16:16:02.597"></status>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
@@ -5046,6 +5213,37 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Click Element After It Is Visible">
 <arguments>
 <arg>//*[@resource-id='bxid_resetPasswordChoice_email']</arg>
+=======
+<status status="PASS" starttime="20210531 10:32:35.143" endtime="20210531 10:32:38.916"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:35.143" endtime="20210531 10:32:38.917"></status>
+</kw>
+<msg timestamp="20210531 10:32:38.917" level="INFO">${successConnect} = True</msg>
+<status status="PASS" starttime="20210531 10:32:35.143" endtime="20210531 10:32:38.917"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:06.311" endtime="20210531 10:32:38.917"></status>
+</kw>
+<test id="s1-s1-s1-s1-t1" name="test vpn">
+<kw name="Run Keywords" library="BuiltIn" type="setup">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>Press Keycode</arg>
+<arg>${homeKey}</arg>
+<arg>AND</arg>
+<arg>Click Element After It Is Visible</arg>
+<arg>//*[@class ='android.widget.TextView' and @content-desc ='Chrome']</arg>
+</arguments>
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${homeKey}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:32:38.919" endtime="20210531 10:32:39.044"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class ='android.widget.TextView' and @content-desc ='Chrome']</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -5053,6 +5251,7 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>${elementPath}</arg>
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
+<<<<<<< HEAD
 </arguments>
 <status status="PASS" starttime="20210602 16:16:04.119" endtime="20210602 16:16:04.759"></status>
 </kw>
@@ -5168,6 +5367,46 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Click Element After It Is Visible">
 <arguments>
 <arg>//android.view.View[@content-desc="Netflix"]/android.widget.Image</arg>
+=======
+</arguments>
+<status status="PASS" starttime="20210531 10:32:39.044" endtime="20210531 10:32:40.003"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20210531 10:32:40.004" level="INFO">Clicking element '//*[@class ='android.widget.TextView' and @content-desc ='Chrome']'.</msg>
+<status status="PASS" starttime="20210531 10:32:40.003" endtime="20210531 10:32:40.222"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:39.044" endtime="20210531 10:32:40.222"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:38.918" endtime="20210531 10:32:40.222"></status>
+</kw>
+<kw name="Get Account With Amount" library="netify">
+<arguments>
+<arg>mycat</arg>
+<arg>8</arg>
+</arguments>
+<assign>
+<var>@{account}</var>
+</assign>
+<msg timestamp="20210531 10:32:41.335" level="INFO">@{account} = [ {'key': 'netifyatd@mycat.tw', 'value': 'Netify000'} | {'key': 'netifyate@mycat.tw', 'value': 'Netify000'} | {'key': 'netifyatf@mycat.tw', 'value': 'Netify000'} | {'key': 'netifyatg@mycat.tw', 'value...</msg>
+<status status="PASS" starttime="20210531 10:32:40.223" endtime="20210531 10:32:41.335"></status>
+</kw>
+<kw name="${i} IN [ @{account} ]" type="for">
+<kw name="${i} = {'key': 'netifyatd@mycat.tw', 'value': 'Netify000'}" type="foritem">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>\n${i}[key] 執行中</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:32:41.336" endtime="20210531 10:32:41.336"></status>
+</kw>
+<kw name="112">
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.chrome:id/url_bar']</arg>
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -5176,6 +5415,32 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<status status="PASS" starttime="20210531 10:32:41.337" endtime="20210531 10:32:41.571"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20210531 10:32:41.573" level="INFO">Clicking element '//*[@resource-id='com.android.chrome:id/url_bar']'.</msg>
+<status status="PASS" starttime="20210531 10:32:41.571" endtime="20210531 10:32:41.988"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:41.336" endtime="20210531 10:32:41.988"></status>
+</kw>
+<kw name="Input Text After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.chrome:id/url_bar']</arg>
+<arg>https://www.netflix.com/</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${error}</arg>
+</arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:16:07.744" endtime="20210602 16:16:07.771"></status>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
@@ -5255,6 +5520,96 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Click Element After It Is Visible">
 <arguments>
 <arg>//*[@class ='android.widget.TextView' and @content-desc ='Chrome']</arg>
+=======
+<status status="PASS" starttime="20210531 10:32:41.989" endtime="20210531 10:32:43.390"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20210531 10:32:43.392" level="INFO">Typing text 'https://www.netflix.com/' into text field '//*[@resource-id='com.android.chrome:id/url_bar']'</msg>
+<status status="PASS" starttime="20210531 10:32:43.390" endtime="20210531 10:32:43.593"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:41.989" endtime="20210531 10:32:43.593"></status>
+</kw>
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${enterKey}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:32:43.593" endtime="20210531 10:32:44.454"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@resource-id='com.android.chrome:id/infobar_icon']</arg>
+<arg>timeout=100s</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:32:44.454" endtime="20210531 10:32:53.079"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:32:53.080" endtime="20210531 10:32:53.831"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:44.454" endtime="20210531 10:32:53.832"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210531 10:32:55.833" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210531 10:32:53.832" endtime="20210531 10:32:55.833"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:41.336" endtime="20210531 10:32:55.833"></status>
+</kw>
+<kw name="113">
+<arguments>
+<arg>${i}[key]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@resource-id='id_email_hero_fuji']</arg>
+<arg>timeout=30s</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:32:55.834" endtime="20210531 10:32:56.080"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:32:56.080" endtime="20210531 10:32:56.271"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:55.834" endtime="20210531 10:32:56.271"></status>
+</kw>
+<kw name="Input Text After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='id_email_hero_fuji']</arg>
+<arg>${account}</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -5263,13 +5618,19 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:16:13.437" endtime="20210602 16:16:14.255"></status>
+=======
+<status status="PASS" starttime="20210531 10:32:56.272" endtime="20210531 10:32:57.280"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </kw>
-<kw name="Click Element" library="AppiumLibrary">
-<doc>Click element identified by `locator`.</doc>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
 <arguments>
 <arg>${elementPath}</arg>
+<arg>${text}</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20210602 16:16:14.256" level="INFO">Clicking element '//*[@class ='android.widget.TextView' and @content-desc ='Chrome']'.</msg>
 <status status="PASS" starttime="20210602 16:16:14.255" endtime="20210602 16:16:14.306"></status>
 </kw>
@@ -5278,6 +5639,16 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Click Element After It Is Visible">
 <arguments>
 <arg>//*[@resource-id='com.android.chrome:id/url_bar']</arg>
+=======
+<msg timestamp="20210531 10:32:57.281" level="INFO">Typing text 'netifyatd@mycat.tw' into text field '//*[@resource-id='id_email_hero_fuji']'</msg>
+<status status="PASS" starttime="20210531 10:32:57.280" endtime="20210531 10:32:57.561"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:56.271" endtime="20210531 10:32:57.561"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.view.View' and @text='Get Started']</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -5286,13 +5657,18 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:16:14.307" endtime="20210602 16:16:15.682"></status>
+=======
+<status status="PASS" starttime="20210531 10:32:57.562" endtime="20210531 10:32:58.342"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>${elementPath}</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20210602 16:16:15.683" level="INFO">Clicking element '//*[@resource-id='com.android.chrome:id/url_bar']'.</msg>
 <status status="PASS" starttime="20210602 16:16:15.682" endtime="20210602 16:16:15.942"></status>
 </kw>
@@ -5302,14 +5678,26 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arguments>
 <arg>//*[@resource-id='com.android.chrome:id/url_bar']</arg>
 <arg>https://www.netflix.com/</arg>
-</arguments>
-<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
-<doc>Waits until element specified with `locator` is visible.</doc>
+=======
+<msg timestamp="20210531 10:32:58.344" level="INFO">Clicking element '//*[@class='android.view.View' and @text='Get Started']'.</msg>
+<status status="PASS" starttime="20210531 10:32:58.342" endtime="20210531 10:32:58.655"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:57.562" endtime="20210531 10:32:58.655"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
 <arguments>
-<arg>${elementPath}</arg>
-<arg>timeout=${timeout}</arg>
-<arg>error=${error}</arg>
+<arg>//*[@resource-id='com.android.chrome:id/infobar_icon']</arg>
+<arg>timeout=100s</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:16:15.943" endtime="20210602 16:16:16.735"></status>
 </kw>
 <kw name="Input Text" library="AppiumLibrary">
@@ -5363,6 +5751,57 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Click Element After It Is Visible">
 <arguments>
 <arg>//*[@class='android.widget.TextView' and @text='Sign In']</arg>
+=======
+<status status="PASS" starttime="20210531 10:32:58.656" endtime="20210531 10:32:58.852"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:32:58.852" endtime="20210531 10:32:59.515"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:58.655" endtime="20210531 10:32:59.515"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20210531 10:33:09.517" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20210531 10:32:59.516" endtime="20210531 10:33:09.517"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@class='android.widget.Button' and @text='Continue']</arg>
+<arg>timeout=100s</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:09.518" endtime="20210531 10:33:09.691"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:09.691" endtime="20210531 10:33:09.853"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:09.517" endtime="20210531 10:33:09.854"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.Button' and @text='Continue']</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -5371,13 +5810,18 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:16:18.015" endtime="20210602 16:16:18.047"></status>
+=======
+<status status="PASS" starttime="20210531 10:33:09.854" endtime="20210531 10:33:10.032"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>${elementPath}</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20210602 16:16:18.048" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='Sign In']'.</msg>
 <status status="PASS" starttime="20210602 16:16:18.047" endtime="20210602 16:16:18.134"></status>
 </kw>
@@ -5397,6 +5841,17 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Click Element After It Is Visible">
 <arguments>
 <arg>//*[@class='android.widget.EditText' and @resource-id='id_userLoginId']</arg>
+=======
+<msg timestamp="20210531 10:33:10.034" level="INFO">Clicking element '//*[@class='android.widget.Button' and @text='Continue']'.</msg>
+<status status="PASS" starttime="20210531 10:33:10.032" endtime="20210531 10:33:10.245"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:09.854" endtime="20210531 10:33:10.246"></status>
+</kw>
+<kw name="Input Text After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.EditText' and @resource-id='id_password']</arg>
+<arg>Netify000</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -5405,13 +5860,19 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:16:21.461" endtime="20210602 16:16:21.606"></status>
+=======
+<status status="PASS" starttime="20210531 10:33:10.246" endtime="20210531 10:33:12.352"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </kw>
-<kw name="Click Element" library="AppiumLibrary">
-<doc>Click element identified by `locator`.</doc>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
 <arguments>
 <arg>${elementPath}</arg>
+<arg>${text}</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20210602 16:16:21.608" level="INFO">Clicking element '//*[@class='android.widget.EditText' and @resource-id='id_userLoginId']'.</msg>
 <status status="PASS" starttime="20210602 16:16:21.606" endtime="20210602 16:16:21.761"></status>
 </kw>
@@ -5421,6 +5882,16 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arguments>
 <arg>//*[@class='android.widget.EditText' and @resource-id='id_userLoginId']</arg>
 <arg>${account}</arg>
+=======
+<msg timestamp="20210531 10:33:12.354" level="INFO">Typing text 'Netify000' into text field '//*[@class='android.widget.EditText' and @resource-id='id_password']'</msg>
+<status status="PASS" starttime="20210531 10:33:12.352" endtime="20210531 10:33:12.542"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:10.246" endtime="20210531 10:33:12.542"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.Button' and @text='Continue']</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -5429,7 +5900,11 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:16:21.762" endtime="20210602 16:16:21.805"></status>
+=======
+<status status="PASS" starttime="20210531 10:33:12.543" endtime="20210531 10:33:13.346"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </kw>
 <kw name="Input Text" library="AppiumLibrary">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
@@ -5437,14 +5912,26 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>${elementPath}</arg>
 <arg>${text}</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20210602 16:16:21.806" level="INFO">Typing text 'netifyasy@mycat.tw' into text field '//*[@class='android.widget.EditText' and @resource-id='id_userLoginId']'</msg>
 <status status="PASS" starttime="20210602 16:16:21.805" endtime="20210602 16:16:22.766"></status>
 </kw>
 <status status="PASS" starttime="20210602 16:16:21.762" endtime="20210602 16:16:22.766"></status>
+=======
+<msg timestamp="20210531 10:33:13.348" level="INFO">Clicking element '//*[@class='android.widget.Button' and @text='Continue']'.</msg>
+<status status="PASS" starttime="20210531 10:33:13.347" endtime="20210531 10:33:13.550"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:12.542" endtime="20210531 10:33:13.551"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </kw>
 <kw name="Click Element After It Is Visible">
 <arguments>
+<<<<<<< HEAD
 <arg>//*[@resource-id='bxid_rememberMe_true']</arg>
+=======
+<arg>//*[@text='STEP 2 OF 3 Choose your plan.']</arg>
+<arg>timeout=100s</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -5453,6 +5940,7 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:16:22.767" endtime="20210602 16:16:22.849"></status>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
@@ -5468,6 +5956,68 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Click Element After It Is Visible">
 <arguments>
 <arg>//*[@class='android.widget.EditText' and @resource-id='id_password']</arg>
+=======
+<status status="PASS" starttime="20210531 10:33:13.552" endtime="20210531 10:33:16.079"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:16.079" endtime="20210531 10:33:16.210"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:13.551" endtime="20210531 10:33:16.211"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>"""${account}""".replace("@mycat.tw","")</arg>
+</arguments>
+<assign>
+<var>${account}</var>
+</assign>
+<msg timestamp="20210531 10:33:16.211" level="INFO">${account} = netifyatd</msg>
+<status status="PASS" starttime="20210531 10:33:16.211" endtime="20210531 10:33:16.211"></status>
+</kw>
+<kw name="delete account to new state">
+<arguments>
+<arg>${account}</arg>
+<arg>未註冊</arg>
+<arg>已註冊</arg>
+<arg>mycat</arg>
+<arg>Netify000</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>將帳號'${account}'從'${fState}${name}'刪除，並新增至'${eState}${name}'</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:16.212" endtime="20210531 10:33:16.212"></status>
+</kw>
+<kw name="Delete Account With Key" library="netify">
+<arguments>
+<arg>${fState}</arg>
+<arg>${name}</arg>
+<arg>${account}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:16.213" endtime="20210531 10:33:16.814"></status>
+</kw>
+<kw name="Update Account To New State" library="netify">
+<arguments>
+<arg>${eState}</arg>
+<arg>${name}</arg>
+<arg>${account}</arg>
+<arg>${password}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:16.815" endtime="20210531 10:33:17.398"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:16.212" endtime="20210531 10:33:17.399"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.widget.TextView' and @text='Sign Out']</arg>
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -5476,13 +6026,80 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
-<status status="PASS" starttime="20210602 16:16:22.948" endtime="20210602 16:16:24.213"></status>
+<status status="PASS" starttime="20210531 10:33:17.399" endtime="20210531 10:33:19.093"></status>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>${elementPath}</arg>
 </arguments>
+<msg timestamp="20210531 10:33:19.095" level="INFO">Clicking element '//*[@class='android.widget.TextView' and @text='Sign Out']'.</msg>
+<status status="PASS" starttime="20210531 10:33:19.094" endtime="20210531 10:33:19.237"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:17.399" endtime="20210531 10:33:19.237"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@text='Sign In']</arg>
+<arg>timeout=100s</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:19.238" endtime="20210531 10:33:28.295"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:28.295" endtime="20210531 10:33:28.828"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:19.237" endtime="20210531 10:33:28.828"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:55.833" endtime="20210531 10:33:28.829"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:32:41.335" endtime="20210531 10:33:28.829"></status>
+</kw>
+<kw name="${i} = {'key': 'netifyate@mycat.tw', 'value': 'Netify000'}" type="foritem">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>\n${i}[key] 執行中</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:28.829" endtime="20210531 10:33:28.830"></status>
+</kw>
+<kw name="112">
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.chrome:id/url_bar']</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${error}</arg>
+</arguments>
+<<<<<<< HEAD
+<status status="PASS" starttime="20210602 16:16:22.948" endtime="20210602 16:16:24.213"></status>
+=======
+<status status="PASS" starttime="20210531 10:33:28.831" endtime="20210531 10:33:28.967"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<<<<<<< HEAD
 <msg timestamp="20210602 16:16:24.215" level="INFO">Clicking element '//*[@class='android.widget.EditText' and @resource-id='id_password']'.</msg>
 <status status="PASS" starttime="20210602 16:16:24.214" endtime="20210602 16:16:24.277"></status>
 </kw>
@@ -5492,6 +6109,17 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arguments>
 <arg>//*[@class='android.widget.EditText' and @resource-id='id_password']</arg>
 <arg>${password}</arg>
+=======
+<msg timestamp="20210531 10:33:28.968" level="INFO">Clicking element '//*[@resource-id='com.android.chrome:id/url_bar']'.</msg>
+<status status="PASS" starttime="20210531 10:33:28.967" endtime="20210531 10:33:29.721"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:28.830" endtime="20210531 10:33:29.721"></status>
+</kw>
+<kw name="Input Text After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='com.android.chrome:id/url_bar']</arg>
+<arg>https://www.netflix.com/</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -5500,7 +6128,11 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<<<<<<< HEAD
 <status status="PASS" starttime="20210602 16:16:24.278" endtime="20210602 16:16:25.328"></status>
+=======
+<status status="PASS" starttime="20210531 10:33:29.722" endtime="20210531 10:33:30.766"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </kw>
 <kw name="Input Text" library="AppiumLibrary">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
@@ -5508,6 +6140,7 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>${elementPath}</arg>
 <arg>${text}</arg>
 </arguments>
+<<<<<<< HEAD
 <msg timestamp="20210602 16:16:25.330" level="INFO">Typing text 'Netify000' into text field '//*[@class='android.widget.EditText' and @resource-id='id_password']'</msg>
 <status status="PASS" starttime="20210602 16:16:25.329" endtime="20210602 16:16:25.395"></status>
 </kw>
@@ -5556,10 +6189,81 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Wait Until Page Contains Element" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` appears on current page.</doc>
 <arguments>
+=======
+<msg timestamp="20210531 10:33:30.768" level="INFO">Typing text 'https://www.netflix.com/' into text field '//*[@resource-id='com.android.chrome:id/url_bar']'</msg>
+<status status="PASS" starttime="20210531 10:33:30.766" endtime="20210531 10:33:30.947"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:29.721" endtime="20210531 10:33:30.947"></status>
+</kw>
+<kw name="Press Keycode" library="AppiumLibrary">
+<doc>Sends a press of keycode to the device.</doc>
+<arguments>
+<arg>${enterKey}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:30.948" endtime="20210531 10:33:31.745"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@resource-id='com.android.chrome:id/infobar_icon']</arg>
+<arg>timeout=100s</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
 <arg>${locator}</arg>
 <arg>${timeout}</arg>
 <arg>${error}</arg>
 </arguments>
+<status status="PASS" starttime="20210531 10:33:31.746" endtime="20210531 10:33:32.818"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:32.818" endtime="20210531 10:33:32.961"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:31.746" endtime="20210531 10:33:32.961"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20210531 10:33:34.963" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210531 10:33:32.961" endtime="20210531 10:33:34.963"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:28.830" endtime="20210531 10:33:34.963"></status>
+</kw>
+<kw name="113">
+<arguments>
+<arg>${i}[key]</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@resource-id='id_email_hero_fuji']</arg>
+<arg>timeout=30s</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:34.964" endtime="20210531 10:33:37.296"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<<<<<<< HEAD
 <kw name="Capture Page Screenshot" library="AppiumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into the log.</doc>
 <msg timestamp="20210602 16:16:46.621" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-4.png"&gt;&lt;img src="appium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
@@ -5605,6 +6309,15 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <kw name="Click Element After It Is Visible">
 <arguments>
 <arg>//*[@class='android.widget.TextView' and @text='Sign Out']</arg>
+=======
+<status status="PASS" starttime="20210531 10:33:37.296" endtime="20210531 10:33:37.458"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:34.964" endtime="20210531 10:33:37.458"></status>
+</kw>
+<kw name="Input Text After It Is Visible">
+<arguments>
+<arg>//*[@resource-id='id_email_hero_fuji']</arg>
+<arg>${account}</arg>
 </arguments>
 <kw name="Wait Until Element Is Visible" library="AppiumLibrary">
 <doc>Waits until element specified with `locator` is visible.</doc>
@@ -5613,6 +6326,32 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>timeout=${timeout}</arg>
 <arg>error=${error}</arg>
 </arguments>
+<status status="PASS" starttime="20210531 10:33:37.459" endtime="20210531 10:33:37.632"></status>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20210531 10:33:37.634" level="INFO">Typing text 'netifyate@mycat.tw' into text field '//*[@resource-id='id_email_hero_fuji']'</msg>
+<status status="PASS" starttime="20210531 10:33:37.633" endtime="20210531 10:33:37.793"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:37.459" endtime="20210531 10:33:37.794"></status>
+</kw>
+<kw name="Click Element After It Is Visible">
+<arguments>
+<arg>//*[@class='android.view.View' and @text='Get Started']</arg>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
+</arguments>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+<arg>timeout=${timeout}</arg>
+<arg>error=${error}</arg>
+</arguments>
+<<<<<<< HEAD
 <msg timestamp="20210602 16:17:06.826" level="INFO">&lt;?xml version='1.0' encoding='UTF-8' standalone='yes' ?&gt;
 &lt;hierarchy index="0" class="hierarchy" rotation="0" width="450" height="960"&gt;
   &lt;android.widget.FrameLayout index="0" package="com.android.chrome" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][450,960]" displayed="true"&gt;
@@ -5792,6 +6531,68 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <status status="FAIL" starttime="20210602 16:10:24.985" endtime="20210602 16:17:07.925"></status>
 </suite>
 <status status="FAIL" starttime="20210602 16:10:24.963" endtime="20210602 16:17:07.926"></status>
+=======
+<status status="PASS" starttime="20210531 10:33:37.794" endtime="20210531 10:33:38.727"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${elementPath}</arg>
+</arguments>
+<msg timestamp="20210531 10:33:38.729" level="INFO">Clicking element '//*[@class='android.view.View' and @text='Get Started']'.</msg>
+<status status="PASS" starttime="20210531 10:33:38.727" endtime="20210531 10:33:38.967"></status>
+</kw>
+<status status="PASS" starttime="20210531 10:33:37.794" endtime="20210531 10:33:38.967"></status>
+</kw>
+<kw name="Wait Until Element Is Visible On Page">
+<arguments>
+<arg>//*[@resource-id='com.android.chrome:id/infobar_icon']</arg>
+<arg>timeout=100s</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<status status="PASS" starttime="20210531 10:33:38.968" endtime="20210531 10:33:39.105"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<arg>${error}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20210531 10:33:42.466" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210531 10:33:41.352" endtime="20210531 10:33:42.466"></status>
+</kw>
+<msg timestamp="20210531 10:33:42.471" level="FAIL">StaleElementReferenceException: Message: Cached elements 'By.xpath: //*[@resource-id='com.android.chrome:id/infobar_icon']' do not exist in DOM anymore
+</msg>
+<status status="FAIL" starttime="20210531 10:33:39.106" endtime="20210531 10:33:42.471"></status>
+</kw>
+<status status="FAIL" starttime="20210531 10:33:38.967" endtime="20210531 10:33:42.472"></status>
+</kw>
+<status status="FAIL" starttime="20210531 10:33:34.963" endtime="20210531 10:33:42.472"></status>
+</kw>
+<status status="FAIL" starttime="20210531 10:33:28.829" endtime="20210531 10:33:42.472"></status>
+</kw>
+<status status="FAIL" starttime="20210531 10:32:41.335" endtime="20210531 10:33:42.472"></status>
+</kw>
+<status status="FAIL" starttime="20210531 10:32:38.918" endtime="20210531 10:33:42.472" critical="yes">StaleElementReferenceException: Message: Cached elements 'By.xpath: //*[@resource-id='com.android.chrome:id/infobar_icon']' do not exist in DOM anymore
+</status>
+</test>
+<status status="FAIL" starttime="20210531 10:32:05.088" endtime="20210531 10:33:42.473"></status>
+</suite>
+<status status="FAIL" starttime="20210531 10:32:05.085" endtime="20210531 10:33:42.474"></status>
+</suite>
+<status status="FAIL" starttime="20210531 10:32:05.082" endtime="20210531 10:33:42.476"></status>
+</suite>
+<status status="FAIL" starttime="20210531 10:32:05.058" endtime="20210531 10:33:42.477"></status>
+>>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
 </suite>
 <statistics>
 <total>
