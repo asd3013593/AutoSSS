@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2021-01-29T11:52:17Z" lineno="1" name="DateTime" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\DateTime.py" specversion="2" type="LIBRARY">
-<version>3.2.2</version>
+<keywordspec name="DateTime" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2021-06-04T11:35:44Z" specversion="2" source="..\Programs\Python\Python36\lib\site-packages\robot\libraries\DateTime.py" lineno="1">
+<version>3.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
 <doc>A test library for handling date and time values.
@@ -291,7 +291,7 @@ Additionally helper classes ``Date`` and ``Time`` can be used directly:
 |     date = Date(date).convert('datetime')
 |     interval = Time(interval).convert('number')
 |     # ...</doc>
-<kw lineno="428" name="Add Time To Date">
+<kw name="Add Time To Date" lineno="428">
 <arguments>
 <arg>date</arg>
 <arg>time</arg>
@@ -317,7 +317,7 @@ Examples:
 | ${date} =       | Add Time To Date | 2014-05-28 12:05:03.111 | 01:02:03:004 |
 | Should Be Equal | ${date}          | 2014-05-28 13:07:06.115 |</doc>
 </kw>
-<kw lineno="476" name="Add Time To Time">
+<kw name="Add Time To Time" lineno="476">
 <arguments>
 <arg>time1</arg>
 <arg>time2</arg>
@@ -339,7 +339,7 @@ Examples:
 | ${time} =       | Add Time To Time | 3 hours 5 minutes | 01:02:03 | timer | exclude_millis=yes |
 | Should Be Equal | ${time}          | 04:07:03          |</doc>
 </kw>
-<kw lineno="359" name="Convert Date">
+<kw name="Convert Date" lineno="359">
 <arguments>
 <arg>date</arg>
 <arg>result_format=timestamp</arg>
@@ -363,7 +363,7 @@ Examples:
 | ${date} =       | Convert Date | 5.28.2014 12:05         | exclude_millis=yes | date_format=%m.%d.%Y %H:%M |
 | Should Be Equal | ${date}      | 2014-05-28 12:05:00     |</doc>
 </kw>
-<kw lineno="382" name="Convert Time">
+<kw name="Convert Time" lineno="382">
 <arguments>
 <arg>time</arg>
 <arg>result_format=number</arg>
@@ -385,7 +385,7 @@ Examples:
 | ${time} =       | Convert Time  | ${3661.5} | timer | exclude_milles=yes |
 | Should Be Equal | ${time}       | 01:01:02          |</doc>
 </kw>
-<kw lineno="317" name="Get Current Date">
+<kw name="Get Current Date" lineno="317">
 <arguments>
 <arg>time_zone=local</arg>
 <arg>increment=0</arg>
@@ -416,7 +416,7 @@ Examples:
 | Should Be Equal | ${date.year}     | ${2014}                 |
 | Should Be Equal | ${date.month}    | ${6}                    |</doc>
 </kw>
-<kw lineno="402" name="Subtract Date From Date">
+<kw name="Subtract Date From Date" lineno="402">
 <arguments>
 <arg>date1</arg>
 <arg>date2</arg>
@@ -444,7 +444,7 @@ Arguments:
 | ${time} =       | Subtract Date From Date | 2014-05-28 12:05:52     | 2014-05-27 12:05:10 | verbose |
 | Should Be Equal | ${time}                 | 1 day 42 seconds        |</doc>
 </kw>
-<kw lineno="452" name="Subtract Time From Date">
+<kw name="Subtract Time From Date" lineno="452">
 <arguments>
 <arg>date</arg>
 <arg>time</arg>
@@ -470,7 +470,7 @@ Examples:
 | ${date} =       | Subtract Time From Date | 2014-05-28 13:07:06.115 | 01:02:03:004 |
 | Should Be Equal | ${date}                 | 2014-05-28 12:05:03.111 |</doc>
 </kw>
-<kw lineno="497" name="Subtract Time From Time">
+<kw name="Subtract Time From Time" lineno="497">
 <arguments>
 <arg>time1</arg>
 <arg>time2</arg>

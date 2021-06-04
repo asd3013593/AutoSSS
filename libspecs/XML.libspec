@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2021-01-29T11:52:17Z" lineno="36" name="XML" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\XML.py" specversion="2" type="LIBRARY">
-<version>3.2.2</version>
+<keywordspec name="XML" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2021-06-04T11:35:43Z" specversion="2" source="..\Programs\Python\Python36\lib\site-packages\robot\libraries\XML.py" lineno="36">
+<version>3.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
 <doc>Robot Framework test library for verifying and modifying XML documents.
@@ -438,7 +438,7 @@ Using lxml requires that the lxml module is installed on the system.
 If lxml mode is enabled but the module is not installed, this library
 will emit a warning and revert back to using the standard ElementTree.</doc>
 </init>
-<kw lineno="1112" name="Add Element">
+<kw name="Add Element" lineno="1112">
 <arguments>
 <arg>source</arg>
 <arg>element</arg>
@@ -471,7 +471,7 @@ Examples using ``${XML}`` structure from `Example`:
 
 Use `Remove Element` or `Remove Elements` to remove elements.</doc>
 </kw>
-<kw lineno="1222" name="Clear Element">
+<kw name="Clear Element" lineno="1221">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -501,7 +501,7 @@ Examples using ``${XML}`` structure from `Example`:
 
 Use `Remove Element` to remove the whole element.</doc>
 </kw>
-<kw lineno="1255" name="Copy Element">
+<kw name="Copy Element" lineno="1254">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -524,7 +524,7 @@ Examples using ``${XML}`` structure from `Example`:
 | Elements Should Be Equal | ${copy1} | &lt;first id="new"&gt;text&lt;/first&gt;   |
 | Elements Should Be Equal | ${copy2} | &lt;first id="1"&gt;text&lt;/first&gt;     |</doc>
 </kw>
-<kw lineno="804" name="Element Attribute Should Be">
+<kw name="Element Attribute Should Be" lineno="804">
 <arguments>
 <arg>source</arg>
 <arg>name</arg>
@@ -552,7 +552,7 @@ Examples using ``${XML}`` structure from `Example`:
 
 See also `Element Attribute Should Match` and `Get Element Attribute`.</doc>
 </kw>
-<kw lineno="829" name="Element Attribute Should Match">
+<kw name="Element Attribute Should Match" lineno="829">
 <arguments>
 <arg>source</arg>
 <arg>name</arg>
@@ -574,7 +574,7 @@ Examples using ``${XML}`` structure from `Example`:
 | Element Attribute Should Match | ${XML} | id | ?   | xpath=first |
 | Element Attribute Should Match | ${XML} | id | c*d | xpath=third/second |</doc>
 </kw>
-<kw lineno="616" name="Element Should Exist">
+<kw name="Element Should Exist" lineno="616">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -590,7 +590,7 @@ be overridden with the ``message`` argument.
 See also `Element Should Not Exist` as well as `Get Element Count`
 that this keyword uses internally.</doc>
 </kw>
-<kw lineno="631" name="Element Should Not Exist">
+<kw name="Element Should Not Exist" lineno="631">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -606,7 +606,7 @@ with the ``message`` argument.
 See also `Element Should Exist` as well as `Get Element Count`
 that this keyword uses internally.</doc>
 </kw>
-<kw lineno="850" name="Element Should Not Have Attribute">
+<kw name="Element Should Not Have Attribute" lineno="850">
 <arguments>
 <arg>source</arg>
 <arg>name</arg>
@@ -629,7 +629,7 @@ Examples using ``${XML}`` structure from `Example`:
 See also `Get Element Attribute`, `Get Element Attributes`,
 `Element Text Should Be` and `Element Text Should Match`.</doc>
 </kw>
-<kw lineno="715" name="Element Text Should Be">
+<kw name="Element Text Should Be" lineno="715">
 <arguments>
 <arg>source</arg>
 <arg>expected</arg>
@@ -659,7 +659,7 @@ Examples using ``${XML}`` structure from `Example`:
 | ${paragraph} =         | Get Element  | ${XML}   | xpath=html/p     |
 | Element Text Should Be | ${paragraph} | Text with bold and italics. | normalize_whitespace=yes |</doc>
 </kw>
-<kw lineno="742" name="Element Text Should Match">
+<kw name="Element Text Should Match" lineno="742">
 <arguments>
 <arg>source</arg>
 <arg>pattern</arg>
@@ -682,7 +682,7 @@ Examples using ``${XML}`` structure from `Example`:
 | ${paragraph} =            | Get Element  | ${XML} | xpath=html/p |
 | Element Text Should Match | ${paragraph} | Text with * and *. | normalize_whitespace=yes |</doc>
 </kw>
-<kw lineno="1276" name="Element To String">
+<kw name="Element To String" lineno="1275">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -700,7 +700,7 @@ encoding. The resulting string never contains the XML declaration.
 
 See also `Log Element` and `Save XML`.</doc>
 </kw>
-<kw lineno="872" name="Elements Should Be Equal">
+<kw name="Elements Should Be Equal" lineno="872">
 <arguments>
 <arg>source</arg>
 <arg>expected</arg>
@@ -742,7 +742,7 @@ the ``.`` at the end that is the `tail` text of the ``&lt;i&gt;`` element.
 
 See also `Elements Should Match`.</doc>
 </kw>
-<kw lineno="912" name="Elements Should Match">
+<kw name="Elements Should Match" lineno="912">
 <arguments>
 <arg>source</arg>
 <arg>expected</arg>
@@ -765,7 +765,7 @@ Examples using ``${XML}`` structure from `Example`:
 
 See `Elements Should Be Equal` for more examples.</doc>
 </kw>
-<kw lineno="1349" name="Evaluate Xpath">
+<kw name="Evaluate Xpath" lineno="1348">
 <arguments>
 <arg>source</arg>
 <arg>expression</arg>
@@ -792,7 +792,7 @@ Examples using ``${XML}`` structure from `Example`:
 This keyword works only if lxml mode is taken into use when `importing`
 the library.</doc>
 </kw>
-<kw lineno="586" name="Get Child Elements">
+<kw name="Get Child Elements" lineno="586">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -812,7 +812,7 @@ Examples using ``${XML}`` structure from `Example`:
 | ${children} =    | Get Child Elements | ${XML} | xpath=first |
 | Should Be Empty  | ${children}        |        |             |</doc>
 </kw>
-<kw lineno="521" name="Get Element">
+<kw name="Get Element" lineno="521">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -842,7 +842,7 @@ to return it. Modifying the source does not apply if the source is
 given as a string. The XML structure parsed based on the string and
 then modified is nevertheless returned.</doc>
 </kw>
-<kw lineno="762" name="Get Element Attribute">
+<kw name="Get Element Attribute" lineno="762">
 <arguments>
 <arg>source</arg>
 <arg>name</arg>
@@ -868,7 +868,7 @@ Examples using ``${XML}`` structure from `Example`:
 See also `Get Element Attributes`, `Element Attribute Should Be`,
 `Element Attribute Should Match` and `Element Should Not Have Attribute`.</doc>
 </kw>
-<kw lineno="784" name="Get Element Attributes">
+<kw name="Get Element Attributes" lineno="784">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -890,7 +890,7 @@ Examples using ``${XML}`` structure from `Example`:
 
 Use `Get Element Attribute` to get the value of a single attribute.</doc>
 </kw>
-<kw lineno="604" name="Get Element Count">
+<kw name="Get Element Count" lineno="604">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -902,7 +902,7 @@ with `Get Elements` keyword that this keyword uses internally.
 
 See also `Element Should Exist` and `Element Should Not Exist`.</doc>
 </kw>
-<kw lineno="646" name="Get Element Text">
+<kw name="Get Element Text" lineno="646">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -938,7 +938,7 @@ Examples using ``${XML}`` structure from `Example`:
 See also `Get Elements Texts`, `Element Text Should Be` and
 `Element Text Should Match`.</doc>
 </kw>
-<kw lineno="564" name="Get Elements">
+<kw name="Get Elements" lineno="564">
 <arguments>
 <arg>source</arg>
 <arg>xpath</arg>
@@ -959,7 +959,7 @@ Examples using ``${XML}`` structure from `Example`:
 | ${children} =    | Get Elements | ${XML} | first/child |
 | Should Be Empty  |  ${children} |        |             |</doc>
 </kw>
-<kw lineno="695" name="Get Elements Texts">
+<kw name="Get Elements Texts" lineno="695">
 <arguments>
 <arg>source</arg>
 <arg>xpath</arg>
@@ -981,7 +981,7 @@ Examples using ``${XML}`` structure from `Example`:
 | Should Be Equal  | @{texts}[0]        | more text |             |
 | Should Be Equal  | @{texts}[1]        | ${EMPTY}  |             |</doc>
 </kw>
-<kw lineno="1296" name="Log Element">
+<kw name="Log Element" lineno="1295">
 <arguments>
 <arg>source</arg>
 <arg>level=INFO</arg>
@@ -995,7 +995,7 @@ resulting string is then logged using the given ``level``.
 
 The logged string is also returned.</doc>
 </kw>
-<kw lineno="479" name="Parse Xml">
+<kw name="Parse Xml" lineno="479">
 <arguments>
 <arg>source</arg>
 <arg>keep_clark_notation=False</arg>
@@ -1032,7 +1032,7 @@ Use `Get Element` keyword if you want to get a certain element and not
 the whole structure. See `Parsing XML` section for more details and
 examples.</doc>
 </kw>
-<kw lineno="1148" name="Remove Element">
+<kw name="Remove Element" lineno="1148">
 <arguments>
 <arg>source</arg>
 <arg>xpath=</arg>
@@ -1059,7 +1059,7 @@ Examples using ``${XML}`` structure from `Example`:
 | Remove Element           | ${XML} | xpath=html/p/b | remove_tail=yes |
 | Element Text Should Be   | ${XML} | Text with italics. | xpath=html/p | normalize_whitespace=yes |</doc>
 </kw>
-<kw lineno="1047" name="Remove Element Attribute">
+<kw name="Remove Element Attribute" lineno="1047">
 <arguments>
 <arg>source</arg>
 <arg>name</arg>
@@ -1083,7 +1083,7 @@ Examples using ``${XML}`` structure from `Example`:
 Can only remove an attribute from a single element. Use `Remove Elements
 Attribute` to remove an attribute of multiple elements in one call.</doc>
 </kw>
-<kw lineno="1081" name="Remove Element Attributes">
+<kw name="Remove Element Attributes" lineno="1081">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -1105,7 +1105,7 @@ Examples using ``${XML}`` structure from `Example`:
 Can only remove attributes from a single element. Use `Remove Elements
 Attributes` to remove all attributes of multiple elements in one call.</doc>
 </kw>
-<kw lineno="1174" name="Remove Elements">
+<kw name="Remove Elements" lineno="1174">
 <arguments>
 <arg>source</arg>
 <arg>xpath=</arg>
@@ -1129,7 +1129,7 @@ Examples using ``${XML}`` structure from `Example`:
 | Element Should Not Exist | ${XML} | xpath=second/child |
 | Element Should Not Exist | ${XML} | xpath=third/child  |</doc>
 </kw>
-<kw lineno="1072" name="Remove Elements Attribute">
+<kw name="Remove Elements Attribute" lineno="1072">
 <arguments>
 <arg>source</arg>
 <arg>name</arg>
@@ -1140,7 +1140,7 @@ Examples using ``${XML}`` structure from `Example`:
 Like `Remove Element Attribute` but removes the attribute of all
 elements matching the given ``xpath``.</doc>
 </kw>
-<kw lineno="1103" name="Remove Elements Attributes">
+<kw name="Remove Elements Attributes" lineno="1103">
 <arguments>
 <arg>source</arg>
 <arg>xpath=.</arg>
@@ -1150,7 +1150,7 @@ elements matching the given ``xpath``.</doc>
 Like `Remove Element Attributes` but removes all attributes of all
 elements matching the given ``xpath``.</doc>
 </kw>
-<kw lineno="1309" name="Save Xml">
+<kw name="Save Xml" lineno="1308">
 <arguments>
 <arg>source</arg>
 <arg>path</arg>
@@ -1175,7 +1175,7 @@ The resulting XML file may not be exactly the same as the original:
 Use `Element To String` if you just need a string representation of
 the element.</doc>
 </kw>
-<kw lineno="1011" name="Set Element Attribute">
+<kw name="Set Element Attribute" lineno="1011">
 <arguments>
 <arg>source</arg>
 <arg>name</arg>
@@ -1202,7 +1202,7 @@ Examples using ``${XML}`` structure from `Example`:
 Can only set an attribute of a single element. Use `Set Elements
 Attribute` to set an attribute of multiple elements in one call.</doc>
 </kw>
-<kw lineno="940" name="Set Element Tag">
+<kw name="Set Element Tag" lineno="940">
 <arguments>
 <arg>source</arg>
 <arg>tag</arg>
@@ -1225,7 +1225,7 @@ Examples using ``${XML}`` structure from `Example`:
 Can only set the tag of a single element. Use `Set Elements Tag` to set
 the tag of multiple elements in one call.</doc>
 </kw>
-<kw lineno="971" name="Set Element Text">
+<kw name="Set Element Text" lineno="971">
 <arguments>
 <arg>source</arg>
 <arg>text=None</arg>
@@ -1254,7 +1254,7 @@ Examples using ``${XML}`` structure from `Example`:
 Can only set the text/tail of a single element. Use `Set Elements Text`
 to set the text/tail of multiple elements in one call.</doc>
 </kw>
-<kw lineno="1038" name="Set Elements Attribute">
+<kw name="Set Elements Attribute" lineno="1038">
 <arguments>
 <arg>source</arg>
 <arg>name</arg>
@@ -1266,7 +1266,7 @@ to set the text/tail of multiple elements in one call.</doc>
 Like `Set Element Attribute` but sets the attribute of all elements
 matching the given ``xpath``.</doc>
 </kw>
-<kw lineno="962" name="Set Elements Tag">
+<kw name="Set Elements Tag" lineno="962">
 <arguments>
 <arg>source</arg>
 <arg>tag</arg>
@@ -1277,7 +1277,7 @@ matching the given ``xpath``.</doc>
 Like `Set Element Tag` but sets the tag of all elements matching
 the given ``xpath``.</doc>
 </kw>
-<kw lineno="1002" name="Set Elements Text">
+<kw name="Set Elements Text" lineno="1002">
 <arguments>
 <arg>source</arg>
 <arg>text=None</arg>
