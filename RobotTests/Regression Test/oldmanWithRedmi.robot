@@ -342,24 +342,31 @@ Click OK Button To Send Gift To User
     Click Element    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
-    ${sendSuccess} =   Run Keyword And Return Status    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s
-    ${secondSendSuccess}    Run keyword If    not ${sendSuccess}   Run Keyword And Return Status    Occur Error After Click Purchase OK Button
-    Run Keyword If    not ${secondSendSuccess} and not ${secondSendSuccess}==${None}   Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
+    #Go Back To Management Page From Chat Page
+    ${sendSuccess}    Run Keyword And Return Status    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s    error=Message page should be visible after sending sticker success.
+    ${secondSendSuccess} =    Run keyword If    not ${sendSuccess}    Run Keyword And Return Status    Occur Error After Click Purchase OK Button
+    Run Keyword If    not ${secondSendSuccess} and not ${secondSendSuccess}==${None}    Run Keywords    Set Global Variable    ${errorType}    ${nextClientError}
     ...                                                    AND    Return From Keyword
     Log To Console    sticker = ${stickerName} price = ${price}
     ${area} =    Run Keyword If    ${foreign}    Set Variable    Foreign
     ...                    ELSE    Set Variable    Taiwan
-    priceRecord    oldmanPrice    ${area}    ${price}    ${userId}    ${stickerName}
+    priceRecord    mycatPrice    ${area}    ${price}    ${userId}    ${stickerName}
     Write Coin Record    mycat    -${price}
     [Teardown]    Close LINE To Go Back After Change The Name
 
 Occur Error After Click Purchase OK Button
     Run Keyword And Ignore Error    Click Element After It Is Visible    //*[@class='android.widget.Button' and @text='確定']    timeout=10s    error=Error button should be visible.
+    Switch Network With VPN And Go Back To LINE
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']    timeout=${slowNetPeriod}    error=Purchase button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/present_purchase_button']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']    timeout=${slowNetPeriod}    error=OK button should be visible.
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn']
-    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s
+    Wait Until Page Contains Element    //*[@resource-id='jp.naver.line.android:id/chathistory_message_list']    timeout=60s    error=Message page should be visible after sending sticker success.
+
+Switch Network With VPN And Go Back To LINE
+    Switch Network With VPN    ${globalCountry}
+    Press Keycode    ${appSwitchKey}
+    Click Element After It Is Visible    //*[@resource-id='com.android.systemui:id/title' and @text='LINE']    timeout=5s    error=LINE app should be visible on switch app page.
 
 Press Keycode To Go Back
     Press Keycode    ${backKey}
@@ -495,7 +502,7 @@ Unlock Permission
 Open Chrome
     [Documentation]    Opens the calculator app with a new appium session.
     Open Application    http://localhost:4724/wd/hub    platformName=Android    platformVersion=8.1.0    alias=MyChrome1
-    ...    deviceName=${redmiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
+    ...    deviceName=${redmiDeviceName2}    noReset=true    browserName=Chrome    automationName=uiautomator2
     # ${app2} =    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=8.1.0    alias=MyChrome2
     # ...    deviceName=${redmiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
     # appPackage=com.android.chrome     appActivity=com.google.android.apps.chrome.Main
