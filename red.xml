@@ -2,16 +2,9 @@
 <projectConfiguration>
     <configVersion>2</configVersion>
     <relativeTo>WORKSPACE</relativeTo>
+    <referencedLibrary type="PYTHON" name="netify" path="RobotTests/RobotTests/Regression Test/netify.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="AppiumLibrary" path="C:/Users/pan/AppData/Local/Programs/Python/Python36/Lib/AppiumLibrary/__init__.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Users/pan/AppData/Local/Programs/Python/Python36/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
-    <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="/opt/homebrew/lib/python3.9/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
-    <referencedLibrary type="PYTHON" name="stickerLibrary" path="StickerSender/RobotTests/Regression Test/stickerLibrary.py" dynamic="false"/>
-    <referencedLibrary type="PYTHON" name="AppiumLibrary" path="/opt/homebrew/lib/python3.9/site-packages/AppiumLibrary/__init__.py" dynamic="false"/>
-    <referencedLibrary type="PYTHON" name="netify" path="StickerSender/RobotTests/Regression Test/netify.py" dynamic="false"/>
-<<<<<<< HEAD
-=======
-    <referencedLibrary type="PYTHON" name="AppiumLibrary" path="StickerSender/RobotTests/AppiumLibrary/__init__.py" dynamic="false"/>
->>>>>>> cf2fe1fe16bc3f0618923defdd7fc947de1dd347
     <pythonpath/>
     <classpath/>
     <excludedForValidation/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2021-05-31T06:35:37Z" lineno="9" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
+<keywordspec format="ROBOT" generated="2021-06-05T06:06:24Z" lineno="9" name="AppiumLibrary" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\__init__.py" specversion="2" type="LIBRARY">
 <version>1.5.0.7</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
@@ -103,12 +103,12 @@ given in absolute format.
 the bakground color is changed to avoid possible problems with
 background leaking when the page layout is somehow broken.</doc>
 </kw>
-<kw lineno="791" name="Check No Account Purchasing Coin" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="792" name="Check No Account Purchasing Coin" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
 </kw>
-<kw lineno="32" name="Clear Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="33" name="Clear Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 </arguments>
@@ -124,13 +124,13 @@ See `introduction` for details about locating elements.</doc>
 </arguments>
 <doc>Click on a point</doc>
 </kw>
-<kw lineno="49" name="Click Button" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="50" name="Click Button" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>index_or_name</arg>
 </arguments>
 <doc>Click button</doc>
 </kw>
-<kw lineno="40" name="Click Element" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="41" name="Click Element" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 </arguments>
@@ -146,7 +146,7 @@ Key attributes for arbitrary elements are `index` and `name`. See
 </arguments>
 <doc>click element at a certain coordinate</doc>
 </kw>
-<kw lineno="57" name="Click Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="58" name="Click Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>text</arg>
 <arg>exact_match=False</arg>
@@ -176,13 +176,13 @@ are reset and start from `1`.</doc>
 </arguments>
 <doc>Closes the current application and also close webdriver session.</doc>
 </kw>
-<kw lineno="776" name="Deleted LINE Friend Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="777" name="Deleted LINE Friend Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>userID</arg>
 </arguments>
 <doc />
 </kw>
-<kw lineno="210" name="Element Attribute Should Match" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="211" name="Element Attribute Should Match" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>attr_name</arg>
@@ -232,14 +232,14 @@ Some attributes can be evaluated in two different ways e.g. these evaluate the s
 | Element Attribute Should Match | xpath = //*[contains(@text,'example text')] | name | txt_field_name |
 | Element Name Should Be         | xpath = //*[contains(@text,'example text')] | txt_field_name |      |</doc>
 </kw>
-<kw lineno="196" name="Element Name Should Be" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="197" name="Element Name Should Be" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>expected</arg>
 </arguments>
 <doc />
 </kw>
-<kw lineno="159" name="Element Should Be Disabled" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="160" name="Element Should Be Disabled" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>loglevel=INFO</arg>
@@ -249,7 +249,7 @@ Some attributes can be evaluated in two different ways e.g. these evaluate the s
 Key attributes for arbitrary elements are `id` and `name`. See
 `introduction` for details about locating elements.</doc>
 </kw>
-<kw lineno="171" name="Element Should Be Enabled" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="172" name="Element Should Be Enabled" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>loglevel=INFO</arg>
@@ -259,7 +259,7 @@ Key attributes for arbitrary elements are `id` and `name`. See
 Key attributes for arbitrary elements are `id` and `name`. See
 `introduction` for details about locating elements.</doc>
 </kw>
-<kw lineno="183" name="Element Should Be Visible" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="184" name="Element Should Be Visible" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>loglevel=INFO</arg>
@@ -271,7 +271,7 @@ Key attributes for arbitrary elements are `id` and `name`. See
 
 New in AppiumLibrary 1.4.5</doc>
 </kw>
-<kw lineno="290" name="Element Should Contain Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="291" name="Element Should Contain Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>expected</arg>
@@ -286,7 +286,7 @@ Key attributes for arbitrary elements are ``id`` and ``xpath``. ``message`` can 
 
 New in AppiumLibrary 1.4.</doc>
 </kw>
-<kw lineno="309" name="Element Should Not Contain Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="310" name="Element Should Not Contain Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>expected</arg>
@@ -297,7 +297,7 @@ New in AppiumLibrary 1.4.</doc>
 ``message`` can be used to override the default error message.
 See `Element Should Contain Text` for more details.</doc>
 </kw>
-<kw lineno="324" name="Element Text Should Be" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="325" name="Element Text Should Be" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>expected</arg>
@@ -312,7 +312,7 @@ a substring match but an exact match on the element identified by ``locator``.
 
 New in AppiumLibrary 1.4.</doc>
 </kw>
-<kw lineno="203" name="Element Value Should Be" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="204" name="Element Value Should Be" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>expected</arg>
@@ -398,7 +398,7 @@ See `Set Appium Timeout` for an explanation.</doc>
 </arguments>
 <doc>Get current context.</doc>
 </kw>
-<kw lineno="370" name="Get Element Attribute" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="371" name="Get Element Attribute" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>attribute</arg>
@@ -410,7 +410,7 @@ Examples:
 | Get Element Attribute | locator | name |
 | Get Element Attribute | locator | value |</doc>
 </kw>
-<kw lineno="392" name="Get Element Location" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="393" name="Get Element Location" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 </arguments>
@@ -419,7 +419,7 @@ Examples:
 Key attributes for arbitrary elements are `id` and `name`. See
 `introduction` for details about locating elements.</doc>
 </kw>
-<kw lineno="403" name="Get Element Size" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="404" name="Get Element Size" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 </arguments>
@@ -428,13 +428,13 @@ Key attributes for arbitrary elements are `id` and `name`. See
 Key attributes for arbitrary elements are `id` and `name`. See
 `introduction` for details about locating elements.</doc>
 </kw>
-<kw lineno="696" name="Get Location" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="697" name="Get Location" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 </arguments>
 <doc />
 </kw>
-<kw lineno="427" name="Get Matching Xpath Count" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="428" name="Get Matching Xpath Count" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>xpath</arg>
 </arguments>
@@ -466,7 +466,7 @@ See `set network connection status` for more details.</doc>
 </arguments>
 <doc>Returns the entire source of the current page.</doc>
 </kw>
-<kw lineno="414" name="Get Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="415" name="Get Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 </arguments>
@@ -478,7 +478,7 @@ Example:
 
 New in AppiumLibrary 1.4.</doc>
 </kw>
-<kw lineno="344" name="Get Webelement" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="345" name="Get Webelement" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 </arguments>
@@ -490,7 +490,7 @@ Example:
 
 New in AppiumLibrary 1.4.</doc>
 </kw>
-<kw lineno="355" name="Get Webelements" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="356" name="Get Webelements" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 </arguments>
@@ -545,14 +545,14 @@ Example:
 | Open Application  | http://localhost:4755/wd/hub | platformName=iOS | platformVersion=7.0 | deviceName='iPhone Simulator' | browserName=Safari |
 | Go To URL         | http://m.webapp.com          |</doc>
 </kw>
-<kw lineno="95" name="Hide Keyboard" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="96" name="Hide Keyboard" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>key_name=None</arg>
 </arguments>
 <doc>Hides the software keyboard on the device. (optional) In iOS, use `key_name` to press
 a particular key, ex. `Done`. In Android, no parameters are used.</doc>
 </kw>
-<kw lineno="77" name="Input Password" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="78" name="Input Password" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>text</arg>
@@ -563,7 +563,7 @@ Difference between this keyword and `Input Text` is that this keyword
 does not log the given password. See `introduction` for details about
 locating elements.</doc>
 </kw>
-<kw lineno="69" name="Input Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="70" name="Input Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>text</arg>
@@ -572,7 +572,7 @@ locating elements.</doc>
 
 See `introduction` for details about locating elements.</doc>
 </kw>
-<kw lineno="87" name="Input Value" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="88" name="Input Value" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>text</arg>
@@ -593,25 +593,25 @@ Android only.
 - app_path - path to app
 - app_package - package of install app to verify</doc>
 </kw>
-<kw lineno="744" name="Is Coin Not Enough" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="745" name="Is Coin Not Enough" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>user</arg>
 </arguments>
 <doc />
 </kw>
-<kw lineno="753" name="Is Coin Same To Sticker" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="754" name="Is Coin Same To Sticker" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>price</arg>
 </arguments>
 <doc />
 </kw>
-<kw lineno="102" name="Is Keyboard Shown" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="103" name="Is Keyboard Shown" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc>Return true if Android keyboard is displayed or False if not displayed
 No parameters are used.</doc>
 </kw>
-<kw lineno="683" name="Is Swipe To Bottom" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="684" name="Is Swipe To Bottom" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>start_x</arg>
 <arg>start_y</arg>
@@ -684,7 +684,7 @@ Android only.
 
 See `press keycode` for more details.</doc>
 </kw>
-<kw lineno="799" name="Make Purchase CheckFile" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="800" name="Make Purchase CheckFile" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
@@ -706,7 +706,7 @@ Examples:
 | Open Application | http://localhost:4723/wd/hub | alias=Myapp1         | platformName=iOS      | platformVersion=7.0            | deviceName='iPhone Simulator'           | app=your.app                         |
 | Open Application | http://localhost:4723/wd/hub | platformName=Android | platformVersion=4.2.2 | deviceName=192.168.56.101:5555 | app=${CURDIR}/demoapp/OrangeDemoApp.apk | appPackage=com.netease.qa.orangedemo | appActivity=MainActivity |</doc>
 </kw>
-<kw lineno="134" name="Page Should Contain Element" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="135" name="Page Should Contain Element" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>loglevel=INFO</arg>
@@ -717,7 +717,7 @@ If this keyword fails, it automatically logs the page source
 using the log level specified with the optional `loglevel` argument.
 Giving `NONE` as level disables logging.</doc>
 </kw>
-<kw lineno="109" name="Page Should Contain Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="110" name="Page Should Contain Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>text</arg>
 <arg>loglevel=INFO</arg>
@@ -728,7 +728,7 @@ If this keyword fails, it automatically logs the page source
 using the log level specified with the optional `loglevel` argument.
 Giving `NONE` as level disables logging.</doc>
 </kw>
-<kw lineno="147" name="Page Should Not Contain Element" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="148" name="Page Should Not Contain Element" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>locator</arg>
 <arg>loglevel=INFO</arg>
@@ -739,7 +739,7 @@ If this keyword fails, it automatically logs the page source
 using the log level specified with the optional `loglevel` argument.
 Giving `NONE` as level disables logging.</doc>
 </kw>
-<kw lineno="122" name="Page Should Not Contain Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="123" name="Page Should Not Contain Text" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>text</arg>
 <arg>loglevel=INFO</arg>
@@ -790,7 +790,7 @@ For example
  - _keycode- - the keycode to be sent to the device
  - _metastate- - status of the meta keys</doc>
 </kw>
-<kw lineno="662" name="priceRecord" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="663" name="priceRecord" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>folderName</arg>
 <arg>country</arg>
@@ -824,7 +824,7 @@ Android only.
  - _path_ - the path to the folder on the device
  - _decode_ - True/False decode the data (base64) before returning it (default=False)</doc>
 </kw>
-<kw lineno="728" name="Purchase Coin Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="729" name="Purchase Coin Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>user</arg>
 <arg>price</arg>
@@ -855,12 +855,12 @@ See `Launch Application` for an explanation.
 
 New in AppiumLibrary 1.4.6</doc>
 </kw>
-<kw lineno="767" name="Read Index" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="768" name="Read Index" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
 </kw>
-<kw lineno="760" name="Record Index" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="761" name="Record Index" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>stickerIndex</arg>
 <arg>index</arg>
@@ -904,7 +904,7 @@ or newer and it does not work on IronPython at all.</doc>
 Example:
 | Remove Application |  com.netease.qa.orangedemo |</doc>
 </kw>
-<kw lineno="804" name="Remove Purchase CheckFile" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="805" name="Remove Purchase CheckFile" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
@@ -935,7 +935,7 @@ Key attributes for arbitrary elements are `id` and `name`. See
 </arguments>
 <doc>Scrolls up to element</doc>
 </kw>
-<kw lineno="635" name="Search" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="636" name="Search" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>name</arg>
 </arguments>
@@ -1166,7 +1166,7 @@ Args:
 - ``y_offset`` - (optional) y coordinate. If y is used, x must also be set, and vice versa
 - ``count`` - can be used for multiple times of tap on that element</doc>
 </kw>
-<kw lineno="445" name="Text Should Be Visible" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="446" name="Text Should Be Visible" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>text</arg>
 <arg>exact_match=False</arg>
@@ -1193,12 +1193,12 @@ New in AppiumLibrary 1.5</doc>
 
 New in AppiumLibrary 1.5</doc>
 </kw>
-<kw lineno="702" name="Unlock" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="703" name="Unlock" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
 </kw>
-<kw lineno="679" name="UnlockScreen" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="680" name="UnlockScreen" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
@@ -1312,25 +1312,25 @@ See also `Wait Until Page Contains`,
 `Wait Until Page Contains Element` and
 BuiltIn keyword `Wait Until Keyword Succeeds`.</doc>
 </kw>
-<kw lineno="810" name="Wait Until Page Loading" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="811" name="Wait Until Page Loading" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 </arguments>
 <doc />
 </kw>
-<kw lineno="650" name="Write" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="651" name="Write" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>name</arg>
 </arguments>
 <doc />
 </kw>
-<kw lineno="709" name="Write Coin Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="710" name="Write Coin Record" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>user</arg>
 <arg>price</arg>
 </arguments>
 <doc />
 </kw>
-<kw lineno="455" name="Xpath Should Match X Times" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
+<kw lineno="456" name="Xpath Should Match X Times" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\Lib\AppiumLibrary\keywords\_element.py">
 <arguments>
 <arg>xpath</arg>
 <arg>count</arg>
