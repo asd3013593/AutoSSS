@@ -7,7 +7,7 @@ Suite Setup    Switch To Turkey VPN
 Suite Teardown    Close All Applications
 
 *** Variables ***
-${device} =    127.0.0.1:62025
+${device} =    127.0.0.1:62001
 ${hauweiDeviceName} =    2DR4C19227004310
 ${slowNetPeriod} =    5s
 ${homeKey} =    3
@@ -50,12 +50,15 @@ test
     # Log To Console    123
 
 Change Password
-    @{account} =    Get Account With Amount    已註冊    mycat    5
+    @{account} =    Get Account With Amount    已註冊    測試    5
     FOR    ${i}    IN    @{account}
         Go To Netifx
         Sign In Exist Account
         Verify If Account Password Be Changed    ${i}[key]    ${i}[value]
     END
+
+log
+    Log To Console    2
 
 test1
     ${account} =    Set Variable    netifyauf
@@ -85,7 +88,8 @@ Sign In Exist Account
     ...                                         AND    Sign In Exist Account
     ...       ELSE    Run Keywords    Wait Until Page Loading
     ...                        AND    Swipe    300    300    300    900    500
-    ...                        AND    Wait Until Page Contains Element    //*[@class='android.widget.TextView' and @text='Sign Out']
+    ...                        AND    Sleep    1s
+    ...                        AND    Wait Until Element Is Visible On Page    //*[@class='android.widget.TextView' and @text='Sign Out']    timeout=10s
     ...                        AND    Wait Until Page Loading
     ...                        AND    Click Element After It Is Visible    //*[@class='android.widget.TextView' and @text='Sign Out']
 
@@ -235,7 +239,7 @@ Go To Netifx
     # Click Element After It Is Visible   //*[@class ='android.widget.TextView' and @content-desc ='Chrome']
 
 Switch To Turkey VPN
-    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=5.1.1    alias=MyChrome1
+    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=7.1.2    alias=MyChrome1
     ...    deviceName=${device}    noReset=true    browserName=Chrome    automationName=uiautomator2
     Go To Url    https://oldman.tw/goadmin.php
     Switch To Context    NATIVE_APP

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2021-01-29T11:52:17Z" lineno="1" name="Dialogs" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\Dialogs.py" specversion="2" type="LIBRARY">
+<keywordspec format="ROBOT" generated="2021-06-05T06:07:51Z" lineno="1" name="Dialogs" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\Dialogs.py" specversion="2" type="LIBRARY">
 <version>3.2.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>

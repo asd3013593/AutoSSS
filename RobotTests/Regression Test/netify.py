@@ -10,7 +10,7 @@ import sys
 def post(name, account):
     # 引用私密金鑰
     # path/to/serviceAccount.json 請用自己存放的路徑
-    cred = credentials.Certificate('C:/Users/pan/Desktop/StickerSender/AutoSSS/RobotTests/Regression Test/serviceAccount.json')
+    cred = credentials.Certificate('C:/Users/USER/Desktop/新增資料夾/AutoSSS/RobotTests/Regression Test/serviceAccount.json')
     # 初始化firebase，注意不能重複初始化
     firebase_admin.initialize_app(cred)
     # 初始化firestore
@@ -34,7 +34,7 @@ def post(name, account):
 def _get_account_with_amount(state ,name, amount):
     accounts = []
     amount = int(amount)
-    cred = credentials.Certificate('C:/Users/pan/Desktop/StickerSender/AutoSSS/RobotTests/Regression Test/serviceAccount.json')
+    cred = credentials.Certificate('C:/Users/USER/Desktop/新增資料夾/AutoSSS/RobotTests/Regression Test/serviceAccount.json')
     firebase_admin.initialize_app(cred)
     url = "https://netify-c29d2-default-rtdb.firebaseio.com/"
     fb = firebase.FirebaseApplication(url,None)
@@ -51,7 +51,7 @@ def _get_account_with_amount(state ,name, amount):
 
 @keyword(name="Delete Account With Key")
 def _delete_account_with_key(state, name, account):
-    cred = credentials.Certificate('C:/Users/pan/Desktop/StickerSender/AutoSSS/RobotTests/Regression Test/serviceAccount.json')
+    cred = credentials.Certificate('C:/Users/USER/Desktop/新增資料夾/AutoSSS/RobotTests/Regression Test/serviceAccount.json')
 #         firebase_admin.initialize_app(cred)
     url = "https://netify-c29d2-default-rtdb.firebaseio.com/"
     fb = firebase.FirebaseApplication(url,None)
