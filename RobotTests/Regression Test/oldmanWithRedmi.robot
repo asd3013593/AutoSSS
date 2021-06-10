@@ -93,12 +93,12 @@ Automatically send foreign topic oldman
     END
     Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
 
-Automatically purchase oldman LINE coin when coin less than 10000
-    ${noPurchasing} =    Check No Account Purchasing Coin
-    ${isCoinNotEnough} =    Is Coin Not Enough    mycat
-    Run keyword If    ${isCoinNotEnough} and ${noPurchasing}    Run Keywords    Make Purchase CheckFile
-    ...                                                                  AND    Close Mycat VPN Connect And Close Apps
-    ...                                                                  AND    Mycat purchase LINE 4000 coin
+# Automatically purchase oldman LINE coin when coin less than 10000
+    # ${noPurchasing} =    Check No Account Purchasing Coin
+    # ${isCoinNotEnough} =    Is Coin Not Enough    mycat
+    # Run keyword If    ${isCoinNotEnough} and ${noPurchasing}    Run Keywords    Make Purchase CheckFile
+    # ...                                                                  AND    Close Mycat VPN Connect And Close Apps
+    # ...                                                                  AND    Mycat purchase LINE 4000 coin
 *** Keywords ***
 Check And Fuck Out Scammer User
     SeleniumLibrary.Open Browser    https://oldman.tw/goadmin.php?c=Login    browser=Chrome    options=add_argument("--headless")

@@ -5,96 +5,17 @@ Library    SeleniumLibrary
 ${男} =    1
 ${女} =    0
 ${prefix} =    netifya
-${regisWeb} =    https://mail.mycat.tw/registerform.html
+${regisWeb} =    https://mail.lure.tw/registerform.html
 
-@{accounts} =
-...    netifyawe  netifyawf  netifyawg  netifyawh  netifyawi
-...    netifyawj  netifyawk  netifyawl  netifyawm  netifyawn  netifyawo  netifyawp  netifyawq  netifyawr  netifyaws
-...    netifyawt  netifyawu  netifyawv  netifyaww  netifyawx  netifyawy  netifyawz  netifyaxa  netifyaxb
+# @{accounts} =
 
 
 
-# @{check} =    netifyapl  netifyapm  netifyapn  netifyapo  netifyapp  netifyapq  netifyapr  netifyaps  netifyapt  netifyapu
-# ...    netifyapv  netifyapw  netifyapx  netifyapy  netifyapz  netifyaqa  netifyaqb  netifyaqc  netifyaqd  netifyaqe
-# ...    netifyaqf  netifyaqg  netifyaqh  netifyaqi  netifyaqj  netifyaqk  netifyaql  netifyaqm  netifyaqn  netifyaqo
-# ...    netifyaqp  netifyaqq  netifyaqr  netifyaqs  netifyaqt  netifyaqu  netifyaqv  netifyaqw  netifyaqx  netifyaqy
-# ...    netifyaqz  netifyara  netifyarb  netifyarc  netifyard  netifyare  netifyarf  netifyarg  netifyarh  netifyari
-# ...    netifyarj  netifyark  netifyarl  netifyarm  netifyarn  netifyaro  netifyarp  netifyarq  netifyarr  netifyars
-# ...    netifyart  netifyaru  netifyarv  netifyarw  netifyarx  netifyary  netifyarz  netifyasa  netifyasb  netifyasc
-# ...    netifyasd  netifyase  netifyasf  netifyasg  netifyash  netifyasi  netifyasj  netifyask  netifyasl  netifyasm
-# ...    netifyasn  netifyaso  netifyasp  netifyasq  netifyasr  netifyass  netifyast  netifyasu  netifyasv  netifyasw
-# ...    netifyasx  netifyasy  netifyasz  netifyata  netifyatb  netifyatc  netifyatd  netifyate  netifyatf  netifyatg
-# ...    netifyath  netifyati  netifyatj  netifyatk  netifyatl  netifyatm  netifyatn  netifyato  netifyatp  netifyatq
-# ...    netifyatr  netifyats  netifyatt  netifyatu  netifyatv  netifyatw  netifyatx  netifyaty  netifyatz
-
-@{check} =     netifyaua
-...    netifyaub  netifyauc  netifyaud  netifyaue  netifyauf  netifyaug  netifyauh  netifyaui  netifyauj  netifyauk
-...    netifyaul  netifyaum  netifyaun  netifyauo  netifyaup  netifyauq  netifyaur  netifyaus  netifyaut  netifyauu
-...    netifyauv  netifyauw  netifyaux  netifyauy  netifyauz  netifyava  netifyavb  netifyavc  netifyavd  netifyave
-...    netifyavf  netifyavg  netifyavh  netifyavi  netifyavj  netifyavk  netifyavl  netifyavm  netifyavn  netifyavo
-...    netifyavp  netifyavq  netifyavr  netifyavs  netifyavt  netifyavu  netifyavv  netifyavw  netifyavx  netifyavz
-...    netifyawa  netifyawb  netifyawc  netifyawd  
-# ...       netifyaht       netifyahu       netifyahv       netifyahw       netifyahx       netifyahy       netifyahz       netifyaia
-# ...       netifyaib       netifyaic       netifyaid       netifyaie       netifyaif       netifyaig       netifyaih       netifyaii
-# ...       netifyaij    netifyaik       netifyail       netifyaim       netifyain       netifyaio       netifyaip       netifyaiq
-# ...       netifyair       netifyais       netifyait       netifyaiu       netifyaiv       netifyaiw       netifyaix       netifyaiy       netifyaiz
-# ...       netifyaja        netifyajb       netifyajc       netifyajd
-# ...       netifyaje       netifyajf       netifyajg       netifyajh       netifyaji
-# ...       netifyajj       netifyajk       netifyajl       netifyajm       netifyajn       netifyajo       netifyajp       netifyajq    netifyajr
-# ...       netifyajs       netifyajt       netifyaju       netifyajv       netifyajw       netifyajx       netifyajy       netifyajz       netifyaka
-# ...       netifyakb       netifyakc       netifyakd       netifyake       netifyakf       netifyakg   netifyakh        netifyaki       netifyakj
-# ...       netifyakk       netifyakl       netifyakm       netifyakn       netifyako       netifyakp       netifyakq       netifyakr       netifyaks
-# ...       netifyakt       netifyaku       netifyakv       netifyakw       netifyakx    netifyaky       netifyakz       netifyala       netifyalb
-# ...       netifyalc       netifyald       netifyale       netifyalf       netifyalg       netifyalh       netifyali       netifyalj       netifyalk
-# ...       netifyall       netifyalm       netifyaln   netifyalo    netifyalp       netifyalq    netifyalr       netifyals       netifyalt
-# ...       netifyalu       netifyalv       netifyalw       netifyalx       netifyaly       netifyalz       netifyama       netifyamb       netifyamc
-# ...       netifyamd       netifyame    netifyamf       netifyamg       netifyamh       netifyami       netifyamj       netifyamk       netifyaml
-# ...       netifyamm       netifyamn       netifyamo       netifyamp       netifyamq       netifyamr       netifyams       netifyamt       netifyamu
-# ...       netifyamv        netifyamw       netifyamx       netifyamy       netifyamz       netifyana       netifyanb       netifyanc       netifyand
-# ...       netifyane       netifyanf       netifyang       netifyanh       netifyani       netifyanj       netifyank       netifyanl    netifyanm
-# ...       netifyann       netifyano       netifyanp       netifyanq       netifyanr       netifyans       netifyant       netifyanu       netifyanv
-# ...       netifyanw       netifyanx       netifyany       netifyanz       netifyaoa       netifyaob   netifyaoc        netifyaod
-
-
-# ...   netifyadw      netifyadx       netifyady       netifyadz       netifyaea       netifyaeb    netifyaec       netifyaed       netifyaee       netifyaef       netifyaeg
-# ...   netifyaeh      netifyaei       netifyaej       netifyaek       netifyael       netifyaem    netifyaen       netifyaeo       netifyaep       netifyaeq       netifyaer
-# ...   netifyaes      netifyaet       netifyaeu       netifyaev       netifyaew       netifyaex    netifyaey       netifyaez       netifyafa       netifyafb       netifyafc
-# ...   netifyafd      netifyafe       netifyaff       netifyafg       netifyafh       netifyafi    netifyafj       netifyafk       netifyafl       netifyafm       netifyafn
-# ...   netifyafo      netifyafp       netifyafq       netifyafr       netifyafs       netifyaft    netifyafu       netifyafv       netifyafw       netifyafx       netifyafy
-# ...   netifyafz      netifyaga       netifyagb       netifyagc       netifyagd       netifyage    netifyagf       netifyagg       netifyagh       netifyagi       netifyagj
-# ...   netifyagk      netifyagl       netifyagm       netifyagn       netifyago       netifyagp    netifyagq       netifyagr       netifyags       netifyagt       netifyagu
-# ...   netifyagv      netifyagw       netifyagx       netifyagy       netifyagz       netifyaha    netifyahb       netifyahc       netifyahd       netifyahe       netifyahf
-# ...   netifyahg      netifyahh       netifyahi       netifyahj       netifyahk       netifyahl    netifyahm       netifyahn       netifyaho       netifyahp       netifyahq
-# ...   netifyahr
-
-# ...    netifyaau    netifyaav    netifyaaw    netifyaax    netifyaay    netifyaaz    netifyaba
-# ...    netifyabb    netifyabc    netifyabd    netifyabe    netifyabf    netifyabg    netifyabh    netifyabi    netifyabj    netifyabk    netifyabl    netifyabm    netifyabn    netifyabo
-# ...    netifyabp    netifyabq    netifyabr    netifyabs    netifyabt    netifyabu    netifyabv    netifyabw    netifyabx    netifyaby    netifyabz    netifyaca    netifyacb    netifyacc
-# ...    netifyacd    netifyace    netifyacf    netifyacg    netifyach    netifyaci    netifyacj    netifyack    netifyacl    netifyacm    netifyacn    netifyaco    netifyacp    netifyacq
-# ...    netifyacr    netifyacs    netifyact    netifyacu    netifyacv    netifyacw    netifyacx    netifyacy    netifyacz    netifyada    netifyadb    netifyadc    netifyadd    netifyade
-# ...    netifyadf    netifyadg    netifyadh    netifyadi    netifyadj    netifyadk    netifyadl    netifyadm    netifyadn    netifyado    netifyadp    netifyadq    netifyadr    netifyads
-# ...    netifyadt    netifyadu    netifyadv
-
-# ...   netifyahs       netifyaht       netifyahu       netifyahv       netifyahw    netifyahx       netifyahy       netifyahz       netifyaia       netifyaib
-# ...   netifyaic      netifyaid       netifyaie       netifyaif       netifyaig       netifyaih    netifyaii       netifyaij       netifyaik       netifyail       netifyaim
-# ...   netifyain      netifyaio       netifyaip       netifyaiq       netifyair       netifyais    netifyait       netifyaiu       netifyaiv       netifyaiw       netifyaix
-# ...   netifyaiy      netifyaiz       netifyaja       netifyajb       netifyajc       netifyajd    netifyaje       netifyajf       netifyajg       netifyajh       netifyaji
-# ...   netifyajj      netifyajk       netifyajl       netifyajm       netifyajn       netifyajo    netifyajp       netifyajq       netifyajr       netifyajs       netifyajt
-# ...   netifyaju      netifyajv       netifyajw       netifyajx       netifyajy       netifyajz    netifyaka       netifyakb       netifyakc       netifyakd       netifyake
-# ...   netifyakf      netifyakg       netifyakh       netifyaki       netifyakj       netifyakk    netifyakl       netifyakm       netifyakn       netifyako       netifyakp
-# ...   netifyakq      netifyakr       netifyaks       netifyakt       netifyaku       netifyakv    netifyakw       netifyakx       netifyaky       netifyakz       netifyala
-# ...   netifyalb      netifyalc       netifyald       netifyale       netifyalf       netifyalg    netifyalh       netifyali       netifyalj       netifyalk       netifyall
-# ...   netifyalm      netifyaln       netifyalo       netifyalp       netifyalq       netifyalr    netifyals       netifyalt       netifyalu       netifyalv       netifyalw
-# ...   netifyalx      netifyaly       netifyalz       netifyama       netifyamb       netifyamc    netifyamd       netifyame       netifyamf       netifyamg       netifyamh
-# ...   netifyami      netifyamj       netifyamk       netifyaml       netifyamm       netifyamn    netifyamo       netifyamp       netifyamq       netifyamr       netifyams
-# ...   netifyamt      netifyamu       netifyamv       netifyamw       netifyamx       netifyamy    netifyamz       netifyana       netifyanb       netifyanc       netifyand
-# ...   netifyane      netifyanf       netifyang       netifyanh       netifyani       netifyanj    netifyank       netifyanl       netifyanm       netifyann       netifyano
-# ...   netifyanp      netifyanq       netifyanr       netifyans       netifyant       netifyanu    netifyanv       netifyanw       netifyanx       netifyany       netifyanz
-# ...   netifyaoa        netifyaob       netifyaoc       netifyaod       netifyaoe       netifyaof       netifyaog       netifyaoh       netifyaoi       netifyaoj       netifyaok       netifyaol       netifyaom       netifyaon       netifyaoo       netifyaop       netifyaoq    netifyaor       netifyaos       netifyaot       netifyaou       netifyaov       netifyaow       netifyaox       netifyaoy       netifyaoz       netifyapa       netifyapb       netifyapc       netifyapd       netifyape       netifyapf       netifyapg   netifyaph        netifyapi       netifyapj       netifyapk       netifyapl       netifyapm       netifyapn       netifyapo       netifyapp       netifyapq       netifyapr       netifyaps       netifyapt       netifyapu       netifyapv       netifyapw       netifyapx    netifyapy       netifyapz       netifyaqa       netifyaqb       netifyaqc       netifyaqd       netifyaqe       netifyaqf       netifyaqg       netifyaqh       netifyaqi       netifyaqj       netifyaqk       netifyaql       netifyaqm       netifyaqn   netifyaqo        netifyaqp       netifyaqq       netifyaqr       netifyaqs       netifyaqt       netifyaqu       netifyaqv       netifyaqw       netifyaqx       netifyaqy       netifyaqz       netifyara       netifyarb       netifyarc       netifyard       netifyare    netifyarf       netifyarg       netifyarh       netifyari       netifyarj       netifyark       netifyarl       netifyarm       netifyarn       netifyaro       netifyarp       netifyarq       netifyarr       netifyars       netifyart       netifyaru   netifyarv        netifyarw       netifyarx       netifyary       netifyarz       netifyasa       netifyasb       netifyasc       netifyasd       netifyase       netifyasf       netifyasg       netifyash       netifyasi       netifyasj       netifyask       netifyasl    netifyasm       netifyasn       netifyaso       netifyasp       netifyasq       netifyasr       netifyass       netifyast       netifyasu       netifyasv       netifyasw       netifyasx       netifyasy       netifyasz       netifyata       netifyatb   netifyatc        netifyatd       netifyate       netifyatf       netifyatg       netifyath       netifyati       netifyatj       netifyatk       netifyatl       netifyatm       netifyatn       netifyato       netifyatp       netifyatq       netifyatr       netifyats    netifyatt       netifyatu       netifyatv       netifyatw       netifyatx       netifyaty       netifyatz       netifyaua       netifyaub       netifyauc       netifyaud       netifyaue       netifyauf       netifyaug       netifyauh       netifyaui   netifyauj        netifyauk       netifyaul       netifyaum       netifyaun       netifyauo       netifyaup       netifyauq       netifyaur       netifyaus       netifyaut       netifyauu       netifyauv       netifyauw       netifyaux       netifyauy       netifyauz    netifyava       netifyavb       netifyavc       netifyavd       netifyave       netifyavf       netifyavg       netifyavh       netifyavi       netifyavj       netifyavk       netifyavl       netifyavm       netifyavn       netifyavo       netifyavp   netifyavq        netifyavr       netifyavs       netifyavt       netifyavu       netifyavv       netifyavw       netifyavx       netifyavy       netifyavz       netifyawa       netifyawb       netifyawc       netifyawd       netifyawe       netifyawf       netifyawg    netifyawh       netifyawi       netifyawj       netifyawk       netifyawl       netifyawm       netifyawn       netifyawo       netifyawp       netifyawq       netifyawr       netifyaws       netifyawt       netifyawu       netifyawv       netifyaww   netifyawx        netifyawy       netifyawz       netifyaxa       netifyaxb       netifyaxc       netifyaxd       netifyaxe       netifyaxf       netifyaxg       netifyaxh       netifyaxi       netifyaxj       netifyaxk       netifyaxl       netifyaxm       netifyaxn    netifyaxo       netifyaxp       netifyaxq       netifyaxr       netifyaxs       netifyaxt       netifyaxu       netifyaxv       netifyaxw       netifyaxx       netifyaxy       netifyaxz       netifyaya       netifyayb       netifyayc       netifyayd   netifyaye        netifyayf       netifyayg       netifyayh       netifyayi       netifyayj       netifyayk       netifyayl       netifyaym       netifyayn       netifyayo       netifyayp       netifyayq       netifyayr       netifyays       netifyayt       netifyayu    netifyayv       netifyayw       netifyayx       netifyayy       netifyayz       netifyaza       netifyazb       netifyazc       netifyazd       netifyaze       netifyazf       netifyazg       netifyazh       netifyazi       netifyazj       netifyazk   netifyazl        netifyazm       netifyazn       netifyazo       netifyazp       netifyazq       netifyazr       netifyazs       netifyazt       netifyazu       netifyazv       netifyazw       netifyazx       netifyazy       netifyazz
-# ...       netifyaoe       netifyaof       netifyaog       netifyaoh       netifyaoi       netifyaoj       netifyaok       netifyaol       netifyaom       netifyaon
-# ...       netifyaoo       netifyaop       netifyaoq       netifyaor       netifyaos    netifyaot       netifyaou       netifyaov       netifyaow
-# ...       netifyaox       netifyaoy       netifyaoz       netifyapa       netifyapb       netifyapc       netifyapd       netifyape       netifyapf
-# ...       netifyapg       netifyaph       netifyapi   netifyapj        netifyapk
+@{check} =
+...  netifyayw  netifyayx  netifyayy  netifyayz  netifyaza
+...  netifyazb  netifyazc  netifyazd  netifyaze  netifyazf  netifyazg  netifyazh  netifyazi  netifyazj  netifyazk
+...  netifyazl  netifyazm  netifyazn  netifyazo  netifyazp  netifyazq  netifyazr  netifyazs  netifyazt  netifyazu
+...  netifyazv  netifyazw  netifyazx  netifyazy  netifyazz
 
 *** Test Cases ***
 Check
@@ -136,6 +57,7 @@ Register Account
 Register Netify Mail Website
     ${options}=    Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
     Call Method    ${options}    add_argument    incognito
+    Call Method    ${options}    add_argument    headless
     Create WebDriver    Chrome    chrome_options=${options}
     Go To    ${regisWeb}
     Maximize Browser Window
@@ -143,8 +65,9 @@ Register Netify Mail Website
 Login Netify Mail Website
     ${options}=    Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
     Call Method    ${options}    add_argument    incognito
+    Call Method    ${options}    add_argument    headless
     Create WebDriver    Chrome    chrome_options=${options}
-    Go To    https://mail.mycat.tw/
+    Go To    https://mail.lure.tw/
     Maximize Browser Window
 
 Input Account
