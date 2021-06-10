@@ -63,7 +63,7 @@ Automatically send taiwan sticker oldman
 
 Automatically send foreign sticker oldman
     [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
-    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://oldman.tw/goadmin.php
+    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://mycat.tw/goadmin.php
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Sticker Number
@@ -78,7 +78,7 @@ Automatically send foreign sticker oldman
 
 Automatically send foreign topic oldman
     [Setup]    Run Keywords    Click Element   //*[@resource-id='com.android.chrome:id/url_bar']
-    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://oldman.tw/goadmin.php
+    ...                 AND    Input Text   //*[@class='android.widget.EditText']    https://mycat.tw/goadmin.php
     ...                 AND    Press Keycode    66
     ...                 AND    Get Processing Sticker
     ...                 AND    Get Foreing Topic Number
@@ -91,12 +91,12 @@ Automatically send foreign topic oldman
     END
     Wait Until Page Does Not Contain Element    //android.view.View[@content-desc="LINE開啟"]/android.widget.TextView    timeout=60s    error=LINE sticker should not be visible.
 
-Automatically purchase oldman LINE coin when coin less than 10000
-    ${noPurchasing} =    Check No Account Purchasing Coin
-    ${isCoinNotEnough} =    Is Coin Not Enough    oldman
-    Run keyword If    ${isCoinNotEnough} and ${noPurchasing}    Run Keywords    Make Purchase CheckFile
-    ...                                                                  AND    Close VPN Connect And Close Apps
-    ...                                                                  AND    Oldman purchase LINE 4000 coin
+# Automatically purchase oldman LINE coin when coin less than 10000
+    # ${noPurchasing} =    Check No Account Purchasing Coin
+    # ${isCoinNotEnough} =    Is Coin Not Enough    oldman
+    # Run keyword If    ${isCoinNotEnough} and ${noPurchasing}    Run Keywords    Make Purchase CheckFile
+    # ...                                                                  AND    Close VPN Connect And Close Apps
+    # ...                                                                  AND    Oldman purchase LINE 4000 coin
 
 *** Keywords ***
 Check And Fuck Out Scammer User
@@ -242,11 +242,11 @@ Run Sending Template By For Circle
 
 Login Oldman Magnage Interface
     Open Chrome
-    Go To Url    https://oldman.tw/goadmin.php
+    Go To Url    https://mycat.tw/goadmin.php
     Switch To Context    NATIVE_APP
     Wait Until Element Is Visible    //*[@class='android.widget.EditText' and @password ='false']    timeout=30s    error=Password input should be visible.
-    Input Text   //*[@class='android.widget.EditText' and @password ='false']    20160000
-    Input Text    //*[@class='android.widget.EditText' and @password ='true']    20160000
+    Input Text   //*[@class='android.widget.EditText' and @password ='false']    20140002
+    Input Text    //*[@class='android.widget.EditText' and @password ='true']    20140002
     AppiumLibrary.Click Element    //*[@resource-id='submit']
     Wait Until Element Is Visible    xpath=//*[contains(@text, '解除鎖定')]    timeout=${slowNetPeriod}    error=Web should be login.
 
@@ -397,7 +397,7 @@ Click OK Button To Send Gift To User
     Log To Console    sticker = ${stickerName} price = ${price}
     ${area} =    Run Keyword If    ${foreign}    Set Variable    Foreign
     ...                    ELSE    Set Variable    Taiwan
-    priceRecord    oldmanPrice    ${area}    ${price}    ${userId}   ${stickerName}
+    priceRecord    mycatPrice    ${area}    ${price}    ${userId}   ${stickerName}
     Write Coin Record    oldman    -${price}
     [Teardown]    Close LINE And Go Back After Sending Fininsh
 

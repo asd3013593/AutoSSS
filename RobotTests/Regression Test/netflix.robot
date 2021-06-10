@@ -49,13 +49,32 @@ test
     Close All Applications
     # Log To Console    123
 
-Change Password
-    @{account} =    Get Account With Amount    已註冊    測試    5
+Post Change Password
+    @{account} =    Get Account With Amount    已註冊    lure    4
     FOR    ${i}    IN    @{account}
         Go To Netifx
         Sign In Exist Account
         Verify If Account Password Be Changed    ${i}[key]    ${i}[value]
     END
+
+add
+    @{account} =    Set Variable
+    ...  netifyaxf
+    ...  netifyaxg
+    ...  netifyaxh
+    ...  netifyaxi
+    ...  netifyaxj
+    # ...  netifyaxk
+    # ...  netifyaxl
+    # ...  netifyaxm
+    # ...  netifyaxn
+    FOR    ${i}    IN    @{account}
+        # Delete Account With Key    已寄出    mycat    ${i}
+        Update Account To New State    已寄出    lure    ${i}    Netify000
+        # delete account to new state    已寄出    已註冊    lure    ${i}    Netify000
+    END
+    # @{account} =    Get Account With Amount    已註冊    lure    9
+    # Log To Console    ${account}
 
 log
     Log To Console    2
@@ -82,7 +101,7 @@ test2
 Sign In Exist Account
     Sign In Netflix Account    netifyasy@mycat.tw    Netify000
     # ${signIn} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[@class='android.widget.TextView' and @text='Sign Out']    timeout=30s
-    ${signIn} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[contains(@text, 'Please try again')]    timeout=15s
+    ${signIn} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[contains(@text, 'Please try again')]    timeout=7s
     Run KeyWord If    ${signIn}    Run Keywords    Switch VPN To Other Turkey Server
     ...                                         AND    Click Element After It Is Visible    //android.view.View[@content-desc="Netflix"]/android.widget.Image
     ...                                         AND    Sign In Exist Account
@@ -159,14 +178,14 @@ Switch VPN To Other Turkey Server
 Verify If Account Password Be Changed
     [Arguments]    ${account}    ${password}
     Sign In Netflix Account    ${account}    ${password}
-    ${account2} =    Evaluate    """${account}""".replace("@mycat.tw","")
+    ${account2} =    Evaluate    """${account}""".replace("@lure.tw","")
     ${a1} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[contains(@text, 'Please try again')]    timeout=15s
     Run Keyword If    ${a1}    Run Keywords    Click Element After It Is Visible    //android.view.View[@content-desc="Netflix"]/android.widget.Image
     ...                                 AND    Wait Until Page Contains Element    //*[@resource-id='id_email_hero_fuji']    timeout=30s
     ...                                 AND    Wait Until Page Loading
     ...                                 AND    114    ${account}
     ...                                 AND    114    ${account}
-    ...                                 AND    delete account to new state    ${account2}    已註冊    已寄出    mycat    ${password}
+    ...                                 AND    delete account to new state    ${account2}    已註冊    已寄出    lure    ${password}
 
 Sign In Netflix Account
     [Arguments]    ${account}    ${password}
