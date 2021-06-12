@@ -7,8 +7,8 @@ Library    OperatingSystem
 Resource    ./purchaseCoin.txt
 Suite Setup    Run Keywords    Set Library Search Order  AppiumLibrary  SeleniumLibrary
 ...                     AND    Login Oldman Magnage Interface
-# ...                     AND    Check And Fuck Out Scammer User
-Suite Teardown    Close All Application And Back To Home
+# # ...                     AND    Check And Fuck Out Scammer User
+# Suite Teardown    Close All Application And Back To Home
 
 *** Variables ***
 ${redmiDeviceName} =    8531905e7d25
@@ -49,6 +49,10 @@ ${stickerName} =    Empty
 @{scammer} =    cbf76580    usv37321    out32749    zfb15022
 
 *** Test Cases ***
+set
+    Press Keycode    ${homeKey}
+    Delete All User By Open LINE
+
 Automatically send taiwan sticker oldman
     [Setup]    Run Keywords    Get Processing Sticker
     ...                 AND    Get Taiwan Sticker Number
@@ -546,7 +550,7 @@ Unlock Permission
 
 Open Chrome
     [Documentation]    Opens the calculator app with a new appium session.
-    Open Application    http://localhost:4723/wd/hub    platformName=Android    platformVersion=9    alias=MyChrome1
+    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=9    alias=MyChrome1
     ...    deviceName=${hauweiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
     # ${app2} =    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=8.1.0    alias=MyChrome2
     # ...    deviceName=${redmiDeviceName}    noReset=true    browserName=Chrome    automationName=uiautomator2
@@ -583,7 +587,7 @@ Delete All User By Open LINE
     Click Element    //*[@class ='android.widget.TextView' and @text ='LINE']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/home_tab_title_name' and @class='android.widget.TextView' and contains(@text, '好友')]    timeout=10s
     Click Element    //*[@resource-id='jp.naver.line.android:id/home_tab_title_name' and @class='android.widget.TextView' and contains(@text, '好友')]
-    Wait Until Element Is Visible    xpath=(//*[@class='android.view.ViewGroup' @resource-id='jp.naver.line.android:id/bg']//*[@resource-id='jp.naver.line.android:id/name'])[1]    timeout=10s
+    Wait Until Element Is Visible    xpath=(//*[@class='android.view.ViewGroup' and @resource-id='jp.naver.line.android:id/bg']//*[@resource-id='jp.naver.line.android:id/name'])[1]    timeout=10s
     ${name1} =    Get Text    xpath=(//*[@class='android.view.ViewGroup' and @resource-id='jp.naver.line.android:id/bg']//*[@resource-id='jp.naver.line.android:id/name'])[1]
     Long Press    xpath=(//*[@class='android.view.ViewGroup' and @resource-id = 'jp.naver.line.android:id/bg'])[1]
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_item' and @text='刪除']

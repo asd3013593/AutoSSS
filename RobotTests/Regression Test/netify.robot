@@ -7,16 +7,109 @@ ${女} =    0
 ${prefix} =    netifya
 ${regisWeb} =    https://mail.lure.tw/registerform.html
 
-# @{accounts} =
-
-
+@{accounts} =
+        ...     netifybbp
+        ...     netifybbq
+        ...     netifybbr
+        ...     netifybbs
+        ...     netifybbt
+        ...     netifybbu
+        ...     netifybbv
+        ...     netifybbw
+        ...     netifybbx
+        ...     netifybby
+        ...     netifybbz
+        ...     netifybca
+        ...     netifybcb
+        ...     netifybcc
+        ...     netifybcd
+        ...     netifybce
+        ...     netifybcf
+        ...     netifybcg
+        ...     netifybch
+        ...     netifybci
+        ...     netifybcj
+        ...     netifybck
+        ...     netifybcl
+        ...     netifybcm
+        ...     netifybcn
+        ...     netifybco
+        ...     netifybcp
+        ...     netifybcq
+        ...     netifybcr
+        ...     netifybcs
+        ...     netifybct
+        ...     netifybcu
+        ...     netifybcv
+        ...     netifybcw
+        ...     netifybcx
+        ...     netifybcy
+        ...     netifybcz
+        ...     netifybda
+        ...     netifybdb
+        ...     netifybdc
+        ...     netifybdd
+        ...     netifybde
+        ...     netifybdf
+        ...     netifybdg
+        ...     netifybdh
+        ...     netifybdi
+        ...     netifybdj
+        ...     netifybdk
+        ...     netifybdl
+        ...     netifybdm
+        ...     netifybdn
+        ...     netifybdo
+        ...     netifybdp
+        ...     netifybdq
+        ...     netifybdr
+        ...     netifybds
+        ...     netifybdt
+        ...     netifybdu
+        ...     netifybdv
 
 @{check} =
-...  netifyayw  netifyayx  netifyayy  netifyayz  netifyaza
-...  netifyazb  netifyazc  netifyazd  netifyaze  netifyazf  netifyazg  netifyazh  netifyazi  netifyazj  netifyazk
-...  netifyazl  netifyazm  netifyazn  netifyazo  netifyazp  netifyazq  netifyazr  netifyazs  netifyazt  netifyazu
-...  netifyazv  netifyazw  netifyazx  netifyazy  netifyazz
-
+        ...     netifybaa
+        ...     netifybab
+        ...     netifybac
+        ...     netifybad
+        ...     netifybae
+        ...     netifybaf
+        ...     netifybag
+        ...     netifybah
+        ...     netifybai
+        ...     netifybaj
+        ...     netifybak
+        ...     netifybal
+        ...     netifybam
+        ...     netifyban
+        ...     netifybao
+        ...     netifybap
+        ...     netifybaq
+        ...     netifybar
+        ...     netifybas
+        ...     netifybat
+        ...     netifybau
+        ...     netifybav
+        ...     netifybaw
+        ...     netifybax
+        ...     netifybay
+        ...     netifybaz
+        ...     netifybba
+        ...     netifybbb
+        ...     netifybbc
+        ...     netifybbd
+        ...     netifybbe
+        ...     netifybbf
+        ...     netifybbg
+        ...     netifybbh
+        ...     netifybbi
+        ...     netifybbj
+        ...     netifybbk
+        ...     netifybbl
+        ...     netifybbm
+        ...     netifybbn
+        ...     netifybbo
 *** Test Cases ***
 Check
     Login Netify Mail Website

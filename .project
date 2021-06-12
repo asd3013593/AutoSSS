@@ -20,16 +20,4 @@
 		<nature>org.python.pydev.pythonNature</nature>
 		<nature>org.robotframework.ide.eclipse.main.plugin.robotNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>libspecs/AppiumLibrary.py</name>
-			<type>1</type>
-			<location>C:/Users/USER/AppData/Local/Programs/Python/Python36/Lib/site-packages/AppiumLibrary/keywords/_element.py</location>
-		</link>
-		<link>
-			<name>libspecs/BuiltIn.py</name>
-			<type>1</type>
-			<location>C:/Users/USER/AppData/Local/Programs/Python/Python36/lib/site-packages/robot/libraries/BuiltIn.py</location>
-		</link>
-	</linkedResources>
 </projectDescription>
