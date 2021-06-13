@@ -5,6 +5,64 @@ from firebase_admin import firestore
 from firebase_admin import db
 from robot.api.deco import keyword
 import sys
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import TimeoutException
+from robot.api.deco import keyword
+from distutils.core import setup
+from PIL._imaging import draw
+from lib2to3.tests.support import driver
+from firebase import firebase
+from firebase_admin import credentials
+from firebase_admin import firestore
+from firebase_admin import db
+import firebase_admin
+import sys
+
+@keyword(name='Setup Application Driver')
+def setup_application_driver():
+    desired_caps = {}
+    desired_caps['app'] = r"C:\Program Files\Privax\HMA VPN\Vpn.exe"
+    desired_caps['platformName'] = "Windows"
+    desired_caps['deviceName'] = "WindowsPC"
+    driver = webdriver.Remote(
+        command_executor='http://127.0.0.1:4723',
+        desired_capabilities=desired_caps)
+    return driver
+
+@keyword(name='Connect Vpn To Turkey Implement')
+def _connect_vpn_to_turkey(driver):
+    _connect_vpn_to_turkey_implenment(driver)
+    # _close_vpn_implement(driver)
+
+@keyword(name='Reconnect Vpn To Turkey Implement')
+def _reconnect_vpn_to_turkey(driver):
+    _disconnect_vpn_implement(driver)
+    _connect_vpn_to_turkey_implenment(driver)
+
+@keyword(name='Disconnect Vpn Implement')
+def _disconnect_vpn(driver):
+    _disconnect_vpn_implement(driver)
+
+@keyword(name='Close Vpn')
+def _close_vpn(driver):
+    closeButton = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, "關閉"))).click()
+
+def _connect_vpn_to_turkey_implenment(driver):
+    try:
+        WebDriverWait(driver, 5).until(EC.visibility_of_element_located((By.NAME, "連線")))
+    except TimeoutException:
+        _disconnect_vpn_implement(driver)
+        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, "Taiwan")))
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, "連線"))).click()
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, "Taiwan, Taipei")))
+
+def _disconnect_vpn_implement(driver):
+    unConnectButton = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, "中斷連線"))).click()
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.NAME, "Taiwan")))
+
 
 @keyword(name='Put Account')
 def post(name, account):

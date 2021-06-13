@@ -1,6 +1,8 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    Net
+Library    netify
+# Suite Setup    Connect Vpn
+
 *** Variables ***
 ${男} =    1
 ${女} =    0
@@ -8,23 +10,6 @@ ${prefix} =    netifya
 ${regisWeb} =    https://mail.oldman.tw/registerform.html
 
 @{accounts} =
-
-        ...     netifybfw
-        ...     netifybfx
-        ...     netifybfy
-        ...     netifybfz
-        ...     netifybga
-        ...     netifybgb
-        ...     netifybgc
-        ...     netifybgd
-        ...     netifybge
-        ...     netifybgf
-        ...     netifybgg
-        ...     netifybgh
-        ...     netifybgi
-        ...     netifybgj
-        ...     netifybgk
-        ...     netifybgl
         ...     netifybgm
         ...     netifybgo
         ...     netifybgp
@@ -49,6 +34,7 @@ ${regisWeb} =    https://mail.oldman.tw/registerform.html
         ...     netifybhi
 
 @{check} =
+        ...     netifybdn
         ...     netifybdo
         ...     netifybdp
         ...     netifybdq
@@ -107,6 +93,25 @@ ${regisWeb} =    https://mail.oldman.tw/registerform.html
         ...     netifybft
         ...     netifybfu
         ...     netifybfv
+        ...     netifybfw
+        ...     netifybfx
+        ...     netifybfy
+        ...     netifybfz
+        ...     netifybga
+        ...     netifybgb
+        ...     netifybgc
+        ...     netifybgd
+        ...     netifybge
+        ...     netifybgf
+        ...     netifybgg
+        ...     netifybgh
+        ...     netifybgi
+        ...     netifybgj
+        ...     netifybgk
+        ...     netifybgl
+
+
+
         # ...     netifybaa
         # ...     netifybab
         # ...     netifybac
@@ -209,10 +214,11 @@ Check
 test
     ${temp} =    Set Variable    0
     FOR    ${account}    IN    @{accounts}
-        ${temp} =    Evaluate    ${temp}+1
-        Run Keyword If    ${temp}==5    
+        # ${temp1} =    Evaluate    (${temp}+1) % 5
+        # Set Global Variable    ${temp}    ${temp1}
         Register Account    ${account}
         Log To Console    ${account} register success.
+        # Run Keyword If    ${temp}==0    Reconnect Vpn
     END
     # Input Sex    1
     # Input Birthday    2000    02    04
@@ -225,6 +231,17 @@ test
 
 
 *** Keywords ***
+Connect Vpn
+    ${driver} =    Setup Application Driver
+    Connect Vpn To Turkey Implement    ${driver}
+    Close Vpn    ${driver}
+
+
+Reconnect Vpn
+    ${driver} =    Setup Application Driver
+    Reconnect Vpn To Turkey Implement    ${driver}
+    Close Vpn    ${driver}
+
 Register Account
     [Arguments]    ${account}
     Register Netify Mail Website
@@ -241,7 +258,7 @@ Register Account
 Register Netify Mail Website
     ${options}=    Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
     Call Method    ${options}    add_argument    incognito
-    # Call Method    ${options}    add_argument    headless
+    Call Method    ${options}    add_argument    headless
     Create WebDriver    Chrome    chrome_options=${options}
     Go To    ${regisWeb}
     Maximize Browser Window
