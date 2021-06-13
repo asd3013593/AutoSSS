@@ -34,8 +34,8 @@ def post(name, account):
 def _get_account_with_amount(state ,name, amount):
     accounts = []
     amount = int(amount)
-    cred = credentials.Certificate('C:/Users/USER/Desktop/新增資料夾/AutoSSS/RobotTests/Regression Test/serviceAccount.json')
-    firebase_admin.initialize_app(cred)
+    # cred = credentials.Certificate('C:/Users/USER/Desktop/新增資料夾/AutoSSS/RobotTests/Regression Test/serviceAccount.json')
+    # firebase_admin.initialize_app(cred)
     url = "https://netify-c29d2-default-rtdb.firebaseio.com/"
     fb = firebase.FirebaseApplication(url,None)
     message = fb.get("/"+state+name, None)
@@ -51,17 +51,13 @@ def _get_account_with_amount(state ,name, amount):
 
 @keyword(name="Delete Account With Key")
 def _delete_account_with_key(state, name, account):
-    cred = credentials.Certificate('C:/Users/USER/Desktop/新增資料夾/AutoSSS/RobotTests/Regression Test/serviceAccount.json')
-#         firebase_admin.initialize_app(cred)
+    # cred = credentials.Certificate('C:/Users/USER/Desktop/新增資料夾/AutoSSS/RobotTests/Regression Test/serviceAccount.json')
     url = "https://netify-c29d2-default-rtdb.firebaseio.com/"
     fb = firebase.FirebaseApplication(url,None)
     fb.delete("/"+state+name, account)
 
 @keyword(name="Update Account To New State")
 def _update_account_to_new_state(state, name, account, password):
-#     if (not firebase_admin.get_app()):
-#     cred = credentials.Certificate('C:/Users/pan/Desktop/StickerSender/AutoSSS/RobotTests/Regression Test/serviceAccount.json')
-#     firebase_admin.initialize_app(cred)
     url = "https://netify-c29d2-default-rtdb.firebaseio.com/"
     fb = firebase.FirebaseApplication(url,None)
     fb.put("/"+state+name , account, password)

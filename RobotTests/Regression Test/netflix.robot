@@ -17,72 +17,80 @@ ${vpnIni} =    0
 ${password} =    Netify000
 @{country} =    伊斯坦布爾 #10    伊斯坦布爾 #16    伊斯坦布爾 #2    伊斯坦布爾 #3    伊斯坦布爾 #4    伊斯坦布爾 #5
 
+
+
 *** Test Cases ***
 test vpn
     [Setup]    Run Keywords    Press Keycode    ${homeKey}
     ...                 AND    Click Element After It Is Visible   //*[@class ='android.widget.TextView' and @content-desc ='Chrome']
-    ${temp} =    Set Variable    0ㄐ
-    # @{account} =    Get Account With Amount    mycat    9
+    ${temp} =    Set Variable    0
+    @{account} =    Get Account With Amount    未註冊    lure    11
     FOR    ${i}    IN    @{account}
-        Log To Console    \n${i}[key] 執行中
-        112
-        113    ${i}[key]
-        ${temp} =    Evaluate    (${temp}+1) % 5
-        Run KeyWord If    ${temp}==0    Switch VPN To Other Turkey Server
-        # delete account to new state    ${i}    未註冊    已註冊    mycat    Netify000
+        Register Netflix Account    ${i}[key]    ${temp}
     END
-    Close All Applications
-    # Log To Console    ${accoount}
-    # Post
-    # 115
-    # Delete Account With Key    " asd"    netifyasy
-test
-    [Setup]    Run Keywords    Press Keycode    ${homeKey}
-    ...                 AND    Click Element After It Is Visible   //*[@class ='android.widget.TextView' and @content-desc ='Chrome']
-    112
-    ${c} =    Get Contexts
-    Log To Console    ${c}
-    Switch To Context    CHROMIUM
-    ${url} =    execute script  return window.top.location.href.toString()
-    # ${a} =    Wait Until Page Loading
-    Log To Console    ${url}
-    Close All Applications
-    # Log To Console    123
+    # [Teardown]    Close All Applications
 
-Change Password
-    @{account} =    Get Account With Amount    已註冊    測試    5
+# test
+    # [Setup]    Run Keywords    Press Keycode    ${homeKey}
+    # ...                 AND    Click Element After It Is Visible   //*[@class ='android.widget.TextView' and @content-desc ='Chrome']
+    # 112
+    # ${c} =    Get Contexts
+    # Log To Console    ${c}
+    # Switch To Context    CHROMIUM
+    # ${url} =    execute script  return window.top.location.href.toString()
+    # # ${a} =    Wait Until Page Loading
+    # Log To Console    ${url}
+    # Close All Applications
+    # # Log To Console    123
+
+Post Change Password
+    [Setup]    Open Browser And Go To Netflix
+    @{account} =    Get Account With Amount    已註冊    lure    15
+    ${temp} =    Set Variable    0
     FOR    ${i}    IN    @{account}
-        Go To Netifx
-        Sign In Exist Account
+        # Sign In Exist Account
         Verify If Account Password Be Changed    ${i}[key]    ${i}[value]
     END
 
-log
-    Log To Console    2
-
-test1
-    ${account} =    Set Variable    netifyauf
-    FOR    ${i}    IN    ${account}
-        delete account to new state    ${i}    未註冊    已註冊    mycat   Netify000
+add
+    @{account} =    Set Variable
+    ...    netifyays
+    ...    netifyayt
+    ...    netifyayu
+    ...    netifyayv
+    ...    netifyayw
+    ...    netifyayx
+    ...    netifyayy
+    ...    netifyayz
+    ...    netifyaza
+    ...    netifyazb
+    ...    netifyazc
+    ...    netifyazd
+    ...    netifyaze
+    ...    netifyazf
+    ...    netifyazg
+    FOR    ${i}    IN    @{account}
+        # Delete Account With Key    已寄出    mycat    ${i}
+        Update Account To New State    未註冊    lure    ${i}    Netify000
+        # delete account to new state    已寄出    已註冊    lure    ${i}    Netify000
     END
+    # @{account} =    Get Account With Amount    已註冊    lure    9
+    # Log To Console    ${account}
 
-test2
-    ${temp} =    Set Variable    0
-    FOR    ${i}    IN RANGE    9
-        Log To Console    \n完成
-        # 112
-        # 113    ${i}[key]
-        ${temp} =    Evaluate    (${temp}+1) % 5
-        Run KeyWord If    ${temp}==0   Log To Console    更換    
-        # delete account to new state    ${i}    未註冊    已註冊    mycat    Netify000
-    END
 *** Keywords ***
-# Verify If Need To Switch VPN
+Register Netflix Account
+    [Arguments]    ${account}    ${temp}
+    Log To Console    \n${account} 執行中
+    Go To Netflix
+    Register Account    ${account}
+    ${temp1} =    Evaluate    (${temp}+1) % 5
+    Set Global Variable    ${temp}    ${temp1}
+    Run KeyWord If    ${temp}==0    Switch VPN To Other Turkey Server
 
 Sign In Exist Account
     Sign In Netflix Account    netifyasy@mycat.tw    Netify000
     # ${signIn} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[@class='android.widget.TextView' and @text='Sign Out']    timeout=30s
-    ${signIn} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[contains(@text, 'Please try again')]    timeout=15s
+    ${signIn} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[contains(@text, 'Please try again')]    timeout=7s
     Run KeyWord If    ${signIn}    Run Keywords    Switch VPN To Other Turkey Server
     ...                                         AND    Click Element After It Is Visible    //android.view.View[@content-desc="Netflix"]/android.widget.Image
     ...                                         AND    Sign In Exist Account
@@ -118,55 +126,39 @@ Switch VPN To Other Turkey Server
     Click Element After It Is Visible    //*[@class='android.view.View' and @text='Get Started']
     Wait Until Element Is Visible On Page    //*[@class='android.widget.Button' and @text='Continue']    timeout=30s
 
-112
-    
+Go To Netflix
     Click Element After It Is Visible    //*[@resource-id='com.android.chrome:id/url_bar']
     Input Text After It Is Visible    //*[@resource-id='com.android.chrome:id/url_bar']    https://www.netflix.com/
     Press Keycode    ${enterKey}
     Wait Until Page Contains Element    //*[@resource-id='id_email_hero_fuji']    timeout=30s
     Wait Until Page Loading
-    Log To Console    finish
-    # Wait Until Element Is Visible On Page    //*[@resource-id='com.android.chrome:id/infobar_icon']    timeout=100s
-    # sleep    2s
-    # ${sign} =    Run Keyword And Return Status    Wait Until Page Contains Element    //*[@content-desc='Sign Out']
-    # Run Keyword If    ${sign}    Run Keywords    Click Element After It Is Visible    //*[@content-desc='Sign Out']
-    # ...                                   AND    Click Element After It Is Visible    //android.view.View[@content-desc="Netflix"]/android.widget.Image
-    # ...                                   AND    Wait Until Element Is Visible On Page    //*[@resource-id='com.android.chrome:id/infobar_icon']    timeout=100s
 
-113
+Register Account
     [Arguments]    ${account}
     Wait Until Element Is Visible On Page    //*[@resource-id='id_email_hero_fuji']    timeout=30s
     Input Text After It Is Visible    //*[@resource-id='id_email_hero_fuji']    ${account}
     Click Element After It Is Visible    //*[@class='android.view.View' and @text='Get Started']
-    # Wait Until Page Contains Element    //*[@class='android.view.View' and @text='Get Started']    timeout=15s
-    # Wait Until Element Is Visible On Page    //*[@resource-id='com.android.chrome:id/infobar_icon']    timeout=100s
-    # sleep    10s
     Wait Until Element Is Visible On Page    //*[@class='android.widget.Button' and @text='Continue']    timeout=100s
     Wait Until Page Loading
-    Click Element After It Is Visible    //*[@class='android.widget.Button' and @text='Continue']
+    ${field} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[@class='android.widget.EditText' and @resource-id='id_password']    timeout=5s
+    Run Keyword If    not ${field}    Run Keywords    Click Element After It Is Visible    //*[@class='android.widget.Button' and @text='Continue']
+    ...                                        AND    Wait Until Page Loading
     Input Text After It Is Visible    //*[@class='android.widget.EditText' and @resource-id='id_password']    Netify000
     Click Element After It Is Visible    //*[@class='android.widget.Button' and @text='Continue']
-    Wait Until Element Is Visible On Page    //*[@text='STEP 2 OF 3 Choose your plan.']    timeout=100s
+    Wait Until Element Is Visible On Page    //*[contains(@text, 'STEP 2 OF 3')]    timeout=100s
     Wait Until Page Loading
-    ${account} =    Evaluate    """${account}""".replace("@mycat.tw","")
-    delete account to new state    ${account}    未註冊    已註冊    mycat    Netify000
+    ${account} =    Evaluate    """${account}""".replace("@lure.tw","")
+    delete account to new state    ${account}    未註冊    已註冊    lure    Netify000
     Click Element After It Is Visible    //*[@class='android.widget.TextView' and @text='Sign Out']
-    Wait Until Element Is Visible On Page    //*[@text='Sign In']    timeout=100s
-    # Input Text After It Is Visible    //*[@resource-id='forgot_password_input']    netifyasx@mycat.tw
-    # Click Element After It Is Visible    //*[@class='android.widget.Button' and @text='Email Me']
-    # Wait Until Element Is Visible On Page    //*[@text='Email Sent']    timeout=${slowNetPeriod}
+    Wait Until Element Is Visible On Page    //*[contains(@text, 'Sign In')]    timeout=100s
 
 Verify If Account Password Be Changed
     [Arguments]    ${account}    ${password}
-    Sign In Netflix Account    ${account}    ${password}
-    ${account2} =    Evaluate    """${account}""".replace("@mycat.tw","")
-    ${a1} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[contains(@text, 'Please try again')]    timeout=15s
-    Run Keyword If    ${a1}    Run Keywords    Click Element After It Is Visible    //android.view.View[@content-desc="Netflix"]/android.widget.Image
-    ...                                 AND    Wait Until Page Contains Element    //*[@resource-id='id_email_hero_fuji']    timeout=30s
-    ...                                 AND    Wait Until Page Loading
-    ...                                 AND    114    ${account}
-    ...                                 AND    114    ${account}
-    ...                                 AND    delete account to new state    ${account2}    已註冊    已寄出    mycat    ${password}
+    ${account2} =    Evaluate    """${account}""".replace("@lure.tw", "")
+    Send Forgot Password Mail    ${account}
+    Send Forgot Password Mail    ${account}
+    delete account to new state    ${account2}    已註冊    已寄出    lure    ${password}
+    
 
 Sign In Netflix Account
     [Arguments]    ${account}    ${password}
@@ -188,7 +180,7 @@ delete account to new state
     Delete Account With Key    ${fState}    ${name}    ${account}
     Update Account To New State    ${eState}    ${name}    ${account}    ${password}
 
-Go To Netifx
+Open Browser And Go To Netflix
     Press Keycode    ${homeKey}
     Click Element After It Is Visible   //*[@class ='android.widget.TextView' and @content-desc ='Chrome']
     Click Element After It Is Visible    //*[@resource-id='com.android.chrome:id/url_bar']
@@ -197,7 +189,7 @@ Go To Netifx
     Wait Until Page Contains Element    //*[@resource-id='id_email_hero_fuji']    timeout=30s
     Wait Until Page Loading
 
-114
+Send Forgot Password Mail
     [Arguments]    ${account}
     Input Text After It Is Visible    //*[@resource-id='id_email_hero_fuji']    ${account}
     Click Element After It Is Visible    //*[@class='android.view.View' and @text='Get Started']
@@ -316,5 +308,5 @@ If Not Visible Switch VPN And Refresh Browser
     Run Keyword If    not ${boolean}    Run Keywords    Switch VPN To Other Turkey Server
     Run Keyword If    not ${boolean} and not ${a1}   Run Keywords    Swipe    300    300    300    900    500
     ...                                                       AND    Wait Until Page Loading
-    ...                                                       AND    Go To Netifx
-    ...                                                       AND    114    ${account}
+    ...                                                       AND    Open Browser And Go To Netflix
+    ...                                                       AND    Send Forgot Password Mail    ${account}

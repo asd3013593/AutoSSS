@@ -4,6 +4,8 @@
     <relativeTo>WORKSPACE</relativeTo>
     <referencedLibrary type="PYTHON" name="AppiumLibrary" path="C:/Users/USER/AppData/Local/Programs/Python/Python36/Lib/site-packages/AppiumLibrary/__init__.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="netify" path="StickerSender/RobotTests/Regression Test/netify.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Users/USER/AppData/Local/Programs/Python/Python36/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="netflixLibrary" path="StickerSender/RobotTests/Regression Test/netflixLibrary.py" dynamic="false"/>
     <pythonpath/>
     <classpath/>
     <excludedForValidation/>
