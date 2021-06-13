@@ -1,64 +1,54 @@
 *** Settings ***
 Library    SeleniumLibrary
-
+Library    Net
 *** Variables ***
 ${男} =    1
 ${女} =    0
 ${prefix} =    netifya
-${regisWeb} =    https://mail.lure.tw/registerform.html
+${regisWeb} =    https://mail.oldman.tw/registerform.html
 
 @{accounts} =
-        ...     netifybbp
-        ...     netifybbq
-        ...     netifybbr
-        ...     netifybbs
-        ...     netifybbt
-        ...     netifybbu
-        ...     netifybbv
-        ...     netifybbw
-        ...     netifybbx
-        ...     netifybby
-        ...     netifybbz
-        ...     netifybca
-        ...     netifybcb
-        ...     netifybcc
-        ...     netifybcd
-        ...     netifybce
-        ...     netifybcf
-        ...     netifybcg
-        ...     netifybch
-        ...     netifybci
-        ...     netifybcj
-        ...     netifybck
-        ...     netifybcl
-        ...     netifybcm
-        ...     netifybcn
-        ...     netifybco
-        ...     netifybcp
-        ...     netifybcq
-        ...     netifybcr
-        ...     netifybcs
-        ...     netifybct
-        ...     netifybcu
-        ...     netifybcv
-        ...     netifybcw
-        ...     netifybcx
-        ...     netifybcy
-        ...     netifybcz
-        ...     netifybda
-        ...     netifybdb
-        ...     netifybdc
-        ...     netifybdd
-        ...     netifybde
-        ...     netifybdf
-        ...     netifybdg
-        ...     netifybdh
-        ...     netifybdi
-        ...     netifybdj
-        ...     netifybdk
-        ...     netifybdl
-        ...     netifybdm
-        ...     netifybdn
+
+        ...     netifybfw
+        ...     netifybfx
+        ...     netifybfy
+        ...     netifybfz
+        ...     netifybga
+        ...     netifybgb
+        ...     netifybgc
+        ...     netifybgd
+        ...     netifybge
+        ...     netifybgf
+        ...     netifybgg
+        ...     netifybgh
+        ...     netifybgi
+        ...     netifybgj
+        ...     netifybgk
+        ...     netifybgl
+        ...     netifybgm
+        ...     netifybgo
+        ...     netifybgp
+        ...     netifybgq
+        ...     netifybgr
+        ...     netifybgs
+        ...     netifybgt
+        ...     netifybgu
+        ...     netifybgv
+        ...     netifybgw
+        ...     netifybgx
+        ...     netifybgy
+        ...     netifybgz
+        ...     netifybha
+        ...     netifybhb
+        ...     netifybhc
+        ...     netifybhd
+        ...     netifybhe
+        ...     netifybhf
+        ...     netifybhg
+        ...     netifybhh
+        ...     netifybhi
+
+@{check} =
         ...     netifybdo
         ...     netifybdp
         ...     netifybdq
@@ -67,49 +57,147 @@ ${regisWeb} =    https://mail.lure.tw/registerform.html
         ...     netifybdt
         ...     netifybdu
         ...     netifybdv
-
-@{check} =
-        ...     netifybaa
-        ...     netifybab
-        ...     netifybac
-        ...     netifybad
-        ...     netifybae
-        ...     netifybaf
-        ...     netifybag
-        ...     netifybah
-        ...     netifybai
-        ...     netifybaj
-        ...     netifybak
-        ...     netifybal
-        ...     netifybam
-        ...     netifyban
-        ...     netifybao
-        ...     netifybap
-        ...     netifybaq
-        ...     netifybar
-        ...     netifybas
-        ...     netifybat
-        ...     netifybau
-        ...     netifybav
-        ...     netifybaw
-        ...     netifybax
-        ...     netifybay
-        ...     netifybaz
-        ...     netifybba
-        ...     netifybbb
-        ...     netifybbc
-        ...     netifybbd
-        ...     netifybbe
-        ...     netifybbf
-        ...     netifybbg
-        ...     netifybbh
-        ...     netifybbi
-        ...     netifybbj
-        ...     netifybbk
-        ...     netifybbl
-        ...     netifybbm
-        ...     netifybbn
-        ...     netifybbo
+        ...     netifybdw
+        ...     netifybdx
+        ...     netifybdy
+        ...     netifybdz
+        ...     netifybea
+        ...     netifybeb
+        ...     netifybec
+        ...     netifybed
+        ...     netifybee
+        ...     netifybef
+        ...     netifybeg
+        ...     netifybeh
+        ...     netifybei
+        ...     netifybej
+        ...     netifybek
+        ...     netifybel
+        ...     netifybem
+        ...     netifybeo
+        ...     netifybep
+        ...     netifybeq
+        ...     netifyber
+        ...     netifybes
+        ...     netifybet
+        ...     netifybeu
+        ...     netifybev
+        ...     netifybew
+        ...     netifybex
+        ...     netifybey
+        ...     netifybez
+        ...     netifybfa
+        ...     netifybfb
+        ...     netifybfc
+        ...     netifybfd
+        ...     netifybfe
+        ...     netifybff
+        ...     netifybfg
+        ...     netifybfh
+        ...     netifybfi
+        ...     netifybfj
+        ...     netifybfk
+        ...     netifybfl
+        ...     netifybfm
+        ...     netifybfo
+        ...     netifybfp
+        ...     netifybfq
+        ...     netifybfr
+        ...     netifybfs
+        ...     netifybft
+        ...     netifybfu
+        ...     netifybfv
+        # ...     netifybaa
+        # ...     netifybab
+        # ...     netifybac
+        # ...     netifybad
+        # ...     netifybae
+        # ...     netifybaf
+        # ...     netifybag
+        # ...     netifybah
+        # ...     netifybai
+        # ...     netifybaj
+        # ...     netifybak
+        # ...     netifybal
+        # ...     netifybam
+        # ...     netifyban
+        # ...     netifybao
+        # ...     netifybap
+        # ...     netifybaq
+        # ...     netifybar
+        # ...     netifybas
+        # ...     netifybat
+        # ...     netifybau
+        # ...     netifybav
+        # ...     netifybaw
+        # ...     netifybax
+        # ...     netifybay
+        # ...     netifybaz
+        # ...     netifybba
+        # ...     netifybbb
+        # ...     netifybbc
+        # ...     netifybbd
+        # ...     netifybbe
+        # ...     netifybbf
+        # ...     netifybbg
+        # ...     netifybbh
+        # ...     netifybbi
+        # ...     netifybbj
+        # ...     netifybbk
+        # ...     netifybbl
+        # ...     netifybbm
+        # ...     netifybbn
+        # ...     netifybbo
+        # ...     netifybbp
+        # ...     netifybbq
+        # ...     netifybbr
+        # ...     netifybbs
+        # ...     netifybbt
+        # ...     netifybbu
+        # ...     netifybbv
+        # ...     netifybbw
+        # ...     netifybbx
+        # ...     netifybby
+        # ...     netifybbz
+        # ...     netifybca
+        # ...     netifybcb
+        # ...     netifybcc
+        # ...     netifybcd
+        # ...     netifybce
+        # ...     netifybcf
+        # ...     netifybcg
+        # ...     netifybch
+        # ...     netifybci
+        # ...     netifybcj
+        # ...     netifybck
+        # ...     netifybcl
+        # ...     netifybcm
+        # ...     netifybcn
+        # ...     netifybco
+        # ...     netifybcp
+        # ...     netifybcq
+        # ...     netifybcr
+        # ...     netifybcs
+        # ...     netifybct
+        # ...     netifybcu
+        # ...     netifybcv
+        # ...     netifybcw
+        # ...     netifybcx
+        # ...     netifybcy
+        # ...     netifybcz
+        # ...     netifybda
+        # ...     netifybdb
+        # ...     netifybdc
+        # ...     netifybdd
+        # ...     netifybde
+        # ...     netifybdf
+        # ...     netifybdg
+        # ...     netifybdh
+        # ...     netifybdi
+        # ...     netifybdj
+        # ...     netifybdk
+        # ...     netifybdl
+        # ...     netifybdm
 *** Test Cases ***
 Check
     Login Netify Mail Website
@@ -119,7 +207,10 @@ Check
     END
 
 test
+    ${temp} =    Set Variable    0
     FOR    ${account}    IN    @{accounts}
+        ${temp} =    Evaluate    ${temp}+1
+        Run Keyword If    ${temp}==5    
         Register Account    ${account}
         Log To Console    ${account} register success.
     END
@@ -150,7 +241,7 @@ Register Account
 Register Netify Mail Website
     ${options}=    Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
     Call Method    ${options}    add_argument    incognito
-    Call Method    ${options}    add_argument    headless
+    # Call Method    ${options}    add_argument    headless
     Create WebDriver    Chrome    chrome_options=${options}
     Go To    ${regisWeb}
     Maximize Browser Window

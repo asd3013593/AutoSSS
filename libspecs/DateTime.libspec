@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec format="ROBOT" generated="2021-06-05T06:07:51Z" lineno="1" name="DateTime" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\DateTime.py" specversion="2" type="LIBRARY">
-<version>3.2.2</version>
+<keywordspec format="ROBOT" generated="2021-06-13T01:39:57Z" lineno="1" name="DateTime" namedargs="true" scope="GLOBAL" source="C:\Users\USER\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\DateTime.py" specversion="2" type="LIBRARY">
+<version>3.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
 <doc>A test library for handling date and time values.
