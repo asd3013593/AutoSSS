@@ -1,5 +1,4 @@
 *** Settings ***
-Force Tags    oldman
 Library    XML
 Library    AppiumLibrary
 Library    SeleniumLibrary
