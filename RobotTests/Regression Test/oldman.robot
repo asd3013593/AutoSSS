@@ -46,7 +46,7 @@ ${currentLocation} =    台灣
 ${slowNetPeriod} =    30s
 ${LineApplication} =    1
 ${stickerName} =    Empty
-@{scammer} =    cbf76580    usv37321    out32749    zfb15022
+@{scammer} =    cbf76580    usv37321    out32749    zfb15022    ria94778
 
 *** Test Cases ***
 Automatically send taiwan sticker oldman
