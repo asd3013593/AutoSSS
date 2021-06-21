@@ -1,21 +1,22 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    netflixLibrary
-Suite Setup    Run Keywords    Connect Vpn To Turkey
-...                     AND    Login Turkey Netflix Website
-Suite Teardown    Disconnect Vpn
 
 *** Variables ***
 ${presetPassword} =    Netify000
 ${shorPeriodTime} =    5s
 
 *** Test Cases ***
-test
-    @{account} =    Get Account With Amount    未註冊    lure    1
+Register Account
+    [Setup]    Run Keywords    Connect Vpn To Turkey
+    ...                 AND    Login Turkey Netflix Website
+    @{account} =    Get Account With Amount    未註冊    twnetify    7
     FOR    ${i}    IN    @{account}
-        Log To Console    \n${i}[key]執行中
-        Register Netflix Account    ${i}[key]
+        Log To Console    \n${i}[key]:${i}[value]執行中
+        Set Global Variable    ${presetPassword}    ${i}[value]
+        Register Netflix Account    ${i}[key]    ${presetPassword}
     END
+    [Teardown]    Disconnect Vpn
     # Wait Until Elemnet Is Visible On Page    xpath    timeout    
 
 Send forgot password mail
@@ -26,7 +27,20 @@ Send forgot password mail
     END
 
 update account to firebase
-    Update Account To New State    未註冊     lure    netifybac    Netify000
+    @{account} =    Set Variable
+    ...    netifyadg
+    ...    netifyadh
+    ...    netifyadi
+    ...    netifyadj
+    ...    netifyadk
+    ...    netifyadl
+    ...    netifyadm
+    FOR    ${i}    IN    @{account}
+        # Dnt With Key    已寄出    mycat    ${i
+        ${password} =    Maker Random Password
+        Update Account To New State    未註冊    twnetify    ${i}    ${password}
+        # delete account to new state    已寄出    已註冊    lure    ${i}    Netify000
+    END
 
 *** Keywords ***
 Login Turkey Netflix Website
@@ -40,22 +54,23 @@ Login Turkey Netflix Website
 Go To Turkey Netflix
     Go To    https://www.netflix.com/
     ${turkey} =    Set Variable    https://www.netflix.com/tr-en/
-    ${url} =    Get Location
+    ${url} =    Get Location 
     Should Be Equal As Strings    ${url}    ${turkey}
 
 Register Netflix Account
-    [Arguments]    ${account}
+    [Arguments]    ${account}    ${password}
     Wait Until Keyword Succeeds    2x    5s    Input Text Fail When Get Started Open New Browser    //*[@id='id_email_hero_fuji']    ${account}    //*[@id='id_email_hero_fuji' and @value='${account}']    timeout=${shorPeriodTime}    error1=Get Started input should be visible.    error2=Get Started input field should be ${account}.
     If Click Element Fail When Register Netflix Account Switch Turkey Vpn    ${account}    xpath=(//*[@class='cta-btn-txt' and normalize-space()='Get Started'])[1]    timeout=${shorPeriodTime}    error=Get Started button should be visible.
-    ${step1_1} =    Run Keyword And Return Status     Wait Until Elemnet Is Visible On Page    //*[normalize-space()='Finish setting up your account.']    timeout=${shorPeriodTime}    error="Finish setting up your account." should be visible.
+    ${step1_1} =    Run Keyword And Return Status     Wait Until Elemnet Is Visible On Page    //*[contains(normalize-space(), 'Finish setting up your account')]    timeout=${shorPeriodTime}    error="Finish setting up your account." should be visible.
     Run Keyword If    ${step1_1}    Click Element After It Is Visible On Page    //*[@class='submitBtnContainer']//button[normalize-space()='Continue']    timeout=${shorPeriodTime}    error=Continue button should be visible.
-    Input Text And Wait Until Value Is Correct    //*[@id='id_password']    ${presetPassword}    //*[@id='id_password' and @value='${presetPassword}']    timeout=${shorPeriodTime}    error1=Add a Password field should be visible.    error2=Password field should be input.
+    Input Text And Wait Until Value Is Correct    //*[@id='id_password']    ${password}    //*[@id='id_password' and @value='${password}']    timeout=${shorPeriodTime}    error1=Add a Password field should be visible.    error2=Password field should be input.
     Click Element After It Is Visible On Page    //*[@class='submitBtnContainer']//button[normalize-space()='Continue']    timeout=${shorPeriodTime}    error=Continue button should be visible.
     Wait Until Elemnet Is Visible On Page    //*[@class='stepIndicator' and contains(normalize-space(), '2')]    timeout=${shorPeriodTime}    error=Step 2 Of 3 should be visible.
     Click Element After It Is Visible On Page    //a[contains(@class, 'signupBasicHeader') and normalize-space()='Sign Out']    timeout=${shorPeriodTime}    error=Sign Up button should be visible.
     Wait Until Elemnet Is Visible On Page    //a[contains(@class, 'signupBasicHeader') and normalize-space()='Sign In']    timeout=${shorPeriodTime}    error=Sign In button should be visible.
-    ${account2} =    Evaluate    """${account}""".replace("@lure.tw","")
-    Move Account To New State    ${account}    未註冊    已註冊    lure    ${presetPassword}
+    ${account2} =    Evaluate    """${account}""".replace("@twnetify.com","")
+    Move Account To New State    ${account2}    未註冊    已註冊    twnetify    ${password}
+    Log To Console    註冊密碼為:${password}
     [Teardown]    Go To Turkey Netflix
 
 Send Forgot Password Mail
@@ -87,7 +102,7 @@ If Click Element Fail When Register Netflix Account Switch Turkey Vpn
     ${error} =    Run Keyword And Return Status   Wait Until Elemnet Is Visible On Page    //*[contains(normalize-space(), 'Please try again')]    timeout=${shorPeriodTime}    error=Error message should be visible.
     Run Keyword If    ${error}    Run Keywords    Reconnect Vpn To Turkey
     ...                                    AND    Go To Turkey Netflix
-    ...                                    AND    Register Netflix Account    ${account}
+    ...                                    AND    Register Netflix Account    ${account}    ${presetPassword}
 
 If Click Element Fail When Send Forgot Password Mail Switch Turkey Vpn
     [Arguments]    ${account}    ${xpath}    ${timeout}    ${error}=error

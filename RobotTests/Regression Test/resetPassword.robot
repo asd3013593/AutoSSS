@@ -11,11 +11,11 @@ ${slowNetPeriod} =    30s
 *** Test Cases ***
 
 Change Password
-    @{account} =    Get Account With Amount    已寄出    lure    15
+    @{account} =    Get Account With Amount    已寄出    twnetify    7
     FOR    ${i}    IN    @{account}
         Login Email Website    ${i}[key]
         Select Password Reset Requst Mail
-        ${accountwithoutWebName} =    Evaluate    """${i}[key]""".replace("@lure.tw","")
+        ${accountwithoutWebName} =    Evaluate    """${i}[key]""".replace("@twnetify.com","")
         ${newPassword} =    Evaluate    """Netify"""+str(random.randrange(100,999))
         Input New Password    ${newPassword}
         Post New Password Request    ${accountwithoutWebName}    ${newPassword}
@@ -23,11 +23,14 @@ Change Password
     END
 
 add
-    @{account} =    Get Account With Amount    完成註冊    lure    11
+    @{account} =    Get Account With Amount    已寄出    twnetify    5
+    @{pw} =    Set Variable    Netify800    Netify765    Netify479    Netify119    Netify460
+    ${index} =    Set Variable    0
     FOR    ${i}    IN    @{account}
-        ${a} =    Evaluate    """${i}[key]""".replace("@lure.tw","")
-        Delete Account With Key    完成註冊    lure    ${a}
-        Update Account To New State    完成註冊    mycat    ${a}    ${i}[value]
+        ${a} =    Evaluate    """${i}[key]""".replace("@twnetify.com","")
+        Delete Account With Key    已寄出    twnetify    ${a}
+        # Update Account To New State    完成註冊    twnetify    ${a}    ${pw}[${index}]
+        ${index} =    Evaluate    ${index}+1
         # Change Account To New State    完成註冊    eState    name    account    password
     END
 
@@ -42,7 +45,7 @@ Post New Password Request
     [Arguments]    ${account}    ${newPassword}
     Click Element After It Is Visible    //*[@id='btn-save']
     Wait Until Element Is Visible On Page    //*[@class='ui-message-contents' and normalize-space()='Your password has been changed.']    timeout=15s
-    Change Account To New State    已寄出    完成註冊   lure    ${account}    ${newPassword}
+    Change Account To New State    已寄出    完成註冊   twnetify    ${account}    ${newPassword}
     Log To Console    已更改密碼為:${newPassword}
 
 Input New Password

@@ -46,7 +46,7 @@ ${currentLocation} =    台灣
 ${slowNetPeriod} =    30s
 ${LineApplication} =    1
 ${stickerName} =    Empty
-@{scammer} =    cbf76580    usv37321    out32749    zfb15022
+@{scammer} =    cbf76580    usv37321    out32749    zfb15022    ysu99970    apa83781    ivy_0730
 
 *** Test Cases ***
 Automatically send taiwan sticker oldman
@@ -97,6 +97,10 @@ Automatically purchase oldman LINE coin when coin less than 10000
     Run keyword If    ${isCoinNotEnough} and ${noPurchasing}    Run Keywords    Make Purchase CheckFile
     ...                                                                  AND    Close VPN Connect And Close Apps
     ...                                                                  AND    Oldman purchase LINE 4000 coin
+
+Delete LINE User
+    Press Keycode    ${homeKey}
+    Delete All User By Open LINE
 
 *** Keywords ***
 Check And Fuck Out Scammer User
@@ -583,7 +587,7 @@ Delete All User By Open LINE
     Click Element    //*[@class ='android.widget.TextView' and @text ='LINE']
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/home_tab_title_name' and @class='android.widget.TextView' and contains(@text, '好友')]    timeout=10s
     Click Element    //*[@resource-id='jp.naver.line.android:id/home_tab_title_name' and @class='android.widget.TextView' and contains(@text, '好友')]
-    Wait Until Element Is Visible    xpath=(//*[@class='android.view.ViewGroup' @resource-id='jp.naver.line.android:id/bg']//*[@resource-id='jp.naver.line.android:id/name'])[1]    timeout=10s
+    Wait Until Element Is Visible    xpath=(//*[@class='android.view.ViewGroup' and @resource-id='jp.naver.line.android:id/bg']//*[@resource-id='jp.naver.line.android:id/name'])[1]    timeout=10s
     ${name1} =    Get Text    xpath=(//*[@class='android.view.ViewGroup' and @resource-id='jp.naver.line.android:id/bg']//*[@resource-id='jp.naver.line.android:id/name'])[1]
     Long Press    xpath=(//*[@class='android.view.ViewGroup' and @resource-id = 'jp.naver.line.android:id/bg'])[1]
     Wait Until Element Is Visible    //*[@resource-id='jp.naver.line.android:id/common_dialog_item' and @text='刪除']
@@ -592,7 +596,7 @@ Delete All User By Open LINE
     Click Element    //*[@resource-id='jp.naver.line.android:id/common_dialog_ok_btn' and @text='刪除']
     Log To Console    ${name1}
     FOR    ${i}    IN RANGE    9999
-        Wait Until Page Does Not Contain Element    //*[@resource-id='jp.naver.line.android:id/bg']//*[@resource-id='jp.naver.line.android:id/name' and @text='${name1}']    timeout=10s
+        Wait Until Page Does Not Contain Element    //*[@resource-id='jp.naver.line.android:id/bg']//*[@resource-id='jp.naver.line.android:id/name' and @text='${name1}']    timeout=30s
         ${FriendExist} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[@class='android.view.ViewGroup' and @resource-id='jp.naver.line.android:id/bg']    timeout=3s
         Exit For Loop if    not ${FriendExist}
         ${name1} =    Get Text    xpath=(//*[@class='android.view.ViewGroup' and @resource-id='jp.naver.line.android:id/bg']//*[@resource-id='jp.naver.line.android:id/name'])[1]

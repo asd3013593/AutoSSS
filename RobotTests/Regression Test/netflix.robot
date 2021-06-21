@@ -45,33 +45,23 @@ test vpn
 
 Post Change Password
     [Setup]    Open Browser And Go To Netflix
-    @{account} =    Get Account With Amount    已註冊    lure    15
+    @{account} =    Get Account With Amount    已註冊    twnetify    7
     ${temp} =    Set Variable    0
     FOR    ${i}    IN    @{account}
         # Sign In Exist Account
+        Run Keyword If    ${temp}==0    Switch VPN To Other Turkey Server
         Verify If Account Password Be Changed    ${i}[key]    ${i}[value]
+        ${temp} =    Evaluate    (${temp}+1)%5
     END
 
 add
     @{account} =    Set Variable
-    ...    netifyays
-    ...    netifyayt
-    ...    netifyayu
-    ...    netifyayv
-    ...    netifyayw
-    ...    netifyayx
-    ...    netifyayy
-    ...    netifyayz
-    ...    netifyaza
-    ...    netifyazb
-    ...    netifyazc
-    ...    netifyazd
-    ...    netifyaze
-    ...    netifyazf
-    ...    netifyazg
+    ...    netifyact
+    ...    netifyacu
+    ...    netifyacv
     FOR    ${i}    IN    @{account}
         # Delete Account With Key    已寄出    mycat    ${i}
-        Update Account To New State    未註冊    lure    ${i}    Netify000
+        Update Account To New State    已註冊    twnetify    ${i}    Netify000
         # delete account to new state    已寄出    已註冊    lure    ${i}    Netify000
     END
     # @{account} =    Get Account With Amount    已註冊    lure    9
@@ -154,10 +144,12 @@ Register Account
 
 Verify If Account Password Be Changed
     [Arguments]    ${account}    ${password}
-    ${account2} =    Evaluate    """${account}""".replace("@lure.tw", "")
+    ${account2} =    Evaluate    """${account}""".replace("@twnetify.com", "")
     Send Forgot Password Mail    ${account}
     Send Forgot Password Mail    ${account}
-    delete account to new state    ${account2}    已註冊    已寄出    lure    ${password}
+    Send Forgot Password Mail    ${account}
+    Send Forgot Password Mail    ${account}
+    delete account to new state    ${account2}    已註冊    已寄出    twnetify    ${password}
     
 
 Sign In Netflix Account
@@ -231,7 +223,7 @@ Send Forgot Password Mail
     # Click Element After It Is Visible   //*[@class ='android.widget.TextView' and @content-desc ='Chrome']
 
 Switch To Turkey VPN
-    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=7.1.2    alias=MyChrome1
+    Open Application    http://localhost:4725/wd/hub    platformName=Android    platformVersion=5.1.1    alias=MyChrome1
     ...    deviceName=${device}    noReset=true    browserName=Chrome    automationName=uiautomator2
     Go To Url    https://oldman.tw/goadmin.php
     Switch To Context    NATIVE_APP

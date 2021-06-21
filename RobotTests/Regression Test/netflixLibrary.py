@@ -6,13 +6,13 @@ from selenium.common.exceptions import TimeoutException
 from robot.api.deco import keyword
 from distutils.core import setup
 from PIL._imaging import draw
-from lib2to3.tests.support import driver
 from firebase import firebase
 from firebase_admin import credentials
 from firebase_admin import firestore
 from firebase_admin import db
 import firebase_admin
 import sys
+import random
 
 @keyword(name='Setup Application Driver')
 def setup_application_driver():
@@ -21,7 +21,7 @@ def setup_application_driver():
     desired_caps['platformName'] = "Windows"
     desired_caps['deviceName'] = "WindowsPC"
     driver = webdriver.Remote(
-        command_executor='http://127.0.0.1:4723',
+        command_executor='http://127.0.0.1:4726',
         desired_capabilities=desired_caps)
     return driver
 
@@ -111,3 +111,12 @@ def _update_account_to_new_state(state, name, account, password):
     url = "https://netify-c29d2-default-rtdb.firebaseio.com/"
     fb = firebase.FirebaseApplication(url,None)
     fb.put("/"+state+name , account, password)
+
+@keyword(name='Maker Random Password')
+def _make_random_account():
+    password = chr(random.randint(65,90))
+    print(password)
+    length = random.randint(6,8)
+    for i in range(length):
+        password += str(random.randint(0,9))
+    return password
