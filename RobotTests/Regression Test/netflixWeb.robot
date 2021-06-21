@@ -28,13 +28,13 @@ Send forgot password mail
 
 update account to firebase
     @{account} =    Set Variable
-    ...    netifyadg
-    ...    netifyadh
-    ...    netifyadi
-    ...    netifyadj
-    ...    netifyadk
-    ...    netifyadl
-    ...    netifyadm
+    ...    netifyadv
+    ...    netifyadw
+    ...    netifyadx
+    ...    netifyady
+    ...    netifyadz
+    ...    netifyaea
+    ...    netifyaeb
     FOR    ${i}    IN    @{account}
         # Dnt With Key    已寄出    mycat    ${i
         ${password} =    Maker Random Password

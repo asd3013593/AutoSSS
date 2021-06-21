@@ -45,7 +45,7 @@ test vpn
 
 Post Change Password
     [Setup]    Open Browser And Go To Netflix
-    @{account} =    Get Account With Amount    已註冊    twnetify    7
+    @{account} =    Get Account With Amount    已寄出    twnetify    1
     ${temp} =    Set Variable    0
     FOR    ${i}    IN    @{account}
         # Sign In Exist Account
@@ -56,12 +56,17 @@ Post Change Password
 
 add
     @{account} =    Set Variable
-    ...    netifyact
-    ...    netifyacu
-    ...    netifyacv
+    ...    netifyadn
+    ...    netifyado
+    ...    netifyadp
+    ...    netifyadq
+    ...    netifyadr
+    ...    netifyads
+    ...    netifyadt
+    ...    netifyadu
     FOR    ${i}    IN    @{account}
         # Delete Account With Key    已寄出    mycat    ${i}
-        Update Account To New State    已註冊    twnetify    ${i}    Netify000
+        Update Account To New State    未註冊    twnetify    ${i}    Netify000
         # delete account to new state    已寄出    已註冊    lure    ${i}    Netify000
     END
     # @{account} =    Get Account With Amount    已註冊    lure    9

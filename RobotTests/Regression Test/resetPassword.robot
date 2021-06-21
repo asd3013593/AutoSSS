@@ -11,7 +11,7 @@ ${slowNetPeriod} =    30s
 *** Test Cases ***
 
 Change Password
-    @{account} =    Get Account With Amount    已寄出    twnetify    7
+    @{account} =    Get Account With Amount    已寄出    twnetify    1
     FOR    ${i}    IN    @{account}
         Login Email Website    ${i}[key]
         Select Password Reset Requst Mail
@@ -69,6 +69,8 @@ Login Email Website
 
 Select Password Reset Requst Mail
     Select Frame    right
+    # ${resetMailexist} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    xpath=(//*[@class='tblRowStyle']//*[contains(normalize-space(),'Complete your password reset request')]/a)[1]    timeout=${slowNetPeriod}
+    # Run Keyword Unless    ${resetMailexist}    Run Keywords    
     Click Element After It Is Visible    xpath=(//*[@class='tblRowStyle']//*[contains(normalize-space(),'Complete your password reset request')]/a)[1]    timeout=${slowNetPeriod}
     Unselect Frame
     Switch Window    locator=NEW
