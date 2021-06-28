@@ -3,7 +3,6 @@ Library    netify
 Library    SeleniumLibrary
 Suite Setup    Set Library Search Order  SeleniumLibrary  AppiumLibrary
 
-
 *** Variables ***
 ${slowNetPeriod} =    30s
 
@@ -11,11 +10,15 @@ ${slowNetPeriod} =    30s
 *** Test Cases ***
 
 Change Password
-    @{account} =    Get Account With Amount    已寄出    twnetify    1
+    @{account} =    Get Account With Amount    已寄出    twnetify    100
     FOR    ${i}    IN    @{account}
-        Login Email Website    ${i}[key]
-        Select Password Reset Requst Mail
         ${accountwithoutWebName} =    Evaluate    """${i}[key]""".replace("@twnetify.com","")
+        Login Email Website    ${i}[key]
+        ${resetMailexist} =    Verify Reset Email Exist
+        Run Keyword Unless    ${resetMailexist}    Run Keywords    Move Account To New State    ${accountwithoutWebName}    已寄出    已註冊    twnetify    ${i}[value]
+        ...                                                 AND    Close Browser
+        ...                                                 AND    Continue For Loop
+        Select Password Reset Requst Mail
         ${newPassword} =    Evaluate    """Netify"""+str(random.randrange(100,999))
         Input New Password    ${newPassword}
         Post New Password Request    ${accountwithoutWebName}    ${newPassword}
@@ -41,6 +44,12 @@ add
     # END
 
 *** Keywords ***
+Verify Reset Email Exist
+    Select Frame    right
+    ${resetMailexist} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    xpath=(//*[@class='tblRowStyle']//*[contains(normalize-space(),'Complete your password reset request')]//a)[1]    timeout=10s
+    Unselect Frame
+    [Return]    ${resetMailexist}
+
 Post New Password Request
     [Arguments]    ${account}    ${newPassword}
     Click Element After It Is Visible    //*[@id='btn-save']
@@ -69,13 +78,17 @@ Login Email Website
 
 Select Password Reset Requst Mail
     Select Frame    right
-    # ${resetMailexist} =    Run Keyword And Return Status    Wait Until Element Is Visible On Page    xpath=(//*[@class='tblRowStyle']//*[contains(normalize-space(),'Complete your password reset request')]/a)[1]    timeout=${slowNetPeriod}
-    # Run Keyword Unless    ${resetMailexist}    Run Keywords    
     Click Element After It Is Visible    xpath=(//*[@class='tblRowStyle']//*[contains(normalize-space(),'Complete your password reset request')]/a)[1]    timeout=${slowNetPeriod}
     Unselect Frame
     Switch Window    locator=NEW
     Click Element After It Is Visible    //*[@class='button-link' and normalize-space()='RESET PASSWORD']    timeout=${slowNetPeriod}
     Wait Until Element Is Visible On Page  //*[normalize-space()='Change Password']    timeout=10s
+
+Move Account To New State
+    [Arguments]    ${account}    ${fState}    ${eState}    ${name}    ${password}
+    Log To Console    將帳號'${account}'從'${fState}${name}'刪除，並新增至'${eState}${name}'
+    Delete Account With Key    ${fState}    ${name}    ${account}
+    Update Account To New State    ${eState}    ${name}    ${account}    ${password}
 
 Click Element After It Is Visible
     [Arguments]    ${elementPath}    ${timeout}=${slowNetPeriod}    ${error}=Element should be visible before click.

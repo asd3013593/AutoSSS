@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="Collections" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2021-06-04T11:35:43Z" specversion="2" source="..\Programs\Python\Python36\lib\site-packages\robot\libraries\Collections.py" lineno="830">
-<version>3.2</version>
+<keywordspec format="ROBOT" generated="2021-06-24T01:57:29Z" lineno="830" name="Collections" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\Collections.py" specversion="2" type="LIBRARY">
+<version>3.2.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
 <doc>A test library providing keywords for handling lists and dictionaries.
@@ -86,7 +86,7 @@ For example, ``${L1}`` means ``['a']`` and ``${L3}`` means
 
 Dictionary keywords use similar ``${Dx}`` variables. For example, ``${D1}``
 means ``{'a': 1}`` and ``${D3}`` means ``{'a': 1, 'b': 2, 'c': 3}``.</doc>
-<kw name="Append To List" lineno="41">
+<kw lineno="41" name="Append To List">
 <arguments>
 <arg>list_</arg>
 <arg>*values</arg>
@@ -100,7 +100,7 @@ Example:
 | ${L1} = ['a', 'xxx']
 | ${L2} = ['a', 'b', 'x', 'y', 'z']</doc>
 </kw>
-<kw name="Combine Lists" lineno="79">
+<kw lineno="79" name="Combine Lists">
 <arguments>
 <arg>*lists</arg>
 </arguments>
@@ -116,7 +116,7 @@ Example:
 | ${y} = ['a', 'a', 'b', 'a']
 | ${L1} and ${L2} are not changed.</doc>
 </kw>
-<kw name="Convert To Dictionary" lineno="480">
+<kw lineno="480" name="Convert To Dictionary">
 <arguments>
 <arg>item</arg>
 </arguments>
@@ -131,7 +131,7 @@ dictionaries.
 
 New in Robot Framework 2.9.</doc>
 </kw>
-<kw name="Convert To List" lineno="33">
+<kw lineno="33" name="Convert To List">
 <arguments>
 <arg>item</arg>
 </arguments>
@@ -140,7 +140,7 @@ New in Robot Framework 2.9.</doc>
 Mainly useful for converting tuples and other iterable to lists.
 Use `Create List` from the BuiltIn library for constructing new lists.</doc>
 </kw>
-<kw name="Copy Dictionary" lineno="575">
+<kw lineno="575" name="Copy Dictionary">
 <arguments>
 <arg>dictionary</arg>
 <arg>deepcopy=False</arg>
@@ -156,7 +156,7 @@ shallow copies.
 
 The given dictionary is never altered by this keyword.</doc>
 </kw>
-<kw name="Copy List" lineno="266">
+<kw lineno="266" name="Copy List">
 <arguments>
 <arg>list_</arg>
 <arg>deepcopy=False</arg>
@@ -168,7 +168,7 @@ list is a deep copy. New option in Robot Framework 3.1.2.
 
 The given list is never altered by this keyword.</doc>
 </kw>
-<kw name="Count Values In List" lineno="227">
+<kw lineno="227" name="Count Values In List">
 <arguments>
 <arg>list_</arg>
 <arg>value</arg>
@@ -187,7 +187,7 @@ Example:
 | ${x} = 1
 | ${L3} is not changed</doc>
 </kw>
-<kw name="Dictionaries Should Be Equal" lineno="744">
+<kw lineno="744" name="Dictionaries Should Be Equal">
 <arguments>
 <arg>dict1</arg>
 <arg>dict2</arg>
@@ -204,7 +204,7 @@ need to be same.
 See `Lists Should Be Equal` for more information about configuring
 the error message with ``msg`` and ``values`` arguments.</doc>
 </kw>
-<kw name="Dictionary Should Contain Item" lineno="713">
+<kw lineno="713" name="Dictionary Should Contain Item">
 <arguments>
 <arg>dictionary</arg>
 <arg>key</arg>
@@ -217,7 +217,7 @@ Value is converted to unicode for comparison.
 
 Use the ``msg`` argument to override the default error message.</doc>
 </kw>
-<kw name="Dictionary Should Contain Key" lineno="695">
+<kw lineno="695" name="Dictionary Should Contain Key">
 <arguments>
 <arg>dictionary</arg>
 <arg>key</arg>
@@ -227,7 +227,7 @@ Use the ``msg`` argument to override the default error message.</doc>
 
 Use the ``msg`` argument to override the default error message.</doc>
 </kw>
-<kw name="Dictionary Should Contain Sub Dictionary" lineno="760">
+<kw lineno="760" name="Dictionary Should Contain Sub Dictionary">
 <arguments>
 <arg>dict1</arg>
 <arg>dict2</arg>
@@ -239,7 +239,7 @@ Use the ``msg`` argument to override the default error message.</doc>
 See `Lists Should Be Equal` for more information about configuring
 the error message with ``msg`` and ``values`` arguments.</doc>
 </kw>
-<kw name="Dictionary Should Contain Value" lineno="726">
+<kw lineno="726" name="Dictionary Should Contain Value">
 <arguments>
 <arg>dictionary</arg>
 <arg>value</arg>
@@ -249,7 +249,7 @@ the error message with ``msg`` and ``values`` arguments.</doc>
 
 Use the ``msg`` argument to override the default error message.</doc>
 </kw>
-<kw name="Dictionary Should Not Contain Key" lineno="704">
+<kw lineno="704" name="Dictionary Should Not Contain Key">
 <arguments>
 <arg>dictionary</arg>
 <arg>key</arg>
@@ -259,7 +259,7 @@ Use the ``msg`` argument to override the default error message.</doc>
 
 Use the ``msg`` argument to override the default error message.</doc>
 </kw>
-<kw name="Dictionary Should Not Contain Value" lineno="735">
+<kw lineno="735" name="Dictionary Should Not Contain Value">
 <arguments>
 <arg>dictionary</arg>
 <arg>value</arg>
@@ -269,7 +269,7 @@ Use the ``msg`` argument to override the default error message.</doc>
 
 Use the ``msg`` argument to override the default error message.</doc>
 </kw>
-<kw name="Get Dictionary Items" lineno="647">
+<kw lineno="647" name="Get Dictionary Items">
 <arguments>
 <arg>dictionary</arg>
 <arg>sort_keys=True</arg>
@@ -298,7 +298,7 @@ Example:
 ``sort_keys`` is a new option in Robot Framework 3.1.2. Earlier items
 were always sorted based on keys.</doc>
 </kw>
-<kw name="Get Dictionary Keys" lineno="592">
+<kw lineno="592" name="Get Dictionary Keys">
 <arguments>
 <arg>dictionary</arg>
 <arg>sort_keys=True</arg>
@@ -323,7 +323,7 @@ Example:
 ``sort_keys`` is a new option in Robot Framework 3.1.2. Earlier keys
 were always sorted.</doc>
 </kw>
-<kw name="Get Dictionary Values" lineno="622">
+<kw lineno="622" name="Get Dictionary Values">
 <arguments>
 <arg>dictionary</arg>
 <arg>sort_keys=True</arg>
@@ -348,7 +348,7 @@ Example:
 ``sort_keys`` is a new option in Robot Framework 3.1.2. Earlier values
 were always sorted based on keys.</doc>
 </kw>
-<kw name="Get From Dictionary" lineno="676">
+<kw lineno="676" name="Get From Dictionary">
 <arguments>
 <arg>dictionary</arg>
 <arg>key</arg>
@@ -365,7 +365,7 @@ Example:
 =&gt;
 | ${value} = 2</doc>
 </kw>
-<kw name="Get From List" lineno="172">
+<kw lineno="172" name="Get From List">
 <arguments>
 <arg>list_</arg>
 <arg>index</arg>
@@ -388,7 +388,7 @@ Examples (including Python equivalents in comments):
 | ${y} = 'd'
 | ${L5} is not changed</doc>
 </kw>
-<kw name="Get Index From List" lineno="243">
+<kw lineno="243" name="Get Index From List">
 <arguments>
 <arg>list_</arg>
 <arg>value</arg>
@@ -408,7 +408,7 @@ Example:
 | ${x} = 3
 | ${L5} is not changed</doc>
 </kw>
-<kw name="Get Match Count" lineno="989">
+<kw lineno="989" name="Get Match Count">
 <arguments>
 <arg>list</arg>
 <arg>pattern</arg>
@@ -425,7 +425,7 @@ Examples:
 | ${count}= | Get Match Count | ${list} | regexp=a.* | # ${matches} will be the count of strings beginning with 'a' (regexp version) |
 | ${count}= | Get Match Count | ${list} | a* | case_insensitive=${True} | # ${matches} will be the count of strings beginning with 'a' or 'A' |</doc>
 </kw>
-<kw name="Get Matches" lineno="973">
+<kw lineno="973" name="Get Matches">
 <arguments>
 <arg>list</arg>
 <arg>pattern</arg>
@@ -442,7 +442,7 @@ Examples:
 | ${matches}= | Get Matches | ${list} | regexp=a.* | # ${matches} will contain any string beginning with 'a' (regexp version) |
 | ${matches}= | Get Matches | ${list} | a* | case_insensitive=${True} | # ${matches} will contain any string beginning with 'a' or 'A' |</doc>
 </kw>
-<kw name="Get Slice From List" lineno="197">
+<kw lineno="197" name="Get Slice From List">
 <arguments>
 <arg>list_</arg>
 <arg>start=0</arg>
@@ -471,7 +471,7 @@ Examples (incl. Python equivalents in comments):
 | ${z} = ['a', 'b', 'c']
 | ${L5} is not changed</doc>
 </kw>
-<kw name="Insert Into List" lineno="55">
+<kw lineno="55" name="Insert Into List">
 <arguments>
 <arg>list_</arg>
 <arg>index</arg>
@@ -497,7 +497,7 @@ Example:
 | ${L1} = ['xxx', 'a']
 | ${L2} = ['a', 'xxx', 'b']</doc>
 </kw>
-<kw name="Keep In Dictionary" lineno="560">
+<kw lineno="560" name="Keep In Dictionary">
 <arguments>
 <arg>dictionary</arg>
 <arg>*keys</arg>
@@ -512,7 +512,7 @@ Example:
 =&gt;
 | ${D5} = {'b': 2, 'd': 4}</doc>
 </kw>
-<kw name="List Should Contain Sub List" lineno="421">
+<kw lineno="421" name="List Should Contain Sub List">
 <arguments>
 <arg>list1</arg>
 <arg>list2</arg>
@@ -527,7 +527,7 @@ account.
 See `Lists Should Be Equal` for more information about configuring
 the error message with ``msg`` and ``values`` arguments.</doc>
 </kw>
-<kw name="List Should Contain Value" lineno="305">
+<kw lineno="305" name="List Should Contain Value">
 <arguments>
 <arg>list_</arg>
 <arg>value</arg>
@@ -537,7 +537,7 @@ the error message with ``msg`` and ``values`` arguments.</doc>
 
 Use the ``msg`` argument to override the default error message.</doc>
 </kw>
-<kw name="List Should Not Contain Duplicates" lineno="323">
+<kw lineno="323" name="List Should Not Contain Duplicates">
 <arguments>
 <arg>list_</arg>
 <arg>msg=None</arg>
@@ -552,7 +552,7 @@ also logged.
 This keyword works with all iterables that can be converted to a list.
 The original iterable is never altered.</doc>
 </kw>
-<kw name="List Should Not Contain Value" lineno="314">
+<kw lineno="314" name="List Should Not Contain Value">
 <arguments>
 <arg>list_</arg>
 <arg>value</arg>
@@ -562,7 +562,7 @@ The original iterable is never altered.</doc>
 
 Use the ``msg`` argument to override the default error message.</doc>
 </kw>
-<kw name="Lists Should Be Equal" lineno="348">
+<kw lineno="348" name="Lists Should Be Equal">
 <arguments>
 <arg>list1</arg>
 <arg>list2</arg>
@@ -614,7 +614,7 @@ Example:
 | ${list2} = | Create List | cherry | banana | apple |
 | Lists Should Be Equal | ${list1} | ${list2} | ignore_order=True |</doc>
 </kw>
-<kw name="Log Dictionary" lineno="776">
+<kw lineno="776" name="Log Dictionary">
 <arguments>
 <arg>dictionary</arg>
 <arg>level=INFO</arg>
@@ -626,7 +626,7 @@ Valid levels are TRACE, DEBUG, INFO (default), and WARN.
 If you only want to log the size, use keyword `Get Length` from
 the BuiltIn library.</doc>
 </kw>
-<kw name="Log List" lineno="435">
+<kw lineno="435" name="Log List">
 <arguments>
 <arg>list_</arg>
 <arg>level=INFO</arg>
@@ -638,7 +638,7 @@ Valid levels are TRACE, DEBUG, INFO (default), and WARN.
 If you only want to the length, use keyword `Get Length` from
 the BuiltIn library.</doc>
 </kw>
-<kw name="Pop From Dictionary" lineno="539">
+<kw lineno="539" name="Pop From Dictionary">
 <arguments>
 <arg>dictionary</arg>
 <arg>key</arg>
@@ -658,7 +658,7 @@ Example:
 
 New in Robot Framework 2.9.2.</doc>
 </kw>
-<kw name="Remove Duplicates" lineno="155">
+<kw lineno="155" name="Remove Duplicates">
 <arguments>
 <arg>list_</arg>
 </arguments>
@@ -669,7 +669,7 @@ list so that one item can appear only once. Order of the items in
 the new list is the same as in the original except for missing
 duplicates. Number of the removed duplicates is logged.</doc>
 </kw>
-<kw name="Remove From Dictionary" lineno="520">
+<kw lineno="520" name="Remove From Dictionary">
 <arguments>
 <arg>dictionary</arg>
 <arg>*keys</arg>
@@ -684,7 +684,7 @@ Example:
 =&gt;
 | ${D3} = {'a': 1, 'c': 3}</doc>
 </kw>
-<kw name="Remove From List" lineno="134">
+<kw lineno="134" name="Remove From List">
 <arguments>
 <arg>list_</arg>
 <arg>index</arg>
@@ -703,7 +703,7 @@ Example:
 | ${x} = 'a'
 | ${L2} = ['b']</doc>
 </kw>
-<kw name="Remove Values From List" lineno="119">
+<kw lineno="119" name="Remove Values From List">
 <arguments>
 <arg>list_</arg>
 <arg>*values</arg>
@@ -717,7 +717,7 @@ Example:
 =&gt;
 | ${L4} = ['b', 'd']</doc>
 </kw>
-<kw name="Reverse List" lineno="279">
+<kw lineno="279" name="Reverse List">
 <arguments>
 <arg>list_</arg>
 </arguments>
@@ -730,7 +730,7 @@ Note that the given list is changed and nothing is returned. Use
 =&gt;
 | ${L3} = ['c', 'b', 'a']</doc>
 </kw>
-<kw name="Set List Value" lineno="98">
+<kw lineno="98" name="Set List Value">
 <arguments>
 <arg>list_</arg>
 <arg>index</arg>
@@ -750,7 +750,7 @@ Example:
 =&gt;
 | ${L3} = ['a', 'xxx', 'yyy']</doc>
 </kw>
-<kw name="Set To Dictionary" lineno="494">
+<kw lineno="494" name="Set To Dictionary">
 <arguments>
 <arg>dictionary</arg>
 <arg>*key_value_pairs</arg>
@@ -772,7 +772,7 @@ a limitation that keys must be strings.
 
 If given keys already exist in the dictionary, their values are updated.</doc>
 </kw>
-<kw name="Should Contain Match" lineno="913">
+<kw lineno="913" name="Should Contain Match">
 <arguments>
 <arg>list</arg>
 <arg>pattern</arg>
@@ -815,7 +815,7 @@ Examples:
 | Should Contain Match | ${list} | ab* | whitespace_insensitive=yes  | | # Match strings beginning with 'ab' with possible whitespace ignored. |
 | Should Contain Match | ${list} | ab* | whitespace_insensitive=true | case_insensitive=true | # Same as the above but also ignore case. |</doc>
 </kw>
-<kw name="Should Not Contain Match" lineno="958">
+<kw lineno="958" name="Should Not Contain Match">
 <arguments>
 <arg>list</arg>
 <arg>pattern</arg>
@@ -828,7 +828,7 @@ Examples:
 Exact opposite of `Should Contain Match` keyword. See that keyword
 for information about arguments and usage in general.</doc>
 </kw>
-<kw name="Sort List" lineno="292">
+<kw lineno="292" name="Sort List">
 <arguments>
 <arg>list_</arg>
 </arguments>

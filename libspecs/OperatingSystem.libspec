@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="OperatingSystem" type="LIBRARY" format="ROBOT" scope="GLOBAL" namedargs="true" generated="2021-06-04T11:35:44Z" specversion="2" source="..\Programs\Python\Python36\lib\site-packages\robot\libraries\OperatingSystem.py" lineno="38">
-<version>3.2</version>
+<keywordspec format="ROBOT" generated="2021-06-24T01:57:28Z" lineno="38" name="OperatingSystem" namedargs="true" scope="GLOBAL" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\OperatingSystem.py" specversion="2" type="LIBRARY">
+<version>3.2.2</version>
 <scope>global</scope>
 <namedargs>yes</namedargs>
 <doc>A test library providing keywords for OS related tasks.
@@ -104,7 +104,7 @@ considering also ``OFF`` and ``0`` false is new in Robot Framework 3.1.
 |             | File Should Exist | ${PATH}    |                      |
 |             | Copy File         | ${PATH}    | ~/file.txt           |
 |             | ${output} =       | Run | ${TEMPDIR}${/}script.py arg |</doc>
-<kw name="Append To Environment Variable" lineno="961">
+<kw lineno="961" name="Append To Environment Variable">
 <arguments>
 <arg>name</arg>
 <arg>*values</arg>
@@ -130,7 +130,7 @@ Examples (assuming ``NAME`` and ``NAME2`` do not exist initially):
 | Append To Environment Variable | NAME2    | second | separator=-     |
 | Should Be Equal                | %{NAME2} | first-second             |</doc>
 </kw>
-<kw name="Append To File" lineno="612">
+<kw lineno="612" name="Append To File">
 <arguments>
 <arg>path</arg>
 <arg>content</arg>
@@ -148,7 +148,7 @@ about the usage.
 Note that special encodings ``SYSTEM`` and ``CONSOLE`` only work
 with this keyword starting from Robot Framework 3.1.2.</doc>
 </kw>
-<kw name="Copy Directory" lineno="885">
+<kw lineno="885" name="Copy Directory">
 <arguments>
 <arg>source</arg>
 <arg>destination</arg>
@@ -159,7 +159,7 @@ If the destination exists, the source is copied under it. Otherwise
 the destination directory and the possible missing intermediate
 directories are created.</doc>
 </kw>
-<kw name="Copy File" lineno="714">
+<kw lineno="714" name="Copy File">
 <arguments>
 <arg>source</arg>
 <arg>destination</arg>
@@ -190,7 +190,7 @@ The resulting destination path is returned since Robot Framework 2.9.2.
 
 See also `Copy Files`, `Move File`, and `Move Files`.</doc>
 </kw>
-<kw name="Copy Files" lineno="838">
+<kw lineno="838" name="Copy Files">
 <arguments>
 <arg>*sources_and_destination</arg>
 </arguments>
@@ -209,21 +209,21 @@ Examples:
 
 See also `Copy File`, `Move File`, and `Move Files`.</doc>
 </kw>
-<kw name="Count Directories In Directory" lineno="1349">
+<kw lineno="1349" name="Count Directories In Directory">
 <arguments>
 <arg>path</arg>
 <arg>pattern=None</arg>
 </arguments>
 <doc>Wrapper for `Count Items In Directory` returning only directory count.</doc>
 </kw>
-<kw name="Count Files In Directory" lineno="1343">
+<kw lineno="1343" name="Count Files In Directory">
 <arguments>
 <arg>path</arg>
 <arg>pattern=None</arg>
 </arguments>
 <doc>Wrapper for `Count Items In Directory` returning only file count.</doc>
 </kw>
-<kw name="Count Items In Directory" lineno="1332">
+<kw lineno="1332" name="Count Items In Directory">
 <arguments>
 <arg>path</arg>
 <arg>pattern=None</arg>
@@ -234,7 +234,7 @@ The argument ``pattern`` has the same semantics as with `List Directory`
 keyword. The count is returned as an integer, so it must be checked e.g.
 with the built-in keyword `Should Be Equal As Integers`.</doc>
 </kw>
-<kw name="Create Binary File" lineno="586">
+<kw lineno="586" name="Create Binary File">
 <arguments>
 <arg>path</arg>
 <arg>content</arg>
@@ -259,7 +259,7 @@ Use `Create File` if you want to create a text file using a certain
 encoding. `File Should Not Exist` can be used to avoid overwriting
 existing files.</doc>
 </kw>
-<kw name="Create Directory" lineno="672">
+<kw lineno="672" name="Create Directory">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -269,7 +269,7 @@ Also possible intermediate directories are created. Passes if the
 directory already exists, but fails if the path exists and is not
 a directory.</doc>
 </kw>
-<kw name="Create File" lineno="541">
+<kw lineno="541" name="Create File">
 <arguments>
 <arg>path</arg>
 <arg>content=</arg>
@@ -301,7 +301,7 @@ The support for ``SYSTEM`` and ``CONSOLE`` encodings is new in Robot
 Framework 3.0. Automatically converting ``\n`` to ``\r\n`` on
 Windows is new in Robot Framework 3.1.</doc>
 </kw>
-<kw name="Directory Should Be Empty" lineno="488">
+<kw lineno="488" name="Directory Should Be Empty">
 <arguments>
 <arg>path</arg>
 <arg>msg=None</arg>
@@ -310,7 +310,7 @@ Windows is new in Robot Framework 3.1.</doc>
 
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="Directory Should Exist" lineno="406">
+<kw lineno="406" name="Directory Should Exist">
 <arguments>
 <arg>path</arg>
 <arg>msg=None</arg>
@@ -321,7 +321,7 @@ The path can be given as an exact path or as a glob pattern.
 The pattern matching syntax is explained in `introduction`.
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="Directory Should Not Be Empty" lineno="500">
+<kw lineno="500" name="Directory Should Not Be Empty">
 <arguments>
 <arg>path</arg>
 <arg>msg=None</arg>
@@ -330,7 +330,7 @@ The default error message can be overridden with the ``msg`` argument.</doc>
 
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="Directory Should Not Exist" lineno="419">
+<kw lineno="419" name="Directory Should Not Exist">
 <arguments>
 <arg>path</arg>
 <arg>msg=None</arg>
@@ -341,7 +341,7 @@ The path can be given as an exact path or as a glob pattern.
 The pattern matching syntax is explained in `introduction`.
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="Empty Directory" lineno="657">
+<kw lineno="657" name="Empty Directory">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -351,7 +351,7 @@ Deletes both files and sub-directories, but the specified directory
 itself if not removed. Use `Remove Directory` if you want to remove
 the whole directory.</doc>
 </kw>
-<kw name="Environment Variable Should Be Set" lineno="1008">
+<kw lineno="1008" name="Environment Variable Should Be Set">
 <arguments>
 <arg>name</arg>
 <arg>msg=None</arg>
@@ -360,7 +360,7 @@ the whole directory.</doc>
 
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="Environment Variable Should Not Be Set" lineno="1018">
+<kw lineno="1018" name="Environment Variable Should Not Be Set">
 <arguments>
 <arg>name</arg>
 <arg>msg=None</arg>
@@ -369,7 +369,7 @@ The default error message can be overridden with the ``msg`` argument.</doc>
 
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="File Should Be Empty" lineno="512">
+<kw lineno="512" name="File Should Be Empty">
 <arguments>
 <arg>path</arg>
 <arg>msg=None</arg>
@@ -378,7 +378,7 @@ The default error message can be overridden with the ``msg`` argument.</doc>
 
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="File Should Exist" lineno="380">
+<kw lineno="380" name="File Should Exist">
 <arguments>
 <arg>path</arg>
 <arg>msg=None</arg>
@@ -389,7 +389,7 @@ The path can be given as an exact path or as a glob pattern.
 The pattern matching syntax is explained in `introduction`.
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="File Should Not Be Empty" lineno="526">
+<kw lineno="526" name="File Should Not Be Empty">
 <arguments>
 <arg>path</arg>
 <arg>msg=None</arg>
@@ -398,7 +398,7 @@ The default error message can be overridden with the ``msg`` argument.</doc>
 
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="File Should Not Exist" lineno="393">
+<kw lineno="393" name="File Should Not Exist">
 <arguments>
 <arg>path</arg>
 <arg>msg=None</arg>
@@ -409,7 +409,7 @@ The path can be given as an exact path or as a glob pattern.
 The pattern matching syntax is explained in `introduction`.
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="Get Binary File" lineno="280">
+<kw lineno="280" name="Get Binary File">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -418,7 +418,7 @@ The default error message can be overridden with the ``msg`` argument.</doc>
 This keyword reads the specified file and returns the contents as is.
 See also `Get File`.</doc>
 </kw>
-<kw name="Get Environment Variable" lineno="934">
+<kw lineno="934" name="Get Environment Variable">
 <arguments>
 <arg>name</arg>
 <arg>default=None</arg>
@@ -434,7 +434,7 @@ the system encoding.
 Note that you can also access environment variables directly using
 the variable syntax ``%{ENV_VAR_NAME}``.</doc>
 </kw>
-<kw name="Get Environment Variables" lineno="1029">
+<kw lineno="1029" name="Get Environment Variables">
 <arguments>
 </arguments>
 <doc>Returns currently available environment variables as a dictionary.
@@ -443,7 +443,7 @@ Both keys and values are decoded to Unicode using the system encoding.
 Altering the returned dictionary has no effect on the actual environment
 variables.</doc>
 </kw>
-<kw name="Get File" lineno="232">
+<kw lineno="232" name="Get File">
 <arguments>
 <arg>path</arg>
 <arg>encoding=UTF-8</arg>
@@ -476,13 +476,13 @@ in practice the following values are most useful:
 
 Support for ``SYSTEM`` and ``CONSOLE`` encodings in Robot Framework 3.0.</doc>
 </kw>
-<kw name="Get File Size" lineno="1280">
+<kw lineno="1280" name="Get File Size">
 <arguments>
 <arg>path</arg>
 </arguments>
 <doc>Returns and logs file size as an integer in bytes.</doc>
 </kw>
-<kw name="Get Modified Time" lineno="1191">
+<kw lineno="1191" name="Get Modified Time">
 <arguments>
 <arg>path</arg>
 <arg>format=timestamp</arg>
@@ -521,7 +521,7 @@ Examples (when the modified time of ``${CURDIR}`` is
 - ${y} = '2006' &amp; ${d} = '29'
 - @{time} = ['2006', '03', '29', '15', '06', '21']</doc>
 </kw>
-<kw name="Grep File" lineno="291">
+<kw lineno="291" name="Grep File">
 <arguments>
 <arg>path</arg>
 <arg>pattern</arg>
@@ -550,7 +550,7 @@ If more complex pattern matching is needed, it is possible to use
 `Get File` in combination with String library keywords like `Get
 Lines Matching Regexp`.</doc>
 </kw>
-<kw name="Join Path" lineno="1051">
+<kw lineno="1051" name="Join Path">
 <arguments>
 <arg>base</arg>
 <arg>*parts</arg>
@@ -574,7 +574,7 @@ Examples:
 - ${p4} = '/path'
 - ${p5} = '/my/path2'</doc>
 </kw>
-<kw name="Join Paths" lineno="1075">
+<kw lineno="1075" name="Join Paths">
 <arguments>
 <arg>base</arg>
 <arg>*paths</arg>
@@ -592,7 +592,7 @@ Examples:
 - @{p2} = ['/example', '/my/base/other']
 - @{p3} = ['my/base/example/path', 'my/base/other', 'my/base/one/more']</doc>
 </kw>
-<kw name="List Directories In Directory" lineno="1324">
+<kw lineno="1324" name="List Directories In Directory">
 <arguments>
 <arg>path</arg>
 <arg>pattern=None</arg>
@@ -600,7 +600,7 @@ Examples:
 </arguments>
 <doc>Wrapper for `List Directory` that returns only directories.</doc>
 </kw>
-<kw name="List Directory" lineno="1290">
+<kw lineno="1290" name="List Directory">
 <arguments>
 <arg>path</arg>
 <arg>pattern=None</arg>
@@ -627,7 +627,7 @@ Examples (using also other `List Directory` variants):
 | @{files} = | List Files In Directory  | /tmp | *.txt | absolute |
 | ${count} = | Count Files In Directory | ${CURDIR} | ??? |</doc>
 </kw>
-<kw name="List Files In Directory" lineno="1317">
+<kw lineno="1317" name="List Files In Directory">
 <arguments>
 <arg>path</arg>
 <arg>pattern=None</arg>
@@ -635,7 +635,7 @@ Examples (using also other `List Directory` variants):
 </arguments>
 <doc>Wrapper for `List Directory` that returns only files.</doc>
 </kw>
-<kw name="Log Environment Variables" lineno="1038">
+<kw lineno="1038" name="Log Environment Variables">
 <arguments>
 <arg>level=INFO</arg>
 </arguments>
@@ -644,7 +644,7 @@ Examples (using also other `List Directory` variants):
 Environment variables are also returned the same way as with
 `Get Environment Variables` keyword.</doc>
 </kw>
-<kw name="Log File" lineno="328">
+<kw lineno="328" name="Log File">
 <arguments>
 <arg>path</arg>
 <arg>encoding=UTF-8</arg>
@@ -659,7 +659,7 @@ level.
 See `Get File` for more information about ``encoding`` and
 ``encoding_errors`` arguments.</doc>
 </kw>
-<kw name="Move Directory" lineno="920">
+<kw lineno="920" name="Move Directory">
 <arguments>
 <arg>source</arg>
 <arg>destination</arg>
@@ -670,7 +670,7 @@ Uses `Copy Directory` keyword internally, and ``source`` and
 ``destination`` arguments have exactly same semantics as with
 that keyword.</doc>
 </kw>
-<kw name="Move File" lineno="819">
+<kw lineno="819" name="Move File">
 <arguments>
 <arg>source</arg>
 <arg>destination</arg>
@@ -686,7 +686,7 @@ filesystem and then removed from the original filesystem.
 
 See also `Move Files`, `Copy File`, and `Copy Files`.</doc>
 </kw>
-<kw name="Move Files" lineno="873">
+<kw lineno="873" name="Move Files">
 <arguments>
 <arg>*sources_and_destination</arg>
 </arguments>
@@ -696,7 +696,7 @@ Arguments have exactly same semantics as with `Copy Files` keyword.
 
 See also `Move File`, `Copy File`, and `Copy Files`.</doc>
 </kw>
-<kw name="Normalize Path" lineno="1091">
+<kw lineno="1091" name="Normalize Path">
 <arguments>
 <arg>path</arg>
 <arg>case_normalize=False</arg>
@@ -725,7 +725,7 @@ Examples:
 On Windows result would use ``\`` instead of ``/`` and home directory
 would be different.</doc>
 </kw>
-<kw name="Remove Directory" lineno="688">
+<kw lineno="688" name="Remove Directory">
 <arguments>
 <arg>path</arg>
 <arg>recursive=False</arg>
@@ -739,7 +739,7 @@ removing fails if the directory is not empty.
 If the directory pointed to by the ``path`` does not exist, the keyword
 passes, but it fails, if the ``path`` points to a file.</doc>
 </kw>
-<kw name="Remove Environment Variable" lineno="993">
+<kw lineno="993" name="Remove Environment Variable">
 <arguments>
 <arg>*names</arg>
 </arguments>
@@ -750,7 +750,7 @@ Does nothing if the environment variable is not set.
 It is possible to remove multiple variables by passing them to this
 keyword as separate arguments.</doc>
 </kw>
-<kw name="Remove File" lineno="628">
+<kw lineno="628" name="Remove File">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -763,7 +763,7 @@ The path can be given as an exact path or as a glob pattern.
 The pattern matching syntax is explained in `introduction`.
 If the path is a pattern, all files matching it are removed.</doc>
 </kw>
-<kw name="Remove Files" lineno="648">
+<kw lineno="648" name="Remove Files">
 <arguments>
 <arg>*paths</arg>
 </arguments>
@@ -772,7 +772,7 @@ If the path is a pattern, all files matching it are removed.</doc>
 Example:
 | Remove Files | ${TEMPDIR}${/}foo.txt | ${TEMPDIR}${/}bar.txt | ${TEMPDIR}${/}zap.txt |</doc>
 </kw>
-<kw name="Run" lineno="138">
+<kw lineno="138" name="Run">
 <arguments>
 <arg>command</arg>
 </arguments>
@@ -811,7 +811,7 @@ Examples:
 Process library] supports better process configuration and is generally
 recommended as a replacement for this keyword.</doc>
 </kw>
-<kw name="Run And Return Rc" lineno="176">
+<kw lineno="176" name="Run And Return Rc">
 <arguments>
 <arg>command</arg>
 </arguments>
@@ -839,7 +839,7 @@ output of the executed command.
 Process library] supports better process configuration and is generally
 recommended as a replacement for this keyword.</doc>
 </kw>
-<kw name="Run And Return Rc And Output" lineno="203">
+<kw lineno="203" name="Run And Return Rc And Output">
 <arguments>
 <arg>command</arg>
 </arguments>
@@ -862,7 +862,7 @@ Examples:
 Process library] supports better process configuration and is generally
 recommended as a replacement for this keyword.</doc>
 </kw>
-<kw name="Set Environment Variable" lineno="951">
+<kw lineno="951" name="Set Environment Variable">
 <arguments>
 <arg>name</arg>
 <arg>value</arg>
@@ -872,7 +872,7 @@ recommended as a replacement for this keyword.</doc>
 Values are converted to strings automatically. Set variables are
 automatically encoded using the system encoding.</doc>
 </kw>
-<kw name="Set Modified Time" lineno="1233">
+<kw lineno="1233" name="Set Modified Time">
 <arguments>
 <arg>path</arg>
 <arg>mtime</arg>
@@ -912,7 +912,7 @@ Examples:
 | Set Modified Time | /path/file | NOW - 1 day        | # 1 day subtracted from the local time |
 | Set Modified Time | /path/file | UTC + 1h 2min 3s   | # 1h 2min 3s added to the UTC time |</doc>
 </kw>
-<kw name="Should Exist" lineno="344">
+<kw lineno="344" name="Should Exist">
 <arguments>
 <arg>path</arg>
 <arg>msg=None</arg>
@@ -923,7 +923,7 @@ The path can be given as an exact path or as a glob pattern.
 The pattern matching syntax is explained in `introduction`.
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="Should Not Exist" lineno="356">
+<kw lineno="356" name="Should Not Exist">
 <arguments>
 <arg>path</arg>
 <arg>msg=None</arg>
@@ -934,7 +934,7 @@ The path can be given as an exact path or as a glob pattern.
 The pattern matching syntax is explained in `introduction`.
 The default error message can be overridden with the ``msg`` argument.</doc>
 </kw>
-<kw name="Split Extension" lineno="1144">
+<kw lineno="1144" name="Split Extension">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -963,7 +963,7 @@ Examples:
 - ${p5} = 'path/.file' &amp; ${e5} = 'ext'
 - ${p6} = 'path/.file' &amp; ${e6} = ''</doc>
 </kw>
-<kw name="Split Path" lineno="1125">
+<kw lineno="1125" name="Split Path">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -983,7 +983,7 @@ Examples:
 - ${path2} = 'abc/def' &amp; ${file} = 'ghi.txt'
 - ${path3} = 'def' &amp; ${d2} = 'ghi'</doc>
 </kw>
-<kw name="Touch" lineno="1377">
+<kw lineno="1377" name="Touch">
 <arguments>
 <arg>path</arg>
 </arguments>
@@ -995,7 +995,7 @@ modification times to the current time.
 Fails if used with the directories or the parent directory of the given
 file does not exist.</doc>
 </kw>
-<kw name="Wait Until Created" lineno="460">
+<kw lineno="460" name="Wait Until Created">
 <arguments>
 <arg>path</arg>
 <arg>timeout=1 minute</arg>
@@ -1015,7 +1015,7 @@ described in an appendix of Robot Framework User Guide.
 If the timeout is negative, the keyword is never timed-out. The keyword
 returns immediately, if the path already exists.</doc>
 </kw>
-<kw name="Wait Until Removed" lineno="434">
+<kw lineno="434" name="Wait Until Removed">
 <arguments>
 <arg>path</arg>
 <arg>timeout=1 minute</arg>

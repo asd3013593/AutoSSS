@@ -112,7 +112,7 @@ def _update_account_to_new_state(state, name, account, password):
     fb = firebase.FirebaseApplication(url,None)
     fb.put("/"+state+name , account, password)
 
-@keyword(name='Maker Random Password')
+@keyword(name='Make Random Password')
 def _make_random_account():
     password = chr(random.randint(65,90))
     print(password)

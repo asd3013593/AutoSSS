@@ -15,7 +15,7 @@ ${enterKey} =    66
 ${appSwitchKey} =    187
 ${vpnIni} =    0
 ${password} =    Netify000
-@{country} =    伊斯坦布爾 #10    伊斯坦布爾 #16    伊斯坦布爾 #2    伊斯坦布爾 #3    伊斯坦布爾 #4    伊斯坦布爾 #5
+@{country} =    伊斯坦布爾 #3    伊斯坦布爾 #4    伊斯坦布爾 #5    伊斯坦布爾 #10    伊斯坦布爾 #16    伊斯坦布爾 #2
 
 
 
@@ -45,13 +45,13 @@ test vpn
 
 Post Change Password
     [Setup]    Open Browser And Go To Netflix
-    @{account} =    Get Account With Amount    已寄出    twnetify    1
+    @{account} =    Get Account With Amount    已註冊    twnetify    100
     ${temp} =    Set Variable    0
     FOR    ${i}    IN    @{account}
         # Sign In Exist Account
-        Run Keyword If    ${temp}==0    Switch VPN To Other Turkey Server
         Verify If Account Password Be Changed    ${i}[key]    ${i}[value]
         ${temp} =    Evaluate    (${temp}+1)%5
+        Run Keyword If    ${temp}==0    Switch VPN To Other Turkey Server
     END
 
 add
@@ -192,6 +192,7 @@ Send Forgot Password Mail
     Click Element After It Is Visible    //*[@class='android.view.View' and @text='Get Started']
     ${forgot}=    Run Keyword And Return Status   Wait Until Page Contains Element    //*[@class ='android.widget.TextView' and @text ='Forgot your password?']    timeout=30s
     If Not Visible Switch VPN And Refresh Browser    ${forgot}    ${account}
+    Run Keyword If    not ${forgot}    Return From Keyword
     Wait Until Page Loading
     Click Element After It Is Visible   //*[@class ='android.widget.TextView' and @text ='Forgot your password?']
     Wait Until Page Contains Element    //*[@class ='android.view.View' and @text ='Forgot Email/Password']    timeout=30s
@@ -200,8 +201,9 @@ Send Forgot Password Mail
     Input Text After It Is Visible    //*[@resource-id='forgot_password_input']    ${account}
     Click Element After It Is Visible    //*[@resource-id='bxid_resetPasswordChoice_email']
     Click Element After It Is Visible    //*[@class='android.widget.Button' and @text='Email Me']
-    ${send}=    Run Keyword And Return Status    Wait Until Page Contains Element    //*[@class='android.view.View' and @text='Email Sent']    timeout=30s
+    ${send}=    Run Keyword And Return Status    Wait Until Page Contains Element    //*[@class='android.view.View' and @text='Email Sent']    timeout=10s
     If Not Visible Switch VPN And Refresh Browser    ${send}    ${account}
+    Run Keyword If    not ${send}    Return From Keyword
     Wait Until Page Loading
     Click Element After It Is Visible    //android.view.View[@content-desc="Netflix"]/android.widget.Image
     Wait Until Page Contains Element    //*[@resource-id='id_email_hero_fuji']    timeout=30s
@@ -303,7 +305,9 @@ If Not Visible Switch VPN And Refresh Browser
     [Arguments]    ${boolean}    ${account}
     ${a1} =    Run Keyword If    not ${boolean}    Run Keyword And Return Status    Wait Until Element Is Visible On Page    //*[contains(@text, 'Please try again')]    timeout=15s
     Run Keyword If    not ${boolean}    Run Keywords    Switch VPN To Other Turkey Server
-    Run Keyword If    not ${boolean} and not ${a1}   Run Keywords    Swipe    300    300    300    900    500
-    ...                                                       AND    Wait Until Page Loading
-    ...                                                       AND    Open Browser And Go To Netflix
-    ...                                                       AND    Send Forgot Password Mail    ${account}
+    ...                                          AND    Go To Netflix
+    ...                                          AND    Send Forgot Password Mail    ${account}
+    # Run Keyword If    not ${boolean} and not ${a1}   Run Keywords    Swipe    300    300    300    900    500
+    # ...                                                       AND    Wait Until Page Loading
+    # ...                                                       AND    Open Browser And Go To Netflix
+    # ...                                                       AND    Send Forgot Password Mail    ${account}

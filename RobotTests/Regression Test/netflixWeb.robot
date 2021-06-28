@@ -10,7 +10,7 @@ ${shorPeriodTime} =    5s
 Register Account
     [Setup]    Run Keywords    Connect Vpn To Turkey
     ...                 AND    Login Turkey Netflix Website
-    @{account} =    Get Account With Amount    未註冊    twnetify    7
+    @{account} =    Get Account With Amount    未註冊    twnetify    100
     FOR    ${i}    IN    @{account}
         Log To Console    \n${i}[key]:${i}[value]執行中
         Set Global Variable    ${presetPassword}    ${i}[value]
@@ -20,7 +20,7 @@ Register Account
     # Wait Until Elemnet Is Visible On Page    xpath    timeout    
 
 Send forgot password mail
-    @{account} =    Get Account With Amount    已註冊    lure    1
+    @{account} =    Get Account With Amount    已寄出    lure    7
     FOR    ${i}    IN    @{account}
         Log To Console    \n${i}[key]執行中
         Send Forgot Password Mail    ${i}[key]
@@ -28,16 +28,16 @@ Send forgot password mail
 
 update account to firebase
     @{account} =    Set Variable
-    ...    netifyadv
-    ...    netifyadw
-    ...    netifyadx
-    ...    netifyady
-    ...    netifyadz
-    ...    netifyaea
-    ...    netifyaeb
+    ...    netifybic
+    ...    netifybid
+    ...    netifybie
+    ...    netifybif
+    ...    netifybig
+    ...    netifybih
+    ...    netifybii
     FOR    ${i}    IN    @{account}
         # Dnt With Key    已寄出    mycat    ${i
-        ${password} =    Maker Random Password
+        ${password} =    Make Random Password
         Update Account To New State    未註冊    twnetify    ${i}    ${password}
         # delete account to new state    已寄出    已註冊    lure    ${i}    Netify000
     END
@@ -62,9 +62,9 @@ Register Netflix Account
     Wait Until Keyword Succeeds    2x    5s    Input Text Fail When Get Started Open New Browser    //*[@id='id_email_hero_fuji']    ${account}    //*[@id='id_email_hero_fuji' and @value='${account}']    timeout=${shorPeriodTime}    error1=Get Started input should be visible.    error2=Get Started input field should be ${account}.
     If Click Element Fail When Register Netflix Account Switch Turkey Vpn    ${account}    xpath=(//*[@class='cta-btn-txt' and normalize-space()='Get Started'])[1]    timeout=${shorPeriodTime}    error=Get Started button should be visible.
     ${step1_1} =    Run Keyword And Return Status     Wait Until Elemnet Is Visible On Page    //*[contains(normalize-space(), 'Finish setting up your account')]    timeout=${shorPeriodTime}    error="Finish setting up your account." should be visible.
-    Run Keyword If    ${step1_1}    Click Element After It Is Visible On Page    //*[@class='submitBtnContainer']//button[normalize-space()='Continue']    timeout=${shorPeriodTime}    error=Continue button should be visible.
+    Run Keyword If    ${step1_1}    Click Element After It Is Visible On Page    //button[normalize-space()='Continue' or normalize-space()='Next']    timeout=${shorPeriodTime}    error=Continue or Next button should be visible.
     Input Text And Wait Until Value Is Correct    //*[@id='id_password']    ${password}    //*[@id='id_password' and @value='${password}']    timeout=${shorPeriodTime}    error1=Add a Password field should be visible.    error2=Password field should be input.
-    Click Element After It Is Visible On Page    //*[@class='submitBtnContainer']//button[normalize-space()='Continue']    timeout=${shorPeriodTime}    error=Continue button should be visible.
+    Click Element After It Is Visible On Page    //button[normalize-space()='Continue' or normalize-space()='Next']    timeout=${shorPeriodTime}    error=Continue or Next button should be visible.
     Wait Until Elemnet Is Visible On Page    //*[@class='stepIndicator' and contains(normalize-space(), '2')]    timeout=${shorPeriodTime}    error=Step 2 Of 3 should be visible.
     Click Element After It Is Visible On Page    //a[contains(@class, 'signupBasicHeader') and normalize-space()='Sign Out']    timeout=${shorPeriodTime}    error=Sign Up button should be visible.
     Wait Until Elemnet Is Visible On Page    //a[contains(@class, 'signupBasicHeader') and normalize-space()='Sign In']    timeout=${shorPeriodTime}    error=Sign In button should be visible.

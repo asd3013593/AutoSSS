@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keywordspec name="Telnet" type="LIBRARY" format="ROBOT" scope="SUITE" namedargs="true" generated="2021-06-04T11:35:43Z" specversion="2" source="..\Programs\Python\Python36\lib\site-packages\robot\libraries\Telnet.py" lineno="36">
-<version>3.2</version>
+<keywordspec format="ROBOT" generated="2021-06-24T01:57:29Z" lineno="36" name="Telnet" namedargs="true" scope="SUITE" source="C:\Users\pan\AppData\Local\Programs\Python\Python36\lib\site-packages\robot\libraries\Telnet.py" specversion="2" type="LIBRARY">
+<version>3.2.2</version>
 <scope>test suite</scope>
 <namedargs>yes</namedargs>
 <doc>A test library providing communication over Telnet connections.
@@ -293,7 +293,7 @@ Examples (use only one of these):
 | Library     | Telnet    | terminal_emulation=True  | terminal_type=vt100  | window_size=400x100 | # use terminal emulation with defined window size and terminal type |
 | Library     | Telnet    | telnetlib_log_level=NONE |                      |                     | # disable logging messages from the underlying telnetlib |</doc>
 </init>
-<kw name="Close All Connections" lineno="472">
+<kw lineno="472" name="Close All Connections">
 <arguments>
 </arguments>
 <doc>Closes all open connections and empties the connection cache.
@@ -306,7 +306,7 @@ by `Close Connection`.
 After this keyword, new indexes returned by `Open Connection`
 keyword are reset to 1.</doc>
 </kw>
-<kw name="Close Connection" lineno="689">
+<kw lineno="689" name="Close Connection">
 <arguments>
 <arg>loglevel=None</arg>
 </arguments>
@@ -320,7 +320,7 @@ connections are closed.
 
 See `Logging` section for more information about log levels.</doc>
 </kw>
-<kw name="Execute Command" lineno="1058">
+<kw lineno="1058" name="Execute Command">
 <arguments>
 <arg>command</arg>
 <arg>loglevel=None</arg>
@@ -342,7 +342,7 @@ internally. Following two examples are thus functionally identical:
 See `Logging` section for more information about log levels and `Read
 Until Prompt` for more information about the ``strip_prompt`` parameter.</doc>
 </kw>
-<kw name="Login" lineno="707">
+<kw lineno="707" name="Login">
 <arguments>
 <arg>username</arg>
 <arg>password</arg>
@@ -375,7 +375,7 @@ and also this keyword fails.
 See `Configuration` section for more information about setting
 newline, timeout, and prompt.</doc>
 </kw>
-<kw name="Open Connection" lineno="364">
+<kw lineno="364" name="Open Connection">
 <arguments>
 <arg>host</arg>
 <arg>alias=None</arg>
@@ -410,7 +410,7 @@ switch either using explicitly given ``alias`` or using index returned
 by this keyword. Indexing starts from 1 and is reset back to it by
 `Close All Connections` keyword.</doc>
 </kw>
-<kw name="Read" lineno="877">
+<kw lineno="877" name="Read">
 <arguments>
 <arg>loglevel=None</arg>
 </arguments>
@@ -419,7 +419,7 @@ by this keyword. Indexing starts from 1 and is reset back to it by
 Read output is both returned and logged. See `Logging` section for more
 information about log levels.</doc>
 </kw>
-<kw name="Read Until" lineno="891">
+<kw lineno="891" name="Read Until">
 <arguments>
 <arg>expected</arg>
 <arg>loglevel=None</arg>
@@ -433,7 +433,7 @@ on the [#Configuration|configured timeout].
 See `Logging` section for more information about log levels. Use
 `Read Until Regexp` if more complex matching is needed.</doc>
 </kw>
-<kw name="Read Until Prompt" lineno="1013">
+<kw lineno="1013" name="Read Until Prompt">
 <arguments>
 <arg>loglevel=None</arg>
 <arg>strip_prompt=False</arg>
@@ -455,7 +455,7 @@ regular expression is stripped away.
 
 See `Logging` section for more information about log levels.</doc>
 </kw>
-<kw name="Read Until Regexp" lineno="975">
+<kw lineno="975" name="Read Until Regexp">
 <arguments>
 <arg>*expected</arg>
 </arguments>
@@ -481,7 +481,7 @@ Examples:
 | `Read Until Regexp` | first_regexp | second_regexp |
 | `Read Until Regexp` | \\d{4}-\\d{2}-\\d{2} | DEBUG |</doc>
 </kw>
-<kw name="Set Default Log Level" lineno="663">
+<kw lineno="663" name="Set Default Log Level">
 <arguments>
 <arg>level</arg>
 </arguments>
@@ -493,7 +493,7 @@ log level later.
 See `Configuration` section for more information about global and
 connection specific configuration.</doc>
 </kw>
-<kw name="Set Encoding" lineno="604">
+<kw lineno="604" name="Set Encoding">
 <arguments>
 <arg>encoding=None</arg>
 <arg>errors=None</arg>
@@ -516,7 +516,7 @@ and the error handler later. See `Set Prompt` for a similar example.
 If terminal emulation is used, the encoding can not be changed on an open
 connection.</doc>
 </kw>
-<kw name="Set Newline" lineno="542">
+<kw lineno="542" name="Set Newline">
 <arguments>
 <arg>newline</arg>
 </arguments>
@@ -531,7 +531,7 @@ connection.
 See `Configuration` section for more information about global and
 connection specific configuration.</doc>
 </kw>
-<kw name="Set Prompt" lineno="565">
+<kw lineno="565" name="Set Prompt">
 <arguments>
 <arg>prompt</arg>
 <arg>prompt_is_regexp=False</arg>
@@ -557,7 +557,7 @@ test data.
 See `Configuration` section for more information about global and
 connection specific configuration.</doc>
 </kw>
-<kw name="Set Telnetlib Log Level" lineno="645">
+<kw lineno="645" name="Set Telnetlib Log Level">
 <arguments>
 <arg>level</arg>
 </arguments>
@@ -566,7 +566,7 @@ connection specific configuration.</doc>
 Note that ``telnetlib`` can be very noisy thus using the level ``NONE``
 can shutdown the messages generated by this library.</doc>
 </kw>
-<kw name="Set Timeout" lineno="516">
+<kw lineno="516" name="Set Timeout">
 <arguments>
 <arg>timeout</arg>
 </arguments>
@@ -587,7 +587,7 @@ Example:
 See `Configuration` section for more information about global and
 connection specific configuration.</doc>
 </kw>
-<kw name="Switch Connection" lineno="436">
+<kw lineno="436" name="Switch Connection">
 <arguments>
 <arg>index_or_alias</arg>
 </arguments>
@@ -622,7 +622,7 @@ shown below.
 | `Do Something`      |                   |            |
 | `Switch Connection` | ${index}          |            |</doc>
 </kw>
-<kw name="Write" lineno="762">
+<kw lineno="762" name="Write">
 <arguments>
 <arg>text</arg>
 <arg>loglevel=None</arg>
@@ -643,7 +643,7 @@ used. See `Writing and reading` section for more details.
 
 See `Logging` section for more information about log levels.</doc>
 </kw>
-<kw name="Write Bare" lineno="792">
+<kw lineno="792" name="Write Bare">
 <arguments>
 <arg>text</arg>
 </arguments>
@@ -652,7 +652,7 @@ See `Logging` section for more information about log levels.</doc>
 This keyword does not append a newline nor consume the written text.
 Use `Write` if these features are needed.</doc>
 </kw>
-<kw name="Write Control Character" lineno="838">
+<kw lineno="838" name="Write Control Character">
 <arguments>
 <arg>character</arg>
 </arguments>
@@ -669,7 +669,7 @@ Example:
 | Write Control Character | BRK | # Send Break command |
 | Write Control Character | 241 | # Send No operation command |</doc>
 </kw>
-<kw name="Write Until Expected Output" lineno="801">
+<kw lineno="801" name="Write Until Expected Output">
 <arguments>
 <arg>text</arg>
 <arg>expected</arg>
