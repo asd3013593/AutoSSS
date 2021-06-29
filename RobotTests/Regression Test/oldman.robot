@@ -47,7 +47,7 @@ ${slowNetPeriod} =    30s
 ${LineApplication} =    1
 ${stickerName} =    Empty
 @{scammer} =    cbf76580    usv37321    out32749    zfb15022    ria94778
-...    clg42623    ysu99970    apa83781    ivy_0730    jt2589    zxc8899    lfu91092    asd58354
+...    clg42623    ysu99970    apa83781    ivy_0730    jt2589    zxc8899    lfu91092    asd58354    asd43578
 
 *** Test Cases ***
 Automatically send taiwan sticker oldman
